@@ -8,6 +8,7 @@
 - Attributes: Password (String), Score (Number), Win (Number), Lose (Number)
 - Enable Stream with “New and Old images”
 - Example Item
+
 ![Table item example](gomoku-ddb.png)
 
 
@@ -22,7 +23,7 @@
 - Select Redis 3.2.x
 - Mostly set to default
 - Set the VPC and Security Group: only traffic allowed from this Security Groups
-- Copy & Paste Cluster Endpoint to Notepad when the Status is available. It will be used later in the Lambda function (Scoring).
+- Copy & Paste Cluster Endpoint to Notepad when the Status is available. It will be used later in the Lambda function (Scoring and GetRanking).
 
 
 ### Lambda -- Game Result Processing
@@ -92,12 +93,14 @@
   - vc_redist_x64.exe (from [here](https://www.microsoft.com/en-us/download/details.aspx?id=48145))
 - Edit config.ini file in the server build folder and fill in the required information like the following example
 
+<pre>
     [config]
     SQS_REGION = ap-northeast-1
     SQS_ACCESSKEY = AKIAIRMOWERYX33....
     SQS_SECRETKEY = lBp+6Dg/wHGwo2I342......
     SQS_ENDPOINT = https://sqs.ap-northeast-1.amazonaws.com/....
-	
+</pre>	
+
 - In the server build folder, upload the game server build by using AWS CLI.
 ![Game Server Upload](gomoku-server-upload.png)
 - Check the Build in AWS GameLift web console.
@@ -132,13 +135,15 @@
   - config.ini (from GomokuMatchMaker project root folder)
 - Edit config.ini file in the MatchMaker folder and fill in the required information like the following example
 
+<pre>
     [config]
     GAMELIFT_ALIAS = alias-291ce0bf-938a-4800-b0d5-....
     LISTEN_PORT = 5999
     GAMELIFT_REGION	= ap-northeast-1
     PLAYER_TABLENAME = GomokuPlayerInfo
+</pre>
 
-	- Create an EC2 IAM role which has Full Access about DynamoDB and GameLift.
+- Create an EC2 IAM role which has Full Access about DynamoDB and GameLift.
 - Launch and Instance:  Microsoft Windows Server 2016 Base
   - Instance type: t2.large or above
   - Change the Security Group setting to allow inbound connection like this:
@@ -162,16 +167,18 @@
    - Set the SERVER_IP with the EIP address allocated above step.
    - Set the player name and password.
 
+<pre>
     [config]
     SERVER_IP = 52.197.xxx.xxx
     PORT_NUM = 5999
     PLAYER_NAME = Amazonian
     PLAYER_PASSWD = simplepw00
+</pre>
 
   - Note about *PLAYER_NAME* and *PLAYER_PASSWD*
-  - At the first access, the match maker server will create an account on the DynamoDB with the corresponding PLAYER_NAME and PLAYER_PASSWD.
-  - If the name for PLAYER_NAME already exists on the DynamoDB, the match maker compares PLAYER_PASSWD with the password stored on the DynamoDB.
-  - If the passwords match, the authentication is successful and you can continue playing the game.
+    - At the first access, the match maker server will create an account on the DynamoDB with the corresponding PLAYER_NAME and PLAYER_PASSWD.
+    - If the name for PLAYER_NAME already exists on the DynamoDB, the match maker compares PLAYER_PASSWD with the password stored on the DynamoDB.
+    - If the passwords match, the authentication is successful and you can continue playing the game.
 - Execute GomokuClient.exe
 - Click the mouse right button, and Start!
 - Please wait until the matchmaking is completed with other players. Enjoy!

@@ -1,0 +1,7 @@
+GomokuMatchMaker/packages/
+GomokuServer/packages/
+GomokuClient/packages/
+*.db
+*.iobj
+*.ipdb
+*.opendb

@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Main">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Shared">
+      <UniqueIdentifier>{d069a3da-fe75-425d-b931-21c5450acef9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameLogic">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="targetver.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLiftManager.h">
+      <Filter>GameLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="GameSession.h">
+      <Filter>GameLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerSession.h">
+      <Filter>GameLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="IocpManager.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Shared\SharedStruct.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Shared\CircularBuffer.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Shared\ini.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Shared\INIReader.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="Exception.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="FastSpinlock.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="IOThread.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Log.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectPool.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="OverlappedIOContext.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Session.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadLocal.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="GomokuServer.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLiftManager.cpp">
+      <Filter>GameLogic</Filter>
+    </ClCompile>
+    <ClCompile Include="GameSession.cpp">
+      <Filter>GameLogic</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerSession.cpp">
+      <Filter>GameLogic</Filter>
+    </ClCompile>
+    <ClCompile Include="IocpManager.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="PacketHandler.cpp">
+      <Filter>GameLogic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Shared\CircularBuffer.cpp">
+      <Filter>Shared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Shared\ini.c">
+      <Filter>Shared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Shared\INIReader.cpp">
+      <Filter>Shared</Filter>
+    </ClCompile>
+    <ClCompile Include="Exception.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="FastSpinlock.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="IOThread.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Log.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="OverlappedIOContext.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Session.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreadLocal.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="config.ini" />
+    <None Include="packages.config" />
+  </ItemGroup>
+</Project>

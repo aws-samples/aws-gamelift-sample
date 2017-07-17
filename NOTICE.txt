@@ -1,0 +1,20 @@
+
+GomokuClient
+Copyright 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved. 
+
+GomokuMatchMaker
+Copyright 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved. 
+
+GomokuServer
+Copyright 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved. 
+
+
+**********************
+THIRD PARTY COMPONENTS
+**********************
+This software includes third party software subject to the following copyrights:
+
+- INIReader, minimalistic INI parser - Copyright (c) 2009 Ben Hoyt
+- Utility files (CircularBuffer, Exception, FastSpinlock, ObjectPool, IocpManager, IOThread, OverlappedIOContext, Session, Log) from https://github.com/zeliard/GameLift - Copyright (c) 2016 Seungmo Koo. Includes minor modifications.
+
+The licenses for these third party components are included in LICENSE

@@ -1,0 +1,14 @@
+table {
+    border-collapse: collapse;
+	width: 50%;
+}
+
+table, th, td {
+    border: 1px solid black;
+	text-align: center;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}

@@ -13,10 +13,9 @@
 #include <aws/gamelift/internal/network/AuxProxyMessageHandler.h>
 #include <aws/gamelift/internal/network/AuxProxyMessageSender.h>
 #include <aws/gamelift/server/protocols/sdk.pb.h>
-#include <sio_client.h>
+#include <sioclient/sio_client.h>
 #include <condition_variable>
-
-#define MAIN_PID "MAIN_PID"
+#include <gtest/gtest_prod.h>
 
 namespace Aws
 {
@@ -43,6 +42,7 @@ namespace Network
         AuxProxyMessageSender* getAuxProxySender() { return m_sender; };
 
     private:
+        FRIEND_TEST(WhenParseFromBufferedGameSessionTest, GameSessionValuesMatchbGameSessionValues);
         Aws::GameLift::Server::Model::GameSession ParseFromBufferedGameSession(com::amazon::whitewater::auxproxy::pbuffer::GameSession bGameSession);
         sio::client* m_sio_client;
         AuxProxyMessageHandler* m_handler;

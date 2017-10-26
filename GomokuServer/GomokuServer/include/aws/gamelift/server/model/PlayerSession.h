@@ -417,12 +417,12 @@ namespace Model
       m_terminationTime(0),
       m_port(0)
     {
-      m_playerSessionId[0] = '\0';
-      m_playerId[0] = '\0';
-      m_gameSessionId[0] = '\0';
-      m_fleetId[0] = '\0';
-      m_ipAddress[0] = '\0';
-      m_playerData[0] = '\0';
+      memset(m_playerSessionId, 0, sizeof(m_playerSessionId));
+      memset(m_playerId, 0, sizeof(m_playerId));
+      memset(m_gameSessionId, 0, sizeof(m_gameSessionId));
+      memset(m_fleetId, 0, sizeof(m_fleetId));
+      memset(m_ipAddress, 0, sizeof(m_ipAddress));
+      memset(m_playerData, 0, sizeof(m_playerData));
      }
 
     /**
@@ -433,7 +433,7 @@ namespace Model
     /**
      * <p>Unique identifier for a player session.</p>
      */
-    inline void SetPlayerSessionId(const char* value) { strcpy(m_playerSessionId, value); }
+    inline void SetPlayerSessionId(const char* value) { strncpy(m_playerSessionId, value, sizeof(m_playerSessionId)); m_playerSessionId[sizeof(m_playerSessionId)-1] = 0; }
 
     /**
      * <p>Unique identifier for a player session.</p>
@@ -448,7 +448,7 @@ namespace Model
     /**
      * <p>Unique identifier for a player.</p>
      */
-    inline void SetPlayerId(const char* value) { strcpy(m_playerId, value); }
+    inline void SetPlayerId(const char* value) { strncpy(m_playerId, value, sizeof(m_playerId)); m_playerId[sizeof(m_playerId)-1] = 0; }
 
     /**
      * <p>Unique identifier for a player.</p>
@@ -465,7 +465,7 @@ namespace Model
      * <p>Unique identifier for the game session that the player session is connected
      * to.</p>
      */
-    inline void SetGameSessionId(const char* value) { strcpy(m_gameSessionId, value); }
+    inline void SetGameSessionId(const char* value) { strncpy(m_gameSessionId, value, sizeof(m_gameSessionId)); m_gameSessionId[sizeof(m_gameSessionId)-1] = 0; }
 
     /**
      * <p>Unique identifier for the game session that the player session is connected
@@ -481,7 +481,7 @@ namespace Model
     /**
      * <p>Unique identifier for a fleet.</p>
      */
-    inline void SetFleetId(const char* value) { strcpy(m_fleetId, value); }
+    inline void SetFleetId(const char* value) { strncpy(m_fleetId, value, sizeof(m_fleetId)); m_fleetId[sizeof(m_fleetId)-1] = 0; }
 
     /**
      * <p>Unique identifier for a fleet.</p>
@@ -599,7 +599,7 @@ namespace Model
      * <p>Game session IP address. All player sessions reference the game session
      * location.</p>
      */
-    inline void SetIpAddress(const char* value) { strcpy(m_ipAddress, value); }
+    inline void SetIpAddress(const char* value) { strncpy(m_ipAddress, value, sizeof(m_ipAddress)); m_ipAddress[sizeof(m_ipAddress)-1] = 0; }
 
     /**
      * <p>Game session IP address. All player sessions reference the game session
@@ -633,7 +633,7 @@ namespace Model
     /**
      * <p>Custom player data.</p>
      */
-    inline void SetPlayerData(const char* value) { strcpy(m_playerData, value); }
+    inline void SetPlayerData(const char* value) { strncpy(m_playerData, value, sizeof(m_playerData)); m_playerData[sizeof(m_playerData)-1] = 0; }
 
     /**
      * <p>Custom player data.</p>

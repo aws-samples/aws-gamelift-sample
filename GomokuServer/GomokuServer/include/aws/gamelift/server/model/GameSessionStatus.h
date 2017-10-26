@@ -11,6 +11,7 @@
 */
 #pragma once
 #include <aws/gamelift/common/GameLift_EXPORTS.h>
+#include <cstring>
 
 namespace Aws
 {
@@ -32,12 +33,45 @@ namespace Model
 namespace GameSessionStatusMapper
 {
 #ifdef GAMELIFT_USE_STD
-    AWS_GAMELIFT_API GameSessionStatus GetGameSessionStatusForName(const std::string& name);
-    AWS_GAMELIFT_API std::string GetNameForGameSessionStatus(GameSessionStatus value);
+    inline AWS_GAMELIFT_API GameSessionStatus GetGameSessionStatusForName(const std::string& s_name) {
+      const char* name = s_name.c_str();
 #else
-    AWS_GAMELIFT_API GameSessionStatus GetGameSessionStatusForName(const char* name);
-    AWS_GAMELIFT_API const char* GetNameForGameSessionStatus(GameSessionStatus value);
+    inline AWS_GAMELIFT_API GameSessionStatus GetGameSessionStatusForName(const char* name) {
 #endif
+      if (strcmp(name, "ACTIVE") == 0) {
+          return GameSessionStatus::ACTIVE;
+      }
+      if (strcmp(name, "ACTIVATING") == 0) {
+          return GameSessionStatus::ACTIVATING;
+      }
+      if (strcmp(name, "TERMINATING") == 0) {
+          return GameSessionStatus::TERMINATING;
+      }
+      if (strcmp(name, "TERMINATED") == 0) {
+          return GameSessionStatus::TERMINATED;
+      }
+      return GameSessionStatus::NOT_SET;
+    }
+
+#ifdef GAMELIFT_USE_STD
+    inline AWS_GAMELIFT_API std::string GetNameForGameSessionStatus(GameSessionStatus value)
+#else
+    inline AWS_GAMELIFT_API const char* GetNameForGameSessionStatus(GameSessionStatus value)
+#endif
+    {
+      switch (value) {
+          case GameSessionStatus::ACTIVE:
+              return "ACTIVE";
+          case GameSessionStatus::ACTIVATING:
+              return "ACTIVATING";
+          case GameSessionStatus::TERMINATING:
+              return "TERMINATING";
+          case GameSessionStatus::TERMINATED:
+              return "TERMINATED";
+          default:
+              return "NOT_SET";
+      }
+    }
 } // namespace GameSessionStatusMapper
 } // namespace Model
 } // namespace Server

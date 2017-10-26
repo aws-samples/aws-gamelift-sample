@@ -100,7 +100,7 @@ public:
     inline const char* GetKey() const{ return m_key; }
 
 
-    inline void SetKey(const char* value) { strcpy(m_key, value); }
+    inline void SetKey(const char* value) { strncpy(m_key, value, sizeof(m_key)); m_key[sizeof(m_key)-1] = 0; }
 
 
     inline GameProperty& WithKey(const char* value) { SetKey(value); return *this; }
@@ -109,7 +109,7 @@ public:
     inline const char* GetValue() const{ return m_value; }
 
 
-    inline void SetValue(const char* value) { strcpy(m_value, value); }
+    inline void SetValue(const char* value) { strncpy(m_value, value, sizeof(m_value)); m_value[sizeof(m_value)-1] = 0; }
 
 
     inline GameProperty& WithValue(const char* value) { SetValue(value); return *this; }

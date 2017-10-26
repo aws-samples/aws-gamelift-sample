@@ -363,11 +363,11 @@ namespace Model
     DescribePlayerSessionsRequest() :
       m_limit(0)
     {
-      m_gameSessionId[0] = '\0';
-      m_playerId[0] = '\0';
-      m_playerSessionId[0] = '\0';
-      m_playerSessionStatusFilter[0] = '\0';
-      m_nextToken[0] = '\0';
+      memset(m_gameSessionId, 0, sizeof(m_gameSessionId));
+      memset(m_playerId, 0, sizeof(m_playerId));
+      memset(m_playerSessionId, 0, sizeof(m_playerSessionId));
+      memset(m_playerSessionStatusFilter, 0, sizeof(m_playerSessionStatusFilter));
+      memset(m_nextToken, 0, sizeof(m_nextToken));
     }
 
     /**
@@ -386,7 +386,7 @@ namespace Model
      * string&gt;". The value of &lt;ID string&gt; is either a custom ID string (if one
      * was specified when the game session was created) an auto-generated string. </p>
      */
-    inline void SetGameSessionId(const char* value) { strcpy(m_gameSessionId, value); }
+    inline void SetGameSessionId(const char* value) { strncpy(m_gameSessionId, value, sizeof(m_gameSessionId)); m_gameSessionId[sizeof(m_gameSessionId)-1] = 0; }
 
     /**
      * <p>Unique identifier for the game session to get player sessions for.Game
@@ -405,7 +405,7 @@ namespace Model
     /**
      * <p>Unique identifier for a player.</p>
      */
-    inline void SetPlayerId(const char* value) { strcpy(m_playerId, value); }
+    inline void SetPlayerId(const char* value) { strncpy(m_playerId, value, sizeof(m_playerId)); m_playerId[sizeof(m_playerId)-1] = 0; }
 
     /**
      * <p>Unique identifier for a player.</p>
@@ -420,7 +420,7 @@ namespace Model
     /**
      * <p>Unique identifier for a player session.</p>
      */
-    inline void SetPlayerSessionId(const char* value) { strcpy(m_playerSessionId, value); }
+    inline void SetPlayerSessionId(const char* value) { strncpy(m_playerSessionId, value, sizeof(m_playerSessionId)); m_playerSessionId[sizeof(m_playerSessionId)-1] = 0; }
 
     /**
      * <p>Unique identifier for a player session.</p>
@@ -451,7 +451,7 @@ namespace Model
      * player did not connect and/or was not validated within the time-out limit (60
      * seconds).</p> </li> </ul>
      */
-    inline void SetPlayerSessionStatusFilter(const char* value) { strcpy(m_playerSessionStatusFilter, value); }
+    inline void SetPlayerSessionStatusFilter(const char* value) { strncpy(m_playerSessionStatusFilter, value, sizeof(m_playerSessionStatusFilter)); m_playerSessionStatusFilter[sizeof(m_playerSessionStatusFilter)-1] = 0; }
 
     /**
      * <p>Player session status to filter results on.</p> <p>Possible player session
@@ -501,7 +501,7 @@ namespace Model
      * of the result set, do not specify a value. If a player session ID is specified,
      * this parameter is ignored.</p>
      */
-    inline void SetNextToken(const char* value) { strcpy(m_nextToken, value); }
+    inline void SetNextToken(const char* value) { strncpy(m_nextToken, value, sizeof(m_nextToken)); m_nextToken[sizeof(m_nextToken)-1] = 0; }
 
     /**
      * <p>Token indicating the start of the next sequential page of results. Use the

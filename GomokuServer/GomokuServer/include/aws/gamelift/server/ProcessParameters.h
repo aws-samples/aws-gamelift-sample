@@ -83,10 +83,10 @@ namespace Server
             void* healthCheckState,
             int port,
             const Aws::GameLift::Server::LogParameters logParameters) : m_onStartGameSession(onStartGameSession),
-            m_startGameSessionState(startGameSessionState),
             m_onProcessTerminate(onProcessTerminate),
-            m_processTerminateState(processTerminateState),
             m_onHealthCheck(onHealthCheck),
+            m_startGameSessionState(startGameSessionState),
+            m_processTerminateState(processTerminateState),
             m_healthCheckState(healthCheckState),
             m_port(port),
             m_logParameters(logParameters){}

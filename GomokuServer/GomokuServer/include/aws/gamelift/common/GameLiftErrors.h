@@ -10,7 +10,7 @@
 *
 */
 #pragma once
-
+#pragma warning(disable:4996)
 #include <aws/gamelift/common/GameLift_EXPORTS.h>
 #ifndef GAMELIFT_USE_STD
 #include "string.h"
@@ -174,10 +174,10 @@ namespace GameLift
      const GAMELIFT_ERROR_TYPE GetErrorType() const { return m_errorType; }
 
      const char* GetErrorName() const { return m_errorName; }
-     void SetErrorName(const char* errorName) { strcpy(m_errorName, errorName); }
+     void SetErrorName(const char* errorName) { strncpy(m_errorName, errorName, sizeof(m_errorName)); m_errorName[sizeof(m_errorName)-1] = 0; }
 
      const char* GetErrorMessage() const { return m_errorMessage; }
-     void SetErrorMessage(const char* errorMessage) { strcpy(m_errorMessage, errorMessage); }
+     void SetErrorMessage(const char* errorMessage) { strncpy(m_errorMessage, errorMessage, sizeof(m_errorMessage)); m_errorMessage[sizeof(m_errorMessage)-1] = 0; }
 
      static const char* GetDefaultNameForErrorType(GAMELIFT_ERROR_TYPE errorType) {
          switch (errorType) {
@@ -273,7 +273,10 @@ namespace GameLift
          }
      }
 
-     GameLiftError(){};
+     GameLiftError(){
+         memset(m_errorName, 0, sizeof(m_errorName));
+         memset(m_errorMessage, 0, sizeof(m_errorMessage));
+     };
 
      ~GameLiftError(){};
 

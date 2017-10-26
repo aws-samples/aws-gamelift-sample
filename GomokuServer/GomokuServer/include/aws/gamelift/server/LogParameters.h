@@ -10,7 +10,8 @@
 *
 */
 #pragma once
-
+#pragma warning(disable:4996)
+#include <string.h> 
 #include <aws/gamelift/common/GameLift_EXPORTS.h>
 
 #ifndef GAMELIFT_USE_STD
@@ -32,7 +33,8 @@ namespace Server
     {
 #ifdef GAMELIFT_USE_STD
     public:
-        AWS_GAMELIFT_API LogParameters() {}
+        AWS_GAMELIFT_API LogParameters() {
+        }
         AWS_GAMELIFT_API LogParameters(const std::vector<std::string> &logPaths) : m_logPaths(logPaths){}
 
         AWS_GAMELIFT_API std::vector<std::string> getLogPaths() const { return m_logPaths; }
@@ -42,7 +44,9 @@ namespace Server
     };
 #else
     public:
-        AWS_GAMELIFT_API LogParameters() : m_count(0) {}
+        AWS_GAMELIFT_API LogParameters() : m_count(0) {
+            memset(m_logPaths, 0, sizeof(m_logPaths));
+        }
         AWS_GAMELIFT_API LogParameters(const char** logPaths, int count);
 
         AWS_GAMELIFT_API int getLogPathCount() const { return m_count; }

@@ -32,6 +32,12 @@
     #ifndef MAX_FLEET_ID_LENGTH
         #define MAX_FLEET_ID_LENGTH 1024
     #endif
+    #ifndef MAX_GAME_SESSION_DATA_LENGTH
+        #define MAX_GAME_SESSION_DATA_LENGTH 4097
+    #endif
+    #ifndef MAX_MATCHMAKER_DATA_LENGTH
+        #define MAX_MATCHMAKER_DATA_LENGTH 4097
+    #endif
 #endif
 
 namespace Aws
@@ -307,6 +313,76 @@ namespace Model
         */
         inline GameSession& WithPort(int value) { SetPort(value); return *this; }
 
+        /**
+        * <p>Custom data for the game session.</p>
+        */
+        inline const std::string& GetGameSessionData() const{ return m_gameSessionData; }
+
+        /**
+        * <p>Custom data for the game session.</p>
+        */
+        inline void SetGameSessionData(const std::string& value) { m_gameSessionData = value; }
+
+        /**
+        * <p>Custom data for the game session.</p>
+        */
+        inline void SetGameSessionData(std::string&& value) { m_gameSessionData = value; }
+
+        /**
+        * <p>Custom data for the game session.</p>
+        */
+        inline void SetGameSessionData(const char* value) { m_gameSessionData.assign(value); }
+
+        /**
+        * <p>Custom data for the game session.</p>
+        */
+        inline GameSession& WithGameSessionData(const std::string& value) { SetGameSessionData(value); return *this; }
+
+        /**
+        * <p>Custom data for the game session.</p>
+        */
+        inline GameSession& WithGameSessionData(std::string&& value) { SetGameSessionData(value); return *this; }
+
+        /**
+        * <p>Custom data for the game session.</p>
+        */
+        inline GameSession& WithGameSessionData(const char* value) { SetGameSessionData(value); return *this; }
+
+        /**
+        * <p>Data generated from GameLift Matchmaking.</p>
+        */
+        inline const std::string& GetMatchmakerData() const{ return m_matchmakerData; }
+
+        /**
+        * <p>Data generated from GameLift Matchmaking.</p>
+        */
+        inline void SetMatchmakerData(const std::string& value) { m_matchmakerData = value; }
+
+        /**
+        * <p>Data generated from GameLift Matchmaking.</p>
+        */
+        inline void SetMatchmakerData(std::string&& value) { m_matchmakerData = value; }
+
+        /**
+        * <p>Data generated from GameLift Matchmaking.</p>
+        */
+        inline void SetMatchmakerData(const char* value) { m_matchmakerData.assign(value); }
+
+        /**
+        * <p>Data generated from GameLift Matchmaking.</p>
+        */
+        inline GameSession& WithMatchmakerData(const std::string& value) { SetMatchmakerData(value); return *this; }
+
+        /**
+        * <p>Data generated from GameLift Matchmaking.</p>
+        */
+        inline GameSession& WithMatchmakerData(std::string&& value) { SetMatchmakerData(value); return *this; }
+
+        /**
+        * <p>Data generated from GameLift Matchmaking.</p>
+        */
+        inline GameSession& WithMatchmakerData(const char* value) { SetMatchmakerData(value); return *this; }
+
     private:
         std::string m_gameSessionId;
         std::string m_name;
@@ -316,13 +392,23 @@ namespace Model
         std::vector<GameProperty> m_gameProperties;
         std::string m_ipAddress;
         int m_port;
+        std::string m_gameSessionData;
+        std::string m_matchmakerData;
 #else
     public:
         GameSession() :
             m_maximumPlayerSessionCount(0),
-            m_port(0), 
-			m_gameProperties_count(0)
-        { }
+            m_gameProperties_count(0),
+            m_port(0) 
+        { 
+            memset(m_gameSessionId, 0, MAX_SESSION_ID_LENGTH);
+            memset(m_name, 0, MAX_SESSION_NAME_LENGTH);
+            memset(m_fleetId, 0, MAX_FLEET_ID_LENGTH);
+            memset(m_gameProperties, 0, MAX_GAME_PROPERTIES);
+            memset(m_ipAddress, 0, MAX_IP_LENGTH);
+            memset(m_gameSessionData, 0, MAX_GAME_SESSION_DATA_LENGTH);
+            memset(m_matchmakerData, 0, MAX_MATCHMAKER_DATA_LENGTH);
+        }
 
         /**
         * <p>Unique identifier for a game session.</p>
@@ -332,7 +418,7 @@ namespace Model
         /**
         * <p>Unique identifier for a game session.</p>
         */
-        inline void SetGameSessionId(const char* value) { strcpy(m_gameSessionId, value); }
+        inline void SetGameSessionId(const char* value) { strncpy(m_gameSessionId, value, sizeof(m_gameSessionId)); m_gameSessionId[sizeof(m_gameSessionId)-1] = 0; }
 
         /**
         * <p>Unique identifier for a game session.</p>
@@ -349,7 +435,7 @@ namespace Model
         * <p>Descriptive label associated with a game session. Session names do not need
         * to be unique.</p>
         */
-        inline void SetName(const char* value) { strcpy(m_name, value); }
+        inline void SetName(const char* value) { strncpy(m_name, value, sizeof(m_name)); m_name[sizeof(m_name)-1] = 0; }
 
         /**
         * <p>Descriptive label associated with a game session. Session names do not need
@@ -365,7 +451,7 @@ namespace Model
         /**
         * <p>Unique identifier for a fleet.</p>
         */
-        inline void SetFleetId(const char* value) { strcpy(m_fleetId, value); }
+        inline void SetFleetId(const char* value) { strncpy(m_fleetId, value, sizeof(m_fleetId)); m_fleetId[sizeof(m_fleetId)-1] = 0; }
 
         /**
         * <p>Unique identifier for a fleet.</p>
@@ -446,7 +532,7 @@ namespace Model
         * <p>IP address of the game session. To connect to a GameLift server process, an
         * app needs both the IP address and port number.</p>
         */
-        inline void SetIpAddress(const char* value) { strcpy(m_ipAddress, value); }
+        inline void SetIpAddress(const char* value) { strncpy(m_ipAddress, value, sizeof(m_ipAddress)); m_ipAddress[sizeof(m_ipAddress)-1] = 0; }
 
         /**
         * <p>IP address of the game session. To connect to a GameLift server process, an
@@ -472,6 +558,36 @@ namespace Model
         */
         inline GameSession& WithPort(int value) { SetPort(value); return *this; }
 
+        /**
+        * <p>Custom data for the game session.</p>
+        */
+        inline const char* GetGameSessionData() const{ return m_gameSessionData; }
+
+        /**
+        * <p>Custom data for the game session.</p>
+        */
+        inline void SetGameSessionData(const char* value) { strncpy(m_gameSessionData, value, sizeof(m_gameSessionData)); m_gameSessionData[sizeof(m_gameSessionData)-1] = 0; }
+
+        /**
+        * <p>Custom data for the game session.</p>
+        */
+        inline GameSession& WithGameSessionData(const char* value) { SetGameSessionData(value); return *this; }
+
+        /**
+        * <p>Data generated from GameLift Matchmaking.</p>
+        */
+        inline const char* GetMatchmakerData() const{ return m_matchmakerData; }
+
+        /**
+        * <p>Data generated from GameLift Matchmaking.</p>
+        */
+        inline void SetMatchmakerData(const char* value) { strncpy(m_matchmakerData, value, sizeof(m_matchmakerData)); m_matchmakerData[sizeof(m_matchmakerData)-1] = 0; }
+
+        /**
+        * <p>Data generated from GameLift Matchmaking.</p>
+        */
+        inline GameSession& WithMatchmakerData(const char* value) { SetMatchmakerData(value); return *this; }
+
     private:
         char m_gameSessionId[MAX_SESSION_ID_LENGTH];
         char m_name[MAX_SESSION_NAME_LENGTH];
@@ -482,6 +598,8 @@ namespace Model
         int m_gameProperties_count;
         char m_ipAddress[MAX_IP_LENGTH];
         int m_port;
+        char m_gameSessionData[MAX_GAME_SESSION_DATA_LENGTH];
+        char m_matchmakerData[MAX_MATCHMAKER_DATA_LENGTH];
 #endif
     };
 

@@ -10,6 +10,7 @@
 *
 */
 #pragma once
+#pragma warning(disable:4996)
 #include <aws/gamelift/common/GameLift_EXPORTS.h>
 #include <aws/gamelift/server/model/PlayerSession.h>
 
@@ -135,7 +136,7 @@ namespace Model
 public:
   DescribePlayerSessionsResult()
   {
-      m_nextToken[0] = '\0';
+      memset(m_nextToken, 0, sizeof(m_nextToken));
 	  m_playerSessions_count = 0;
   }
     /**
@@ -171,7 +172,7 @@ public:
      * action. If no token is returned, these results represent the end of the
      * list.</p>
      */
-    inline void SetNextToken(const char* value) { strcpy(m_nextToken, value); }
+    inline void SetNextToken(const char* value) { strncpy(m_nextToken, value, sizeof(m_nextToken)); m_nextToken[sizeof(m_nextToken)-1] = 0; }
 
     /**
      * <p>Token indicating where to resume retrieving results on the next call to this

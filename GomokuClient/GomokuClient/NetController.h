@@ -29,9 +29,6 @@ public:
 	bool Connect(const std::string& serverAddr, int port);
 	void Disconnect();
 
-	/// For MatchMaker
-	void RequestMatch();
-
 	/// For GameServer
 	void RequestGameStart(const std::string& playerId);
 	void RequestPutStone(int x, int y);
@@ -57,5 +54,5 @@ private:
 
 };
 
-extern std::unique_ptr<NetController> GMatchMaker;
+
 extern std::unique_ptr<NetController> GGameServer;

@@ -50,8 +50,10 @@ void PlayerSession::PlayerReady(const std::string& playerId)
 			return;
 		}
 		
-		const std::string& scoreinfo = outcome.GetResult().GetPlayerSessions()[0].GetPlayerData();
-		mScore = stoi(scoreinfo);
+		//const std::string& scoreinfo = outcome.GetResult().GetPlayerSessions()[0].GetPlayerData();
+		//mScore = stoi(scoreinfo);
+        //TEST
+        mScore = 1111;
 		mPlayerName = outcome.GetResult().GetPlayerSessions()[0].GetPlayerId();
 
 		GConsoleLog->PrintOut(true, "[PLAYER] PlayerReady: %s \n", playerId.c_str());

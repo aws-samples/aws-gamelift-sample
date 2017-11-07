@@ -159,7 +159,7 @@ void GameLiftManager::OnStartGameSession(Aws::GameLift::Server::Model::GameSessi
 	Aws::GameLift::Server::ActivateGameSession();
 
 	/// create a game session
-	mGameSession = std::make_shared<GameSession>();
+	mGameSession = std::make_shared<GameSession>(myGameSession.GetMatchmakerData());
 
 	GConsoleLog->PrintOut(true, "[GAMELIFT] OnStartGameSession Success\n");
 }

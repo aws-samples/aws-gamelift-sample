@@ -19,12 +19,10 @@
 #include "SharedStruct.h"
 #include "GUIController.h"
 
+
 #pragma comment(lib,"ws2_32.lib")
 
-std::unique_ptr<NetController> GMatchMaker;
 std::unique_ptr<NetController> GGameServer;
-
-
 
 NetController::NetController() : mRecvBuffer(BUF_SIZE), mSocket(NULL), mPortNum(-1), mConnected(false)
 {
@@ -32,6 +30,7 @@ NetController::NetController() : mRecvBuffer(BUF_SIZE), mSocket(NULL), mPortNum(
 
 NetController::~NetController()
 {
+ 
 	closesocket(mSocket);
 }
 
@@ -182,59 +181,12 @@ void NetController::ProcessPacket()
 			}
 			break;
 
-		case PKT_MC_WAIT:
-			{
-				MatchWait recvData;
-				bool ret = mRecvBuffer.Read((char*)&recvData, recvData.mSize);
-				assert(ret);
-
-				GGuiController->OnMatchWait(recvData.mIsOK);
-			}
-			break;
-
-		case PKT_MC_MATCH_RESULT:
-			{
-				MatchResult recvData;
-				bool ret = mRecvBuffer.Read((char*)&recvData, recvData.mSize);
-				assert(ret);
-
-				if (std::string(recvData.mPlayerId) == std::string("psess-error"))
-				{
-					std::cout << "PlayerSession Creation Error. Please restart the client.\n";
-					return;
-				}
-
-				GGuiController->OnMatchComplete();
-
-				if (GGameServer->Connect(recvData.mIpAddress, recvData.mPort))
-				{
-					GGameServer->RequestGameStart(std::string(recvData.mPlayerId));
-				}
-				else
-				{
-					std::cout << "GameServer Connect Error\n";
-				}
-
-			}
-			break;
-
 		default:
 			assert(false);
 		}
 
 	}
 	
-}
-
-void NetController::RequestMatch()
-{
-	if (!mConnected)
-		return;
-	
-	MatchRequest sendData;
-	sprintf_s(sendData.mPlayerName, "%s", GGuiController->GetPlayerName());
-	sprintf_s(sendData.mPlayerPass, "%s", GGuiController->GetPlayerPassword());
-	Send((const char*)&sendData, sizeof(MatchRequest));
 }
 
 void NetController::RequestGameStart(const std::string& playerId)

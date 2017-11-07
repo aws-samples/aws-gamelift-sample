@@ -16,6 +16,7 @@
 #include "stdafx.h"
 #include "GUIController.h"
 #include "NetController.h"
+#include "MatchController.h"
 
 #define WINDOW_SIZE_W	600
 #define WINDOW_SIZE_H	600

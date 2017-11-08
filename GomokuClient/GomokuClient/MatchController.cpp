@@ -96,9 +96,12 @@ bool MatchController::CheckMatchStatus()
         {
             json::value jsonValue = response.extract_json().get();
             
+            std::wcout << jsonValue.serialize() << std::endl;
+            
             std::string ipAddr = ws2s(jsonValue[L"IpAddress"].as_string());
             std::string psessId = ws2s(jsonValue[L"PlayerSessionId"].as_string());
-            int port = std::stoi(ws2s(jsonValue[L"Port"].as_string()));
+            //int port = std::stoi(ws2s(jsonValue[L"Port"].as_string()));
+            int port = jsonValue[L"Port"].as_integer();
 
             if (port > 0)
             {
@@ -113,7 +116,7 @@ bool MatchController::CheckMatchStatus()
                 }
             }
 
-            std::wcout << jsonValue.serialize() << std::endl; //{"IpAddress":"NotYet","PlayerSessionId":"NotYet","Port":"0"}
+            
            
         }
     }).wait();

@@ -157,6 +157,7 @@
     <ClInclude Include="GameSession.h" />
     <ClInclude Include="IocpManager.h" />
     <ClInclude Include="IOThread.h" />
+    <ClInclude Include="json11.hpp" />
     <ClInclude Include="Log.h" />
     <ClInclude Include="ObjectPool.h" />
     <ClInclude Include="OverlappedIOContext.h" />
@@ -186,6 +187,10 @@
     <ClCompile Include="GomokuServer.cpp" />
     <ClCompile Include="IocpManager.cpp" />
     <ClCompile Include="IOThread.cpp" />
+    <ClCompile Include="json11.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="OverlappedIOContext.cpp" />
     <ClCompile Include="PacketHandler.cpp" />

@@ -28,6 +28,10 @@
 #include "GameLiftManager.h"
 #include "GameSession.h"
 
+#include "json11.hpp"
+
+using namespace json11;
+
 std::unique_ptr<GameLiftManager> GGameLiftManager(nullptr);
 
 GameLiftManager::GameLiftManager() : mActivated(false), mCheckTerminationCount(0), mPlayerReadyCount(0)
@@ -159,7 +163,9 @@ void GameLiftManager::OnStartGameSession(Aws::GameLift::Server::Model::GameSessi
 	Aws::GameLift::Server::ActivateGameSession();
 
 	/// create a game session
-	mGameSession = std::make_shared<GameSession>(myGameSession.GetMatchmakerData());
+	mGameSession = std::make_shared<GameSession>();
+
+    mMatchMakerData = myGameSession.GetMatchmakerData();
 
 	GConsoleLog->PrintOut(true, "[GAMELIFT] OnStartGameSession Success\n");
 }
@@ -197,4 +203,26 @@ void GameLiftManager::CheckReadyAll()
 		return;
 
 	mGameSession->BroadcastGameStart();
+}
+
+
+int GameLiftManager::FindScoreFromMatchData(const std::string& playerName) const
+{
+    //    const std::string test = R"({"matchId":"24c73d63-6510-4664-8d4d-071539538fee","teams":[{"name":"blue","players":[{"playerId":"PlayerMatcher1","attributes":{"score":{"attributeType":"DOUBLE","valueAttribute":1000.0}}}]},{"name":"red","players":[{"playerId":"PlayerMatcher2","attributes":{"score":{"attributeType":"DOUBLE","valueAttribute":1000.0}}}]}]})";
+
+    std::string err;
+    const auto json = Json::parse(mMatchMakerData, err);
+
+    for (auto& team : json["teams"].array_items())
+    {
+        for (auto& player : team["players"].array_items())
+        {
+            if (player["playerId"].string_value() == playerName)
+            {
+                return player["attributes"]["score"]["valueAttribute"].int_value();
+            }
+        }
+    }
+
+    return 0;
 }

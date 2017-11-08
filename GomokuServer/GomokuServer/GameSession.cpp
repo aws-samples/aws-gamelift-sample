@@ -20,10 +20,8 @@
 #include "GameSession.h"
 #include "GameLiftManager.h"
 
-
-GameSession::GameSession(const std::string& matchdata) : mGameStatus(GameStatus::GS_NOT_STARTED), mCurrentTurn(StoneType::STONE_NONE), mMatchMakerData(matchdata)
+GameSession::GameSession() : mGameStatus(GameStatus::GS_NOT_STARTED), mCurrentTurn(StoneType::STONE_NONE)
 {}
-
 
 void GameSession::PlayerEnter(std::shared_ptr<PlayerSession> psess)
 {
@@ -41,9 +39,6 @@ void GameSession::PlayerEnter(std::shared_ptr<PlayerSession> psess)
 		mPlayerWhite = psess;
 		mGameStatus = GameStatus::GS_STARTED;
 		mCurrentTurn = StoneType::STONE_BLACK;
-
-        //TEST
-        GConsoleLog->PrintOut(true, "Matchdata: %s\n", mMatchMakerData.c_str());
 	}
 	else
 	{
@@ -136,6 +131,7 @@ void GameSession::PutStone(std::shared_ptr<PlayerSession> psess, int x, int y)
 
 	BroadcastGameStatus();
 }
+
 
 void GameSession::BroadcastGameStart()
 {

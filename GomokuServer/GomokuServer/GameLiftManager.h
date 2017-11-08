@@ -47,6 +47,8 @@ public:
 
 	void CheckReadyAll();
 
+    int FindScoreFromMatchData(const std::string& playerName) const;
+
 private:
 	void TerminateGameSession(int exitCode);
 
@@ -63,6 +65,8 @@ private:
 	
 	std::shared_ptr<GameSession> mGameSession; ///< 1:1 relationship, currently
 	volatile long mPlayerReadyCount;
+
+    std::string mMatchMakerData;
 };
 
 extern std::unique_ptr<GameLiftManager> GGameLiftManager;

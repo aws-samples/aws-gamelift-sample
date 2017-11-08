@@ -23,7 +23,7 @@ class GameLiftManager;
 class GameSession
 {
 public:
-	GameSession(const std::string& matchdata);
+	GameSession();
 
 	bool IsEnd() const 
 	{
@@ -33,7 +33,6 @@ public:
 
 	void PutStone(std::shared_ptr<PlayerSession> psess, int x, int y);
 
-	
 private:
 
 	void BroadcastGameStart();
@@ -56,7 +55,6 @@ private:
 	void PlayerEnter(std::shared_ptr<PlayerSession> psess);
 	void PlayerLeave(std::shared_ptr<PlayerSession> psess);
 
-    std::string mMatchMakerData;
 	std::shared_ptr<PlayerSession> mPlayerBlack;
 	std::shared_ptr<PlayerSession> mPlayerWhite;
 	

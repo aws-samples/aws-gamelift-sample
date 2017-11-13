@@ -45,7 +45,7 @@ var _table_ = document.createElement('table'),
 
 
 
-$.get("https://x3ihaiaaf.execute-api.ap-northeast-1.amazonaws.com/prod2", function(data, status)
+$.get("https://x3ihaiaaf.execute-api.ap-northeast-1.amazonaws.com/prod", function(data, status)
 	{ 
 		document.getElementById('board').innerHTML = '';
 		document.getElementById('board').appendChild(buildHtmlTable(data));

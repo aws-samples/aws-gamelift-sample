@@ -103,8 +103,10 @@
 
 - In the server build folder, upload the game server build by using AWS CLI.
 ![Game Server Upload](gomoku-server-upload.png)
+
 - Check the Build in AWS GameLift web console.
 ![GameLift Build](gomoku-gamelift-build.png)
+
 - Select the Build and then click “Create fleet from build”
   - Name: GomokuGameServerFleet-1
   - Instance type: c3.large or c4.large
@@ -117,30 +119,34 @@
   - Initialize fleet! and wait until the fleet is ACTIVE
      - (cf.) New -- Downloading -- Validating -- Activating -- Active
   - When the fleet is ACTIVE, you can see the web console like this.
-![GameLift Fleet](gomoku-gamelift-fleet.png)
+  ![GameLift Fleet](gomoku-gamelift-fleet.png)
+
 - Then, move to Aliases on the GameLift Menu and click “Create alias”
-- Put any alias name and description
-- Associate fleet with you had created above. (GomokuGameServerFleet-1)
-- Click “Configure alias”
-- You can see the created Alias for the Fleet like this
-![GameLift Alias](gomoku-gamelift-alias.png)
-- Then you should copy & paste the Alias ID to the notepad because we will use the Alias ID as a Fleet endpoint.
+  - Put any alias name and description
+  - Associate fleet with you had created above. (GomokuGameServerFleet-1)
+  - Click “Configure alias”
+  - You can see the created Alias for the Fleet like this
+  ![GameLift Alias](gomoku-gamelift-alias.png)
+  - Then you should copy & paste the Alias ID to the notepad because we will use the Alias ID as a Fleet endpoint.
+
 - Move to Queues on the GameLift Menu and click "Create queue"
-- Put any quene name
-- In a below Destinations menu, associate Alias with you had created above.
-- Click "Create queue"
-- You can see the created Queue like this
-![GameLift Queues](gomoku-gamelift-queue.png)
+  - Put any quene name
+  - In a below Destinations menu, associate Alias with you had created above.
+  - Click "Create queue"
+  - You can see the created Queue like this
+  ![GameLift Queues](gomoku-gamelift-queue.png)
+
 - Move to Matchmaking rule sets on the GameLift Menu and click "Create rule set"
-- Put any Rule set name
-- In a Rule set area, copy & paste the provided rule set file [GomokuRuleSet.json](GomokuRuleSet.json)
-- Click "Validate rule set" and then "Create rule set"
+  - Put any Rule set name
+  - In a Rule set area, copy & paste the provided rule set file [GomokuRuleSet.json](GomokuRuleSet.json)
+  - Click "Validate rule set" and then "Create rule set"
+
 - Then, move to Matchmaking configurations on the GameLift Menu and click "Create matchmaking configuration"
-- Put any configuration name (you should copy & paste the this name to the notepad because it will be used below Lambda code, *game-match-request*)
-- Set the "Queue" and "Rule set name" created above
-- You can see the Matchmaking Configuration like this
-![GameLift Configuration](gomoku-gamelift-match-config.png)
-- Click "Create"
+  - Put any configuration name (you should copy & paste the this name to the notepad because it will be used below Lambda code, *game-match-request*)
+  - Set the "Queue" and "Rule set name" created above
+  - You can see the Matchmaking Configuration like this
+  ![GameLift Configuration](gomoku-gamelift-match-config.png)
+  - Click "Create"
 
 
 ### Lambda -- MatchRequest

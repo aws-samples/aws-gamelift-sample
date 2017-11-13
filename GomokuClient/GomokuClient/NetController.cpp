@@ -30,7 +30,6 @@ NetController::NetController() : mRecvBuffer(BUF_SIZE), mSocket(NULL), mPortNum(
 
 NetController::~NetController()
 {
-
     closesocket(mSocket);
 }
 

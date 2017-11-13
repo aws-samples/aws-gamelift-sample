@@ -319,7 +319,7 @@ void GUIController::OnGameStart(StoneType myType, const std::string& opponentNam
     std::lock_guard<std::mutex> lock(mStatusMutex);
 
     mMyStoneColor = myType;
-    mCurrentTurn = StoneType::STONE_BLACK; ///< ÈæºÎÅÍ ½ÃÀÛ
+    mCurrentTurn = StoneType::STONE_BLACK;
     mGameStatus = GameStatus::GS_STARTED;
     strcpy_s(mOpponentName, opponentName.c_str());
 

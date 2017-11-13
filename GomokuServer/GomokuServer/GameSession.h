@@ -23,40 +23,38 @@ class GameLiftManager;
 class GameSession
 {
 public:
-	GameSession();
+    GameSession();
 
-	bool IsEnd() const 
-	{
-		return mGameStatus == GameStatus::GS_GAME_OVER_BLACK_WIN 
-			|| mGameStatus == GameStatus::GS_GAME_OVER_WHITE_WIN ;
-	}
+    bool IsEnd() const
+    {
+        return mGameStatus == GameStatus::GS_GAME_OVER_BLACK_WIN
+            || mGameStatus == GameStatus::GS_GAME_OVER_WHITE_WIN;
+    }
 
-	void PutStone(std::shared_ptr<PlayerSession> psess, int x, int y);
-
-private:
-
-	void BroadcastGameStart();
-	void BroadcastGameStatus();
-	bool IsWin(StoneType st);
-	bool CheckLine(StoneType st, int i, int j, int l, int i1);
-
-	int CalcEloScore(int myScore, int opponentScore, bool win) const;
-	std::string MakeResultJsonString(const std::string& playerName, int scorediff, int windiff, int losediff) const;
-	void SendGameResult(bool isBlackWin) const;
-
-	GameStatus mGameStatus;
-	BoardStatus mBoardStatus;
-	StoneType mCurrentTurn;
-	FastSpinlock mGameSessionLock;
-
-	
+    void PutStone(std::shared_ptr<PlayerSession> psess, int x, int y);
 
 private:
-	void PlayerEnter(std::shared_ptr<PlayerSession> psess);
-	void PlayerLeave(std::shared_ptr<PlayerSession> psess);
 
-	std::shared_ptr<PlayerSession> mPlayerBlack;
-	std::shared_ptr<PlayerSession> mPlayerWhite;
-	
-	friend class GameLiftManager;
+    void BroadcastGameStart();
+    void BroadcastGameStatus();
+    bool IsWin(StoneType st);
+    bool CheckLine(StoneType st, int i, int j, int l, int i1);
+
+    int CalcEloScore(int myScore, int opponentScore, bool win) const;
+    std::string MakeResultJsonString(const std::string& playerName, int scorediff, int windiff, int losediff) const;
+    void SendGameResult(bool isBlackWin) const;
+
+    GameStatus mGameStatus;
+    BoardStatus mBoardStatus;
+    StoneType mCurrentTurn;
+    FastSpinlock mGameSessionLock;
+
+private:
+    void PlayerEnter(std::shared_ptr<PlayerSession> psess);
+    void PlayerLeave(std::shared_ptr<PlayerSession> psess);
+
+    std::shared_ptr<PlayerSession> mPlayerBlack;
+    std::shared_ptr<PlayerSession> mPlayerWhite;
+
+    friend class GameLiftManager;
 };

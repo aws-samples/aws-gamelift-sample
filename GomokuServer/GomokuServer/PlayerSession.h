@@ -20,26 +20,26 @@
 class PlayerSession : public Session
 {
 public:
-	PlayerSession(SOCKET sock);
-	virtual ~PlayerSession();
+    PlayerSession(SOCKET sock);
+    virtual ~PlayerSession();
 
-	bool IsValid() { return mPlayerSessionId.length() > 0; }
+    bool IsValid() { return mPlayerSessionId.length() > 0; }
 
-	void PlayerReady(const std::string& playerId);
-	void PlayerExit(const std::string& playerId);
-	
-	virtual void OnRead(size_t len);
-	virtual void OnDisconnect(DisconnectReason dr);
+    void PlayerReady(const std::string& playerId);
+    void PlayerExit(const std::string& playerId);
 
-	const std::string& GetPlayerSessionId() { return mPlayerSessionId; }
-	const std::string& GetPlayerName() { return mPlayerName; }
-	int GetPlayerScore() const { return mScore; }
+    virtual void OnRead(size_t len);
+    virtual void OnDisconnect(DisconnectReason dr);
+
+    const std::string& GetPlayerSessionId() { return mPlayerSessionId; }
+    const std::string& GetPlayerName() { return mPlayerName; }
+    int GetPlayerScore() const { return mScore; }
 
 private:
 
-	std::string	mPlayerSessionId;
-	std::string mPlayerName;
-	int mScore;
+    std::string mPlayerSessionId;
+    std::string mPlayerName;
+    int mScore;
 
 };
 

@@ -34,55 +34,51 @@ PlayerSession::~PlayerSession()
 
 void PlayerSession::PlayerReady(const std::string& playerId)
 {
-	if (GGameLiftManager->AcceptPlayerSession(std::static_pointer_cast<PlayerSession>(shared_from_this()), playerId))
-	{
-		mPlayerSessionId = playerId;
+    if (GGameLiftManager->AcceptPlayerSession(std::static_pointer_cast<PlayerSession>(shared_from_this()), playerId))
+    {
+        mPlayerSessionId = playerId;
 
-		/// Score info from GL
-		Aws::GameLift::Server::Model::DescribePlayerSessionsRequest req;
-		req.SetPlayerSessionId(mPlayerSessionId);
-		auto outcome = Aws::GameLift::Server::DescribePlayerSessions(req);
-		if (!outcome.IsSuccess())
-		{
-			GConsoleLog->PrintOut(true, "[PLAYER] DescribePlayerSessions Error : %s \n", outcome.GetError().GetErrorMessage().c_str());
-			mScore = -1000;
-			mPlayerName = std::string("nonamed");
-			return;
-		}
-		
-		//const std::string& scoreinfo = outcome.GetResult().GetPlayerSessions()[0].GetPlayerData();
-		//mScore = stoi(scoreinfo);
-        
-		mPlayerName = outcome.GetResult().GetPlayerSessions()[0].GetPlayerId();
+        /// Score info from GL
+        Aws::GameLift::Server::Model::DescribePlayerSessionsRequest req;
+        req.SetPlayerSessionId(mPlayerSessionId);
+        auto outcome = Aws::GameLift::Server::DescribePlayerSessions(req);
+        if (!outcome.IsSuccess())
+        {
+            GConsoleLog->PrintOut(true, "[PLAYER] DescribePlayerSessions Error : %s \n", outcome.GetError().GetErrorMessage().c_str());
+            mScore = -1000;
+            mPlayerName = std::string("nonamed");
+            return;
+        }
+
+        mPlayerName = outcome.GetResult().GetPlayerSessions()[0].GetPlayerId();
         mScore = GGameLiftManager->FindScoreFromMatchData(mPlayerName);
-	
+
         GConsoleLog->PrintOut(true, "[PLAYER] PlayerReady: %s \n", playerId.c_str());
 
-		GGameLiftManager->CheckReadyAll();
-	
-		return;
-	}
+        GGameLiftManager->CheckReadyAll();
 
-	/// disconnect unauthed player
-	Disconnect(DR_UNAUTH);
+        return;
+    }
+
+    /// disconnect unauthed player
+    Disconnect(DR_UNAUTH);
 }
 
 void PlayerSession::PlayerExit(const std::string& playerId)
 {
-	GGameLiftManager->RemovePlayerSession(std::static_pointer_cast<PlayerSession>(shared_from_this()), playerId);
-	mPlayerSessionId.clear();
+    GGameLiftManager->RemovePlayerSession(std::static_pointer_cast<PlayerSession>(shared_from_this()), playerId);
+    mPlayerSessionId.clear();
 
-	GConsoleLog->PrintOut(true, "[PLAYER] PlayerExit: %s \n", playerId.c_str());
-	
-	Disconnect(DR_LOGOUT);
+    GConsoleLog->PrintOut(true, "[PLAYER] PlayerExit: %s \n", playerId.c_str());
+
+    Disconnect(DR_LOGOUT);
 }
 
 void PlayerSession::OnDisconnect(DisconnectReason dr)
 {
-	if (IsValid())
-	{
-		GGameLiftManager->RemovePlayerSession(std::static_pointer_cast<PlayerSession>(shared_from_this()), mPlayerSessionId);
-		mPlayerSessionId.clear();
-	}
-
+    if (IsValid())
+    {
+        GGameLiftManager->RemovePlayerSession(std::static_pointer_cast<PlayerSession>(shared_from_this()), mPlayerSessionId);
+        mPlayerSessionId.clear();
+    }
 }

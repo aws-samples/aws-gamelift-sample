@@ -1,3 +1,19 @@
+/*
+* Copyright 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+*
+* Licensed under the Apache License, Version 2.0 (the "License").
+* You may not use this file except in compliance with the License.
+* A copy of the License is located at
+*
+*  http://aws.amazon.com/apache2.0
+*
+* or in the "license" file accompanying this file. This file is distributed
+* on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+* express or implied. See the License for the specific language governing
+* permissions and limitations under the License.
+*/
+
+
 #include "stdafx.h"
 #include "MatchController.h"
 #include "GUIController.h"
@@ -28,7 +44,6 @@ std::string ws2s(const std::wstring& wstr)
 }
 
 
-
 void MatchController::RequestMatch()
 {
     if (mMatchStarted)
@@ -56,18 +71,21 @@ void MatchController::RequestMatch()
             mMatchTicketId.erase(0, 1);
             mMatchTicketId.erase(mMatchTicketId.size() - 1);
 
+            GGuiController->OnMatchWait(true);
+
             return true;
         }
 
-        std::cout << "MatchRequest Error" << std::endl;
+        GGuiController->OnMatchWait(false);
+
         return false;
 
     }).then([this](bool isOk) {
         if (isOk)
         {
-            Sleep(500);
             while (true)
             {
+                Sleep(1000);
                 if (CheckMatchStatus())
                 {
                     GGuiController->OnMatchComplete();
@@ -92,15 +110,13 @@ bool MatchController::CheckMatchStatus()
     auto reqEndpoint = s2ws(mMatchApiEndpoint) + std::wstring(L"/matchstatus");
     http_client client(reqEndpoint);
     client.request(methods::POST, L"", postData.serialize().c_str(), L"application/json").then([this, &completed](http_response response) {
+        
         if (response.status_code() == status_codes::OK)
         {
             json::value jsonValue = response.extract_json().get();
-            
-            std::wcout << jsonValue.serialize() << std::endl;
-            
+
             std::string ipAddr = ws2s(jsonValue[L"IpAddress"].as_string());
             std::string psessId = ws2s(jsonValue[L"PlayerSessionId"].as_string());
-            //int port = std::stoi(ws2s(jsonValue[L"Port"].as_string()));
             int port = jsonValue[L"Port"].as_integer();
 
             if (port > 0)
@@ -115,12 +131,18 @@ bool MatchController::CheckMatchStatus()
                     std::cout << "GameServer Connect Error\n";
                 }
             }
-
-            
-           
         }
     }).wait();
 
     return completed;
 }
 
+void MatchController::ResetMatch()
+{
+    if (!mMatchStarted)
+        return;
+
+    mMatchStarted = false;
+    mMatchTicketId.clear();
+
+}

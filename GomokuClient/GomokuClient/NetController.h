@@ -23,34 +23,34 @@
 class NetController
 {
 public:
-	NetController();
-	~NetController();
+    NetController();
+    ~NetController();
 
-	bool Connect(const std::string& serverAddr, int port);
-	void Disconnect();
+    bool Connect(const std::string& serverAddr, int port);
+    void Disconnect();
 
-	/// For GameServer
-	void RequestGameStart(const std::string& playerId);
-	void RequestPutStone(int x, int y);
-	void RequestGiveUp();
-	
-private:
-
-	bool Send(const char* data, int length);
-	
-	void NetworkThread();
-	void ProcessPacket();
+    /// For GameServer
+    void RequestGameStart(const std::string& playerId);
+    void RequestPutStone(int x, int y);
+    void RequestGiveUp();
 
 private:
 
-	std::atomic_bool mConnected;
-	SOCKET			mSocket;
-	CircularBuffer	mRecvBuffer;
-	
-	std::string		mServerAddr;
-	int				mPortNum;
+    bool Send(const char* data, int length);
 
-	std::string		mPlayerId; ///< player session ID
+    void NetworkThread();
+    void ProcessPacket();
+
+private:
+
+    std::atomic_bool mConnected;
+    SOCKET mSocket;
+    CircularBuffer mRecvBuffer;
+
+    std::string mServerAddr;
+    int mPortNum;
+
+    std::string mPlayerId; ///< player session ID
 
 };
 

@@ -29,40 +29,40 @@
 ### Lambda -- Game Result Processing
 - Name: **game-sqs-process**
 - Runtime: Python 2.7
-- Role: grant Full Access to SQS and DynamoDB
+- Role: Basic Lambda Execution role, grant Full Access to SQS and DynamoDB
 - Advanced Settings
   - Memory: 128
   - Timeout: 1 min
 - Triggers: CloudWatch Events rate 1 minute
-- Edit code [GameResultProcessing.py](../Lambda/GameResultProcessing.py) and upload it as a deployment package
+- Edit code [GameResultProcessing.py](../Lambda/GameResultProcessing.py) and save it
   -	Replace *region_name* and *queue_url* in the code with your AWS region and SQS endpoint url.
-  -	For your information: [here](http://docs.aws.amazon.com/lambda/latest/dg/lambda-python-how-to-create-deployment-package.html) is how to create a deployment package for Lambda (python). 
 
 
 ### Lambda -- Scoring (DynamoDB streams to Redis)
 - Name: **game-rank-update**
 - Runtime: Python 2.7
-- Role: grant Full Access to DynamoDB, VPC, and DynamoDB Streams
+- Role: Basic Lambda Execution role, grant Full Access to DynamoDB, VPC, and DynamoDB Streams
 - Advanced Settings
   - Memory: 192
   - Timeout: 1 min
   - VPC: same with ElastiCache’s
   - Security Group: same with ElastiCache’s
 - Triggers: DynamoDB Streams from *GomokuPlayerInfo*
-- Edit code [Scoring.py](../Lambda/Scoring.py) and upload it
+- Edit code [Scoring.py](../Lambda/Scoring.py) and upload it as a deployment package
   - Replace Redis *host* in the code with your ElastiCache cluster endpoint.
+  -	For your information: [here](http://docs.aws.amazon.com/lambda/latest/dg/lambda-python-how-to-create-deployment-package.html) is how to create a deployment package for Lambda (python). 
 
 
 ### Lambda -- GetRanking
 - Name: **game-rank-reader**
 - Runtime: Python 2.7
-- Role: grant Full Access to VPC
+- Role: Basic Lambda Execution role, grant Full Access to VPC
 - Advanced Settings
   - Memory: 128
   - Timeout: 1 min
   - VPC: same with ElastiCache’s
   - Security Group: same with ElastiCache’s
-- Edit code [GetRank.py](../Lambda/GetRank.py) and upload it
+- Edit code [GetRank.py](../Lambda/GetRank.py) and upload it as a deployment package
   - Replace Redis *host* in the code with your ElastiCache cluster endpoint.
 
 
@@ -120,57 +120,72 @@
 ![GameLift Fleet](gomoku-gamelift-fleet.png)
 - Then, move to Aliases on the GameLift Menu and click “Create alias”
 - Put any alias name and description
-- Associated fleet with you had created above. (GomokuGameServerFleet-1)
+- Associate fleet with you had created above. (GomokuGameServerFleet-1)
 - Click “Configure alias”
 - You can see the created Alias for the Fleet like this
 ![GameLift Alias](gomoku-gamelift-alias.png)
 - Then you should copy & paste the Alias ID to the notepad because we will use the Alias ID as a Fleet endpoint.
+- Move to Queues on the GameLift Menu and click "Create queue"
+- Put any quene name
+- In a below Destinations menu, associate Alias with you had created above.
+- Click "Create queue"
+- You can see the created Queue like this
+![GameLift Queues](gomoku-gamelift-queue.png)
+- Move to Matchmaking rule sets on the GameLift Menu and click "Create rule set"
+- Put any Rule set name
+- In a Rule set area, copy & paste the provided rule set file [GomokuRuleSet.json](GomokuRuleSet.json)
+- Click "Validate rule set" and then "Create rule set"
+- Then, move to Matchmaking configurations on the GameLift Menu and click "Create matchmaking configuration"
+- Put any configuration name (you should copy & paste the this name to the notepad because it will be used below Lambda code, *game-match-request*)
+- Set the "Queue" and "Rule set name" created above
+- You can see the Matchmaking Configuration like this
+![GameLift Configuration](gomoku-gamelift-match-config.png)
+- Click "Create"
 
 
-### EC2 -- MatchMaker Server
-- Open GomokuMatchMaker project in your Visual Studio 2015.
-- Build GomokuMatchMaker with x64 release mode
-- Put the following files in one folder (a.k.a. MatchMaker folder)
-  - GomokuMatchMaker.exe, aws-cpp-sdk-*.dll (from the build folder)
-  - config.ini (from GomokuMatchMaker project root folder)
-- Edit config.ini file in the MatchMaker folder and fill in the required information like the following example
+### Lambda -- MatchRequest
+- Name: **game-match-request**
+- Runtime: Python 2.7
+- Role: Basic Lambda Execution role, grant Full Access to DynamoDB and GameLift
+- Advanced Settings
+  - Memory: 128
+  - Timeout: 1 min
+- Edit code [MatchRequest.py](../Lambda/MatchRequest.py) and save it
+  - Replace GameLift *ConfigurationName* in the code with your GameLift FlexMatch configuration name.
+  - Replace *region_name* in the code with your AWS region
 
-<pre>
-    [config]
-    GAMELIFT_ALIAS = alias-291ce0bf-938a-4800-b0d5-....
-    LISTEN_PORT = 5999
-    GAMELIFT_REGION	= ap-northeast-1
-    PLAYER_TABLENAME = GomokuPlayerInfo
-</pre>
+### Lambda -- MatchStatus
+- Name: **game-match-status**
+- Runtime: Python 2.7
+- Role: Basic Lambda Execution role, grant Full Access to GameLift
+- Advanced Settings
+  - Memory: 128
+  - Timeout: 1 min
+- Edit code [MatchStatus.py](../Lambda/MatchStatus.py) and save it
 
-- Create an EC2 IAM role which has Full Access about DynamoDB and GameLift.
-- Launch and Instance:  Microsoft Windows Server 2016 Base
-  - Instance type: t2.large or above
-  - Change the Security Group setting to allow inbound connection like this:
-     - Port: 5999, Protocol: TCP, Source: 0.0.0.0/0
-  - Associate the EC2 IAM role with created above.
-- When the EC2 instance up, connect the EC2 instance by Windows Remote Desktop.
-- Add a Rule for Windows Firewall Settings in Control Panel which allow TCP port listening to 5999.
-- Copy the MatchMaker folder to the EC2 instance.
-  - Execute vc_redist_x64.exe for the first time. (just first time)
-  - Run GomokuMatchMaker.exe
-- Create Elastic IP (EIP) and associate with the MatchMaker EC2 instance.
-  - Take a note the EIP Address. (This will be used at GomokuClient.)
+
+### API Gateway for MatchMaking
+- Create API Name: **matchgomoku**
+- Create Resource on the root: Resource Name to **matchrequest** (Resource Path will be automatically generated), Enable API Gateway CORS -- Create Resource.
+  - Create Method on this resource: POST -- Lambda Integration -- Select region you created a Lambda, *game-match-request* -- Select the Lambda and Save.
+- Create Resource on the root: Resource Name to **matchstatus** (Resource Path will be automatically generated), Enable API Gateway CORS -- Create Resource.  
+  - Create Method on this resource: POST -- Lambda Integration -- Select region you created a Lambda, *game-match-status* -- Select the Lambda and Save.
+- Deploy API: give a stage name and remember the Invoke URL. It will be used later in the Client config.ini file.
+
 
 ### Game Client Configuration and Play!
 - Open GomokuClient project in your Visual Studio 2015.
 - Build GomokuClient with x64 release mode.
 - Put the following files in one folder. (Client folder)
-  - GomokuClient.exe, freeglut.dll, glew32.dll, glfw3.dll (from the build folder)
+  - GomokuClient.exe, freeglut.dll, glew32.dll, glfw3.dll, cpprest*.dll (from the build folder)
   - config.ini (from GomokuClient project root folder)
 - Edit config.ini file and fill in the required information like the following example.
-   - Set the SERVER_IP with the EIP address allocated above step.
+   - Set the MATCH_SERVER_API with the deployed endpoint address created in the above step.
    - Set the player name and password.
 
 <pre>
     [config]
-    SERVER_IP = 52.197.xxx.xxx
-    PORT_NUM = 5999
+    MATCH_SERVER_API = https://41rzxxxsb.execute-api.ap-northeast-1.amazonaws.com/prod
     PLAYER_NAME = Amazonian
     PLAYER_PASSWD = simplepw00
 </pre>

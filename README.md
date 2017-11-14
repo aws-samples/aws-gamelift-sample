@@ -15,7 +15,11 @@ This repository contains a sample game project using Amazon GameLift and AWS ser
 
 ## Deployment
  - Play and Deployment guide [here](deployment/deployment.md)
- 
+
+
+## Serverless version with FlexMatch
+ - Functionally identical, but re-implemented in a Serverless way using FlexMatch can be found in [here](https://github.com/awslabs/aws-gamelift-sample/tree/FlexMatch)
+
 
 ## Future Work
  - Developing a Hands-on Technical Workshop to demonstrate the use of Amazon GameLift with AWS managed components for game services.

@@ -1,7 +1,7 @@
 
 
-# aws-gamelift-sample
-This repository contains a sample game project using Amazon GameLift and AWS services including DynamoDB, Lambda, SQS, S3, EC2, ElastiCache and API-Gateway. This is a simple board game called [Gomoku](https://en.wikipedia.org/wiki/Gomoku), but technically and functionally identical to a real-time session-based online game. 
+# aws-gamelift-sample (with FlexMatch)
+This repository contains a sample game project using Amazon GameLift and AWS serverless services including DynamoDB, Lambda, SQS, S3, and so on. This is a simple board game called [Gomoku](https://en.wikipedia.org/wiki/Gomoku), but technically and functionally identical to a real-time session-based online game. 
 
 <img src="web/gomoku.png" width="600" height="600"/>
 
@@ -9,14 +9,10 @@ This repository contains a sample game project using Amazon GameLift and AWS ser
  - For game developers, this project provides architecture best practice and implementations of the most similar form to the actual session-based online game service. So they can leverage this asset to implement their own session-based online game on AWS.
 
 
-## Sample Game Architecture
+## Sample Game Architecture (Serverless with FlexMatch)
 ![Architecture Overview](web/gomoku_arch.png)
 
 
-## Deployment
+## Deployment Guide
  - Play and Deployment guide [here](deployment/deployment.md)
  
-
-## Future Work
- - Developing a Hands-on Technical Workshop to demonstrate the use of Amazon GameLift with AWS managed components for game services.
- - Developing a CloudFormation template for a one-click deployment

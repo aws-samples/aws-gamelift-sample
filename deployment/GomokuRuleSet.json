@@ -23,13 +23,12 @@
     ],
     "rules" :
     [
-		{ "name": "EqualTeamSizes",
-			"description": "Only launch a game when the number of players in each team matches",
-			"type": "comparison",
-			"measurements": [ "count(teams[red].players)" ],
-			"referenceValue": "count(teams[blue].players)",
-			"operation": "=" // other operations: !=, <, <=, >, >=
-		},
+        {   "name": "EqualTeamSizes",
+            "type": "comparison",
+            "measurements": [ "count(teams[red].players)" ],
+            "referenceValue": "count(teams[blue].players)",
+            "operation": "="
+        },
         {
             "name" : "FairTeamSkill",
             "type" : "distance",

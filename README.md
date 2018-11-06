@@ -24,3 +24,6 @@ This repository contains a sample game project using Amazon GameLift and AWS ser
 ## Future Work
  - Developing a Hands-on Technical Workshop to demonstrate the use of Amazon GameLift with AWS managed components for game services.
  - Developing a CloudFormation template for a one-click deployment
+
+## Contact Korean AWS Gaming Team for further assistance
+ - Email at korea-gaming-sa@amazon.com if you have any questions on using this content

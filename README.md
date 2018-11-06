@@ -16,3 +16,5 @@ This repository contains a sample game project using Amazon GameLift and AWS ser
 ## Deployment Guide
  - Play and Deployment guide [here](deployment/deployment.md)
  
+## For further questions/ assistances
+ - Please contact korea-gaming-sa@amazon.com for any comment/ requests regarding this content

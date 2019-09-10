@@ -14,7 +14,9 @@ This repository contains a sample game project using Amazon GameLift and AWS ser
 
 
 ## Deployment Guide
- - Play and Deployment guide [here](deployment/GameLift_Gomok%2BHoL%2BFlexMatch_KR_latest.pdf)
+ - Play and Deployment guide 
+     - Korean version (most recent) [here](deployment/GameLift_Gomok%2BHoL%2BFlexMatch_KR_latest.pdf)
+     - English version [here](deployment/deployment.md)
  
 ## For further questions/ assistances
  - Please contact korea-gaming-sa@amazon.com for any comment/ requests regarding this content

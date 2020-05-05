@@ -16,11 +16,11 @@ class DecimalEncoder(json.JSONEncoder):
         
 
 gl_client = boto3.client('gamelift')
-dynamodb = boto3.resource('dynamodb', region_name='ap-northeast-1')
+dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
 
 ddb_table = dynamodb.Table('GomokuPlayerInfo')
 
-def handler(event, context):
+def lambda_handler(event, context):
     playerId = event['PlayerName']
     playerPass = event['PlayerPass']
     playerScore = -1
@@ -43,7 +43,7 @@ def handler(event, context):
     # Auth OK, Match Request Go
     try:
         match_response = gl_client.start_matchmaking(
-            ConfigurationName='DummyMatchMakingConfig',
+            ConfigurationName='GomokuMatchConfig',
             Players = [ { 'PlayerId' : playerId, 'PlayerAttributes' : playerAttr } ]
             )
     except TypeError as e:

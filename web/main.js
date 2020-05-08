@@ -45,11 +45,10 @@ var _table_ = document.createElement('table'),
 
 
 
-$.get("https://niop6gw2v0.execute-api.us-east-1.amazonaws.com/prod", function(data, status)
+$.get("https://niop6gw2v0.execute-api.us-east-1.amazonaws.com/prod/ranking", function(data, status)
 	{ 
 		document.getElementById('board').innerHTML = '';
 		document.getElementById('board').appendChild(buildHtmlTable(data));
-	
 	});
 
 	

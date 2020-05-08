@@ -2,8 +2,10 @@ from __future__ import print_function
 import boto3
 import redis
 import json
+import os
 
-redis = redis.Redis(host='gomokuranking.nxaab2.0001.apne1.cache.amazonaws.com', port=6379, db=0)
+endpoint = os.environ['REDIS']
+redis = redis.Redis(host=endpoint, port=6379, db=0)
 
 def handler(event, context):
     for record in event['Records']:
@@ -23,13 +25,6 @@ def handler(event, context):
             redis.zrem('Rating', old_json)
         
         newScore = int(record['dynamodb']['NewImage']['Score']['N'])
-        newWin = int(record['dynamodb']['NewImage']['Win']['N'])
-        newLose = int(record['dynamodb']['NewImage']['Lose']['N'])
-        
-        newdata = { "PlayerName" : str(playerName), "Win" : int(newWin), "Lose" : int(newLose)}
-        new_json = json.dumps(newdata)
-        
-        redis.zadd('Rating', new_json, newScore)
+        redis.zadd('Rating', { str(playerName) : float(newScore) })
 
     return "OK" 
-

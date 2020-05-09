@@ -32,6 +32,9 @@
     #ifndef MAX_PLAYER_DATA_LENGTH
         #define MAX_PLAYER_DATA_LENGTH 2049
     #endif
+    #ifndef MAX_DNS_NAME_LENGTH
+        #define MAX_DNS_NAME_LENGTH 64
+    #endif
 #endif
 
 namespace Aws
@@ -53,8 +56,75 @@ namespace Model
     PlayerSession() :
       m_creationTime(0),
       m_terminationTime(0),
+      m_status(),
       m_port(0)
     { }
+
+    /**
+    * <p>Destructor.</p>
+    */
+    ~PlayerSession() {}
+
+    /**
+    * <p>Copy Constructor.</p>
+    */
+    PlayerSession(const PlayerSession& other) :
+        m_playerSessionId(other.m_playerSessionId),
+        m_playerId(other.m_playerId),
+        m_gameSessionId(other.m_gameSessionId),
+        m_creationTime(other.m_creationTime),
+        m_terminationTime(other.m_terminationTime),
+        m_status(other.m_status),
+        m_ipAddress(other.m_ipAddress),
+        m_port(other.m_port),
+		m_playerData(other.m_playerData),
+        m_dnsName(other.m_dnsName)
+    { }
+
+    /**
+    * <p>Move Constructor.</p>
+    */
+    PlayerSession(PlayerSession&& other) 
+    { 
+		*this = std::move(other);
+	}
+
+
+    /**
+    * <p>Copy assignment Constructor.</p>
+    */
+    PlayerSession& operator= (const PlayerSession& other) 
+    {
+        m_playerSessionId = other.m_playerSessionId;
+        m_playerId = other.m_playerId;
+        m_gameSessionId = other.m_gameSessionId;
+        m_creationTime = other.m_creationTime;
+        m_terminationTime = other.m_terminationTime;
+        m_ipAddress = other.m_ipAddress;
+        m_port = other.m_port;
+        m_playerData = other.m_playerData;
+		m_dnsName = other.m_dnsName;
+
+        return *this;
+    }
+
+    /**
+    * <p>Move assignment Constructor.</p>
+    */
+    PlayerSession& operator= (PlayerSession&& other) 
+    {
+        m_playerSessionId = std::move(other.m_playerSessionId);
+        m_playerId = std::move(other.m_playerId);
+        m_gameSessionId = std::move(other.m_gameSessionId);
+        m_creationTime = std::move(other.m_creationTime);
+        m_terminationTime = std::move(other.m_terminationTime);
+        m_ipAddress = std::move(other.m_ipAddress);
+        m_port = std::move(other.m_port);
+        m_playerData = std::move(other.m_playerData);
+		m_dnsName = std::move(other.m_dnsName);
+
+        return *this;
+    }
 
     /**
      * <p>Unique identifier for a player session.</p>
@@ -399,6 +469,49 @@ namespace Model
      */
     inline PlayerSession& WithPlayerData(const char* value) { SetPlayerData(value); return *this;}
 
+	/**
+	* <p>Game session DNS name. All player sessions reference the game session
+	* location.</p>
+	*/
+	inline const std::string& GetDnsName() const { return m_dnsName; }
+
+	/**
+	* <p>Game session DNS name. All player sessions reference the game session
+	* location.</p>
+	*/
+	inline void SetDnsName(const std::string& value) { m_dnsName = value; }
+
+	/**
+	* <p>Game session DNS name. All player sessions reference the game session
+	* location.</p>
+	*/
+	inline void SetDnsName(std::string&& value) { m_dnsName = value; }
+
+	/**
+	* <p>Game session DNS name. All player sessions reference the game session
+	* location.</p>
+	*/
+	inline void SetDnsName(const char* value) { m_dnsName.assign(value); }
+
+	/**
+	* <p>Game session DNS name. All player sessions reference the game session
+	* location.</p>
+	*/
+	inline PlayerSession& WithDnsName(const std::string& value) { SetDnsName(value); return *this; }
+
+	/**
+	* <p>Game session DNS name. All player sessions reference the game session
+	* location.</p>
+	*/
+	inline PlayerSession& WithDnsName(std::string&& value) { SetDnsName(value); return *this; }
+
+	/**
+	* <p>Game session DNS name. All player sessions reference the game session
+	* location.</p>
+	*/
+	inline PlayerSession& WithDnsName(const char* value) { SetDnsName(value); return *this; }
+
+
   private:
     std::string m_playerSessionId;
     std::string m_playerId;
@@ -410,6 +523,7 @@ namespace Model
     std::string m_ipAddress;
     int m_port;
     std::string m_playerData;
+	std::string m_dnsName;
 #else
   public:
     PlayerSession() :
@@ -423,7 +537,93 @@ namespace Model
       memset(m_fleetId, 0, sizeof(m_fleetId));
       memset(m_ipAddress, 0, sizeof(m_ipAddress));
       memset(m_playerData, 0, sizeof(m_playerData));
+	  memset(m_dnsName, 0, sizeof(m_dnsName));
      }
+
+    /**
+    * <p>Destructor.</p>
+    */
+    ~PlayerSession() {}
+
+    /**
+    * <p>Copy Constructor.</p>
+    */
+    PlayerSession(const PlayerSession& other) :
+        m_creationTime(other.m_creationTime),
+        m_terminationTime(other.m_terminationTime),
+        m_status(other.m_status),
+        m_port(other.m_port)
+    {
+        strncpy(m_playerSessionId, other.m_playerSessionId, sizeof(other.m_playerSessionId));
+        strncpy(m_playerId, other.m_playerId, sizeof(other.m_playerId));
+        strncpy(m_gameSessionId, other.m_gameSessionId, sizeof(other.m_gameSessionId));
+        strncpy(m_fleetId, other.m_fleetId, sizeof(other.m_fleetId));
+        strncpy(m_ipAddress, other.m_ipAddress, sizeof(other.m_ipAddress));
+        strncpy(m_playerData, other.m_playerData, sizeof(other.m_playerData));
+		strncpy(m_dnsName, other.m_dnsName, sizeof(other.m_dnsName));
+    }
+
+    /**
+    * <p>Move Constructor.</p>
+    */
+    PlayerSession(PlayerSession&& other) 
+    {
+		*this = std::move(other);
+    }
+
+    /**
+    * <p>Copy assignment Constructor.</p>
+    */
+    PlayerSession& operator= (const PlayerSession& other) 
+    {
+        m_creationTime = other.m_creationTime;
+        m_terminationTime = other.m_terminationTime;
+        m_status = other.m_status;
+        m_port = other.m_port;
+
+        strncpy(m_playerSessionId, other.m_playerSessionId, sizeof(other.m_playerSessionId));
+        strncpy(m_playerId, other.m_playerId, sizeof(other.m_playerId));
+        strncpy(m_gameSessionId, other.m_gameSessionId, sizeof(other.m_gameSessionId));
+        strncpy(m_fleetId, other.m_fleetId, sizeof(other.m_fleetId));
+        strncpy(m_ipAddress, other.m_ipAddress, sizeof(other.m_ipAddress));
+        strncpy(m_playerData, other.m_playerData, sizeof(other.m_playerData));
+		strncpy(m_dnsName, other.m_dnsName, sizeof(other.m_dnsName));
+
+        return *this;
+    }
+
+    /**
+    * <p>Move assignment Constructor.</p>
+    */
+    PlayerSession& operator= (PlayerSession&& other) 
+    {
+        m_creationTime = other.m_creationTime;
+        m_terminationTime = other.m_terminationTime;
+        m_status = other.m_status;
+        m_port = other.m_port;
+
+        strncpy(m_playerSessionId, other.m_playerSessionId, sizeof(other.m_playerSessionId));
+        strncpy(m_playerId, other.m_playerId, sizeof(other.m_playerId));
+        strncpy(m_gameSessionId, other.m_gameSessionId, sizeof(other.m_gameSessionId));
+        strncpy(m_fleetId, other.m_fleetId, sizeof(other.m_fleetId));
+        strncpy(m_ipAddress, other.m_ipAddress, sizeof(other.m_ipAddress));
+        strncpy(m_playerData, other.m_playerData, sizeof(other.m_playerData));
+		strncpy(m_dnsName, other.m_dnsName, sizeof(other.m_dnsName));
+
+		other.m_creationTime = 0;
+		other.m_terminationTime = 0;
+		other.m_port = 0;
+
+		memset(m_playerSessionId, 0, sizeof(m_playerSessionId));
+		memset(m_playerId, 0, sizeof(m_playerId));
+		memset(m_gameSessionId, 0, sizeof(m_gameSessionId));
+		memset(m_fleetId, 0, sizeof(m_fleetId));
+		memset(m_ipAddress, 0, sizeof(m_ipAddress));
+		memset(m_playerData, 0, sizeof(m_playerData));
+		memset(m_dnsName, 0, sizeof(m_dnsName));
+
+        return *this;
+    }
 
     /**
      * <p>Unique identifier for a player session.</p>
@@ -640,6 +840,25 @@ namespace Model
      */
     inline PlayerSession& WithPlayerData(const char* value) { SetPlayerData(value); return *this;}
 
+	/**
+	* <p>Game session DNS name. All player sessions reference the game session
+	* location.</p>
+	*/
+	inline const char* GetDnsName() const { return m_dnsName; }
+
+	/**
+	* <p>Game session DNS name. All player sessions reference the game session
+	* location.</p>
+	*/
+	inline void SetDnsName(const char* value) { strncpy(m_dnsName, value, sizeof(m_dnsName)); m_dnsName[sizeof(m_dnsName) - 1] = 0; }
+
+	/**
+	* <p>Game session DNS name. All player sessions reference the game session
+	* location.</p>
+	*/
+	inline PlayerSession& WithDnsName(const char* value) { SetDnsName(value); return *this; }
+
+
   private:
     char m_playerSessionId[MAX_PLAYER_SESSION_ID_LENGTH];
     char m_playerId[MAX_PLAYER_ID_LENGTH];
@@ -651,6 +870,7 @@ namespace Model
     char m_ipAddress[MAX_IP_ADDRESS_LENGTH];
     int m_port;
     char m_playerData[MAX_PLAYER_DATA_LENGTH];
+	char m_dnsName[MAX_DNS_NAME_LENGTH];
 #endif
   };
 

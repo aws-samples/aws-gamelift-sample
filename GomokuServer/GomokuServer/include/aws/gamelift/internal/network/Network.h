@@ -15,7 +15,6 @@
 #include <aws/gamelift/server/protocols/sdk.pb.h>
 #include <sioclient/sio_client.h>
 #include <condition_variable>
-#include <gtest/gtest_prod.h>
 
 namespace Aws
 {
@@ -28,7 +27,8 @@ namespace Network
     class Network
     {
     public:
-        Network(sio::client* sioClient, AuxProxyMessageHandler* handler, AuxProxyMessageSender* sender);
+        Network(sio::client* sioClientToAuxProxy, sio::client* sioClientFromAuxProxy,
+                AuxProxyMessageHandler* handler, AuxProxyMessageSender* sender);
 
         ~Network();
 
@@ -37,14 +37,22 @@ namespace Network
         void OnClose(sio::client::close_reason const& reason);
 
         void OnStartGameSession(std::string const& name, sio::message::ptr const& data, bool hasAck, sio::message::list &ack_resp);
+        void OnUpdateGameSession(std::string const& name, sio::message::ptr const& data, bool hasAck, sio::message::list &ack_resp);
         void OnTerminateProcess(std::string const& name, sio::message::ptr const& data, bool hasAck, sio::message::list &ack_resp);
 
         AuxProxyMessageSender* getAuxProxySender() { return m_sender; };
 
     private:
-        FRIEND_TEST(WhenParseFromBufferedGameSessionTest, GameSessionValuesMatchbGameSessionValues);
-        Aws::GameLift::Server::Model::GameSession ParseFromBufferedGameSession(com::amazon::whitewater::auxproxy::pbuffer::GameSession bGameSession);
-        sio::client* m_sio_client;
+        static Aws::GameLift::Server::Model::GameSession ParseFromBufferedGameSession(
+            const com::amazon::whitewater::auxproxy::pbuffer::GameSession& bGameSession);
+        static Aws::GameLift::Server::Model::UpdateGameSession ParseFromBufferedUpdateGameSession(
+            const com::amazon::whitewater::auxproxy::pbuffer::UpdateGameSession& bUpdateGameSession);
+        void ConfigureClient(sio::client* sioClient);
+        void PerformConnect(sio::client* sioClient, std::map<std::string, std::string> query);
+        void SetupClientHandlers(sio::client* sioClient);
+
+        sio::client* m_sio_client_to_aux_proxy;
+        sio::client* m_sio_client_from_aux_proxy;
         AuxProxyMessageHandler* m_handler;
         AuxProxyMessageSender* m_sender;
 

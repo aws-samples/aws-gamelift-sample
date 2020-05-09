@@ -51,6 +51,65 @@ namespace Model
     { }
 
     /**
+    * <p>Destructor.</p>
+    */
+    ~DescribePlayerSessionsRequest() {}
+
+    /**
+    * <p>Copy Constructor.</p>
+    */
+    DescribePlayerSessionsRequest(const DescribePlayerSessionsRequest& other) :
+        m_gameSessionId(other.m_gameSessionId),
+        m_playerId(other.m_playerId),
+        m_playerSessionId(other.m_playerSessionId),
+        m_playerSessionStatusFilter(other.m_playerSessionStatusFilter),
+        m_limit(other.m_limit),
+        m_nextToken(other.m_nextToken)
+    { }
+
+    /**
+    * <p>Move Constructor.</p>
+    */
+    DescribePlayerSessionsRequest(DescribePlayerSessionsRequest&& other) 
+    {
+		*this = std::move(other);
+    }
+
+    /**
+    * <p>Copy assignment Constructor.</p>
+    */
+    DescribePlayerSessionsRequest& operator= (const DescribePlayerSessionsRequest& other) 
+    {
+        m_gameSessionId = other.m_gameSessionId;
+        m_playerId = other.m_playerId;
+        m_playerSessionId = other.m_playerSessionId;
+        m_playerSessionStatusFilter = other.m_playerSessionStatusFilter;
+        m_limit = other.m_limit;
+        m_nextToken = other.m_nextToken;
+
+        return *this;
+    }
+
+    /**
+    * <p>Move assignment Constructor.</p>
+    */
+    DescribePlayerSessionsRequest& operator= (DescribePlayerSessionsRequest&& other) 
+    {
+		m_gameSessionId = std::move(other.m_gameSessionId);
+		m_playerId = std::move(other.m_playerId);
+		m_playerSessionId = std::move(other.m_playerSessionId);
+		m_playerSessionStatusFilter = std::move(other.m_playerSessionStatusFilter);
+
+		m_limit = other.m_limit;
+		other.m_limit = 0;
+
+		m_nextToken = std::move(other.m_nextToken);
+
+		return *this;
+    }
+
+
+    /**
      * <p>Unique identifier for the game session to get player sessions for.Game
      * session ID format is as follows:
      * "arn:aws:gamelift:&lt;region&gt;::gamesession/fleet-&lt;fleet ID&gt;/&lt;ID
@@ -368,6 +427,72 @@ namespace Model
       memset(m_playerSessionId, 0, sizeof(m_playerSessionId));
       memset(m_playerSessionStatusFilter, 0, sizeof(m_playerSessionStatusFilter));
       memset(m_nextToken, 0, sizeof(m_nextToken));
+    }
+
+    /**
+    * <p>Destructor.</p>
+    */
+    ~DescribePlayerSessionsRequest() {}
+
+    /**
+    * <p>Copy Constructor.</p>
+    */
+    DescribePlayerSessionsRequest(const DescribePlayerSessionsRequest& other) :
+        m_limit(other.m_limit)
+    {
+        strncpy(m_gameSessionId, other.m_gameSessionId, sizeof(other.m_gameSessionId));
+        strncpy(m_playerId, other.m_playerId, sizeof(other.m_playerId));
+        strncpy(m_playerSessionId, other.m_playerSessionId, sizeof(other.m_playerSessionId));
+        strncpy(m_playerSessionStatusFilter, other.m_playerSessionStatusFilter, sizeof(other.m_playerSessionStatusFilter));
+        strncpy(m_nextToken, other.m_nextToken, sizeof(other.m_nextToken));
+    }
+
+    /**
+    * <p>Move Constructor.</p>
+    */
+    DescribePlayerSessionsRequest(DescribePlayerSessionsRequest&& other)
+	{
+		*this = std::move(other);
+    }
+
+    /**
+    * <p>Copy assignment Constructor.</p>
+    */
+    DescribePlayerSessionsRequest& operator= (const DescribePlayerSessionsRequest& other) 
+    {
+        m_limit = other.m_limit;
+
+        strncpy(m_gameSessionId, other.m_gameSessionId, sizeof(other.m_gameSessionId));
+        strncpy(m_playerId, other.m_playerId, sizeof(other.m_playerId));
+        strncpy(m_playerSessionId, other.m_playerSessionId, sizeof(other.m_playerSessionId));
+        strncpy(m_playerSessionStatusFilter, other.m_playerSessionStatusFilter, sizeof(other.m_playerSessionStatusFilter));
+        strncpy(m_nextToken, other.m_nextToken, sizeof(other.m_nextToken));
+
+        return *this;
+    }
+
+    /**
+    * <p>Move assignment Constructor.</p>
+    */
+    DescribePlayerSessionsRequest& operator= (DescribePlayerSessionsRequest&& other) 
+    {
+        m_limit = other.m_limit;
+
+        strncpy(m_gameSessionId, other.m_gameSessionId, sizeof(other.m_gameSessionId));
+        strncpy(m_playerId, other.m_playerId, sizeof(other.m_playerId));
+        strncpy(m_playerSessionId, other.m_playerSessionId, sizeof(other.m_playerSessionId));
+        strncpy(m_playerSessionStatusFilter, other.m_playerSessionStatusFilter, sizeof(other.m_playerSessionStatusFilter));
+        strncpy(m_nextToken, other.m_nextToken, sizeof(other.m_nextToken));
+
+		other.m_limit = 0;
+
+		memset(other.m_gameSessionId, 0, sizeof(other.m_gameSessionId));
+		memset(other.m_playerId, 0, sizeof(other.m_playerId));
+		memset(other.m_playerSessionId, 0, sizeof(other.m_playerSessionId));
+		memset(other.m_playerSessionStatusFilter, 0, sizeof(other.m_playerSessionStatusFilter));
+		memset(other.m_nextToken, 0, sizeof(other.m_nextToken));
+
+        return *this;
     }
 
     /**

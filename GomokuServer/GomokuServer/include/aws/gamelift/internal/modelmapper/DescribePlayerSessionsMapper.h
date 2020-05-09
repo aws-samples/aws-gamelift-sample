@@ -28,9 +28,9 @@ namespace ModelMapper
     {
     public:
 #ifdef GAMELIFT_USE_STD
-        static void ParseFromBufferedDescribePlayerSessionsResponse(const pbuffer::DescribePlayerSessionsResponse &describePlayerSessionsResponse, DescribePlayerSessionsResult* result)
+        static void ParseFromBufferedDescribePlayerSessionsResponse(const pbuffer::DescribePlayerSessionsResponse &describePlayerSessionsResponse, DescribePlayerSessionsResult& result)
         {
-            result->SetNextToken(describePlayerSessionsResponse.nexttoken().c_str());
+            result.SetNextToken(describePlayerSessionsResponse.nexttoken().c_str());
 
             std::vector<PlayerSession> playerSessions;
             for (int i = 0; i < describePlayerSessionsResponse.playersessions_size(); i++)
@@ -39,7 +39,7 @@ namespace ModelMapper
                 playerSessions.push_back(playerSession);
             }
 
-            result->SetPlayerSessions(playerSessions);
+            result.SetPlayerSessions(playerSessions);
         }
 
         static pbuffer::DescribePlayerSessionsRequest* ParseFromDescribePlayerSessionsRequest(const DescribePlayerSessionsRequest &describePlayerSessionsRequest)
@@ -68,14 +68,14 @@ namespace ModelMapper
             return event;
         }
 #else
-        static void ParseFromBufferedDescribePlayerSessionsResponse(const pbuffer::DescribePlayerSessionsResponse &describePlayerSessionsResponse, DescribePlayerSessionsResult* result)
+        static void ParseFromBufferedDescribePlayerSessionsResponse(const pbuffer::DescribePlayerSessionsResponse &describePlayerSessionsResponse, DescribePlayerSessionsResult& result)
         {
-            result->SetNextToken(describePlayerSessionsResponse.nexttoken().c_str());
+            result.SetNextToken(describePlayerSessionsResponse.nexttoken().c_str());
 
             for (int i = 0; i < describePlayerSessionsResponse.playersessions_size(); i++)
             {
                 PlayerSession playerSession = ParseFromBufferedPlayerSession(describePlayerSessionsResponse.playersessions(i));
-                result->AddPlayerSession(playerSession);
+                result.AddPlayerSession(playerSession);
             }
         }
 
@@ -122,6 +122,7 @@ namespace ModelMapper
             result.SetTerminationTime(bPlayerSession.terminationtime());
             result.SetPort(bPlayerSession.port());
             result.SetPlayerData(bPlayerSession.playerdata().c_str());
+            result.SetDnsName(bPlayerSession.dnsname().c_str());
 
             return result;
         }

@@ -38,6 +38,9 @@
     #ifndef MAX_MATCHMAKER_DATA_LENGTH
         #define MAX_MATCHMAKER_DATA_LENGTH 4097
     #endif
+    #ifndef MAX_DNS_NAME_LENGTH
+        #define MAX_DNS_NAME_LENGTH 64
+    #endif
 #endif
 
 namespace Aws
@@ -58,8 +61,94 @@ namespace Model
     public:
         GameSession() :
             m_maximumPlayerSessionCount(0),
+            m_status(),
             m_port(0)
         { }
+
+        /**
+        * <p>Destructor.</p>
+        */
+        ~GameSession() {}
+
+        /**
+        * <p>Copy Constructor.</p>
+        */
+        GameSession(const GameSession& other) :
+            m_gameSessionId(other.m_gameSessionId),
+            m_name(other.m_name),
+            m_fleetId(other.m_fleetId),
+            m_maximumPlayerSessionCount(other.m_maximumPlayerSessionCount),
+            m_status(other.m_status),
+            m_gameProperties(other.m_gameProperties),
+            m_ipAddress(other.m_ipAddress),
+            m_port(other.m_port),
+            m_gameSessionData(other.m_gameSessionData),
+            m_matchmakerData(other.m_matchmakerData),
+            m_dnsName(other.m_dnsName)
+        { }
+
+        /**
+        * <p>Move Constructor.</p>
+        */
+        GameSession(GameSession&& other)  :
+        m_gameSessionId(std::move(other.m_gameSessionId)),
+            m_name(std::move(other.m_name)),
+            m_fleetId(std::move(other.m_fleetId)),
+            m_maximumPlayerSessionCount(other.m_maximumPlayerSessionCount),
+            m_status(std::move(other.m_status)),
+            m_gameProperties(std::move(other.m_gameProperties)),
+            m_ipAddress(std::move(other.m_ipAddress)),
+            m_port(other.m_port),
+            m_gameSessionData(std::move(other.m_gameSessionData)),
+            m_matchmakerData(std::move(other.m_matchmakerData)),
+            m_dnsName(other.m_dnsName)
+        {
+        }
+
+
+        /**
+        * <p>Copy assignment Constructor.</p>
+        */
+        GameSession& operator= (const GameSession& other) 
+        {
+            m_maximumPlayerSessionCount = other.m_maximumPlayerSessionCount;
+            m_port = other.m_port;
+            m_ipAddress = other.m_ipAddress;
+            m_gameSessionId = other.m_gameSessionId;
+            m_name = other.m_name;
+            m_fleetId = other.m_fleetId;
+            m_status = other.m_status;
+            m_gameProperties = other.m_gameProperties;
+            m_gameSessionData = other.m_gameSessionData;
+            m_matchmakerData = other.m_matchmakerData;
+            m_dnsName = other.m_dnsName;
+
+            return *this;
+        }
+
+        /**
+        * <p>Move assignment Constructor.</p>
+        */
+        GameSession& operator= (GameSession&& other) 
+        {
+            m_maximumPlayerSessionCount = other.m_maximumPlayerSessionCount;
+            other.m_maximumPlayerSessionCount = 0;
+
+            m_port = other.m_port;
+            other.m_port = 0;
+
+            m_ipAddress = std::move(other.m_ipAddress);
+            m_gameSessionId = std::move(other.m_gameSessionId);
+            m_name = std::move(other.m_name);
+            m_fleetId = std::move(other.m_fleetId);
+            m_status = std::move(other.m_status);
+            m_gameProperties = std::move(other.m_gameProperties);
+            m_gameSessionData = std::move(other.m_gameSessionData);
+            m_matchmakerData = std::move(other.m_matchmakerData);
+            m_dnsName = std::move(other.m_dnsName);
+            return *this;
+        }
+
 
         /**
         * <p>Unique identifier for a game session.</p>
@@ -382,6 +471,41 @@ namespace Model
         * <p>Data generated from GameLift Matchmaking.</p>
         */
         inline GameSession& WithMatchmakerData(const char* value) { SetMatchmakerData(value); return *this; }
+        
+        /**
+        * <p>The DNS name of the host running a GameLift server process, used for establishing a TLS connection for a game session.</p>
+        */
+        inline const std::string& GetDnsName() const{ return m_dnsName; }
+
+        /**
+        * <p>The DNS name of the host running a GameLift server process, used for establishing a TLS connection for a game session.</p>
+        */
+        inline void SetDnsName(const std::string& value) { m_dnsName = value; }
+
+        /**
+        * <p>The DNS name of the host running a GameLift server process, used for establishing a TLS connection for a game session.</p>
+        */
+        inline void SetDnsName(std::string&& value) { m_dnsName = value; }
+
+        /**
+        * <p>The DNS name of the host running a GameLift server process, used for establishing a TLS connection for a game session.</p>
+        */
+        inline void SetDnsName(const char* value) { m_dnsName.assign(value); }
+
+        /**
+        * <p>The DNS name of the host running a GameLift server process, used for establishing a TLS connection for a game session.</p>
+        */
+        inline GameSession& WithDnsName(const std::string& value) { SetDnsName(value); return *this; }
+
+        /**
+        * <p>The DNS name of the host running a GameLift server process, used for establishing a TLS connection for a game session.</p>
+        */
+        inline GameSession& WithDnsName(std::string&& value) { SetDnsName(value); return *this; }
+
+        /**
+        * <p>The DNS name of the host running a GameLift server process, used for establishing a TLS connection for a game session.</p>
+        */
+        inline GameSession& WithDnsName(const char* value) { SetDnsName(value); return *this; }
 
     private:
         std::string m_gameSessionId;
@@ -394,6 +518,7 @@ namespace Model
         int m_port;
         std::string m_gameSessionData;
         std::string m_matchmakerData;
+        std::string m_dnsName;
 #else
     public:
         GameSession() :
@@ -408,7 +533,101 @@ namespace Model
             memset(m_ipAddress, 0, MAX_IP_LENGTH);
             memset(m_gameSessionData, 0, MAX_GAME_SESSION_DATA_LENGTH);
             memset(m_matchmakerData, 0, MAX_MATCHMAKER_DATA_LENGTH);
+            memset(m_dnsName, 0, MAX_DNS_NAME_LENGTH);
         }
+
+        /**
+        * <p>Destructor.</p>
+        */
+        ~GameSession() {}
+
+        /**
+        * <p>Copy Constructor.</p>
+        */
+        GameSession(const GameSession& other) :
+            m_maximumPlayerSessionCount(other.m_maximumPlayerSessionCount),
+			m_status(other.m_status),
+            m_gameProperties_count(other.m_gameProperties_count),
+            m_port(other.m_port)
+        {
+            strncpy(m_ipAddress, other.m_ipAddress, sizeof(other.m_ipAddress));
+            strncpy(m_gameSessionId, other.m_gameSessionId, sizeof(other.m_gameSessionId));
+            strncpy(m_name, other.m_name, sizeof(other.m_name));
+            strncpy(m_fleetId, other.m_fleetId, sizeof(other.m_fleetId));
+            strncpy(m_gameSessionData, other.m_gameSessionData, sizeof(other.m_gameSessionData));
+            strncpy(m_matchmakerData, other.m_matchmakerData, sizeof(other.m_matchmakerData));
+            strncpy(m_dnsName, other.m_dnsName, sizeof(other.m_dnsName));
+
+            std::copy(std::begin(other.m_gameProperties), std::end(other.m_gameProperties), std::begin(m_gameProperties));
+        }
+
+        /**
+        * <p>Move Constructor.</p>
+        */
+        GameSession(GameSession&& other) 
+        {
+            *this = std::move(other);
+        }
+
+        /**
+        * <p>Copy assignment Constructor.</p>
+        */
+        GameSession& operator= (const GameSession& other) 
+        {
+            m_maximumPlayerSessionCount = other.m_maximumPlayerSessionCount;
+            m_gameProperties_count = other.m_gameProperties_count;
+            m_port = other.m_port;
+            m_status = other.m_status;
+
+            strncpy(m_ipAddress, other.m_ipAddress, sizeof(other.m_ipAddress));
+            strncpy(m_gameSessionId, other.m_gameSessionId, sizeof(other.m_gameSessionId));
+            strncpy(m_name, other.m_name, sizeof(other.m_name));
+            strncpy(m_fleetId, other.m_fleetId, sizeof(other.m_fleetId));
+            strncpy(m_gameSessionData, other.m_gameSessionData, sizeof(other.m_gameSessionData));
+            strncpy(m_matchmakerData, other.m_matchmakerData, sizeof(other.m_matchmakerData));
+            strncpy(m_dnsName, other.m_dnsName, sizeof(other.m_dnsName));
+
+            std::copy(std::begin(other.m_gameProperties), std::end(other.m_gameProperties), std::begin(m_gameProperties));
+
+            return *this;
+        }
+
+        /**
+        * <p>Move assignment Constructor.</p>
+        */
+        GameSession& operator= (GameSession&& other) 
+        {
+            m_maximumPlayerSessionCount = other.m_maximumPlayerSessionCount;
+            m_gameProperties_count = other.m_gameProperties_count;
+            m_port = other.m_port;
+            m_status = other.m_status;
+
+            strncpy(m_gameSessionId, other.m_gameSessionId, sizeof(other.m_gameSessionId));
+            strncpy(m_ipAddress, other.m_ipAddress, sizeof(other.m_ipAddress));
+            strncpy(m_name, other.m_name, sizeof(other.m_name));
+            strncpy(m_fleetId, other.m_fleetId, sizeof(other.m_fleetId));
+            strncpy(m_gameSessionData, other.m_gameSessionData, sizeof(other.m_gameSessionData));
+            strncpy(m_matchmakerData, other.m_matchmakerData, sizeof(other.m_matchmakerData));
+            strncpy(m_dnsName, other.m_dnsName, sizeof(other.m_dnsName));
+
+            std::copy(std::begin(other.m_gameProperties), std::end(other.m_gameProperties), std::begin(m_gameProperties));
+
+            other.m_maximumPlayerSessionCount = 0;
+            other.m_gameProperties_count = 0;
+            other.m_port = 0;
+
+            memset(other.m_gameSessionId, 0, MAX_SESSION_ID_LENGTH);
+            memset(other.m_ipAddress, 0, MAX_IP_LENGTH);
+            memset(other.m_name, 0, MAX_SESSION_NAME_LENGTH);
+            memset(other.m_fleetId, 0, MAX_FLEET_ID_LENGTH);
+            memset(other.m_gameProperties, 0, MAX_GAME_PROPERTIES);
+            memset(other.m_gameSessionData, 0, MAX_GAME_SESSION_DATA_LENGTH);
+            memset(other.m_matchmakerData, 0, MAX_MATCHMAKER_DATA_LENGTH);
+            memset(other.m_dnsName, 0, MAX_DNS_NAME_LENGTH);
+
+            return *this;
+        }
+
 
         /**
         * <p>Unique identifier for a game session.</p>
@@ -588,6 +807,21 @@ namespace Model
         */
         inline GameSession& WithMatchmakerData(const char* value) { SetMatchmakerData(value); return *this; }
 
+        /**
+        * The DNS name of the host running a GameLift server process, used for establishing a TLS connection for a game session.
+        */
+        inline const char* GetDnsName() const{ return m_dnsName; }
+
+        /**
+        * The DNS name of the host running a GameLift server process, used for establishing a TLS connection for a game session.
+        */
+        inline void SetDnsName(const char* value) { strncpy(m_dnsName, value, sizeof(m_dnsName)); m_dnsName[sizeof(m_dnsName)-1] = 0; }
+
+        /**
+        * The DNS name of the host running a GameLift server process, used for establishing a TLS connection for a game session.
+        */
+        inline GameSession& WithDnsName(const char* value) { SetDnsName(value); return *this; }
+
     private:
         char m_gameSessionId[MAX_SESSION_ID_LENGTH];
         char m_name[MAX_SESSION_NAME_LENGTH];
@@ -600,6 +834,7 @@ namespace Model
         int m_port;
         char m_gameSessionData[MAX_GAME_SESSION_DATA_LENGTH];
         char m_matchmakerData[MAX_MATCHMAKER_DATA_LENGTH];
+        char m_dnsName[MAX_DNS_NAME_LENGTH];
 #endif
     };
 

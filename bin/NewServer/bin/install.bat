@@ -1,1 +1,0 @@
-vc_redist.x64.exe /q

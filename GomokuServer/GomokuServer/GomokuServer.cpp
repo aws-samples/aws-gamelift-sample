@@ -23,67 +23,81 @@
 
 #include <aws/core/Aws.h>
 
+#define GAMELIFT_USE_STD
+
 int main(int argc, char* argv[])
 {
-    Aws::SDKOptions options;
-    Aws::InitAPI(options);
+	try
+	{
+		Aws::SDKOptions options;
+		Aws::InitAPI(options);
 
-    int portNum = 0;
-    /// listen port override rather than dynamic port by OS
-    if (argc >= 2)
-        portNum = atoi(argv[1]);
+		int portNum = 0;
+		/// listen port override rather than dynamic port by OS
+		if (argc >= 2)
+			portNum = atoi(argv[1]);
 
-    LThreadType = THREAD_MAIN;
+		LThreadType = THREAD_MAIN;
 
-    /// for dump on crash
-    SetUnhandledExceptionFilter(ExceptionFilter);
+		/// for dump on crash
+		SetUnhandledExceptionFilter(ExceptionFilter);
 
-    INIReader iniReader("config.ini");
-    if (iniReader.ParseError() < 0)
-    {
-        std::cout << "config.ini not found\n";
-        return 0;
-    }
+		INIReader iniReader("config.ini");
+		if (iniReader.ParseError() < 0)
+		{
+			std::cout << "config.ini not found\n";
+			return 0;
+		}
 
-    GConsoleLog.reset(new ConsoleLog(".\\logs\\serverLog.txt"));
+		GConsoleLog.reset(new ConsoleLog("C:\\game\\serverOut.log"));
 
-    /// GameLift
-    GGameLiftManager.reset(new GameLiftManager);
+		/// GameLift
+		GGameLiftManager.reset(new GameLiftManager);
 
-    const std::string& sqs_endpoint = iniReader.Get("config", "SQS_ENDPOINT", "SQS_ENDPOINT");
-    const std::string& sqs_ak = iniReader.Get("config", "SQS_ACCESSKEY", "SQS_ACCESSKEY");
-    const std::string& sqs_sk = iniReader.Get("config", "SQS_SECRETKEY", "SQS_SECRETKEY");
-    const std::string& sqs_region = iniReader.Get("config", "SQS_REGION", "SQS_REGION");
+		const std::string& sqs_endpoint = iniReader.Get("config", "SQS_ENDPOINT", "SQS_ENDPOINT");
+		const std::string& sqs_ak = iniReader.Get("config", "SQS_ACCESSKEY", "SQS_ACCESSKEY");
+		const std::string& sqs_sk = iniReader.Get("config", "SQS_SECRETKEY", "SQS_SECRETKEY");
+		const std::string& sqs_role = iniReader.Get("config", "ROLE_ARN", "ROLE_ARN");
+		const std::string& sqs_region = iniReader.Get("config", "SQS_REGION", "SQS_REGION");
 
-    GGameLiftManager->SetSQSClientInfo(sqs_region, sqs_endpoint, sqs_ak, sqs_sk);
+		//?
 
-    /// Global Managers
-    GIocpManager.reset(new IocpManager);
+		GGameLiftManager->SetSQSClientInfo(sqs_region, sqs_endpoint, sqs_ak, sqs_sk, sqs_role);
 
-    if (false == GIocpManager->Initialize(portNum))
-        return -1;
+		/// Global Managers
+		GIocpManager.reset(new IocpManager);
 
-    /// Gamelift init/start!
-    if (false == GGameLiftManager->InitializeGameLift(portNum))
-        return -1;
+		if (false == GIocpManager->Initialize(portNum))
+			return -1;
 
-    if (false == GIocpManager->StartIoThreads())
-        return -1;
+		/// Gamelift init/start!
+		if (false == GGameLiftManager->InitializeGameLift(portNum))
+			return -1;
 
-    GConsoleLog->PrintOut(true, "Start Server\n");
+		if (false == GIocpManager->StartIoThreads())
+			return -1;
 
-    GIocpManager->StartAccept(); ///< block here...
+		GConsoleLog->PrintOut(true, "Start Server\n");
 
-    GIocpManager->Finalize();
+		GIocpManager->StartAccept(); ///< block here...
 
-    /// Gamelift end!
-    GGameLiftManager->FinalizeGameLift();
+		GConsoleLog->PrintOut(true, "Accept Done\n");
 
-    GConsoleLog->PrintOut(true, "End Server\n");
+		GIocpManager->Finalize();
 
-    Aws::ShutdownAPI(options);
+		/// Gamelift end!
+		GGameLiftManager->FinalizeGameLift();
 
-    return 0;
+		GConsoleLog->PrintOut(true, "End Server\n");
+
+		Aws::ShutdownAPI(options);
+
+		return 0;
+	}
+	catch (int exception)
+	{
+		GConsoleLog->PrintOut(true, "Exception Code: %d\n", exception);
+	}
+	return 0;
 }
-
 

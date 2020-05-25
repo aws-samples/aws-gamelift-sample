@@ -14,13 +14,14 @@ class DecimalEncoder(json.JSONEncoder):
                 return int(o)
         return super(DecimalEncoder, self).default(o)
         
-        
+
 sqs = boto3.client('sqs')
 dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
 
 ddb_table = dynamodb.Table('GomokuPlayerInfo')
 
 def lambda_handler(event, context):
+    print(event)
     for record in event['Records']:
         parsed = json.loads(record['body'])
         playername = parsed['PlayerName']
@@ -28,6 +29,7 @@ def lambda_handler(event, context):
         windiff = parsed['WinDiff']
         losediff = parsed['LoseDiff']
         ddb_table.update_item(
+            TableName="GomokuPlayerInfo",
             Key={ 'PlayerName' : playername }, 
             UpdateExpression="set Score = Score + :score, Win = Win + :win, Lose = Lose + :lose",
             ExpressionAttributeValues={
@@ -37,3 +39,4 @@ def lambda_handler(event, context):
             },
             ReturnValues="UPDATED_NEW"
         )
+        

@@ -6,7 +6,7 @@
 
 ConsoleLog::ConsoleLog(const char* filename)
 {
-	mLogFileStream.open(filename, std::ofstream::out);
+	mLogFileStream.open(filename, std::ofstream::out | std::ofstream::app);
 }
 
 ConsoleLog::~ConsoleLog()
@@ -35,8 +35,6 @@ void ConsoleLog::PrintOut(bool fileOut, const char* fmt, ...)
 }
 
 std::unique_ptr<ConsoleLog> GConsoleLog(nullptr);
-
-
 
 namespace LoggerUtil
 {

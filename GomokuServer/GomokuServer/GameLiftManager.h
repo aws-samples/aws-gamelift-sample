@@ -29,7 +29,7 @@ public:
 
     bool InitializeGameLift(int listenPort);
 
-    void SetSQSClientInfo(const std::string& region, const std::string& url, const std::string& ak, const std::string& sk);
+    void SetSQSClientInfo(const std::string& region, const std::string& url, const std::string& ak, const std::string& sk, const std::string& role);
     void SendGameResultToSQS(const std::string& blackJson, const std::string& whiteJson) const;
 
     void FinalizeGameLift();
@@ -61,6 +61,7 @@ private:
     std::string mSQSUrl;
     std::string mSQSAk;
     std::string mSQSSk;
+	std::string mSQSRole;
     std::string mSQSRegion;
 
     std::shared_ptr<GameSession> mGameSession; ///< 1:1 relationship, currently

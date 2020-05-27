@@ -14,7 +14,7 @@ class DecimalEncoder(json.JSONEncoder):
                 return int(o)
         return super(DecimalEncoder, self).default(o)
         
-
+        
 sqs = boto3.client('sqs')
 dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
 

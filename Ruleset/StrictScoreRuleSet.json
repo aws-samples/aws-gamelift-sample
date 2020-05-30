@@ -1,0 +1,27 @@
+{
+    "name": "Strict Matching",
+    "ruleLanguageVersion": "1.0",
+
+    "playerAttributes" :
+    [
+        {
+            "name" : "score",
+            "type" : "number",
+            "default" : 1000
+        }
+    ],
+    "teams": [{
+        "name": "player",
+        "minPlayers": 1,
+        "maxPlayers": 1,
+        "quantity": 2
+    }],
+
+    "rules": [{
+        "name": "SameScore",
+        "description": "Only match players when they have same score",
+        "type": "comparison",
+        "operation": "=",
+        "measurements": ["flatten(teams[*].players.attributes[score])"]
+    }]
+}

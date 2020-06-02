@@ -1,16 +1,25 @@
 import socket
 import boto3
+import requests
 
-GameServerGroupName = 'GomokuServerGroups'
-GameServerId = 'GomokuServer-1'
-InstanceId = 'i-0b9bd2e4a0252cfb5'
-ConnectionInfo = 'ec2-3-233-226-183.compute-1.amazonaws.com'
 
-client = boto3.client('gamelift', 'us-east-1')
+GameServerGroupName = 'GameServerGroups'
+GameServerId = 'game-server-1'
+InstanceId = requests.get('http://169.254.169.254/latest/meta-data/instance-id').text
+ConnectionInfo = requests.get('http://169.254.169.254/latest/meta-data/public-hostname').text
+
+client = boto3.client('gamelift', 'ap-northeast-2')
 
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_socket.bind(("", 5000))
 server_socket.listen(5)
+
+def list_game_servers():
+    response = client.list_game_servers(
+        GameServerGroupName=GameServerGroupName
+    )
+    print(response)
+    return response
 
 # Register GameServer
 def register_game_server():
@@ -24,8 +33,21 @@ def register_game_server():
 #
 
 # Update GameServer
-def update_game_server():
-    pass
+def update_game_server(flag):
+    if flag == True:
+        return client.update_game_server(
+            GameServerGroupName=GameServerGroupName,
+            GameServerId=GameServerId,
+            HealthCheck="HEALTHY",
+            UtilizationStatus="AVAILABLE"
+        )
+    else:
+        return client.update_game_server(
+            GameServerGroupName=GameServerGroupName,
+            GameServerId=GameServerId,
+            HealthCheck="HEALTHY",
+            UtilizationStatus="UTILIZED"
+        )
 #
 
 # Deregister GameServer
@@ -40,34 +62,37 @@ def deregister_game_server():
 print("TCP server waiting for Client on port 5000")
 
 while True:
-    # Register Game Server to Game Server Group
-    register_game_server()
+    # List Game Server 
+    listResponse = list_game_servers()
+
+    if not 'GameServers' in listResponse or not any(server['GameServerId'] == GameServerId for server in listResponse['GameServers']):
+        # Register Game Server to Game Server Group
+        register_game_server()
+        #
+
+    # Update Game Server Status "AVAILABLE"
+    update_game_server(True)
+    #
 
     client_socket, address = server_socket.accept()
     print("I got connection from ", address)
 
-    # Update Game Server Status
-    update_game_server()
+    # Update Game Server Status "UTILIZED"
+    update_game_server(False)
+    #
 
     while True:
-        data = input('SEND(TYPE q or Q to Quit:')
-        if(data == 'Q' or data == 'q'):
-            client_socket.send(data.encode())
-            client_socket.close()
-            break
-        else:
-            client_socket.send(data.encode())
-        
         data = client_socket.recv(512).decode()
+        print("RECEIVED:", data)
         if(data == 'q' or data == 'Q'):
             client_socket.close()
             break
         else:
-            print("RECEIVED:", data)
-    break
+            client_socket.send(data.encode())
 
-# Deregister Game Server
-deregister_game_server()
-#
+    # Deregister Game Server
+    deregister_game_server()
+    #
+
 server_socket.close()
 print("SOCKET Closed... End")

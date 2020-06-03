@@ -71,8 +71,8 @@
                     "height": 60
                 },
                 "position": {
-                    "x": 120,
-                    "y": 0
+                    "x": 50,
+                    "y": 270
                 },
                 "z": 1,
                 "embeds": [],
@@ -152,6 +152,78 @@
                     "y": 180
                 },
                 "z": 1,
+                "embeds": []
+            },
+            "6f0396b6-9981-49d7-afd2-53c89ffa799a": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 210,
+                    "y": -20
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "741490bc-701d-4cc8-a71c-af975e343365": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 140,
+                    "y": 280
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "3e399c0e-c690-4f08-92b9-230e65287b39": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 210,
+                    "y": 280
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "0255aa41-50a3-42e3-8e36-afc44d57a44c": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 140,
+                    "y": -20
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "17e3cfb1-ad7f-4928-87da-01d18bce26a1": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 60,
+                    "y": -20
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "ce0c059e-3712-49f4-a786-3844cef11e1b": {
+                "size": {
+                    "width": 130,
+                    "height": 80
+                },
+                "position": {
+                    "x": 300,
+                    "y": 260
+                },
+                "z": 0,
                 "embeds": []
             }
         }
@@ -248,7 +320,8 @@
         "GameResultQueue": {
             "Type": "AWS::SQS::Queue",
             "Properties": {
-                "QueueName": "game-result-queue"
+                "QueueName": "game-result-queue",
+                "VisibilityTimeout": 60
             },
             "Metadata": {
                 "AWS::CloudFormation::Designer": {
@@ -473,6 +546,207 @@
             "Metadata": {
                 "AWS::CloudFormation::Designer": {
                     "id": "2a76c901-febc-49a9-a370-12ae1d0ef33e"
+                }
+            }
+        },
+        "GameSqsProcess": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+                "FunctionName": "game-sqs-process",
+                "Runtime": "python2.7",
+                "Handler": "index.lambda_handler",
+                "Role": {
+                    "Fn::GetAtt": [
+                        "GomokuGameSqsProcess",
+                        "Arn"
+                    ]
+                },
+                "Code": {
+                    "ZipFile": {
+                        "Fn::Join": [
+                            "\n",
+                            [
+                                "import json",
+                                "",
+                                "def lambda_handler(event, context):",
+                                "   # TODO implement",
+                                "   return {",
+                                "       'statusCode': 200,",
+                                "       'body': json.dumps('Hello from Lambda')",
+                                "   }"
+                            ]
+                        ]
+                    }
+                },
+                "Timeout": 60
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "6f0396b6-9981-49d7-afd2-53c89ffa799a"
+                }
+            }
+        },
+        "GameRankUpdate": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+                "FunctionName": "game-rank-update",
+                "Runtime": "python2.7",
+                "Handler": "index.lambda_handler",
+                "Role": {
+                    "Fn::GetAtt": [
+                        "GomokuGameRankUpdate",
+                        "Arn"
+                    ]
+                },
+                "Code": {
+                    "ZipFile": {
+                        "Fn::Join": [
+                            "\n",
+                            [
+                                "import json",
+                                "",
+                                "def lambda_handler(event, context):",
+                                "   # TODO implement",
+                                "   return {",
+                                "       'statusCode': 200,",
+                                "       'body': json.dumps('Hello from Lambda')",
+                                "   }"
+                            ]
+                        ]
+                    }
+                },
+                "Timeout": 60
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "741490bc-701d-4cc8-a71c-af975e343365"
+                }
+            }
+        },
+        "GameRankReader": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+                "FunctionName": "game-rank-reader",
+                "Runtime": "python2.7",
+                "Handler": "index.lambda_handler",
+                "Role": {
+                    "Fn::GetAtt": [
+                        "GomokuGameRankReader",
+                        "Arn"
+                    ]
+                },
+                "Code": {
+                    "ZipFile": {
+                        "Fn::Join": [
+                            "\n",
+                            [
+                                "import json",
+                                "",
+                                "def lambda_handler(event, context):",
+                                "   # TODO implement",
+                                "   return {",
+                                "       'statusCode': 200,",
+                                "       'body': json.dumps('Hello from Lambda')",
+                                "   }"
+                            ]
+                        ]
+                    }
+                },
+                "Timeout": 60
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "3e399c0e-c690-4f08-92b9-230e65287b39"
+                }
+            }
+        },
+        "GameMatchRequest": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+                "FunctionName": "game-match-request",
+                "Runtime": "python2.7",
+                "Handler": "index.lambda_handler",
+                "Role": {
+                    "Fn::GetAtt": [
+                        "GomokuGameMatchRequest",
+                        "Arn"
+                    ]
+                },
+                "Code": {
+                    "ZipFile": {
+                        "Fn::Join": [
+                            "\n",
+                            [
+                                "import json",
+                                "",
+                                "def lambda_handler(event, context):",
+                                "   # TODO implement",
+                                "   return {",
+                                "       'statusCode': 200,",
+                                "       'body': json.dumps('Hello from Lambda')",
+                                "   }"
+                            ]
+                        ]
+                    }
+                },
+                "Timeout": 60
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "0255aa41-50a3-42e3-8e36-afc44d57a44c"
+                }
+            }
+        },
+        "GameMatchStatus": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+                "FunctionName": "game-match-status",
+                "Runtime": "python2.7",
+                "Handler": "index.lambda_handler",
+                "Role": {
+                    "Fn::GetAtt": [
+                        "GomokuGameMatchStatus",
+                        "Arn"
+                    ]
+                },
+                "Code": {
+                    "ZipFile": {
+                        "Fn::Join": [
+                            "\n",
+                            [
+                                "import json",
+                                "",
+                                "def lambda_handler(event, context):",
+                                "   # TODO implement",
+                                "   return {",
+                                "       'statusCode': 200,",
+                                "       'body': json.dumps('Hello from Lambda')",
+                                "   }"
+                            ]
+                        ]
+                    }
+                },
+                "Timeout": 60
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "17e3cfb1-ad7f-4928-87da-01d18bce26a1"
+                }
+            }
+        },
+        "GomokuAPI": {
+            "Type": "AWS::ApiGateway::RestApi",
+            "Properties": {
+                "Name": "GomokuAPI",
+                "EndpointConfiguration": {
+                    "Types": [
+                        "REGIONAL"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "ce0c059e-3712-49f4-a786-3844cef11e1b"
                 }
             }
         }

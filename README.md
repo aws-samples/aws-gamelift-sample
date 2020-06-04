@@ -23,6 +23,7 @@ This repository contains a sample game project using Amazon GameLift and AWS ser
 
 - Developing a Hands-on Technical Workshop to demonstrate the use of Amazon GameLift with AWS managed components for game services.
 - Developing a CloudFormation template for a one-click deployment
+- Adding additional features of GameLift including FleetIQ, IAM role supports.
 
 ## For further questions/ assistances
 

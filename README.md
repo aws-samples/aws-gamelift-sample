@@ -12,13 +12,18 @@ This repository contains a sample game project using Amazon GameLift and AWS ser
 ## Sample Game Architecture (Serverless with FlexMatch)
 ![Architecture Overview](web/gomoku_arch.png)
 
-
-## Deployment Guide
+## Deployment
  - Play and Deployment guide 
-     - Korean version (most recent) [here](deployment/GameLift_Gomok%2BHoL%2BFlexMatch_KR_latest.pdf)
-     - English version [here](deployment/deployment.md)
+     - Korean version [here](http://gamelift-workshop.s3-website.ap-northeast-2.amazonaws.com/ko/)
+     - English version [here](http://gamelift-workshop.s3-website.ap-northeast-2.amazonaws.com/en/)
  - Game Client Run guide
      - MS C++ Redistributable package (https://www.microsoft.com/ko-kr/download/details.aspx?id=48145)
 
+## Future Work
+ - Developing a Hands-on Technical Workshop to demonstrate the use of Amazon GameLift with AWS managed components for game services.
+ - Developing Demo environment based on Cloud9 IDE.
+ - Update FleetIQ demo continously.
+ - Developing multi-region game support feature.
+
 ## For further questions/ assistances
- - Please contact korea-gaming-sa@amazon.com for any comment/ requests regarding this content
+ - Please contact korea-gaming-sa@amazon.com for any comment/ requests regarding this content 

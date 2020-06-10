@@ -25,44 +25,49 @@ class PlayerSession;
 class GameLiftManager
 {
 public:
-	GameLiftManager();
+    GameLiftManager();
 
-	bool InitializeGameLift(int listenPort);
-	
-	void SetSQSClientInfo(const std::string& region, const std::string& url, const std::string& ak, const std::string& sk);
-	void SendGameResultToSQS(const std::string& blackJson, const std::string& whiteJson) const;
+    bool InitializeGameLift(int listenPort);
 
-	void FinalizeGameLift();
+    void SetSQSClientInfo(const std::string& region, const std::string& url, const std::string& ak, const std::string& sk, const std::string& role);
+    void SendGameResultToSQS(const std::string& blackJson, const std::string& whiteJson) const;
 
-	bool AcceptPlayerSession(std::shared_ptr<PlayerSession> psess, const std::string& playerSessionId);
-	void RemovePlayerSession(std::shared_ptr<PlayerSession> psess, const std::string& playerSessionId);
+    void FinalizeGameLift();
 
-	void OnStartGameSession(Aws::GameLift::Server::Model::GameSession myGameSession);
+    bool AcceptPlayerSession(std::shared_ptr<PlayerSession> psess, const std::string& playerSessionId);
+    void RemovePlayerSession(std::shared_ptr<PlayerSession> psess, const std::string& playerSessionId);
 
-	void OnProcessTerminate();
+    void OnStartGameSession(Aws::GameLift::Server::Model::GameSession myGameSession);
 
-	bool OnHealthCheck() { return mActivated; }
+    void OnProcessTerminate();
 
-	std::shared_ptr<GameSession> GetGameSession() { return mGameSession; }
+    bool OnHealthCheck() { return mActivated; }
 
-	void CheckReadyAll();
+    std::shared_ptr<GameSession> GetGameSession() { return mGameSession; }
+
+    void CheckReadyAll();
+
+    int FindScoreFromMatchData(const std::string& playerName) const;
 
 private:
-	void TerminateGameSession(int exitCode);
+    void TerminateGameSession(int exitCode);
 
 private:
-	FastSpinlock mLock;
+    FastSpinlock mLock;
 
-	bool mActivated;
-	int	mCheckTerminationCount;
+    bool mActivated;
+    int mCheckTerminationCount;
 
-	std::string mSQSUrl;
-	std::string mSQSAk;
-	std::string mSQSSk;
-	std::string mSQSRegion;
-	
-	std::shared_ptr<GameSession> mGameSession; ///< 1:1 relationship, currently
-	volatile long mPlayerReadyCount;
+    std::string mSQSUrl;
+    std::string mSQSAk;
+    std::string mSQSSk;
+	std::string mSQSRole;
+    std::string mSQSRegion;
+
+    std::shared_ptr<GameSession> mGameSession; ///< 1:1 relationship, currently
+    volatile long mPlayerReadyCount;
+
+    std::string mMatchMakerData;
 };
 
 extern std::unique_ptr<GameLiftManager> GGameLiftManager;

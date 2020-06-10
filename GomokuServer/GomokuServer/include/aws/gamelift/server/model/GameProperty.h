@@ -43,6 +43,49 @@ class AWS_GAMELIFT_API GameProperty
 public:
     GameProperty(){}
 
+    /**
+    * <p>Destructor.</p>
+    */
+    ~GameProperty() {}
+
+    /**
+    * <p>Copy Constructor.</p>
+    */
+    GameProperty(const GameProperty& other) :
+        m_key(other.m_key),
+        m_value(other.m_value)
+    { }
+
+    /**
+    * <p>Move Constructor.</p>
+    */
+    GameProperty(GameProperty&& other) 
+    { 
+		*this = std::move(other);
+	}
+
+
+    /**
+    * <p>Copy assignment Constructor.</p>
+    */
+    GameProperty& operator= (const GameProperty& other) 
+    {
+        m_key = other.m_key;
+        m_value = other.m_value;
+
+        return *this;
+    }
+
+    /**
+    * <p>Move assignment Constructor.</p>
+    */
+    GameProperty& operator= (GameProperty&& other) 
+    {
+        m_key = std::move(other.m_key);
+        m_value = std::move(other.m_value);
+
+        return *this;
+    }
 
     inline const std::string& GetKey() const{ return m_key; }
 
@@ -96,11 +139,57 @@ public:
         memset(m_value, 0, MAX_VALUE_LENGTH);
     }
 
+    /**
+    * <p>Destructor.</p>
+    */
+    ~GameProperty() {}
+
+    /**
+    * <p>Copy Constructor.</p>
+    */
+    GameProperty(const GameProperty& other)
+    {
+        strncpy(m_key, other.m_key, sizeof(other.m_key));
+        strncpy(m_value, other.m_value, sizeof(other.m_value));
+    }
+
+    /**
+    * <p>Move Constructor.</p>
+    */
+    GameProperty(GameProperty&& other) 
+    {
+		*this = std::move(other);
+    }
+
+    /**
+    * <p>Copy assignment Constructor.</p>
+    */
+    GameProperty& operator= (const GameProperty& other) 
+    {
+        strncpy(m_key, other.m_key, sizeof(other.m_key));
+        strncpy(m_value, other.m_value, sizeof(other.m_value));
+
+        return *this;
+    }
+
+    /**
+    * <p>Move assignment Constructor.</p>
+    */
+    GameProperty& operator= (GameProperty&& other) 
+    {
+        strncpy(m_key, other.m_key, sizeof(other.m_key));
+        strncpy(m_value, other.m_value, sizeof(other.m_value));
+
+		memset(other.m_key, 0, MAX_KEY_LENGTH);
+		memset(other.m_value, 0, MAX_VALUE_LENGTH);
+
+        return *this;
+    }
 
     inline const char* GetKey() const{ return m_key; }
 
 
-    inline void SetKey(const char* value) { strcpy(m_key, value); }
+    inline void SetKey(const char* value) { strncpy(m_key, value, sizeof(m_key)); m_key[sizeof(m_key)-1] = 0; }
 
 
     inline GameProperty& WithKey(const char* value) { SetKey(value); return *this; }
@@ -109,7 +198,7 @@ public:
     inline const char* GetValue() const{ return m_value; }
 
 
-    inline void SetValue(const char* value) { strcpy(m_value, value); }
+    inline void SetValue(const char* value) { strncpy(m_value, value, sizeof(m_value)); m_value[sizeof(m_value)-1] = 0; }
 
 
     inline GameProperty& WithValue(const char* value) { SetValue(value); return *this; }

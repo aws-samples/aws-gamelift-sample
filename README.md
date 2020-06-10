@@ -16,14 +16,6 @@ This repository includes CloudFormation for deployment automation. You can start
 This repository contains Python based simple TCP sample using FleetIQ.
 Since FleetIQ is on Preview stage, this repository will be updated continously.
 
-
-## Sample Game Architecture
-
-![Architecture Overview](web/gomoku_arch.png)
-
-## Deployment
-- Play and Deployment guide [here](deployment/deployment.md)
-
 ## Sample Game Architecture (Serverless with FlexMatch)
 ![Architecture Overview](web/gomoku_arch.png)
 

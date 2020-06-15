@@ -93,12 +93,10 @@ bool GameLiftManager::InitializeGameLift(int listenPort)
 }
 
 
-void GameLiftManager::SetSQSClientInfo(const std::string& region, const std::string& url, const std::string& ak, const std::string& sk, const std::string& role)
+void GameLiftManager::SetSQSClientInfo(const std::string& region, const std::string& url, const std::string& role)
 {
 	mSQSUrl = url;
 	mSQSRegion = region;
-	mSQSAk = ak;
-	mSQSSk = sk;
 	mSQSRole = role;
 }
 

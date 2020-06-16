@@ -21,8 +21,8 @@ Since FleetIQ is on Preview stage, this repository will be updated continously.
 
 ## Deployment
  - Play and Deployment guide 
-     - Korean version [here](https://jinspark-lab.github.io/gamelift/ko/)
-     - English version [here](https://jinspark-lab.github.io/gamelift/en/)
+     - Korean version [here](http://gamelift-workshop.s3-website.ap-northeast-2.amazonaws.com/ko/)
+     - English version [here](http://gamelift-workshop.s3-website.ap-northeast-2.amazonaws.com/en/)
  - Game Client Run guide
      - MS C++ Redistributable package (https://www.microsoft.com/ko-kr/download/details.aspx?id=48145)
 

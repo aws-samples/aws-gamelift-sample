@@ -55,14 +55,12 @@ int main(int argc, char* argv[])
 		GGameLiftManager.reset(new GameLiftManager);
 
 		const std::string& sqs_endpoint = iniReader.Get("config", "SQS_ENDPOINT", "SQS_ENDPOINT");
-		const std::string& sqs_ak = iniReader.Get("config", "SQS_ACCESSKEY", "SQS_ACCESSKEY");
-		const std::string& sqs_sk = iniReader.Get("config", "SQS_SECRETKEY", "SQS_SECRETKEY");
 		const std::string& sqs_role = iniReader.Get("config", "ROLE_ARN", "ROLE_ARN");
 		const std::string& sqs_region = iniReader.Get("config", "SQS_REGION", "SQS_REGION");
 
 		//?
 
-		GGameLiftManager->SetSQSClientInfo(sqs_region, sqs_endpoint, sqs_ak, sqs_sk, sqs_role);
+		GGameLiftManager->SetSQSClientInfo(sqs_region, sqs_endpoint, sqs_role);
 
 		/// Global Managers
 		GIocpManager.reset(new IocpManager);

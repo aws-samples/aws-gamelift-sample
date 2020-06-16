@@ -29,7 +29,7 @@ public:
 
     bool InitializeGameLift(int listenPort);
 
-    void SetSQSClientInfo(const std::string& region, const std::string& url, const std::string& ak, const std::string& sk, const std::string& role);
+    void SetSQSClientInfo(const std::string& region, const std::string& url, const std::string& role);
     void SendGameResultToSQS(const std::string& blackJson, const std::string& whiteJson) const;
 
     void FinalizeGameLift();
@@ -59,8 +59,6 @@ private:
     int mCheckTerminationCount;
 
     std::string mSQSUrl;
-    std::string mSQSAk;
-    std::string mSQSSk;
 	std::string mSQSRole;
     std::string mSQSRegion;
 

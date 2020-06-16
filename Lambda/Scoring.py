@@ -16,7 +16,6 @@ def handler(event, context):
         playerName = record['dynamodb']['NewImage']['PlayerName']['S']
         
         if 'OldImage' in record['dynamodb'].keys():
-            oldScore = int(record['dynamodb']['OldImage']['Score']['N'])
             oldWin = int(record['dynamodb']['OldImage']['Win']['N'])
             oldLose = int(record['dynamodb']['OldImage']['Lose']['N'])
             
@@ -25,6 +24,6 @@ def handler(event, context):
             redis.zrem('Rating', old_json)
         
         newScore = int(record['dynamodb']['NewImage']['Score']['N'])
-        redis.zadd('Rating', { str(playerName) : float(newScore) })
+        redis.zadd('Rating', str(playerName), float(newScore))
 
     return "OK" 

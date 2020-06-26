@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Test FlexMatch Ruleset on Start Full Stack Game with GameLift</title>
+    <link>/aws-gamelift-sample/en/flexmatch/lab28/</link>
+    <description>Recent content in Test FlexMatch Ruleset on Start Full Stack Game with GameLift</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    
+	<atom:link href="/aws-gamelift-sample/en/flexmatch/lab28/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+  </channel>
+</rss>

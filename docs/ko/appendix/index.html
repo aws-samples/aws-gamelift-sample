@@ -1,0 +1,1872 @@
+<!DOCTYPE html>
+<html lang="ko" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.71.1" />
+    <meta name="description" content="Full Stack Game Demo">
+<meta name="author" content="Jinsung Thomas Park">
+
+    <link rel="icon" href="/ko/images/favicon.png" type="image/png">
+
+    <title>부록(Appendix) :: GameLift 로 Full Stack Game 시작</title>
+
+    
+    <link href="/ko/css/nucleus.css?1592992523" rel="stylesheet">
+    <link href="/ko/css/fontawesome-all.min.css?1592992523" rel="stylesheet">
+    <link href="/ko/css/hybrid.css?1592992523" rel="stylesheet">
+    <link href="/ko/css/featherlight.min.css?1592992523" rel="stylesheet">
+    <link href="/ko/css/perfect-scrollbar.min.css?1592992523" rel="stylesheet">
+    <link href="/ko/css/auto-complete.css?1592992523" rel="stylesheet">
+    <link href="/ko/css/atom-one-dark-reasonable.css?1592992523" rel="stylesheet">
+    <link href="/ko/css/theme.css?1592992523" rel="stylesheet">
+    <link href="/ko/css/hugo-theme.css?1592992523" rel="stylesheet">
+    
+      <link href="/ko/css/theme-aws.css?1592992523" rel="stylesheet">
+    
+
+    <script src="/ko/js/jquery-3.3.1.min.js?1592992523"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/ko/appendix/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/ko">
+	<img src="/ko/images/logo.png" height="70px"/>
+</a>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-169409427-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-169409427-1');
+</script>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/ko/js/lunr.min.js?1592992523"></script>
+<script type="text/javascript" src="/ko/js/auto-complete.js?1592992523"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/ko\/\/ko";
+    
+</script>
+<script type="text/javascript" src="/ko/js/search.js?1592992523"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/intro/" title="GameLift HoL 소개" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/intro/">
+          <b>0. </b>GameLift HoL 소개
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/intro/lab01/" title="워크샵 내용 구성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/intro/lab01/">
+          <b>0-1. </b>워크샵 내용 구성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/intro/lab02/" title="실습 사전 준비" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/intro/lab02/">
+          <b>0-2. </b>실습 사전 준비
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/intro/lab03/" title="실습 사전 지식" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/intro/lab03/">
+          <b>0-3. </b>실습 사전 지식
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/awsservice/" title="풀스택 AWS 서비스 구성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/awsservice/">
+          <b>1. </b>풀스택 AWS 서비스 구성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/awsservice/lab10/" title="CloudFormation 스택 생성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/awsservice/lab10/">
+          <b>1-0. </b>CloudFormation 스택 생성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/awsservice/lab11/" title="DynamoDB 만들기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/awsservice/lab11/">
+          <b>1-1. </b>DynamoDB 만들기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/awsservice/lab12/" title="ElastiCache 구성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/awsservice/lab12/">
+          <b>1-2. </b>ElastiCache 구성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/awsservice/lab13/" title="SQS 생성하기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/awsservice/lab13/">
+          <b>1-3. </b>SQS 생성하기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/awsservice/lab14/" title="IAM 정책 및 역할 생성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/awsservice/lab14/">
+          <b>1-4. </b>IAM 정책 및 역할 생성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/flexmatch/" title="GameLift FlexMatch 실습" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/flexmatch/">
+          <b>2. </b>GameLift FlexMatch 실습
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/flexmatch/lab21/" title="Lambda 함수 구성하기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/flexmatch/lab21/">
+          <b>2-1. </b>Lambda 함수 구성하기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/flexmatch/lab22/" title="API Gateway 구성하기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/flexmatch/lab22/">
+          <b>2-2. </b>API Gateway 구성하기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/flexmatch/lab23/" title="S3 웹 호스팅" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/flexmatch/lab23/">
+          <b>2-3. </b>S3 웹 호스팅
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/flexmatch/lab24/" title="게임 서버 빌드 &amp; 플릿 생성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/flexmatch/lab24/">
+          <b>2-4. </b>게임 서버 빌드 &amp; 플릿 생성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/flexmatch/lab25/" title="Serverless FlexMatch 구성하기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/flexmatch/lab25/">
+          <b>2-5. </b>Serverless FlexMatch 구성하기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/flexmatch/lab26/" title="FlexMatch 클라이언트와 연결" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/flexmatch/lab26/">
+          <b>2-6. </b>FlexMatch 클라이언트와 연결
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/flexmatch/lab27/" title="FlexMatch 매치메이킹 이벤트" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/flexmatch/lab27/">
+          <b>2-7. </b>FlexMatch 매치메이킹 이벤트
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/flexmatch/lab28/" title="FlexMatch 룰셋 테스트" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/flexmatch/lab28/">
+          <b>2-8. </b>FlexMatch 룰셋 테스트
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/fleetiq/" title="FleetIQ 맛보기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/fleetiq/">
+          <b>3. </b>FleetIQ 맛보기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/fleetiq/lab31/" title="실습 사전 준비" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/fleetiq/lab31/">
+          <b>3-1. </b>실습 사전 준비
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/fleetiq/lab32/" title="Fiesta IAM 구성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/fleetiq/lab32/">
+          <b>3-2. </b>Fiesta IAM 구성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/fleetiq/lab33/" title="게임 서버 그룹 만들기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/fleetiq/lab33/">
+          <b>3-3. </b>게임 서버 그룹 만들기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/fleetiq/lab34/" title="FleetIQ 기반 서버 생성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/fleetiq/lab34/">
+          <b>3-4. </b>FleetIQ 기반 서버 생성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/fleetiq/lab35/" title="FleetIQ 기반 클라이언트 생성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/fleetiq/lab35/">
+          <b>3-5. </b>FleetIQ 기반 클라이언트 생성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/fleetiq/lab36/" title="서버 - 클라이언트 연동" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/fleetiq/lab36/">
+          <b>3-6. </b>서버 - 클라이언트 연동
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/gamelift/" title="GameLift Classic 실습 (옵션)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/gamelift/">
+          <b>4. </b>GameLift Classic 실습 (옵션)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/gamelift/lab41/" title="Lambda 함수 구성하기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/gamelift/lab41/">
+          <b>4-1. </b>Lambda 함수 구성하기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/gamelift/lab42/" title="API Gateway 구성하기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/gamelift/lab42/">
+          <b>4-2. </b>API Gateway 구성하기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/gamelift/lab43/" title="S3 웹 호스팅" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/gamelift/lab43/">
+          <b>4-3. </b>S3 웹 호스팅
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/gamelift/lab44/" title="게임 서버 빌드 &amp; 플릿 생성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/gamelift/lab44/">
+          <b>4-4. </b>게임 서버 빌드 &amp; 플릿 생성
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/gamelift/lab45/" title="매치메이커 서버 만들기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/gamelift/lab45/">
+          <b>4-5. </b>매치메이커 서버 만들기
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/gamelift/lab46/" title="게임 클라이언트 구성 &amp; 게임 플레이!" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/gamelift/lab46/">
+          <b>4-6. </b>게임 클라이언트 구성 &amp; 게임 플레이!
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/cleanup/" title="Clean Up" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/cleanup/">
+          <b>5. </b>Clean Up
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/appendix/" title="부록(Appendix)" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/ko/appendix/">
+          <b>6. </b>부록(Appendix)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="/en/appendix/">English</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="ko" value="/ko/appendix/" selected>한국어</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      © 2020 Amazon Web Services, Inc. or its Affiliates. All rights reserved.
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            <a href='/ko/'>GameLift HoL</a> > 부록(Appendix)
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#gamelift-바이너리-빌드">GameLift 바이너리 빌드</a></li>
+        <li><a href="#gamelift-게임-서버-접속">GameLift 게임 서버 접속</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              부록(Appendix)
+            </h1>
+          
+
+        
+
+
+
+
+	<h3 id="gamelift-바이너리-빌드">GameLift 바이너리 빌드</h3>
+
+<div class="notices info" ><p>GameLift 의 게임 서버 및 클라이언트 바이너리는 모두 Visual Studio 2015 기반에서 제작되었습니다. 해당 버전과 호환되는 Visual Studio 환경에서 빌드하시기를 권고드립니다.</p>
+</div>
+
+<ol>
+<li>
+<p>제공된 소스 코드에서 GomokuClient 또는 GomokuServer 폴더 중 빌드하고자 하는 프로젝트를 선택합니다.</p>
+</li>
+<li>
+<p>프로젝트를 Visual Studio 환경에서 오픈합니다. 프로젝트는 Nuget 패키지 기반 Dependency 를 갖고 있으며, AWS SDK 들에 대해 DLL Dependency 를 갖고 있습니다.</p>
+</li>
+<li>
+<p>다음과 같이 프로젝트 세팅을 구성하고 빌드합니다.</p>
+</li>
+</ol>
+<p><img src="../images/appendix/APP-1.png" alt="APP"></p>
+<p>빌드 환경을 Release 로 구성하시는 것을 권고드립니다. 기본 폴더에 관련 Dependency 를 이미 포함하고 있습니다. 만약 문제가 생긴다면 Release 폴더의 dll 파일 등을 복사하여 debug 폴더에도 동일한 환경을 구성 후 테스트해보실 수 있습니다.</p>
+<p><strong>GameLift Classic 프로젝트와 GameLift FlexMatch 프로젝트는 서로 다른 버전의 SDK 를 사용하므로 구현 상에 차이가 있습니다. 각 환경에 맞게 프로젝트를 빌드하시는 것을 권고드립니다.</strong></p>
+<h3 id="gamelift-게임-서버-접속">GameLift 게임 서버 접속</h3>
+<p>GameLift 에서 게임 서버 리소스를 관리하지만, 디버깅이나 로그 분석 등의 이유로 게임 서버에 직접 접속해야할 수 있습니다. 이럴 때 다음 지침을 참고합니다.</p>
+<p>아래 커맨드 사용을 위해서는 CLI 가 필요합니다.</p>
+<ol>
+<li>FleetID 로부터 해당 플릿에 구성된 인스턴스 목록을 조회합니다.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">aws gamelift describe-instances --fleet-id fleet-4b7fc542-cb08-4f65-908c-737f64ca2e8f --region ap-northeast-2
+</code></pre></div><ol start="2">
+<li>위의 커맨드로 알게된 Fleet ID 와 인스턴스 ID 를 기반으로 다음 명령어를 수행합니다.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">aws gamelift get-instance-access --fleet-id fleet-4b7fc542-cb08-4f65-908c-737f64ca2e8f --instance-id i-031278fb03cf29d35 --region ap-northeast-2
+</code></pre></div><ol start="3">
+<li>도출된 인스턴스 접속 정보를 이용해 RDP 또는 SSH 로 인스턴스에 접근합니다. 이 때 인스턴스의 포트 정보가 접근 가능한지 확인합니다. 만약 포트가 열려있지 않다면 플릿을 편집하여 포트 구성을 수정할 수 있습니다.</li>
+</ol>
+<p><img src="../images/appendix/APP-2.png" alt="APP"></p>
+<p>위의 그림에서 인스턴스는 RDP 포트에 대해 허용하고 있는 모습입니다. 환경에 맞게 구성합니다.</p>
+<hr>
+<!-- raw HTML omitted -->
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/ko/cleanup/" title="Clean Up"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/ko/intro/" title="GameLift HoL 소개" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/ko/js/clipboard.min.js?1592992523"></script>
+    <script src="/ko/js/perfect-scrollbar.min.js?1592992523"></script>
+    <script src="/ko/js/perfect-scrollbar.jquery.min.js?1592992523"></script>
+    <script src="/ko/js/jquery.sticky.js?1592992523"></script>
+    <script src="/ko/js/featherlight.min.js?1592992523"></script>
+    <script src="/ko/js/highlight.pack.js?1592992523"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/ko/js/modernizr.custom-3.6.0.js?1592992523"></script>
+    <script src="/ko/js/learn.js?1592992523"></script>
+    <script src="/ko/js/hugo-learn.js?1592992523"></script>
+
+    <link href="/ko/mermaid/mermaid.css?1592992523" rel="stylesheet" />
+    <script src="/ko/mermaid/mermaid.js?1592992523"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+  </body>
+</html>

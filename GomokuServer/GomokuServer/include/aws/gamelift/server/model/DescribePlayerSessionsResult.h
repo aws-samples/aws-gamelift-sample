@@ -10,6 +10,7 @@
 *
 */
 #pragma once
+#pragma warning(disable:4996)
 #include <aws/gamelift/common/GameLift_EXPORTS.h>
 #include <aws/gamelift/server/model/PlayerSession.h>
 
@@ -37,6 +38,53 @@ namespace Model
   {
 #ifdef GAMELIFT_USE_STD
   public:
+      DescribePlayerSessionsResult() {}
+
+      /**
+      * <p>Destructor.</p>
+      */
+      ~DescribePlayerSessionsResult() {}
+
+      /**
+      * <p>Copy Constructor.</p>
+      */
+      DescribePlayerSessionsResult(const DescribePlayerSessionsResult& other) :
+          m_playerSessions(other.m_playerSessions),
+          m_nextToken(other.m_nextToken)
+      { }
+
+      /**
+      * <p>Move Constructor.</p>
+      */
+      DescribePlayerSessionsResult(DescribePlayerSessionsResult&& other) 
+      {
+          *this = std::move(other);
+      }
+
+
+      /**
+      * <p>Copy assignment Constructor.</p>
+      */
+      DescribePlayerSessionsResult& operator= (const DescribePlayerSessionsResult& other) 
+      {
+          m_playerSessions = other.m_playerSessions;
+          m_nextToken = other.m_nextToken;
+
+          return *this;
+      }
+
+      /**
+      * <p>Move assignment Constructor.</p>
+      */
+      DescribePlayerSessionsResult& operator= (DescribePlayerSessionsResult&& other) 
+      {
+          m_playerSessions = std::move(other.m_playerSessions);
+          m_nextToken = std::move(other.m_nextToken);
+
+          return *this;
+      }
+
+
     /**
      * <p>Collection of objects containing properties for each player session that
      * matches the request.</p>
@@ -133,11 +181,69 @@ namespace Model
     std::string m_nextToken;
 #else
 public:
-  DescribePlayerSessionsResult()
-  {
-      m_nextToken[0] = '\0';
-	  m_playerSessions_count = 0;
-  }
+    DescribePlayerSessionsResult()
+    {
+        memset(m_nextToken, 0, sizeof(m_nextToken));
+        m_playerSessions_count = 0;
+    }
+
+    /**
+    * <p>Destructor.</p>
+    */
+    ~DescribePlayerSessionsResult() {}
+
+    /**
+    * <p>Copy Constructor.</p>
+    */
+    DescribePlayerSessionsResult(const DescribePlayerSessionsResult& other) :
+        m_playerSessions_count(other.m_playerSessions_count)
+    {
+        strncpy(m_nextToken, other.m_nextToken, sizeof(other.m_nextToken));
+
+        std::copy(std::begin(other.m_playerSessions), std::end(other.m_playerSessions), std::begin(m_playerSessions));
+    }
+
+    /**
+    * <p>Move Constructor.</p>
+    */
+    DescribePlayerSessionsResult(DescribePlayerSessionsResult&& other)
+    {
+		*this = std::move(other);
+    }
+
+    /**
+    * <p>Copy assignment Constructor.</p>
+    */
+    DescribePlayerSessionsResult& operator= (const DescribePlayerSessionsResult& other) 
+    {
+        m_playerSessions_count = other.m_playerSessions_count;
+
+        strncpy(m_nextToken, other.m_nextToken, sizeof(other.m_nextToken));
+
+        std::copy(std::begin(other.m_playerSessions), std::end(other.m_playerSessions), std::begin(m_playerSessions));
+
+        return *this;
+    }
+
+    /**
+    * <p>Move assignment Constructor.</p>
+    */
+    DescribePlayerSessionsResult& operator= (DescribePlayerSessionsResult&& other) 
+    {
+        m_playerSessions_count = other.m_playerSessions_count;
+
+        strncpy(m_nextToken, other.m_nextToken, sizeof(other.m_nextToken));
+
+        std::copy(std::begin(other.m_playerSessions), std::end(other.m_playerSessions), std::begin(m_playerSessions));
+
+		other.m_playerSessions_count = 0;
+
+		memset(other.m_nextToken, 0, sizeof(other.m_nextToken));
+		memset(other.m_playerSessions, 0, sizeof(other.m_playerSessions));
+
+        return *this;
+    }
+
     /**
      * <p>Collection of objects containing properties for each player session that
      * matches the request.</p>
@@ -171,7 +277,7 @@ public:
      * action. If no token is returned, these results represent the end of the
      * list.</p>
      */
-    inline void SetNextToken(const char* value) { strcpy(m_nextToken, value); }
+    inline void SetNextToken(const char* value) { strncpy(m_nextToken, value, sizeof(m_nextToken)); m_nextToken[sizeof(m_nextToken)-1] = 0; }
 
     /**
      * <p>Token indicating where to resume retrieving results on the next call to this

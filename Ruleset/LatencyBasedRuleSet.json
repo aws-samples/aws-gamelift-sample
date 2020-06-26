@@ -1,0 +1,41 @@
+{
+    "name": "Fast Game",
+    "ruleLanguageVersion": "1.0",
+    "playerAttributes" :
+    [
+        {
+            "name" : "score",
+            "type" : "number",
+            "default" : 1000
+        }
+    ],
+    "teams" :
+    [
+        {
+            "name" : "blue",
+            "maxPlayers" : 1,
+            "minPlayers" : 1
+        },
+        {
+            "name" : "red",
+            "maxPlayers" : 1,
+            "minPlayers" : 1
+        }
+    ],
+    "rules": [{
+        "name": "FastConnection",
+        "description": "Prefer matches with fast player connections first",
+        "type": "latency",
+        "maxLatency": 150
+    }],
+    "expansions": [{
+        "target": "rules[FastConnection].maxLatency",
+        "steps": [{
+            "waitTimeSeconds": 10,
+            "value": 300
+        }, {
+            "waitTimeSeconds": 20,
+            "value": 600
+        }]
+    }]
+}

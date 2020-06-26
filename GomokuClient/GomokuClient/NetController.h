@@ -1,6 +1,3 @@
-#pragma once
-#include <string>
-#include "CircularBuffer.h"
 /*
 * Copyright 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
@@ -16,6 +13,10 @@
 * permissions and limitations under the License.
 */
 
+#pragma once
+#include <string>
+#include "CircularBuffer.h"
+
 #include <winsock2.h>
 
 #define BUF_SIZE	32768
@@ -23,39 +24,36 @@
 class NetController
 {
 public:
-	NetController();
-	~NetController();
+    NetController();
+    ~NetController();
 
-	bool Connect(const std::string& serverAddr, int port);
-	void Disconnect();
+    bool Connect(const std::string& serverAddr, int port);
+    void Disconnect();
 
-	/// For MatchMaker
-	void RequestMatch();
-
-	/// For GameServer
-	void RequestGameStart(const std::string& playerId);
-	void RequestPutStone(int x, int y);
-	void RequestGiveUp();
-	
-private:
-
-	bool Send(const char* data, int length);
-	
-	void NetworkThread();
-	void ProcessPacket();
+    /// For GameServer
+    void RequestGameStart(const std::string& playerId);
+    void RequestPutStone(int x, int y);
+    void RequestGiveUp();
 
 private:
 
-	std::atomic_bool mConnected;
-	SOCKET			mSocket;
-	CircularBuffer	mRecvBuffer;
-	
-	std::string		mServerAddr;
-	int				mPortNum;
+    bool Send(const char* data, int length);
 
-	std::string		mPlayerId; ///< player session ID
+    void NetworkThread();
+    void ProcessPacket();
+
+private:
+
+    std::atomic_bool mConnected;
+    SOCKET mSocket;
+    CircularBuffer mRecvBuffer;
+
+    std::string mServerAddr;
+    int mPortNum;
+
+    std::string mPlayerId; ///< player session ID
 
 };
 
-extern std::unique_ptr<NetController> GMatchMaker;
+
 extern std::unique_ptr<NetController> GGameServer;

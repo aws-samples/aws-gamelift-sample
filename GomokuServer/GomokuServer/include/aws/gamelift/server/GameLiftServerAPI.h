@@ -16,6 +16,8 @@
 #include <aws/gamelift/common/Outcome.h>
 
 #include <aws/gamelift/server/model/DescribePlayerSessionsRequest.h>
+#include <aws/gamelift/server/model/StartMatchBackfillRequest.h>
+#include <aws/gamelift/server/model/StopMatchBackfillRequest.h>
 #include <aws/gamelift/server/ProcessParameters.h>
 #include <future>
 
@@ -92,6 +94,18 @@ namespace Server
     AWS_GAMELIFT_API GenericOutcome TerminateGameSession();
 
     /**
+    Reports to GameLift that we need to backfill a match using FlexMatch.
+    When the match has been succeessfully backfilled updated matchmaker data will be sent to
+    the OnUpdateGameSession callback.
+    */
+    AWS_GAMELIFT_API StartMatchBackfillOutcome StartMatchBackfill(const Aws::GameLift::Server::Model::StartMatchBackfillRequest &backfillMatchmakingRequest);
+
+    /**
+    Reports to GameLift that we need to stop a request to backfill a match using FlexMatch.
+    */
+    AWS_GAMELIFT_API GenericOutcome StopMatchBackfill(const Aws::GameLift::Server::Model::StopMatchBackfillRequest &request);
+
+    /**
     update player session policy on the GameSession 
     */
     AWS_GAMELIFT_API GenericOutcome UpdatePlayerSessionCreationPolicy(Aws::GameLift::Server::Model::PlayerSessionCreationPolicy newPlayerSessionPolicy);
@@ -100,6 +114,12 @@ namespace Server
         @return The server's bound GameSession Id, if the server is Active.
      */
     AWS_GAMELIFT_API AwsStringOutcome GetGameSessionId();
+
+    /**
+    Gets the time remaining before Gamelift will shut down the server process. Use this method in your onProcessTerminate() callback implementation to learn when the process will be terminated.
+    @return The server's terminationTime in epoch seconds. Value will be -1 if GameLift is not scheduled to terminate the server process.
+    */
+    AWS_GAMELIFT_API AwsLongOutcome GetTerminationTime();
 
     /**
         Processes and validates a player session connection. This method should be called when a client requests a
@@ -130,10 +150,6 @@ namespace Server
     */
     AWS_GAMELIFT_API DescribePlayerSessionsOutcome DescribePlayerSessions(const Aws::GameLift::Server::Model::DescribePlayerSessionsRequest &describePlayerSessionsRequest);
 
-    /**
-        Destroys allocated resources.
-    */
-    AWS_GAMELIFT_API GenericOutcome Destroy();
 #else
     /**
     @return The current SDK version.
@@ -176,6 +192,37 @@ namespace Server
     AWS_GAMELIFT_API GenericOutcome TerminateGameSession();
 
     /**
+    Reports to GameLift that we need to backfill a match using FlexMatch.
+    When the match has been succeessfully backfilled updated matchmaker data will be sent to
+    the OnUpdateGameSession callback.
+    */
+    AWS_GAMELIFT_API StartMatchBackfillOutcome StartMatchBackfill(const Aws::GameLift::Server::Model::StartMatchBackfillRequest &backfillMatchmakingRequest);
+
+    /**
+    Reports to GameLift that we need to backfill a match using FlexMatch.
+    When the match has been succeessfully backfilled updated matchmaker data will be sent to
+    the OnUpdateGameSession callback.
+    */
+    AWS_GAMELIFT_API StartMatchBackfillOutcome StartMatchBackfill(const Aws::GameLift::Server::Model::StartMatchBackfillRequest &backfillMatchmakingRequest);
+
+    /**
+    Reports to GameLift that we need to stop a request to backfill a match using FlexMatch.
+    */
+    AWS_GAMELIFT_API GenericOutcome StopMatchBackfill(const Aws::GameLift::Server::Model::StopMatchBackfillRequest &request);
+
+    /**
+    Reports to GameLift that we need to backfill a match using FlexMatch.
+    When the match has been succeessfully backfilled updated matchmaker data will be sent to
+    the OnUpdateGameSession callback.
+    */
+    AWS_GAMELIFT_API StartMatchBackfillOutcome StartMatchBackfill(const Aws::GameLift::Server::Model::StartMatchBackfillRequest &backfillMatchmakingRequest);
+
+    /**
+    Reports to GameLift that we need to stop a request to backfill a match using FlexMatch.
+    */
+    AWS_GAMELIFT_API GenericOutcome StopMatchBackfill(const Aws::GameLift::Server::Model::StopMatchBackfillRequest &request);
+
+    /**
     update player session policy on the GameSession
     */
     AWS_GAMELIFT_API GenericOutcome UpdatePlayerSessionCreationPolicy(Aws::GameLift::Server::Model::PlayerSessionCreationPolicy newPlayerSessionPolicy);
@@ -184,6 +231,12 @@ namespace Server
     @return The server's bound GameSession Id, if the server is Active.
     */
     AWS_GAMELIFT_API AwsStringOutcome GetGameSessionId();
+
+    /**
+    Gets the time remaining before Gamelift will shut down the server process. Use this method in your onProcessTerminate() callback implementation to learn when the process will be terminated.
+    @return The server's terminationTime in epoch seconds. Value will be -1 if GameLift is not scheduled to terminate the server process.
+    */
+    AWS_GAMELIFT_API AwsLongOutcome GetTerminationTime();
 
     /**
     Processes and validates a player session connection. This method should be called when a client requests a
@@ -214,11 +267,19 @@ namespace Server
     */
     AWS_GAMELIFT_API DescribePlayerSessionsOutcome DescribePlayerSessions(const Aws::GameLift::Server::Model::DescribePlayerSessionsRequest &describePlayerSessionsRequest);
 
+#endif
+
     /**
-    Destroys allocated resources.
+    <p>Destroys allocated resources.</p>
     */
     AWS_GAMELIFT_API GenericOutcome Destroy();
-#endif
+
+    /**
+    <p>Retrieves the certificate, private key and password in PEM format. 
+    Will only succeed if the certificate generation is enabled on the fleet.</p>
+    */
+    AWS_GAMELIFT_API GetInstanceCertificateOutcome GetInstanceCertificate();
+
 } //namespace Server
 } //namespace GameLift
 } //namespace Aws

@@ -1,0 +1,754 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Metadata": {
+        "AWS::CloudFormation::Designer": {
+            "88638ecf-1661-4693-a84d-1d81a01ba5d7": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 300,
+                    "y": 90
+                },
+                "z": 1,
+                "embeds": [],
+                "isassociatedwith": [
+                    "88638ecf-1661-4693-a84d-1d81a01ba5d7"
+                ]
+            },
+            "3be7670a-8c2c-42f9-b1a0-879d0381ab53": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 390,
+                    "y": 90
+                },
+                "z": 1,
+                "embeds": [],
+                "isassociatedwith": [
+                    "54ccb77c-4c40-496d-b741-38ff636bf475"
+                ]
+            },
+            "54ccb77c-4c40-496d-b741-38ff636bf475": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 390,
+                    "y": 180
+                },
+                "z": 1,
+                "embeds": []
+            },
+            "d750c4a3-e538-4a1a-bceb-52c93915cb59": {
+                "source": {
+                    "id": "54ccb77c-4c40-496d-b741-38ff636bf475"
+                },
+                "target": {
+                    "id": "54ccb77c-4c40-496d-b741-38ff636bf475"
+                },
+                "z": 1
+            },
+            "0ae95c56-4d69-43d7-af4f-41765829560e": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 300,
+                    "y": 180
+                },
+                "z": 1,
+                "embeds": []
+            },
+            "f95673b2-4a49-44c9-99c1-aebbed3ac607": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 50,
+                    "y": 270
+                },
+                "z": 1,
+                "embeds": [],
+                "isassociatedwith": [
+                    "6d880f15-f836-417c-bb32-16b671e6870e",
+                    "970f423c-aefb-4623-b796-c6e77b53d201",
+                    "40483b5f-fc1f-472a-a56a-722dbf13ba33"
+                ]
+            },
+            "6d880f15-f836-417c-bb32-16b671e6870e": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 210,
+                    "y": 90
+                },
+                "z": 1,
+                "embeds": []
+            },
+            "1568f127-2c7b-402a-ab86-16155ad36156": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 140,
+                    "y": 180
+                },
+                "z": 1,
+                "embeds": []
+            },
+            "a9863ad8-b91a-4fea-8e89-498b9a59417d": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 210,
+                    "y": 180
+                },
+                "z": 1,
+                "embeds": []
+            },
+            "40483b5f-fc1f-472a-a56a-722dbf13ba33": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 60,
+                    "y": 90
+                },
+                "z": 1,
+                "embeds": []
+            },
+            "970f423c-aefb-4623-b796-c6e77b53d201": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 140,
+                    "y": 90
+                },
+                "z": 1,
+                "embeds": []
+            },
+            "2a76c901-febc-49a9-a370-12ae1d0ef33e": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 60,
+                    "y": 180
+                },
+                "z": 1,
+                "embeds": []
+            },
+            "6f0396b6-9981-49d7-afd2-53c89ffa799a": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 210,
+                    "y": -20
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "741490bc-701d-4cc8-a71c-af975e343365": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 140,
+                    "y": 280
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "3e399c0e-c690-4f08-92b9-230e65287b39": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 210,
+                    "y": 280
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "0255aa41-50a3-42e3-8e36-afc44d57a44c": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 140,
+                    "y": -20
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "17e3cfb1-ad7f-4928-87da-01d18bce26a1": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 60,
+                    "y": -20
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "ce0c059e-3712-49f4-a786-3844cef11e1b": {
+                "size": {
+                    "width": 130,
+                    "height": 80
+                },
+                "position": {
+                    "x": 300,
+                    "y": 260
+                },
+                "z": 0,
+                "embeds": []
+            }
+        }
+    },
+    "Resources": {
+        "GomokuPlayerInfo": {
+            "Type": "AWS::DynamoDB::Table",
+            "Properties": {
+                "TableName": "GomokuPlayerInfo",
+                "AttributeDefinitions": [
+                    {
+                        "AttributeName": "PlayerName",
+                        "AttributeType": "S"
+                    }
+                ],
+                "KeySchema": [
+                    {
+                        "AttributeName": "PlayerName",
+                        "KeyType": "HASH"
+                    }
+                ],
+                "BillingMode": "PAY_PER_REQUEST",
+                "StreamSpecification": {
+                    "StreamViewType": "NEW_AND_OLD_IMAGES"
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "88638ecf-1661-4693-a84d-1d81a01ba5d7"
+                }
+            }
+        },
+        "GomokuRanking": {
+            "Type": "AWS::ElastiCache::CacheCluster",
+            "Properties": {
+                "ClusterName": "GomokuRanking",
+                "Port": 6379,
+                "CacheNodeType": "cache.t2.medium",
+                "Engine": "redis",
+                "EngineVersion": "5.0.4",
+                "NumCacheNodes": 1,
+                "VpcSecurityGroupIds": [
+                    {
+                        "Fn::GetAtt": [
+                            "GomokuDefault",
+                            "GroupId"
+                        ]
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "3be7670a-8c2c-42f9-b1a0-879d0381ab53"
+                }
+            }
+        },
+        "GomokuDefault": {
+            "Type": "AWS::EC2::SecurityGroup",
+            "Properties": {
+                "GroupName": "GomokuDefault",
+                "GroupDescription": "Security group for Gomoku Demo Resources"
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "54ccb77c-4c40-496d-b741-38ff636bf475"
+                }
+            }
+        },
+        "GomokuDefaultIngress": {
+            "Type": "AWS::EC2::SecurityGroupIngress",
+            "Properties": {
+                "GroupId": {
+                    "Fn::GetAtt": [
+                        "GomokuDefault",
+                        "GroupId"
+                    ]
+                },
+                "IpProtocol": "tcp",
+                "FromPort": 0,
+                "ToPort": 65535,
+                "SourceSecurityGroupId": {
+                    "Fn::GetAtt": [
+                        "GomokuDefault",
+                        "GroupId"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "d750c4a3-e538-4a1a-bceb-52c93915cb59"
+                }
+            }
+        },
+        "GameResultQueue": {
+            "Type": "AWS::SQS::Queue",
+            "Properties": {
+                "QueueName": "game-result-queue",
+                "VisibilityTimeout": 60
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "0ae95c56-4d69-43d7-af4f-41765829560e"
+                }
+            }
+        },
+        "GameLiftPolicy": {
+            "Type": "AWS::IAM::Policy",
+            "Properties": {
+                "PolicyName": "GameLiftPolicy",
+                "PolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Action": [
+                                "gamelift:*"
+                            ],
+                            "Resource": "*"
+                        }
+                    ]
+                },
+                "Roles": [
+                    {
+                        "Ref": "GomokuGameSqsProcess"
+                    },
+                    {
+                        "Ref": "GomokuGameMatchRequest"
+                    },
+                    {
+                        "Ref": "GomokuGameMatchStatus"
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "f95673b2-4a49-44c9-99c1-aebbed3ac607"
+                }
+            }
+        },
+        "GomokuGameSqsProcess": {
+            "Type": "AWS::IAM::Role",
+            "Properties": {
+                "RoleName": "Gomok-game-sqs-process",
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": [
+                                    "lambda.amazonaws.com"
+                                ]
+                            },
+                            "Action": [
+                                "sts:AssumeRole"
+                            ]
+                        }
+                    ]
+                },
+                "ManagedPolicyArns": [
+                    "arn:aws:iam::aws:policy/AmazonSQSFullAccess",
+                    "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess",
+                    "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "6d880f15-f836-417c-bb32-16b671e6870e"
+                }
+            }
+        },
+        "GomokuGameRankUpdate": {
+            "Type": "AWS::IAM::Role",
+            "Properties": {
+                "RoleName": "Gomok-game-rank-update",
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": [
+                                    "lambda.amazonaws.com"
+                                ]
+                            },
+                            "Action": [
+                                "sts:AssumeRole"
+                            ]
+                        }
+                    ]
+                },
+                "ManagedPolicyArns": [
+                    "arn:aws:iam::aws:policy/AmazonVPCFullAccess",
+                    "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess",
+                    "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "1568f127-2c7b-402a-ab86-16155ad36156"
+                }
+            }
+        },
+        "GomokuGameRankReader": {
+            "Type": "AWS::IAM::Role",
+            "Properties": {
+                "RoleName": "Gomok-game-rank-reader",
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": [
+                                    "lambda.amazonaws.com"
+                                ]
+                            },
+                            "Action": [
+                                "sts:AssumeRole"
+                            ]
+                        }
+                    ]
+                },
+                "ManagedPolicyArns": [
+                    "arn:aws:iam::aws:policy/AmazonVPCFullAccess",
+                    "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "a9863ad8-b91a-4fea-8e89-498b9a59417d"
+                }
+            }
+        },
+        "GomokuGameMatchStatus": {
+            "Type": "AWS::IAM::Role",
+            "Properties": {
+                "RoleName": "Gomok-game-match-status",
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": [
+                                    "lambda.amazonaws.com"
+                                ]
+                            },
+                            "Action": [
+                                "sts:AssumeRole"
+                            ]
+                        }
+                    ]
+                },
+                "ManagedPolicyArns": [
+                    "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "40483b5f-fc1f-472a-a56a-722dbf13ba33"
+                }
+            }
+        },
+        "GomokuGameMatchRequest": {
+            "Type": "AWS::IAM::Role",
+            "Properties": {
+                "RoleName": "Gomok-game-match-request",
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": [
+                                    "lambda.amazonaws.com"
+                                ]
+                            },
+                            "Action": [
+                                "sts:AssumeRole"
+                            ]
+                        }
+                    ]
+                },
+                "ManagedPolicyArns": [
+                    "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess",
+                    "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "970f423c-aefb-4623-b796-c6e77b53d201"
+                }
+            }
+        },
+        "GomokuGameLiftFleetRole": {
+            "Type": "AWS::IAM::Role",
+            "Properties": {
+                "RoleName": "Gomoku-GameLiftFleetRole",
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": [
+                                    "gamelift.amazonaws.com"
+                                ]
+                            },
+                            "Action": [
+                                "sts:AssumeRole"
+                            ]
+                        }
+                    ]
+                },
+                "ManagedPolicyArns": [
+                    "arn:aws:iam::aws:policy/AmazonSQSFullAccess"
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "2a76c901-febc-49a9-a370-12ae1d0ef33e"
+                }
+            }
+        },
+        "GameSqsProcess": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+                "FunctionName": "game-sqs-process",
+                "Runtime": "python2.7",
+                "Handler": "index.lambda_handler",
+                "Role": {
+                    "Fn::GetAtt": [
+                        "GomokuGameSqsProcess",
+                        "Arn"
+                    ]
+                },
+                "Code": {
+                    "ZipFile": {
+                        "Fn::Join": [
+                            "\n",
+                            [
+                                "import json",
+                                "",
+                                "def lambda_handler(event, context):",
+                                "   # TODO implement",
+                                "   return {",
+                                "       'statusCode': 200,",
+                                "       'body': json.dumps('Hello from Lambda')",
+                                "   }"
+                            ]
+                        ]
+                    }
+                },
+                "Timeout": 60
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "6f0396b6-9981-49d7-afd2-53c89ffa799a"
+                }
+            }
+        },
+        "GameRankUpdate": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+                "FunctionName": "game-rank-update",
+                "Runtime": "python2.7",
+                "Handler": "index.lambda_handler",
+                "Role": {
+                    "Fn::GetAtt": [
+                        "GomokuGameRankUpdate",
+                        "Arn"
+                    ]
+                },
+                "Code": {
+                    "ZipFile": {
+                        "Fn::Join": [
+                            "\n",
+                            [
+                                "import json",
+                                "",
+                                "def lambda_handler(event, context):",
+                                "   # TODO implement",
+                                "   return {",
+                                "       'statusCode': 200,",
+                                "       'body': json.dumps('Hello from Lambda')",
+                                "   }"
+                            ]
+                        ]
+                    }
+                },
+                "Timeout": 60
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "741490bc-701d-4cc8-a71c-af975e343365"
+                }
+            }
+        },
+        "GameRankReader": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+                "FunctionName": "game-rank-reader",
+                "Runtime": "python2.7",
+                "Handler": "index.lambda_handler",
+                "Role": {
+                    "Fn::GetAtt": [
+                        "GomokuGameRankReader",
+                        "Arn"
+                    ]
+                },
+                "Code": {
+                    "ZipFile": {
+                        "Fn::Join": [
+                            "\n",
+                            [
+                                "import json",
+                                "",
+                                "def lambda_handler(event, context):",
+                                "   # TODO implement",
+                                "   return {",
+                                "       'statusCode': 200,",
+                                "       'body': json.dumps('Hello from Lambda')",
+                                "   }"
+                            ]
+                        ]
+                    }
+                },
+                "Timeout": 60
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "3e399c0e-c690-4f08-92b9-230e65287b39"
+                }
+            }
+        },
+        "GameMatchRequest": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+                "FunctionName": "game-match-request",
+                "Runtime": "python2.7",
+                "Handler": "index.lambda_handler",
+                "Role": {
+                    "Fn::GetAtt": [
+                        "GomokuGameMatchRequest",
+                        "Arn"
+                    ]
+                },
+                "Code": {
+                    "ZipFile": {
+                        "Fn::Join": [
+                            "\n",
+                            [
+                                "import json",
+                                "",
+                                "def lambda_handler(event, context):",
+                                "   # TODO implement",
+                                "   return {",
+                                "       'statusCode': 200,",
+                                "       'body': json.dumps('Hello from Lambda')",
+                                "   }"
+                            ]
+                        ]
+                    }
+                },
+                "Timeout": 60
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "0255aa41-50a3-42e3-8e36-afc44d57a44c"
+                }
+            }
+        },
+        "GameMatchStatus": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+                "FunctionName": "game-match-status",
+                "Runtime": "python2.7",
+                "Handler": "index.lambda_handler",
+                "Role": {
+                    "Fn::GetAtt": [
+                        "GomokuGameMatchStatus",
+                        "Arn"
+                    ]
+                },
+                "Code": {
+                    "ZipFile": {
+                        "Fn::Join": [
+                            "\n",
+                            [
+                                "import json",
+                                "",
+                                "def lambda_handler(event, context):",
+                                "   # TODO implement",
+                                "   return {",
+                                "       'statusCode': 200,",
+                                "       'body': json.dumps('Hello from Lambda')",
+                                "   }"
+                            ]
+                        ]
+                    }
+                },
+                "Timeout": 60
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "17e3cfb1-ad7f-4928-87da-01d18bce26a1"
+                }
+            }
+        },
+        "GomokuAPI": {
+            "Type": "AWS::ApiGateway::RestApi",
+            "Properties": {
+                "Name": "GomokuAPI",
+                "EndpointConfiguration": {
+                    "Types": [
+                        "REGIONAL"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "ce0c059e-3712-49f4-a786-3844cef11e1b"
+                }
+            }
+        }
+    }
+}

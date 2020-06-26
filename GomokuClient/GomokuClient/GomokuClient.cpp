@@ -17,49 +17,42 @@
 #include "stdafx.h"
 #include "GUIController.h"
 #include "NetController.h"
+#include "MatchController.h"
 #include "INIReader.h"
+
 
 int main(int argc, char* argv[])
 {
-	WSADATA wsa;
-	if (WSAStartup(MAKEWORD(2, 2), &wsa) != 0)
-		return -1;
+    WSADATA wsa;
+    if (WSAStartup(MAKEWORD(2, 2), &wsa) != 0)
+        return -1;
 
-	INIReader iniReader("config.ini");
-	if (iniReader.ParseError() < 0)
-	{
-		std::cout << "config.ini not found\n";
-		return 0;
-	}
+    INIReader iniReader("config.ini");
+    if (iniReader.ParseError() < 0)
+    {
+        std::cout << "config.ini not found\n";
+        return 0;
+    }
 
-	const std::string& ipAddr = iniReader.Get("config", "SERVER_IP", "127.0.0.1");
-	int portNum = iniReader.GetInteger("config", "PORT_NUM", 5999);
-	std::string playerName = iniReader.Get("config", "PLAYER_NAME", "DefaultName");
-	std::string playerPass = iniReader.Get("config", "PLAYER_PASSWD", "DefaultPass");
+    std::string matchApiEndpoint = iniReader.Get("config", "MATCH_SERVER_API", "https....");
+    std::string playerName = iniReader.Get("config", "PLAYER_NAME", "DefaultName");
+    std::string playerPass = iniReader.Get("config", "PLAYER_PASSWD", "DefaultPass");
 
-	/// override for test
-	if (argc >= 3)
-	{
-		playerName = std::string(argv[1]);
-		playerPass = std::string(argv[2]);
-	}
+    /// override for test
+    if (argc >= 3)
+    {
+        playerName = std::string(argv[1]);
+        playerPass = std::string(argv[2]);
+    }
 
-	GGuiController.reset(new GUIController(playerName.c_str(), playerPass.c_str()));
-	GMatchMaker.reset(new NetController);
-	GGameServer.reset(new NetController);
+    GGuiController.reset(new GUIController(playerName.c_str(), playerPass.c_str()));
+    GMatchMaker.reset(new MatchController(matchApiEndpoint));
+    GGameServer.reset(new NetController);
 
+    GGuiController->Initialize(&argc, argv);
+    GGuiController->DoEventLoop();
 
-	if (false == GMatchMaker->Connect(ipAddr, portNum))
-	{
-		std::cout << "MatchMaker Connect Error\n";
-		return 0;
-	}
-		
-
-	GGuiController->Initialize(&argc, argv);
-	GGuiController->DoEventLoop();
-
-	WSACleanup();
-	return 0;
+    WSACleanup();
+    return 0;
 }
 

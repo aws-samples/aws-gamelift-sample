@@ -5,3 +5,5 @@ GomokuClient/packages/
 *.iobj
 *.ipdb
 *.opendb
+/GomokuClient/GomokuClient/x64/Debug
+/GomokuClient/x64

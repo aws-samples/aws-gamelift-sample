@@ -19,44 +19,44 @@
 class GUIController
 {
 public:
-	GUIController(const char* playerName, const char* playerPass);
+    GUIController(const char* playerName, const char* playerPass);
 
-	void Initialize(int* argcp, char** argv);
-	void PutStone(int x, int y);
+    void Initialize(int* argcp, char** argv);
+    void PutStone(int x, int y);
 
-	void OnWindowResize(int w, int h);
-	void OnMouseEvent(int button, int state, int x, int y);
-	void OnMenuEvent(int menuId);
-	void OnRenderBoard();
+    void OnWindowResize(int w, int h);
+    void OnMouseEvent(int button, int state, int x, int y);
+    void OnMenuEvent(int menuId);
+    void OnRenderBoard();
 
-	void DoEventLoop();
-	void ResetStatus();
+    void DoEventLoop();
+    void ResetStatus();
 
-	void TransViewToData(int& x, int& y);
-	void TransDataToView(int& x, int& y);
-	void SetTextLine(const std::string& str);
+    void TransViewToData(int& x, int& y);
+    void TransDataToView(int& x, int& y);
+    void SetTextLine(const std::string& str);
 
-	void OnMatchWait(bool isOk);
-	void OnMatchComplete();
-	void OnGameStart(StoneType myType, const std::string& opponentName);
-	void OnStatusChange(const BoardStatusBroadcast& stat);
+    void OnMatchWait(bool isOk);
+    void OnMatchComplete();
+    void OnGameStart(StoneType myType, const std::string& opponentName);
+    void OnStatusChange(const BoardStatusBroadcast& stat);
 
-	const char* GetPlayerName() const { return mPlayerName;  }
-	const char* GetPlayerPassword() const { return mPlayerPass; }
+    const char* GetPlayerName() const { return mPlayerName; }
+    const char* GetPlayerPassword() const { return mPlayerPass; }
 
 
 private:
-	StoneType mMyStoneColor;
-	StoneType mCurrentTurn;
-	GameStatus mGameStatus;
-	
-	char mOpponentName[MAX_STRING_LEN];
+    StoneType mMyStoneColor;
+    StoneType mCurrentTurn;
+    GameStatus mGameStatus;
 
-	char mPlayerName[MAX_STRING_LEN];
-	char mPlayerPass[MAX_STRING_LEN];
-	char mTextLine[128];
-	StoneType mViewMatrix[BOARD_SIZE+1][BOARD_SIZE+1]; ///< 1~19 x 1~19
-	std::mutex mStatusMutex;
+    char mOpponentName[MAX_STRING_LEN];
+
+    char mPlayerName[MAX_STRING_LEN];
+    char mPlayerPass[MAX_STRING_LEN];
+    char mTextLine[128];
+    StoneType mViewMatrix[BOARD_SIZE + 1][BOARD_SIZE + 1]; ///< 1~19 x 1~19
+    std::mutex mStatusMutex;
 };
 
 extern std::unique_ptr<GUIController> GGuiController;

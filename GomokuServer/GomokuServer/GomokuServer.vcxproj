@@ -80,6 +80,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>C:\Users\Administrator\Downloads\test\aws-gamelift-sample-dev\GomokuServer\GomokuServer\lib;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Administrator\Downloads\test\aws-gamelift-sample-dev\GomokuServer\GomokuServer\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -157,6 +159,7 @@
     <ClInclude Include="GameSession.h" />
     <ClInclude Include="IocpManager.h" />
     <ClInclude Include="IOThread.h" />
+    <ClInclude Include="json11.hpp" />
     <ClInclude Include="Log.h" />
     <ClInclude Include="ObjectPool.h" />
     <ClInclude Include="OverlappedIOContext.h" />
@@ -186,6 +189,10 @@
     <ClCompile Include="GomokuServer.cpp" />
     <ClCompile Include="IocpManager.cpp" />
     <ClCompile Include="IOThread.cpp" />
+    <ClCompile Include="json11.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="OverlappedIOContext.cpp" />
     <ClCompile Include="PacketHandler.cpp" />
@@ -205,18 +212,26 @@
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
-    <Import Project="..\packages\AWSSDKCPP-Core.redist.1.1.8\build\native\AWSSDKCPP-Core.redist.targets" Condition="Exists('..\packages\AWSSDKCPP-Core.redist.1.1.8\build\native\AWSSDKCPP-Core.redist.targets')" />
-    <Import Project="..\packages\AWSSDKCPP-Core.1.1.8\build\native\AWSSDKCPP-Core.targets" Condition="Exists('..\packages\AWSSDKCPP-Core.1.1.8\build\native\AWSSDKCPP-Core.targets')" />
-    <Import Project="..\packages\AWSSDKCPP-SQS.redist.1.1.20121105.8\build\native\AWSSDKCPP-SQS.redist.targets" Condition="Exists('..\packages\AWSSDKCPP-SQS.redist.1.1.20121105.8\build\native\AWSSDKCPP-SQS.redist.targets')" />
-    <Import Project="..\packages\AWSSDKCPP-SQS.1.1.20121105.8\build\native\AWSSDKCPP-SQS.targets" Condition="Exists('..\packages\AWSSDKCPP-SQS.1.1.20121105.8\build\native\AWSSDKCPP-SQS.targets')" />
+    <Import Project="..\packages\AWSSDKCPP-Core.redist.1.6.25\build\native\AWSSDKCPP-Core.redist.targets" Condition="Exists('..\packages\AWSSDKCPP-Core.redist.1.6.25\build\native\AWSSDKCPP-Core.redist.targets')" />
+    <Import Project="..\packages\AWSSDKCPP-Core.1.6.25\build\native\AWSSDKCPP-Core.targets" Condition="Exists('..\packages\AWSSDKCPP-Core.1.6.25\build\native\AWSSDKCPP-Core.targets')" />
+    <Import Project="..\packages\AWSSDKCPP-STS.redist.1.6.20110615.25\build\native\AWSSDKCPP-STS.redist.targets" Condition="Exists('..\packages\AWSSDKCPP-STS.redist.1.6.20110615.25\build\native\AWSSDKCPP-STS.redist.targets')" />
+    <Import Project="..\packages\AWSSDKCPP-STS.1.6.20110615.25\build\native\AWSSDKCPP-STS.targets" Condition="Exists('..\packages\AWSSDKCPP-STS.1.6.20110615.25\build\native\AWSSDKCPP-STS.targets')" />
+    <Import Project="..\packages\AWSSDKCPP-SQS.redist.1.6.20121105.25\build\native\AWSSDKCPP-SQS.redist.targets" Condition="Exists('..\packages\AWSSDKCPP-SQS.redist.1.6.20121105.25\build\native\AWSSDKCPP-SQS.redist.targets')" />
+    <Import Project="..\packages\AWSSDKCPP-SQS.1.6.20121105.25\build\native\AWSSDKCPP-SQS.targets" Condition="Exists('..\packages\AWSSDKCPP-SQS.1.6.20121105.25\build\native\AWSSDKCPP-SQS.targets')" />
+    <Import Project="..\packages\cpprestsdk.v141.2.10.12.1\build\native\cpprestsdk.v141.targets" Condition="Exists('..\packages\cpprestsdk.v141.2.10.12.1\build\native\cpprestsdk.v141.targets')" />
+    <Import Project="..\packages\cpprestsdk.v140.windesktop.msvcstl.static.rt-static.2.10.12\build\native\cpprestsdk.v140.windesktop.msvcstl.static.rt-static.targets" Condition="Exists('..\packages\cpprestsdk.v140.windesktop.msvcstl.static.rt-static.2.10.12\build\native\cpprestsdk.v140.windesktop.msvcstl.static.rt-static.targets')" />
   </ImportGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\AWSSDKCPP-Core.redist.1.1.8\build\native\AWSSDKCPP-Core.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\AWSSDKCPP-Core.redist.1.1.8\build\native\AWSSDKCPP-Core.redist.targets'))" />
-    <Error Condition="!Exists('..\packages\AWSSDKCPP-Core.1.1.8\build\native\AWSSDKCPP-Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\AWSSDKCPP-Core.1.1.8\build\native\AWSSDKCPP-Core.targets'))" />
-    <Error Condition="!Exists('..\packages\AWSSDKCPP-SQS.redist.1.1.20121105.8\build\native\AWSSDKCPP-SQS.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\AWSSDKCPP-SQS.redist.1.1.20121105.8\build\native\AWSSDKCPP-SQS.redist.targets'))" />
-    <Error Condition="!Exists('..\packages\AWSSDKCPP-SQS.1.1.20121105.8\build\native\AWSSDKCPP-SQS.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\AWSSDKCPP-SQS.1.1.20121105.8\build\native\AWSSDKCPP-SQS.targets'))" />
+    <Error Condition="!Exists('..\packages\AWSSDKCPP-Core.redist.1.6.25\build\native\AWSSDKCPP-Core.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\AWSSDKCPP-Core.redist.1.6.25\build\native\AWSSDKCPP-Core.redist.targets'))" />
+    <Error Condition="!Exists('..\packages\AWSSDKCPP-Core.1.6.25\build\native\AWSSDKCPP-Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\AWSSDKCPP-Core.1.6.25\build\native\AWSSDKCPP-Core.targets'))" />
+    <Error Condition="!Exists('..\packages\AWSSDKCPP-STS.redist.1.6.20110615.25\build\native\AWSSDKCPP-STS.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\AWSSDKCPP-STS.redist.1.6.20110615.25\build\native\AWSSDKCPP-STS.redist.targets'))" />
+    <Error Condition="!Exists('..\packages\AWSSDKCPP-STS.1.6.20110615.25\build\native\AWSSDKCPP-STS.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\AWSSDKCPP-STS.1.6.20110615.25\build\native\AWSSDKCPP-STS.targets'))" />
+    <Error Condition="!Exists('..\packages\AWSSDKCPP-SQS.redist.1.6.20121105.25\build\native\AWSSDKCPP-SQS.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\AWSSDKCPP-SQS.redist.1.6.20121105.25\build\native\AWSSDKCPP-SQS.redist.targets'))" />
+    <Error Condition="!Exists('..\packages\AWSSDKCPP-SQS.1.6.20121105.25\build\native\AWSSDKCPP-SQS.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\AWSSDKCPP-SQS.1.6.20121105.25\build\native\AWSSDKCPP-SQS.targets'))" />
+    <Error Condition="!Exists('..\packages\cpprestsdk.v141.2.10.12.1\build\native\cpprestsdk.v141.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\cpprestsdk.v141.2.10.12.1\build\native\cpprestsdk.v141.targets'))" />
+    <Error Condition="!Exists('..\packages\cpprestsdk.v140.windesktop.msvcstl.static.rt-static.2.10.12\build\native\cpprestsdk.v140.windesktop.msvcstl.static.rt-static.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\cpprestsdk.v140.windesktop.msvcstl.static.rt-static.2.10.12\build\native\cpprestsdk.v140.windesktop.msvcstl.static.rt-static.targets'))" />
   </Target>
 </Project>

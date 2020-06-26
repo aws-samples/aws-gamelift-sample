@@ -10,7 +10,7 @@
 *
 */
 #pragma once
-
+#pragma warning(disable:4996)
 #include <aws/gamelift/common/GameLift_EXPORTS.h>
 #ifndef GAMELIFT_USE_STD
 #include "string.h"
@@ -41,14 +41,16 @@ namespace GameLift
         SERVICE_CALL_FAILED,            // A call to an AWS service has failed.
         STX_CALL_FAILED,                // A call to the XStx server backend component has failed.
         STX_INITIALIZATION_FAILED,      // The XStx server backend component has failed to initialize.
-        UNEXPECTED_PLAYER_SESSION       // An unregistered player session was encountered by the server.
+        UNEXPECTED_PLAYER_SESSION,       // An unregistered player session was encountered by the server.
+        BAD_REQUEST_EXCEPTION,
+        INTERNAL_SERVICE_EXCEPTION
     };
 
     class AWS_GAMELIFT_API GameLiftError
     {
 #ifdef GAMELIFT_USE_STD
     public:
-        const GAMELIFT_ERROR_TYPE GetErrorType() const { return m_errorType; }
+        GAMELIFT_ERROR_TYPE GetErrorType() const { return m_errorType; }
 
         const std::string& GetErrorName() const { return m_errorName; }
         void SetErrorName(const std::string& errorName) { m_errorName = errorName; }
@@ -98,6 +100,10 @@ namespace GameLift
                 return "STX Initialization Failed.";
             case GAMELIFT_ERROR_TYPE::UNEXPECTED_PLAYER_SESSION:
                 return "Unexpected player session.";
+            case GAMELIFT_ERROR_TYPE::BAD_REQUEST_EXCEPTION:
+                return "Bad request exception.";
+            case GAMELIFT_ERROR_TYPE::INTERNAL_SERVICE_EXCEPTION:
+                return "Internal service exception.";
             default:
                 return "Uknown Error";
             }
@@ -145,12 +151,16 @@ namespace GameLift
                 return "The STX server backend component has failed to initialize.";
             case GAMELIFT_ERROR_TYPE::UNEXPECTED_PLAYER_SESSION:
                 return "The player session was not expected by the server. Clients wishing to connect to a server must obtain a PlayerSessionID from GameLift by creating a player session on the desired server's game instance.";
+            case GAMELIFT_ERROR_TYPE::BAD_REQUEST_EXCEPTION:
+                return "Bad request exception.";
+            case GAMELIFT_ERROR_TYPE::INTERNAL_SERVICE_EXCEPTION:
+                return "Internal service exception.";
             default:
                 return "An unexpected error has occurred.";
             }
         }
 
-        GameLiftError(){};
+        GameLiftError() : m_errorType() {};
 
         ~GameLiftError(){};
 
@@ -159,8 +169,13 @@ namespace GameLift
             , m_errorMessage(Aws::GameLift::GameLiftError::GetDefaultMessageForErrorType(errorType))
         {};
 
-        GameLiftError(GAMELIFT_ERROR_TYPE errorType, std::string errorName, std::string message) :
+        GameLiftError(GAMELIFT_ERROR_TYPE errorType, const std::string& errorName, const std::string& message) :
             m_errorType(errorType), m_errorName(errorName), m_errorMessage(message) {};
+
+        GameLiftError(GAMELIFT_ERROR_TYPE errorType, const std::string& message) :
+            m_errorType(errorType), 
+            m_errorName(Aws::GameLift::GameLiftError::GetDefaultNameForErrorType(errorType)),
+            m_errorMessage(message) {};
 
         GameLiftError(const GameLiftError& rhs) :
             m_errorType(rhs.GetErrorType()), m_errorName(rhs.GetErrorName()), m_errorMessage(rhs.GetErrorMessage()) {};
@@ -174,10 +189,10 @@ namespace GameLift
      const GAMELIFT_ERROR_TYPE GetErrorType() const { return m_errorType; }
 
      const char* GetErrorName() const { return m_errorName; }
-     void SetErrorName(const char* errorName) { strcpy(m_errorName, errorName); }
+     void SetErrorName(const char* errorName) { strncpy(m_errorName, errorName, sizeof(m_errorName)); m_errorName[sizeof(m_errorName)-1] = 0; }
 
      const char* GetErrorMessage() const { return m_errorMessage; }
-     void SetErrorMessage(const char* errorMessage) { strcpy(m_errorMessage, errorMessage); }
+     void SetErrorMessage(const char* errorMessage) { strncpy(m_errorMessage, errorMessage, sizeof(m_errorMessage)); m_errorMessage[sizeof(m_errorMessage)-1] = 0; }
 
      static const char* GetDefaultNameForErrorType(GAMELIFT_ERROR_TYPE errorType) {
          switch (errorType) {
@@ -221,6 +236,10 @@ namespace GameLift
              return "STX Initialization Failed.";
          case GAMELIFT_ERROR_TYPE::UNEXPECTED_PLAYER_SESSION:
              return "Unexpected player session.";
+         case GAMELIFT_ERROR_TYPE::BAD_REQUEST_EXCEPTION:
+             return "Bad request exception.";
+         case GAMELIFT_ERROR_TYPE::INTERNAL_SERVICE_EXCEPTION:
+             return "Internal service exception.";
          default:
              return "Uknown Error";
          }
@@ -268,28 +287,35 @@ namespace GameLift
              return "The STX server backend component has failed to initialize.";
          case GAMELIFT_ERROR_TYPE::UNEXPECTED_PLAYER_SESSION:
              return "The player session was not expected by the server. Clients wishing to connect to a server must obtain a PlayerSessionID from GameLift by creating a player session on the desired server's game instance.";
+         case GAMELIFT_ERROR_TYPE::BAD_REQUEST_EXCEPTION:
+             return "Bad request exception.";
+         case GAMELIFT_ERROR_TYPE::INTERNAL_SERVICE_EXCEPTION:
+             return "Internal service exception.";
          default:
              return "An unexpected error has occurred.";
          }
      }
 
-     GameLiftError(){};
+     GameLiftError(){
+         memset(m_errorName, 0, sizeof(m_errorName));
+         memset(m_errorMessage, 0, sizeof(m_errorMessage));
+     };
 
      ~GameLiftError(){};
 
-	 void Init(GAMELIFT_ERROR_TYPE errorType, const char* errorName, const char* message)
-	 {
-		 m_errorType = errorType;
-		 SetErrorName(errorName);
-		 SetErrorMessage(message);
-	 };
+     void Init(GAMELIFT_ERROR_TYPE errorType, const char* errorName, const char* message)
+     {
+         m_errorType = errorType;
+         SetErrorName(errorName);
+         SetErrorMessage(message);
+     };
 
      GameLiftError(GAMELIFT_ERROR_TYPE errorType)
      {
-		 Init(errorType, 
-			 Aws::GameLift::GameLiftError::GetDefaultNameForErrorType(errorType),
-			 Aws::GameLift::GameLiftError::GetDefaultMessageForErrorType(errorType));
-	 };
+         Init(errorType, 
+             Aws::GameLift::GameLiftError::GetDefaultNameForErrorType(errorType),
+             Aws::GameLift::GameLiftError::GetDefaultMessageForErrorType(errorType));
+     };
 
      GameLiftError(GAMELIFT_ERROR_TYPE errorType, const char* errorName, const char* message) :
          m_errorType(errorType)
@@ -298,10 +324,17 @@ namespace GameLift
          this->SetErrorMessage(message);
      };
 
+     GameLiftError(GAMELIFT_ERROR_TYPE errorType, const char* message)
+     {
+         Init(errorType,
+             Aws::GameLift::GameLiftError::GetDefaultNameForErrorType(errorType),
+             message);
+     };
+
      GameLiftError(const GameLiftError& rhs)
-	 {
-		 Init(rhs.GetErrorType(), rhs.GetErrorName(), rhs.GetErrorMessage());
-	 };
+     {
+          Init(rhs.GetErrorType(), rhs.GetErrorName(), rhs.GetErrorMessage());
+     };
 
     private:
         GAMELIFT_ERROR_TYPE m_errorType;

@@ -71,6 +71,9 @@
     <ClInclude Include="ThreadLocal.h">
       <Filter>Main</Filter>
     </ClInclude>
+    <ClInclude Include="json11.hpp">
+      <Filter>Main</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -122,6 +125,9 @@
       <Filter>Main</Filter>
     </ClCompile>
     <ClCompile Include="ThreadLocal.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="json11.cpp">
       <Filter>Main</Filter>
     </ClCompile>
   </ItemGroup>

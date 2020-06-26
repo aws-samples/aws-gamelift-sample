@@ -38,6 +38,9 @@
     <ClInclude Include="..\..\Shared\INIReader.h">
       <Filter>Shared</Filter>
     </ClInclude>
+    <ClInclude Include="MatchController.h">
+      <Filter>Main</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -60,6 +63,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Shared\INIReader.cpp">
       <Filter>Shared</Filter>
+    </ClCompile>
+    <ClCompile Include="MatchController.cpp">
+      <Filter>Main</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

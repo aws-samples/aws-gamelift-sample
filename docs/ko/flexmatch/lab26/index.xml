@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>FlexMatch 클라이언트와 연결 on GameLift 로 Full Stack Game 시작</title>
+    <link>/ko/flexmatch/lab26/</link>
+    <description>Recent content in FlexMatch 클라이언트와 연결 on GameLift 로 Full Stack Game 시작</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    
+	<atom:link href="/ko/flexmatch/lab26/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+  </channel>
+</rss>

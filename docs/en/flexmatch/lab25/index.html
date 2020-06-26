@@ -1,0 +1,2071 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.71.1" />
+    <meta name="description" content="Full Stack Game Demo">
+<meta name="author" content="Jinsung Thomas Park">
+
+    <link rel="icon" href="/en/images/favicon.png" type="image/png">
+
+    <title>Build Serverless FlexMatch :: Start Full Stack Game with GameLift</title>
+
+    
+    <link href="/en/css/nucleus.css?1592992523" rel="stylesheet">
+    <link href="/en/css/fontawesome-all.min.css?1592992523" rel="stylesheet">
+    <link href="/en/css/hybrid.css?1592992523" rel="stylesheet">
+    <link href="/en/css/featherlight.min.css?1592992523" rel="stylesheet">
+    <link href="/en/css/perfect-scrollbar.min.css?1592992523" rel="stylesheet">
+    <link href="/en/css/auto-complete.css?1592992523" rel="stylesheet">
+    <link href="/en/css/atom-one-dark-reasonable.css?1592992523" rel="stylesheet">
+    <link href="/en/css/theme.css?1592992523" rel="stylesheet">
+    <link href="/en/css/hugo-theme.css?1592992523" rel="stylesheet">
+    
+      <link href="/en/css/theme-aws.css?1592992523" rel="stylesheet">
+    
+
+    <script src="/en/js/jquery-3.3.1.min.js?1592992523"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/en/flexmatch/lab25/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/ko">
+	<img src="/ko/images/logo.png" height="70px"/>
+</a>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-169409427-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-169409427-1');
+</script>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/en/js/lunr.min.js?1592992523"></script>
+<script type="text/javascript" src="/en/js/auto-complete.js?1592992523"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/en\/\/en";
+    
+</script>
+<script type="text/javascript" src="/en/js/search.js?1592992523"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/en/intro/" title="GameLift HoL Introduction" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/en/intro/">
+          <b>0. </b>GameLift HoL Introduction
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/intro/lab01/" title="Workshop Contents" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/en/intro/lab01/">
+          <b>0-1. </b>Workshop Contents
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/intro/lab02/" title="HoL Preparation" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/en/intro/lab02/">
+          <b>0-2. </b>HoL Preparation
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/intro/lab03/" title="Service Information" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/en/intro/lab03/">
+          <b>0-3. </b>Service Information
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/en/awsservice/" title="Build AWS Services" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/en/awsservice/">
+          <b>1. </b>Build AWS Services
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/awsservice/lab10/" title="Deploy CloudFormation Stack" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/en/awsservice/lab10/">
+          <b>1-0. </b>Deploy CloudFormation Stack
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/awsservice/lab11/" title="Creating DynamoDB" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/en/awsservice/lab11/">
+          <b>1-1. </b>Creating DynamoDB
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/awsservice/lab12/" title="ElastiCache Configuration" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/en/awsservice/lab12/">
+          <b>1-2. </b>ElastiCache Configuration
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/awsservice/lab13/" title="Making SQS" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/en/awsservice/lab13/">
+          <b>1-3. </b>Making SQS
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/awsservice/lab14/" title="Creating IAM Policy and Role" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/en/awsservice/lab14/">
+          <b>1-4. </b>Creating IAM Policy and Role
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/en/flexmatch/" title="GameLift FlexMatch Lab" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/en/flexmatch/">
+          <b>2. </b>GameLift FlexMatch Lab
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/flexmatch/lab21/" title="Making Lambda Functions" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/en/flexmatch/lab21/">
+          <b>2-1. </b>Making Lambda Functions
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/flexmatch/lab22/" title="Configuring API Gateway" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/en/flexmatch/lab22/">
+          <b>2-2. </b>Configuring API Gateway
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/flexmatch/lab23/" title="S3 Web Hosting" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/en/flexmatch/lab23/">
+          <b>2-3. </b>S3 Web Hosting
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/flexmatch/lab24/" title="Creating Game Server Build &amp; Fleet" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/en/flexmatch/lab24/">
+          <b>2-4. </b>Creating Game Server Build &amp; Fleet
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/flexmatch/lab25/" title="Build Serverless FlexMatch" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/en/flexmatch/lab25/">
+          <b>2-5. </b>Build Serverless FlexMatch
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/flexmatch/lab26/" title="Connecting Game Client with FlexMatch" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/en/flexmatch/lab26/">
+          <b>2-6. </b>Connecting Game Client with FlexMatch
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/flexmatch/lab27/" title="FlexMatch Matchmaking Event" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/en/flexmatch/lab27/">
+          <b>2-7. </b>FlexMatch Matchmaking Event
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/flexmatch/lab28/" title="Test FlexMatch Ruleset" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/en/flexmatch/lab28/">
+          <b>2-8. </b>Test FlexMatch Ruleset
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/en/fleetiq/" title="Start with FleetIQ" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/en/fleetiq/">
+          <b>3. </b>Start with FleetIQ
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/fleetiq/lab31/" title="Preparations" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/en/fleetiq/lab31/">
+          <b>3-1. </b>Preparations
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/fleetiq/lab32/" title="Setting Fiesta IAM" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/en/fleetiq/lab32/">
+          <b>3-2. </b>Setting Fiesta IAM
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/fleetiq/lab33/" title="Creating Game Server Group" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/en/fleetiq/lab33/">
+          <b>3-3. </b>Creating Game Server Group
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/fleetiq/lab34/" title="Creating Server on FleetIQ" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/en/fleetiq/lab34/">
+          <b>3-4. </b>Creating Server on FleetIQ
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/fleetiq/lab35/" title="Creating Client on FleetIQ" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/en/fleetiq/lab35/">
+          <b>3-5. </b>Creating Client on FleetIQ
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/fleetiq/lab36/" title="Connect Server and Client" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/en/fleetiq/lab36/">
+          <b>3-6. </b>Connect Server and Client
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/en/gamelift/" title="GameLift Classic Lab (Option)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/en/gamelift/">
+          <b>4. </b>GameLift Classic Lab (Option)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/gamelift/lab41/" title="Making Lambda Functions" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/en/gamelift/lab41/">
+          <b>4-1. </b>Making Lambda Functions
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/gamelift/lab42/" title="Configuring API Gateway" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/en/gamelift/lab42/">
+          <b>4-2. </b>Configuring API Gateway
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/gamelift/lab43/" title="S3 Web Hosting" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/en/gamelift/lab43/">
+          <b>4-3. </b>S3 Web Hosting
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/gamelift/lab44/" title="Creating Game Server Build &amp; Fleet" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/en/gamelift/lab44/">
+          <b>4-4. </b>Creating Game Server Build &amp; Fleet
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/gamelift/lab45/" title="Creating Matchmaker Server" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/en/gamelift/lab45/">
+          <b>4-5. </b>Creating Matchmaker Server
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/gamelift/lab46/" title="Game Client Settings &amp; Game Play!" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/en/gamelift/lab46/">
+          <b>4-6. </b>Game Client Settings &amp; Game Play!
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/en/cleanup/" title="Clean Up" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/en/cleanup/">
+          <b>5. </b>Clean Up
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/en/appendix/" title="Appendix" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/en/appendix/">
+          <b>6. </b>Appendix
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="/en/flexmatch/lab25/" selected>English</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="ko" value="/ko/flexmatch/lab25/">한국어</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      © 2020 Amazon Web Services, Inc. or its Affiliates. All rights reserved.
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/en/'>GameLift HoL</a> > <a href='/en/flexmatch/'>GameLift FlexMatch Lab</a> > Build Serverless FlexMatch
+          
+         
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#how-to-build-serverless-flexmatchbrbr">How to build Serverless FlexMatch<!-- raw HTML omitted --><!-- raw HTML omitted --></a></li>
+        <li><a href="#configuring-gamelift-queue">Configuring GameLift Queue</a></li>
+        <li><a href="#creating-lambda-function">Creating Lambda function</a></li>
+        <li><a href="#api-gateway-configuration">API Gateway Configuration</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Build Serverless FlexMatch
+            </h1>
+          
+
+        
+
+
+
+
+	<h3 id="how-to-build-serverless-flexmatchbrbr">How to build Serverless FlexMatch<!-- raw HTML omitted --><!-- raw HTML omitted --></h3>
+
+<div class="notices tip" ><p>In this Lab, we are starting FlexMatch Matchmaking based on Serverless Architecture.</p>
+</div>
+
+<p>With FlexMatch, you can implement session based matchmaker easily without provisioning servers for it.
+To use FlexMatch, you need to call FlexMatch API or SDK on game server or game client side.
+In this Lab, we are using Lambda. This approach can allow cost-efficient serverless model on your game server backend.</p>
+<h3 id="configuring-gamelift-queue">Configuring GameLift Queue</h3>
+<p>We are going to use GameLift Queue for matchmaking.</p>
+<ol>
+<li>Click &ldquo;Create a queue&rdquo; on GameLift Console.</li>
+<li>Put the name on queue like below. And choose Alias that we made before on destination. Click &ldquo;Create queue&rdquo; to make.</li>
+</ol>
+<p><img src="./images/FlexMatch-1%5Ben%5D.png" alt="Flex-Match"></p>
+<ol start="3">
+<li>
+<p>Nextly, we are making rule for FlexMatch. Click &ldquo;Create matchmaking rule set&rdquo; button.</p>
+</li>
+<li>
+<p>Set rule set name as you want, and put rule set policy below on &ldquo;Rule set box&rdquo;. Rule set is provided from <strong>GomokuRuleSet.json</strong> under the <em>rootFolder/Ruleset</em> directory on a given source code. Copy the code and paste it to console box.</p>
+</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#f92672">&#34;ruleLanguageVersion&#34;</span> : <span style="color:#e6db74">&#34;1.0&#34;</span>,
+    <span style="color:#f92672">&#34;playerAttributes&#34;</span> :
+    [
+        {
+            <span style="color:#f92672">&#34;name&#34;</span> : <span style="color:#e6db74">&#34;score&#34;</span>,
+            <span style="color:#f92672">&#34;type&#34;</span> : <span style="color:#e6db74">&#34;number&#34;</span>,
+            <span style="color:#f92672">&#34;default&#34;</span> : <span style="color:#ae81ff">1000</span>
+        }
+    ],
+    <span style="color:#f92672">&#34;teams&#34;</span> :
+    [
+        {
+            <span style="color:#f92672">&#34;name&#34;</span> : <span style="color:#e6db74">&#34;blue&#34;</span>,
+            <span style="color:#f92672">&#34;maxPlayers&#34;</span> : <span style="color:#ae81ff">1</span>,
+            <span style="color:#f92672">&#34;minPlayers&#34;</span> : <span style="color:#ae81ff">1</span>
+        },
+        {
+            <span style="color:#f92672">&#34;name&#34;</span> : <span style="color:#e6db74">&#34;red&#34;</span>,
+            <span style="color:#f92672">&#34;maxPlayers&#34;</span> : <span style="color:#ae81ff">1</span>,
+            <span style="color:#f92672">&#34;minPlayers&#34;</span> : <span style="color:#ae81ff">1</span>
+        }
+    ],
+    <span style="color:#f92672">&#34;rules&#34;</span> :
+    [
+        {   <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;EqualTeamSizes&#34;</span>,
+            <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;comparison&#34;</span>,
+            <span style="color:#f92672">&#34;measurements&#34;</span>: [ <span style="color:#e6db74">&#34;count(teams[red].players)&#34;</span> ],
+            <span style="color:#f92672">&#34;referenceValue&#34;</span>: <span style="color:#e6db74">&#34;count(teams[blue].players)&#34;</span>,
+            <span style="color:#f92672">&#34;operation&#34;</span>: <span style="color:#e6db74">&#34;=&#34;</span>
+        },
+        {
+            <span style="color:#f92672">&#34;name&#34;</span> : <span style="color:#e6db74">&#34;FairTeamSkill&#34;</span>,
+            <span style="color:#f92672">&#34;type&#34;</span> : <span style="color:#e6db74">&#34;distance&#34;</span>,
+            <span style="color:#f92672">&#34;measurements&#34;</span> : [ <span style="color:#e6db74">&#34;avg(teams[*].players.attributes[score])&#34;</span> ],
+            <span style="color:#f92672">&#34;referenceValue&#34;</span> : <span style="color:#e6db74">&#34;avg(flatten(teams[*].players.attributes[score]))&#34;</span>,
+            <span style="color:#f92672">&#34;maxDistance&#34;</span> : <span style="color:#ae81ff">300</span>
+        }
+    ],
+    <span style="color:#f92672">&#34;expansions&#34;</span> :
+    [
+        {
+            <span style="color:#f92672">&#34;target&#34;</span> : <span style="color:#e6db74">&#34;rules[FairTeamSkill].maxDistance&#34;</span>,
+            <span style="color:#f92672">&#34;steps&#34;</span> :
+            [
+                {
+                    <span style="color:#f92672">&#34;waitTimeSeconds&#34;</span> : <span style="color:#ae81ff">10</span>,
+                    <span style="color:#f92672">&#34;value&#34;</span> : <span style="color:#ae81ff">500</span>
+                },
+                {
+                    <span style="color:#f92672">&#34;waitTimeSeconds&#34;</span> : <span style="color:#ae81ff">20</span>,
+                    <span style="color:#f92672">&#34;value&#34;</span> : <span style="color:#ae81ff">800</span>
+                },
+                {
+                    <span style="color:#f92672">&#34;waitTimeSeconds&#34;</span> : <span style="color:#ae81ff">30</span>,
+                    <span style="color:#f92672">&#34;value&#34;</span> : <span style="color:#ae81ff">1000</span>
+                }
+            ]
+        }
+    ]
+}
+</code></pre></div><p>This rule matches players that have score differences under 300, and if match cannot be accepted in time, mitigate matchmaking rule and find players! <br>
+Click &ldquo;Validate rule set&rdquo;, and check rule set is fine. And click &ldquo;Create rule set&rdquo;.</p>
+<p><img src="./images/FlexMatch-2%5Ben%5D.png" alt="Flex-Match"></p>
+<ol start="5">
+<li>Next thing to do is linking GameLift Queue and Matchmaking rule set. Click &ldquo;Create matchmaking configuration&rdquo; on the menu. Select queue and rule set like below, and create configuration.</li>
+</ol>
+<ul>
+<li>Please check you choose right region and queue.</li>
+</ul>
+<p><img src="./images/FlexMatch-3%5Ben%5D.png" alt="Flex-Match"></p>
+<h3 id="creating-lambda-function">Creating Lambda function</h3>
+
+<div class="notices tip" ><p>If you deploy CloudFormation stack, Lambda functions have already been made. You should just put required part of these resources.</p>
+</div>
+
+<p>GameLift FlexMatch configuration was completed! <br>
+Next step is building Lambda function and API Gateway that game client makes request for FlexMatch.
+In this lab, we are going to make two Lambda functions. First one is handling matchmaking requests from client, second one is checking matchmaking results. <br>
+Let&rsquo;s make first Lambda function. It will not be difficult!</p>
+<ol>
+<li>
+<p>Move to Lambda Console. <a href="https://console.aws.amazon.com/lambda">https://console.aws.amazon.com/lambda</a></p>
+</li>
+<li>
+<p>Click &ldquo;Create function&rdquo; button.</p>
+</li>
+<li>
+<p>Check &ldquo;Author from scratch&rdquo;.</p>
+</li>
+<li>
+<p>Put the Name of the function &ldquo;game-match-request&rdquo;.</p>
+</li>
+<li>
+<p>Choose Python 2.7 as Runtime.</p>
+</li>
+<li>
+<p>Choose Role on Permissions Tab. Check &ldquo;Use an existing role&rdquo; and select &ldquo;Gomok-game-match-request&rdquo; as IAM Role. Click &ldquo;Create function&rdquo; button.</p>
+</li>
+</ol>
+<p><img src="./images/FlexMatch-4%5Ben%5D.png" alt="Flex-Match"></p>
+<ol start="7">
+<li>Find <strong>Lambda/MatchRequest.py</strong> at your source code. Copy the contents and paste it to Console. Check Region and Match Configuration is configured correctly.</li>
+</ol>
+<p><img src="./images/FlexMatch-5.png" alt="Flex-Match"></p>
+<ul>
+<li>Sample Image is just for reference. This can be different from your Lab environment. Also please check Handler and function name is same.</li>
+</ul>
+<ol start="8">
+<li>Set Basic settings on your function.</li>
+</ol>
+<ul>
+<li>Memory : 128MB</li>
+<li>Timeout : 1 min</li>
+</ul>
+<ol start="9">
+<li>
+<p>Click &ldquo;Save&rdquo; button and make function. This function receives Matchmaking requests from game client, reads user data from DynamoDB and send Matchmaking requests to GameLift.</p>
+</li>
+<li>
+<p>Click &ldquo;Create function&rdquo; button and let&rsquo;s make second function.</p>
+</li>
+<li>
+<p>Check &ldquo;Author from scratch&rdquo; and start with empty function.</p>
+</li>
+<li>
+<p>Put &ldquo;game-match-status&rdquo; as Name, and select Python 2.7 as Runtime.</p>
+</li>
+<li>
+<p>Choose Role on Permissions Tab. Check &ldquo;Use an existing role&rdquo; and select &ldquo;Gomok-game-match-status&rdquo; as IAM Role. Click &ldquo;Create function&rdquo; button.</p>
+</li>
+<li>
+<p>Find <strong>Lambda/MatchStatus.py</strong> at your source code. Copy source code and paste it to Lambda Code textbox.</p>
+</li>
+</ol>
+<p><img src="./images/FlexMatch-6%5Ben%5D.png" alt="Flex-Match"></p>
+<ol start="15">
+<li>Like above, set Basic settings on your function.</li>
+</ol>
+<ul>
+<li>Memory : 128MB</li>
+<li>Timeout : 1 min</li>
+</ul>
+
+<div class="notices info" ><p>Please check Lambda functions <em>Handler</em>. Lambda function can access this handler when it is executed.</p>
+</div>
+
+<ol start="16">
+<li>Click &ldquo;Save&rdquo; button and make function. This function check matchmaking request is done by using TicketId that game clients sent, and send Game server&rsquo;s IP address and Port information to game client as response.</li>
+</ol>
+<h3 id="api-gateway-configuration">API Gateway Configuration</h3>
+<p>Let&rsquo;s make API for these Lambda functions.</p>
+<ol>
+<li>
+<p>Move to API Gateway console. (<a href="https://console.aws.amazon.com/apigateway">https://console.aws.amazon.com/apigateway</a>)</p>
+</li>
+<li>
+<p>Choose API Gateway that is already made, and click &ldquo;Create Resource&rdquo; button.</p>
+</li>
+</ol>
+<p><img src="./images/FlexMatch-7%5Ben%5D.png" alt="Flex-Match"></p>
+<ol start="3">
+<li>Write Resource name <em>matchrequest</em> on the box. Check &ldquo;Enable API Gateway CORS&rdquo; and click &ldquo;Create Resource&rdquo; button.</li>
+</ol>
+<p><img src="./images/FlexMatch-8%5Ben%5D.png" alt="Flex-Match"></p>
+<ol start="4">
+<li>
+<p>Create new method for this resource. Click &ldquo;Actions&rdquo; button and &ldquo;Create Method&rdquo;. Make API for &ldquo;POST&rdquo; method.</p>
+</li>
+<li>
+<p>Select Integration type with Lambda function, and check correct region. Choose <em>game-match-request</em> for Lambda function and click &ldquo;Save&rdquo; button.</p>
+</li>
+</ol>
+<p><img src="./images/FlexMatch-9%5Ben%5D.png" alt="Flex-Match"></p>
+<ol start="6">
+<li>
+<p>Make second API for second Lambda function. Click &ldquo;Actions&rdquo; on the root path and &ldquo;Create Resource&rdquo;.</p>
+</li>
+<li>
+<p>Create API as we had. Resource Name will be <em>matchstatus</em> and enable API Gateway CORS.</p>
+</li>
+</ol>
+<p><img src="./images/FlexMatch-12%5Ben%5D.png" alt="Flex-Match"></p>
+<ol start="8">
+<li>
+<p>Making POST method, and integrate with <em>game-match-status</em> Lambda function. Click &ldquo;Save&rdquo; button.</p>
+</li>
+<li>
+<p>Now we finish to make APIs for Lambda functions. Let&rsquo;s deploy this API. Click &ldquo;Actions&rdquo; button and &ldquo;Deploy API&rdquo;.</p>
+</li>
+</ol>
+<p><img src="./images/FlexMatch-10%5Ben%5D.png" alt="Flex-Match"></p>
+<ol start="10">
+<li>After you deploy your API, you can find Invoke URL. This URL will be used for game client.</li>
+</ol>
+<p><img src="./images/FlexMatch-11%5Ben%5D.png" alt="Flex-Match"></p>
+<hr>
+<!-- raw HTML omitted -->
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/en/flexmatch/lab24/" title="Creating Game Server Build &amp; Fleet"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/en/flexmatch/lab26/" title="Connecting Game Client with FlexMatch" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/en/js/clipboard.min.js?1592992523"></script>
+    <script src="/en/js/perfect-scrollbar.min.js?1592992523"></script>
+    <script src="/en/js/perfect-scrollbar.jquery.min.js?1592992523"></script>
+    <script src="/en/js/jquery.sticky.js?1592992523"></script>
+    <script src="/en/js/featherlight.min.js?1592992523"></script>
+    <script src="/en/js/highlight.pack.js?1592992523"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/en/js/modernizr.custom-3.6.0.js?1592992523"></script>
+    <script src="/en/js/learn.js?1592992523"></script>
+    <script src="/en/js/hugo-learn.js?1592992523"></script>
+
+    <link href="/en/mermaid/mermaid.css?1592992523" rel="stylesheet" />
+    <script src="/en/mermaid/mermaid.js?1592992523"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+  </body>
+</html>

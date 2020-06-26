@@ -1,0 +1,61 @@
+{
+    "ruleLanguageVersion" : "1.0",
+    "playerAttributes" :
+    [
+        {
+            "name" : "score",
+            "type" : "number",
+            "default" : 1000
+        }
+    ],
+    "teams" :
+    [
+        {
+            "name" : "blue",
+            "maxPlayers" : 1,
+            "minPlayers" : 1
+        },
+        {
+            "name" : "red",
+            "maxPlayers" : 1,
+            "minPlayers" : 1
+        }
+    ],
+    "rules" :
+    [
+        {   "name": "EqualTeamSizes",
+            "type": "comparison",
+            "measurements": [ "count(teams[red].players)" ],
+            "referenceValue": "count(teams[blue].players)",
+            "operation": "="
+        },
+        {
+            "name" : "FairTeamSkill",
+            "type" : "distance",
+            "measurements" : [ "avg(teams[*].players.attributes[score])" ],
+            "referenceValue" : "avg(flatten(teams[*].players.attributes[score]))",
+            "maxDistance" : 300
+        }
+    ],
+    "expansions" :
+    [
+        {
+            "target" : "rules[FairTeamSkill].maxDistance",
+            "steps" :
+            [
+                {
+                    "waitTimeSeconds" : 10,
+                    "value" : 500
+                },
+                {
+                    "waitTimeSeconds" : 20,
+                    "value" : 800
+                },
+                {
+                    "waitTimeSeconds" : 30,
+                    "value" : 1000
+                }
+            ]
+        }
+    ]
+}

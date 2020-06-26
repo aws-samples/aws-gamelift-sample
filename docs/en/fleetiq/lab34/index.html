@@ -12,20 +12,20 @@
     <title>Creating Server on FleetIQ :: Start Full Stack Game with GameLift</title>
 
     
-    <link href="/aws-gamelift-sample/en/css/nucleus.css?1593150755" rel="stylesheet">
-    <link href="/aws-gamelift-sample/en/css/fontawesome-all.min.css?1593150755" rel="stylesheet">
-    <link href="/aws-gamelift-sample/en/css/hybrid.css?1593150755" rel="stylesheet">
-    <link href="/aws-gamelift-sample/en/css/featherlight.min.css?1593150755" rel="stylesheet">
-    <link href="/aws-gamelift-sample/en/css/perfect-scrollbar.min.css?1593150755" rel="stylesheet">
-    <link href="/aws-gamelift-sample/en/css/auto-complete.css?1593150755" rel="stylesheet">
-    <link href="/aws-gamelift-sample/en/css/atom-one-dark-reasonable.css?1593150755" rel="stylesheet">
-    <link href="/aws-gamelift-sample/en/css/theme.css?1593150755" rel="stylesheet">
-    <link href="/aws-gamelift-sample/en/css/hugo-theme.css?1593150755" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/nucleus.css?1593160617" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/fontawesome-all.min.css?1593160617" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/hybrid.css?1593160617" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/featherlight.min.css?1593160617" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/perfect-scrollbar.min.css?1593160617" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/auto-complete.css?1593160617" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/atom-one-dark-reasonable.css?1593160617" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/theme.css?1593160617" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/hugo-theme.css?1593160617" rel="stylesheet">
     
-      <link href="/aws-gamelift-sample/en/css/theme-aws.css?1593150755" rel="stylesheet">
+      <link href="/aws-gamelift-sample/en/css/theme-aws.css?1593160617" rel="stylesheet">
     
 
-    <script src="/aws-gamelift-sample/en/js/jquery-3.3.1.min.js?1593150755"></script>
+    <script src="/aws-gamelift-sample/en/js/jquery-3.3.1.min.js?1593160617"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -42,8 +42,8 @@
 
   <div id="header-wrapper">
     <div id="header">
-      <a id="logo" href="/ko">
-	<img src="/ko/images/logo.png" height="70px"/>
+      <a id="logo" href="/aws-gamelift-sample/ko">
+	<img src="/aws-gamelift-sample/ko/images/logo.png" height="70px"/>
 </a>
 
 
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/aws-gamelift-sample/en/js/lunr.min.js?1593150755"></script>
-<script type="text/javascript" src="/aws-gamelift-sample/en/js/auto-complete.js?1593150755"></script>
+<script type="text/javascript" src="/aws-gamelift-sample/en/js/lunr.min.js?1593160617"></script>
+<script type="text/javascript" src="/aws-gamelift-sample/en/js/auto-complete.js?1593160617"></script>
 <script type="text/javascript">
     
         var baseurl = "\/aws-gamelift-sample\/en\/\/en";
     
 </script>
-<script type="text/javascript" src="/aws-gamelift-sample/en/js/search.js?1593150755"></script>
+<script type="text/javascript" src="/aws-gamelift-sample/en/js/search.js?1593160617"></script>
 
     
   </div>
@@ -1201,11 +1201,11 @@ It&rsquo;s a simple, and good example of understanding how FleetIQ works and cre
 <p>Create new IDE as follows. We are making code with this IDE.</p>
 </li>
 </ol>
-<p><img src="./images/IQServer-1.png" alt="IQ"></p>
+<p><img src="../../images/fleetiq/lab34/IQServer-1.png" alt="IQ"></p>
 <ol start="3">
 <li>Set the connection configuration to SSH, and connect the endpoint of the game server instance in the game server group that you have just created. At this time, you need to copy and connect the SSH key at the bottom.</li>
 </ol>
-<p><img src="./images/IQServer-2.png" alt="IQ"></p>
+<p><img src="../../images/fleetiq/lab34/IQServer-2.png" alt="IQ"></p>
 <ol start="4">
 <li>If you copy SSH key, connect to the instance on EC2 console as follows.</li>
 </ol>
@@ -1213,7 +1213,7 @@ It&rsquo;s a simple, and good example of understanding how FleetIQ works and cre
 <li>You can use <strong>EC2 Instance Connect</strong> for this action. Click the instance and find &ldquo;Connect&rdquo; button on console.</li>
 <li>Or you are able to connect via SSH or PuTTY.</li>
 </ul>
-<p><img src="./images/IQServer-20.png" alt="IQ"></p>
+<p><img src="../../images/fleetiq/lab34/IQServer-20.png" alt="IQ"></p>
 <p>For more details, you can find more information on <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Connect-using-EC2-Instance-Connect.html">This Link</a>.</p>
 <pre><code class="language-ssh" data-lang="ssh">vi ~/.ssh/authorized_keys
 </code></pre><p>Put command above, and append copied text to the end of this file.</p>
@@ -1229,7 +1229,7 @@ ssh-rsa @@@ xxx@amazon.com
 <ol start="6">
 <li>Go back to the Cloud9 console and complete the configuration. The IDE should be configured as follows.</li>
 </ol>
-<p><img src="./images/IQServer-3.png" alt="IQ"></p>
+<p><img src="../../images/fleetiq/lab34/IQServer-3.png" alt="IQ"></p>
 <h3 id="writing-server-side-script">Writing Server side script</h3>
 <ol>
 <li>Create Python script named <em>server.py</em>. Copy the following server script and paste it to the file. We will modify this code one by one.</li>
@@ -2100,19 +2100,19 @@ server_socket<span style="color:#f92672">.</span>close()
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/aws-gamelift-sample/en/js/clipboard.min.js?1593150755"></script>
-    <script src="/aws-gamelift-sample/en/js/perfect-scrollbar.min.js?1593150755"></script>
-    <script src="/aws-gamelift-sample/en/js/perfect-scrollbar.jquery.min.js?1593150755"></script>
-    <script src="/aws-gamelift-sample/en/js/jquery.sticky.js?1593150755"></script>
-    <script src="/aws-gamelift-sample/en/js/featherlight.min.js?1593150755"></script>
-    <script src="/aws-gamelift-sample/en/js/highlight.pack.js?1593150755"></script>
+    <script src="/aws-gamelift-sample/en/js/clipboard.min.js?1593160617"></script>
+    <script src="/aws-gamelift-sample/en/js/perfect-scrollbar.min.js?1593160617"></script>
+    <script src="/aws-gamelift-sample/en/js/perfect-scrollbar.jquery.min.js?1593160617"></script>
+    <script src="/aws-gamelift-sample/en/js/jquery.sticky.js?1593160617"></script>
+    <script src="/aws-gamelift-sample/en/js/featherlight.min.js?1593160617"></script>
+    <script src="/aws-gamelift-sample/en/js/highlight.pack.js?1593160617"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/aws-gamelift-sample/en/js/modernizr.custom-3.6.0.js?1593150755"></script>
-    <script src="/aws-gamelift-sample/en/js/learn.js?1593150755"></script>
-    <script src="/aws-gamelift-sample/en/js/hugo-learn.js?1593150755"></script>
+    <script src="/aws-gamelift-sample/en/js/modernizr.custom-3.6.0.js?1593160617"></script>
+    <script src="/aws-gamelift-sample/en/js/learn.js?1593160617"></script>
+    <script src="/aws-gamelift-sample/en/js/hugo-learn.js?1593160617"></script>
 
-    <link href="/aws-gamelift-sample/en/mermaid/mermaid.css?1593150755" rel="stylesheet" />
-    <script src="/aws-gamelift-sample/en/mermaid/mermaid.js?1593150755"></script>
+    <link href="/aws-gamelift-sample/en/mermaid/mermaid.css?1593160617" rel="stylesheet" />
+    <script src="/aws-gamelift-sample/en/mermaid/mermaid.js?1593160617"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

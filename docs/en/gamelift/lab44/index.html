@@ -12,20 +12,20 @@
     <title>Creating Game Server Build &amp; Fleet :: Start Full Stack Game with GameLift</title>
 
     
-    <link href="/aws-gamelift-sample/en/css/nucleus.css?1593150755" rel="stylesheet">
-    <link href="/aws-gamelift-sample/en/css/fontawesome-all.min.css?1593150755" rel="stylesheet">
-    <link href="/aws-gamelift-sample/en/css/hybrid.css?1593150755" rel="stylesheet">
-    <link href="/aws-gamelift-sample/en/css/featherlight.min.css?1593150755" rel="stylesheet">
-    <link href="/aws-gamelift-sample/en/css/perfect-scrollbar.min.css?1593150755" rel="stylesheet">
-    <link href="/aws-gamelift-sample/en/css/auto-complete.css?1593150755" rel="stylesheet">
-    <link href="/aws-gamelift-sample/en/css/atom-one-dark-reasonable.css?1593150755" rel="stylesheet">
-    <link href="/aws-gamelift-sample/en/css/theme.css?1593150755" rel="stylesheet">
-    <link href="/aws-gamelift-sample/en/css/hugo-theme.css?1593150755" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/nucleus.css?1593160617" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/fontawesome-all.min.css?1593160617" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/hybrid.css?1593160617" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/featherlight.min.css?1593160617" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/perfect-scrollbar.min.css?1593160617" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/auto-complete.css?1593160617" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/atom-one-dark-reasonable.css?1593160617" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/theme.css?1593160617" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/hugo-theme.css?1593160617" rel="stylesheet">
     
-      <link href="/aws-gamelift-sample/en/css/theme-aws.css?1593150755" rel="stylesheet">
+      <link href="/aws-gamelift-sample/en/css/theme-aws.css?1593160617" rel="stylesheet">
     
 
-    <script src="/aws-gamelift-sample/en/js/jquery-3.3.1.min.js?1593150755"></script>
+    <script src="/aws-gamelift-sample/en/js/jquery-3.3.1.min.js?1593160617"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -42,8 +42,8 @@
 
   <div id="header-wrapper">
     <div id="header">
-      <a id="logo" href="/ko">
-	<img src="/ko/images/logo.png" height="70px"/>
+      <a id="logo" href="/aws-gamelift-sample/ko">
+	<img src="/aws-gamelift-sample/ko/images/logo.png" height="70px"/>
 </a>
 
 
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/aws-gamelift-sample/en/js/lunr.min.js?1593150755"></script>
-<script type="text/javascript" src="/aws-gamelift-sample/en/js/auto-complete.js?1593150755"></script>
+<script type="text/javascript" src="/aws-gamelift-sample/en/js/lunr.min.js?1593160617"></script>
+<script type="text/javascript" src="/aws-gamelift-sample/en/js/auto-complete.js?1593160617"></script>
 <script type="text/javascript">
     
         var baseurl = "\/aws-gamelift-sample\/en\/\/en";
     
 </script>
-<script type="text/javascript" src="/aws-gamelift-sample/en/js/search.js?1593150755"></script>
+<script type="text/javascript" src="/aws-gamelift-sample/en/js/search.js?1593160617"></script>
 
     
   </div>
@@ -1209,7 +1209,7 @@ Put SQS endpoint for SQS_ENDPOINT. In SQS_ACCESSKEY and SQS_SECRETKEY, write IAM
 </div>
 
 <p><strong>If you are working on a file in a Mac or Windows environment and distributing it on an independent system, be aware of the text file format. In particular, the New Line format in Windows differs by CRLF, which may affect parsing of settings.</strong></p>
-<p><img src="./images/GL-1.png" alt="GL"></p>
+<p><img src="../../images/gamelift/lab44/GL-1.png" alt="GL"></p>
 <ol start="4">
 <li>Build GameLift Binary using CLI. If CLI environment is not configured, please refer <a href="../../intro/lab02">Preparation</a>.  <br>
 Since the path of the build and the path of the executable file (exe) in the GameLift console to be set must match, it is recommended to execute the command in the path including the GomokuServer.exe.</li>
@@ -1225,18 +1225,18 @@ aws gamelift upload-build --name <span style="color:#e6db74">&#34;Classic_Build-
 <p>You are able to find build is uploading when you move to GameLift console. <a href="https://console.aws.amazon.com/gamelift">https://console.aws.amazon.com/gamelift</a></p>
 </li>
 </ol>
-<p><img src="./images/GL-2%5Ben%5D.png" alt="GL"></p>
+<p><img src="../../images/gamelift/lab44/GL-2%5Ben%5D.png" alt="GL"></p>
 <ol start="7">
 <li>When the build is successful, it is activated as shown above. Let&rsquo;s create a Fleet from a successful build.</li>
 </ol>
-<p><img src="./images/GL-3%5Ben%5D.png" alt="GL"></p>
+<p><img src="../../images/gamelift/lab44/GL-3%5Ben%5D.png" alt="GL"></p>
 <ol start="8">
 <li>Enter the settings as follows.</li>
 </ol>
 <p>If you select Spot Type from Fleet Type, you can configure GameLift instance fleets in the form of spot fleets.
 GameLift chooses the fleet with the lowest interruption rate and cost by placing the Spot instance on the instance type with the lowest interruption probability. <br>
 With this feature, we can use GameLift service cost-efficiently.</p>
-<p><img src="./images/GL-4%5Ben%5D.png" alt="GL"></p>
+<p><img src="../../images/gamelift/lab44/GL-4%5Ben%5D.png" alt="GL"></p>
 <ul>
 <li>Name: GomokuGameServerFleet-1</li>
 <li>Instance type: c3.large or c4.large</li>
@@ -1247,19 +1247,19 @@ With this feature, we can use GameLift service cost-efficiently.</p>
 <li>Protocol: TCP</li>
 <li>IP address range: 0.0.0.0/0</li>
 </ul>
-<p><img src="./images/GL-5%5Ben%5D.png" alt="GL"></p>
+<p><img src="../../images/gamelift/lab44/GL-5%5Ben%5D.png" alt="GL"></p>
 <p>When setup is completed, create a fleet clicking &ldquo;Initialize Fleet&rdquo; button.
 The operation takes about 20 minutes.</p>
-<p><img src="./images/GL-6%5Ben%5D.png" alt="GL"></p>
+<p><img src="../../images/gamelift/lab44/GL-6%5Ben%5D.png" alt="GL"></p>
 <p>When fleet making is completed, it changes to the above state. Let&rsquo;s configure Alias ​​while the fleet is being created.</p>
 <ol>
 <li>Open the GameLift menu and click on the &ldquo;Create Alias&rdquo; ​​menu.</li>
 </ol>
-<p><img src="./images/GL-7%5Ben%5D.png" alt="GL"></p>
+<p><img src="../../images/gamelift/lab44/GL-7%5Ben%5D.png" alt="GL"></p>
 <ol start="2">
 <li>Specify an appropriate alias and select the routing type as Simple. Associate creating Fleet at the Alias.</li>
 </ol>
-<p><img src="./images/GL-8%5Ben%5D.png" alt="GL"></p>
+<p><img src="../../images/gamelift/lab44/GL-8%5Ben%5D.png" alt="GL"></p>
 <p>We are using Alias to access Fleet. Record Alias ID.
 Let&rsquo;s make Matchmaking server next.</p>
 <hr>
@@ -1902,19 +1902,19 @@ Let&rsquo;s make Matchmaking server next.</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/aws-gamelift-sample/en/js/clipboard.min.js?1593150755"></script>
-    <script src="/aws-gamelift-sample/en/js/perfect-scrollbar.min.js?1593150755"></script>
-    <script src="/aws-gamelift-sample/en/js/perfect-scrollbar.jquery.min.js?1593150755"></script>
-    <script src="/aws-gamelift-sample/en/js/jquery.sticky.js?1593150755"></script>
-    <script src="/aws-gamelift-sample/en/js/featherlight.min.js?1593150755"></script>
-    <script src="/aws-gamelift-sample/en/js/highlight.pack.js?1593150755"></script>
+    <script src="/aws-gamelift-sample/en/js/clipboard.min.js?1593160617"></script>
+    <script src="/aws-gamelift-sample/en/js/perfect-scrollbar.min.js?1593160617"></script>
+    <script src="/aws-gamelift-sample/en/js/perfect-scrollbar.jquery.min.js?1593160617"></script>
+    <script src="/aws-gamelift-sample/en/js/jquery.sticky.js?1593160617"></script>
+    <script src="/aws-gamelift-sample/en/js/featherlight.min.js?1593160617"></script>
+    <script src="/aws-gamelift-sample/en/js/highlight.pack.js?1593160617"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/aws-gamelift-sample/en/js/modernizr.custom-3.6.0.js?1593150755"></script>
-    <script src="/aws-gamelift-sample/en/js/learn.js?1593150755"></script>
-    <script src="/aws-gamelift-sample/en/js/hugo-learn.js?1593150755"></script>
+    <script src="/aws-gamelift-sample/en/js/modernizr.custom-3.6.0.js?1593160617"></script>
+    <script src="/aws-gamelift-sample/en/js/learn.js?1593160617"></script>
+    <script src="/aws-gamelift-sample/en/js/hugo-learn.js?1593160617"></script>
 
-    <link href="/aws-gamelift-sample/en/mermaid/mermaid.css?1593150755" rel="stylesheet" />
-    <script src="/aws-gamelift-sample/en/mermaid/mermaid.js?1593150755"></script>
+    <link href="/aws-gamelift-sample/en/mermaid/mermaid.css?1593160617" rel="stylesheet" />
+    <script src="/aws-gamelift-sample/en/mermaid/mermaid.js?1593160617"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

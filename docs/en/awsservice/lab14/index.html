@@ -12,20 +12,20 @@
     <title>Creating IAM Policy and Role :: Start Full Stack Game with GameLift</title>
 
     
-    <link href="/aws-gamelift-sample/en/css/nucleus.css?1593150755" rel="stylesheet">
-    <link href="/aws-gamelift-sample/en/css/fontawesome-all.min.css?1593150755" rel="stylesheet">
-    <link href="/aws-gamelift-sample/en/css/hybrid.css?1593150755" rel="stylesheet">
-    <link href="/aws-gamelift-sample/en/css/featherlight.min.css?1593150755" rel="stylesheet">
-    <link href="/aws-gamelift-sample/en/css/perfect-scrollbar.min.css?1593150755" rel="stylesheet">
-    <link href="/aws-gamelift-sample/en/css/auto-complete.css?1593150755" rel="stylesheet">
-    <link href="/aws-gamelift-sample/en/css/atom-one-dark-reasonable.css?1593150755" rel="stylesheet">
-    <link href="/aws-gamelift-sample/en/css/theme.css?1593150755" rel="stylesheet">
-    <link href="/aws-gamelift-sample/en/css/hugo-theme.css?1593150755" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/nucleus.css?1593160617" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/fontawesome-all.min.css?1593160617" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/hybrid.css?1593160617" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/featherlight.min.css?1593160617" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/perfect-scrollbar.min.css?1593160617" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/auto-complete.css?1593160617" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/atom-one-dark-reasonable.css?1593160617" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/theme.css?1593160617" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/hugo-theme.css?1593160617" rel="stylesheet">
     
-      <link href="/aws-gamelift-sample/en/css/theme-aws.css?1593150755" rel="stylesheet">
+      <link href="/aws-gamelift-sample/en/css/theme-aws.css?1593160617" rel="stylesheet">
     
 
-    <script src="/aws-gamelift-sample/en/js/jquery-3.3.1.min.js?1593150755"></script>
+    <script src="/aws-gamelift-sample/en/js/jquery-3.3.1.min.js?1593160617"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -42,8 +42,8 @@
 
   <div id="header-wrapper">
     <div id="header">
-      <a id="logo" href="/ko">
-	<img src="/ko/images/logo.png" height="70px"/>
+      <a id="logo" href="/aws-gamelift-sample/ko">
+	<img src="/aws-gamelift-sample/ko/images/logo.png" height="70px"/>
 </a>
 
 
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/aws-gamelift-sample/en/js/lunr.min.js?1593150755"></script>
-<script type="text/javascript" src="/aws-gamelift-sample/en/js/auto-complete.js?1593150755"></script>
+<script type="text/javascript" src="/aws-gamelift-sample/en/js/lunr.min.js?1593160617"></script>
+<script type="text/javascript" src="/aws-gamelift-sample/en/js/auto-complete.js?1593160617"></script>
 <script type="text/javascript">
     
         var baseurl = "\/aws-gamelift-sample\/en\/\/en";
     
 </script>
-<script type="text/javascript" src="/aws-gamelift-sample/en/js/search.js?1593150755"></script>
+<script type="text/javascript" src="/aws-gamelift-sample/en/js/search.js?1593160617"></script>
 
     
   </div>
@@ -1201,7 +1201,7 @@
 <p>Select GameLift on Visual Editor &gt; Service. For Actions, we are selecting &ldquo;All GameLift actions&rdquo; for comfort. Click &ldquo;Review Policy&rdquo;.</p>
 </li>
 </ol>
-<p><img src="./images/IAM_GameLift%5Ben%5D.png" alt="IAM"></p>
+<p><img src="../../images/awsservice/lab14/IAM_GameLift%5Ben%5D.png" alt="IAM"></p>
 <ol start="4">
 <li>
 <p>Put Policy Name(GameLiftFullAccess) and Click &ldquo;Create policy&rdquo; Button.</p>
@@ -1216,7 +1216,7 @@
 <p>Select AWS Lambda for Role Type.</p>
 </li>
 </ol>
-<p><img src="./images/IAM_Lambda%5Ben%5D.png" alt="IAM_Lambda"></p>
+<p><img src="../../images/awsservice/lab14/IAM_Lambda%5Ben%5D.png" alt="IAM_Lambda"></p>
 <ol start="8">
 <li>
 <p>Allocate 3 IAM policies on this Role. Select Policies (AmazonSQSFullAccess, AmazonDynamoDBFullAccess, AWSLambdaBasicExecutionRole) on the editor.</p>
@@ -1255,7 +1255,7 @@
 <p>Creating all IAM Roles, you can find roles below!</p>
 </li>
 </ol>
-<p><img src="./images/Gomok_roles.png" alt="Gomok_Roles"></p>
+<p><img src="../../images/awsservice/lab14/Gomok_roles.png" alt="Gomok_Roles"></p>
 <ol start="20">
 <li>
 <p>Lastly, make additional Role for GameLift. Roles that we made before were used for Lambda functions, but this role is for GameLift Fleet. GameLift Fleet needs to access SQS for Game Result Processing.</p>
@@ -1267,7 +1267,7 @@
 <p>Select AmazonSQSFullAccess as Permission, and set role name as &ldquo;Gomoku-GameLiftFleetRole&rdquo;.</p>
 </li>
 </ol>
-<p><img src="./images/GomokFleetRole%5Ben%5D.png" alt="GomokFleetRole"></p>
+<p><img src="../../images/awsservice/lab14/GomokFleetRole%5Ben%5D.png" alt="GomokFleetRole"></p>
 <ol start="23">
 <li>
 <p>We should change service that uses this Role to GameLift. Select &ldquo;Gomoku-GameLiftFleetRole&rdquo; on console, and select &ldquo;Trust relationships&rdquo; tab. Click &ldquo;Edit trust relationship&rdquo; button.</p>
@@ -1276,7 +1276,7 @@
 <p>Change settings like below. It will be changed &ldquo;ec2 -&gt; gamelift&rdquo;. Save with &ldquo;Update Trust Policy&rdquo; button.</p>
 </li>
 </ol>
-<p><img src="./images/GameLiftAssumeRole.png" alt="GameLiftAssumeRole"></p>
+<p><img src="../../images/awsservice/lab14/GameLiftAssumeRole.png" alt="GameLiftAssumeRole"></p>
 <p>This is all about first part on this lab. :)
 No so complicated. right?</p>
 <p>Let&rsquo;s make Game server on next part.</p>
@@ -1920,19 +1920,19 @@ No so complicated. right?</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/aws-gamelift-sample/en/js/clipboard.min.js?1593150755"></script>
-    <script src="/aws-gamelift-sample/en/js/perfect-scrollbar.min.js?1593150755"></script>
-    <script src="/aws-gamelift-sample/en/js/perfect-scrollbar.jquery.min.js?1593150755"></script>
-    <script src="/aws-gamelift-sample/en/js/jquery.sticky.js?1593150755"></script>
-    <script src="/aws-gamelift-sample/en/js/featherlight.min.js?1593150755"></script>
-    <script src="/aws-gamelift-sample/en/js/highlight.pack.js?1593150755"></script>
+    <script src="/aws-gamelift-sample/en/js/clipboard.min.js?1593160617"></script>
+    <script src="/aws-gamelift-sample/en/js/perfect-scrollbar.min.js?1593160617"></script>
+    <script src="/aws-gamelift-sample/en/js/perfect-scrollbar.jquery.min.js?1593160617"></script>
+    <script src="/aws-gamelift-sample/en/js/jquery.sticky.js?1593160617"></script>
+    <script src="/aws-gamelift-sample/en/js/featherlight.min.js?1593160617"></script>
+    <script src="/aws-gamelift-sample/en/js/highlight.pack.js?1593160617"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/aws-gamelift-sample/en/js/modernizr.custom-3.6.0.js?1593150755"></script>
-    <script src="/aws-gamelift-sample/en/js/learn.js?1593150755"></script>
-    <script src="/aws-gamelift-sample/en/js/hugo-learn.js?1593150755"></script>
+    <script src="/aws-gamelift-sample/en/js/modernizr.custom-3.6.0.js?1593160617"></script>
+    <script src="/aws-gamelift-sample/en/js/learn.js?1593160617"></script>
+    <script src="/aws-gamelift-sample/en/js/hugo-learn.js?1593160617"></script>
 
-    <link href="/aws-gamelift-sample/en/mermaid/mermaid.css?1593150755" rel="stylesheet" />
-    <script src="/aws-gamelift-sample/en/mermaid/mermaid.js?1593150755"></script>
+    <link href="/aws-gamelift-sample/en/mermaid/mermaid.css?1593160617" rel="stylesheet" />
+    <script src="/aws-gamelift-sample/en/mermaid/mermaid.js?1593160617"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -1,0 +1,1951 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.71.1" />
+    <meta name="description" content="Full Stack Game Demo">
+<meta name="author" content="Jinsung Thomas Park">
+
+    <link rel="icon" href="/aws-gamelift-sample/en/images/favicon.png" type="image/png">
+
+    <title>Creating Client on FleetIQ :: Start Full Stack Game with GameLift</title>
+
+    
+    <link href="/aws-gamelift-sample/en/css/nucleus.css?1593150755" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/fontawesome-all.min.css?1593150755" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/hybrid.css?1593150755" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/featherlight.min.css?1593150755" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/perfect-scrollbar.min.css?1593150755" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/auto-complete.css?1593150755" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/atom-one-dark-reasonable.css?1593150755" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/theme.css?1593150755" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/hugo-theme.css?1593150755" rel="stylesheet">
+    
+      <link href="/aws-gamelift-sample/en/css/theme-aws.css?1593150755" rel="stylesheet">
+    
+
+    <script src="/aws-gamelift-sample/en/js/jquery-3.3.1.min.js?1593150755"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/aws-gamelift-sample/en/fleetiq/lab35/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/ko">
+	<img src="/ko/images/logo.png" height="70px"/>
+</a>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-169409427-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-169409427-1');
+</script>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/aws-gamelift-sample/en/js/lunr.min.js?1593150755"></script>
+<script type="text/javascript" src="/aws-gamelift-sample/en/js/auto-complete.js?1593150755"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/aws-gamelift-sample\/en\/\/en";
+    
+</script>
+<script type="text/javascript" src="/aws-gamelift-sample/en/js/search.js?1593150755"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-gamelift-sample/en/intro/" title="GameLift HoL Introduction" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/aws-gamelift-sample/en/intro/">
+          <b>0. </b>GameLift HoL Introduction
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-gamelift-sample/en/intro/lab01/" title="Workshop Contents" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/aws-gamelift-sample/en/intro/lab01/">
+          <b>0-1. </b>Workshop Contents
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-gamelift-sample/en/intro/lab02/" title="HoL Preparation" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/aws-gamelift-sample/en/intro/lab02/">
+          <b>0-2. </b>HoL Preparation
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-gamelift-sample/en/intro/lab03/" title="Service Information" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/aws-gamelift-sample/en/intro/lab03/">
+          <b>0-3. </b>Service Information
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-gamelift-sample/en/awsservice/" title="Build AWS Services" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/aws-gamelift-sample/en/awsservice/">
+          <b>1. </b>Build AWS Services
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-gamelift-sample/en/awsservice/lab10/" title="Deploy CloudFormation Stack" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/aws-gamelift-sample/en/awsservice/lab10/">
+          <b>1-0. </b>Deploy CloudFormation Stack
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-gamelift-sample/en/awsservice/lab11/" title="Creating DynamoDB" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/aws-gamelift-sample/en/awsservice/lab11/">
+          <b>1-1. </b>Creating DynamoDB
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-gamelift-sample/en/awsservice/lab12/" title="ElastiCache Configuration" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/aws-gamelift-sample/en/awsservice/lab12/">
+          <b>1-2. </b>ElastiCache Configuration
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-gamelift-sample/en/awsservice/lab13/" title="Making SQS" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/aws-gamelift-sample/en/awsservice/lab13/">
+          <b>1-3. </b>Making SQS
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-gamelift-sample/en/awsservice/lab14/" title="Creating IAM Policy and Role" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/aws-gamelift-sample/en/awsservice/lab14/">
+          <b>1-4. </b>Creating IAM Policy and Role
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-gamelift-sample/en/flexmatch/" title="GameLift FlexMatch Lab" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/aws-gamelift-sample/en/flexmatch/">
+          <b>2. </b>GameLift FlexMatch Lab
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-gamelift-sample/en/flexmatch/lab21/" title="Making Lambda Functions" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/aws-gamelift-sample/en/flexmatch/lab21/">
+          <b>2-1. </b>Making Lambda Functions
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-gamelift-sample/en/flexmatch/lab22/" title="Configuring API Gateway" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/aws-gamelift-sample/en/flexmatch/lab22/">
+          <b>2-2. </b>Configuring API Gateway
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-gamelift-sample/en/flexmatch/lab23/" title="S3 Web Hosting" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/aws-gamelift-sample/en/flexmatch/lab23/">
+          <b>2-3. </b>S3 Web Hosting
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-gamelift-sample/en/flexmatch/lab24/" title="Creating Game Server Build &amp; Fleet" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/aws-gamelift-sample/en/flexmatch/lab24/">
+          <b>2-4. </b>Creating Game Server Build &amp; Fleet
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-gamelift-sample/en/flexmatch/lab25/" title="Build Serverless FlexMatch" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/aws-gamelift-sample/en/flexmatch/lab25/">
+          <b>2-5. </b>Build Serverless FlexMatch
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-gamelift-sample/en/flexmatch/lab26/" title="Connecting Game Client with FlexMatch" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/aws-gamelift-sample/en/flexmatch/lab26/">
+          <b>2-6. </b>Connecting Game Client with FlexMatch
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-gamelift-sample/en/flexmatch/lab27/" title="FlexMatch Matchmaking Event" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/aws-gamelift-sample/en/flexmatch/lab27/">
+          <b>2-7. </b>FlexMatch Matchmaking Event
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-gamelift-sample/en/flexmatch/lab28/" title="Test FlexMatch Ruleset" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/aws-gamelift-sample/en/flexmatch/lab28/">
+          <b>2-8. </b>Test FlexMatch Ruleset
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-gamelift-sample/en/fleetiq/" title="Start with FleetIQ" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/aws-gamelift-sample/en/fleetiq/">
+          <b>3. </b>Start with FleetIQ
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-gamelift-sample/en/fleetiq/lab31/" title="Preparations" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/aws-gamelift-sample/en/fleetiq/lab31/">
+          <b>3-1. </b>Preparations
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-gamelift-sample/en/fleetiq/lab32/" title="Setting Fiesta IAM" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/aws-gamelift-sample/en/fleetiq/lab32/">
+          <b>3-2. </b>Setting Fiesta IAM
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-gamelift-sample/en/fleetiq/lab33/" title="Creating Game Server Group" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/aws-gamelift-sample/en/fleetiq/lab33/">
+          <b>3-3. </b>Creating Game Server Group
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-gamelift-sample/en/fleetiq/lab34/" title="Creating Server on FleetIQ" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/aws-gamelift-sample/en/fleetiq/lab34/">
+          <b>3-4. </b>Creating Server on FleetIQ
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-gamelift-sample/en/fleetiq/lab35/" title="Creating Client on FleetIQ" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/aws-gamelift-sample/en/fleetiq/lab35/">
+          <b>3-5. </b>Creating Client on FleetIQ
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-gamelift-sample/en/fleetiq/lab36/" title="Connect Server and Client" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/aws-gamelift-sample/en/fleetiq/lab36/">
+          <b>3-6. </b>Connect Server and Client
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-gamelift-sample/en/gamelift/" title="GameLift Classic Lab (Option)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/aws-gamelift-sample/en/gamelift/">
+          <b>4. </b>GameLift Classic Lab (Option)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-gamelift-sample/en/gamelift/lab41/" title="Making Lambda Functions" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/aws-gamelift-sample/en/gamelift/lab41/">
+          <b>4-1. </b>Making Lambda Functions
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-gamelift-sample/en/gamelift/lab42/" title="Configuring API Gateway" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/aws-gamelift-sample/en/gamelift/lab42/">
+          <b>4-2. </b>Configuring API Gateway
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-gamelift-sample/en/gamelift/lab43/" title="S3 Web Hosting" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/aws-gamelift-sample/en/gamelift/lab43/">
+          <b>4-3. </b>S3 Web Hosting
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-gamelift-sample/en/gamelift/lab44/" title="Creating Game Server Build &amp; Fleet" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/aws-gamelift-sample/en/gamelift/lab44/">
+          <b>4-4. </b>Creating Game Server Build &amp; Fleet
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-gamelift-sample/en/gamelift/lab45/" title="Creating Matchmaker Server" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/aws-gamelift-sample/en/gamelift/lab45/">
+          <b>4-5. </b>Creating Matchmaker Server
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-gamelift-sample/en/gamelift/lab46/" title="Game Client Settings &amp; Game Play!" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/aws-gamelift-sample/en/gamelift/lab46/">
+          <b>4-6. </b>Game Client Settings &amp; Game Play!
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-gamelift-sample/en/cleanup/" title="Clean Up" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/aws-gamelift-sample/en/cleanup/">
+          <b>5. </b>Clean Up
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/aws-gamelift-sample/en/appendix/" title="Appendix" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/aws-gamelift-sample/en/appendix/">
+          <b>6. </b>Appendix
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="/aws-gamelift-sample/en/fleetiq/lab35/" selected>English</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="ko" value="/aws-gamelift-sample/ko/fleetiq/lab35/">한국어</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      © 2020 Amazon Web Services, Inc. or its Affiliates. All rights reserved.
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/aws-gamelift-sample/en/'>GameLift HoL</a> > <a href='/aws-gamelift-sample/en/fleetiq/'>Start with FleetIQ</a> > Creating Client on FleetIQ
+          
+         
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#create-development-environment-based-on-cloud9">Create Development Environment based on Cloud9</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Creating Client on FleetIQ
+            </h1>
+          
+
+        
+
+
+
+
+	<h3 id="create-development-environment-based-on-cloud9">Create Development Environment based on Cloud9</h3>
+<p>In this lab, we will use Cloud9, a Cloud-based IDE, to easily build a remote development environment and create a client for the FleetIQ example.</p>
+<p>With Cloud9, you can build a consistent online integrated development environment without any changes to the local environment or difficulty in configuring the development environment.</p>
+<ol>
+<li>
+<p>Access to Cloud9 console. (<a href="https://ap-northeast-2.console.aws.amazon.com/cloud9/home/product">https://ap-northeast-2.console.aws.amazon.com/cloud9/home/product</a>)</p>
+</li>
+<li>
+<p>Set name as <em>FleetIQClient</em></p>
+</li>
+</ol>
+<p><img src="./images/C9-1.png" alt="C9"></p>
+<ol start="3">
+<li>Specify it as an EC2 environment and choose the appropriate instance type. Network settings are configured to be located in the default VPC.</li>
+</ol>
+<p><img src="./images/CL-1.png" alt="CL"></p>
+<ol start="4">
+<li>
+<p>Wait for creation of Cloud9. It will take few minutes.</p>
+</li>
+<li>
+<p>When Cloud9 IDE is executed, create file <em>client.py</em> and paste following code.</p>
+</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> socket
+<span style="color:#f92672">import</span> boto3
+
+client <span style="color:#f92672">=</span> boto3<span style="color:#f92672">.</span>client(<span style="color:#e6db74">&#39;gamelift&#39;</span>)
+
+<span style="color:#75715e"># Claim Game Server</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">claim_game_server</span>():
+    <span style="color:#66d9ef">pass</span>
+<span style="color:#75715e">#</span>
+response <span style="color:#f92672">=</span> claim_game_server()
+<span style="color:#75715e">#endpoint = response[&#39;GameServer&#39;][&#39;ConnectionInfo&#39;]</span>
+endpoint <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>
+
+client_socket <span style="color:#f92672">=</span> socket<span style="color:#f92672">.</span>socket(socket<span style="color:#f92672">.</span>AF_INET, socket<span style="color:#f92672">.</span>SOCK_STREAM)
+client_socket<span style="color:#f92672">.</span>connect((endpoint, <span style="color:#ae81ff">5000</span>))
+
+<span style="color:#66d9ef">while</span> True:
+    data <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;SEND(TYPE q or Q to Quit):&#34;</span>)
+    <span style="color:#66d9ef">if</span>(data <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;q&#39;</span> <span style="color:#f92672">or</span> data <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;Q&#39;</span>):
+        client_socket<span style="color:#f92672">.</span>send(data<span style="color:#f92672">.</span>encode())
+        client_socket<span style="color:#f92672">.</span>close()
+        <span style="color:#66d9ef">break</span>
+    <span style="color:#66d9ef">else</span>:
+        client_socket<span style="color:#f92672">.</span>send(data<span style="color:#f92672">.</span>encode())
+    data <span style="color:#f92672">=</span> client_socket<span style="color:#f92672">.</span>recv(<span style="color:#ae81ff">512</span>)<span style="color:#f92672">.</span>decode()
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;RECEIVED:&#34;</span>, data)
+
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Socket Closed... END&#34;</span>)
+</code></pre></div><p><strong>This code is a simple TCP echo client implementation. However, if you look closely, the server&rsquo;s endpoint is not specified. Now let&rsquo;s implement this part.</strong></p>
+<ol start="6">
+<li>You must implement the claim_game_server function in your code. The claimGameServer API is an API that requests GameLift FleetIQ for a server instance suitable for allocating game sessions to clients. <br>
+The client only needs to make a request through the corresponding API to connect to the game server. <br>
+Let&rsquo;s make a code on <em>claim_game_server</em> as follows.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">claim_game_server</span>():
+    response <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>claim_game_server(
+        GameServerGroupName<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;GameServerGroups&#39;</span>
+    )
+    <span style="color:#66d9ef">print</span>(response)
+    <span style="color:#66d9ef">return</span> response
+</code></pre></div><p>Function&rsquo;s return value contains Game Server endpoint. Remove comment and set endpoint like below.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">endpoint <span style="color:#f92672">=</span> response[<span style="color:#e6db74">&#39;GameServer&#39;</span>][<span style="color:#e6db74">&#39;ConnectionInfo&#39;</span>]
+</code></pre></div><ol start="7">
+<li>The complete code is:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> socket
+<span style="color:#f92672">import</span> boto3
+
+client <span style="color:#f92672">=</span> boto3<span style="color:#f92672">.</span>client(<span style="color:#e6db74">&#39;gamelift&#39;</span>, <span style="color:#e6db74">&#39;ap-northeast-2&#39;</span>)
+
+<span style="color:#75715e"># Claim Game Server</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">claim_game_server</span>():
+    response <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>claim_game_server(
+        GameServerGroupName<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;GameServerGroups&#39;</span>
+    )
+    <span style="color:#66d9ef">print</span>(response)
+    <span style="color:#66d9ef">return</span> response
+<span style="color:#75715e">#</span>
+response <span style="color:#f92672">=</span> claim_game_server()
+endpoint <span style="color:#f92672">=</span> response[<span style="color:#e6db74">&#39;GameServer&#39;</span>][<span style="color:#e6db74">&#39;ConnectionInfo&#39;</span>]
+
+client_socket <span style="color:#f92672">=</span> socket<span style="color:#f92672">.</span>socket(socket<span style="color:#f92672">.</span>AF_INET, socket<span style="color:#f92672">.</span>SOCK_STREAM)
+client_socket<span style="color:#f92672">.</span>connect((endpoint, <span style="color:#ae81ff">5000</span>))
+
+<span style="color:#66d9ef">while</span> True:
+    data <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;SEND(TYPE q or Q to Quit):&#34;</span>)
+    <span style="color:#66d9ef">if</span>(data <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;q&#39;</span> <span style="color:#f92672">or</span> data <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;Q&#39;</span>):
+        client_socket<span style="color:#f92672">.</span>send(data<span style="color:#f92672">.</span>encode())
+        client_socket<span style="color:#f92672">.</span>close()
+        <span style="color:#66d9ef">break</span>
+    <span style="color:#66d9ef">else</span>:
+        client_socket<span style="color:#f92672">.</span>send(data<span style="color:#f92672">.</span>encode())
+    data <span style="color:#f92672">=</span> client_socket<span style="color:#f92672">.</span>recv(<span style="color:#ae81ff">512</span>)<span style="color:#f92672">.</span>decode()
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;RECEIVED:&#34;</span>, data)
+
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Socket Closed... END&#34;</span>)
+</code></pre></div><p>In the lab, only a simple TCP connection is configured for the purpose of learning to run the FleetIQ API, but the code is simple, but you can practice with more complex game logic.</p>
+<p><strong>Now let&rsquo;s see how the server and client interact with the one we created earlier.</strong></p>
+<hr>
+<!-- raw HTML omitted -->
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/aws-gamelift-sample/en/fleetiq/lab34/" title="Creating Server on FleetIQ"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/aws-gamelift-sample/en/fleetiq/lab36/" title="Connect Server and Client" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/aws-gamelift-sample/en/js/clipboard.min.js?1593150755"></script>
+    <script src="/aws-gamelift-sample/en/js/perfect-scrollbar.min.js?1593150755"></script>
+    <script src="/aws-gamelift-sample/en/js/perfect-scrollbar.jquery.min.js?1593150755"></script>
+    <script src="/aws-gamelift-sample/en/js/jquery.sticky.js?1593150755"></script>
+    <script src="/aws-gamelift-sample/en/js/featherlight.min.js?1593150755"></script>
+    <script src="/aws-gamelift-sample/en/js/highlight.pack.js?1593150755"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/aws-gamelift-sample/en/js/modernizr.custom-3.6.0.js?1593150755"></script>
+    <script src="/aws-gamelift-sample/en/js/learn.js?1593150755"></script>
+    <script src="/aws-gamelift-sample/en/js/hugo-learn.js?1593150755"></script>
+
+    <link href="/aws-gamelift-sample/en/mermaid/mermaid.css?1593150755" rel="stylesheet" />
+    <script src="/aws-gamelift-sample/en/mermaid/mermaid.js?1593150755"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+  </body>
+</html>

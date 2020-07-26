@@ -21,8 +21,8 @@ Since FleetIQ is on Preview stage, this repository will be updated continously.
 
 ## Deployment
  - Play and Deployment guide 
-     - Korean version [here](https://aws-samples.github.io/aws-gamelift-sample/ko/)
-     - English version [here](https://aws-samples.github.io/aws-gamelift-sample/en/)
+     - Korean version [here](https://aws-samples.github.io/aws-gamelift-sample/ko)
+     - English version [here](https://aws-samples.github.io/aws-gamelift-sample)
  - Game Client Run guide
      - MS C++ Redistributable package (https://www.microsoft.com/ko-kr/download/details.aspx?id=48145)
 
@@ -31,6 +31,11 @@ Since FleetIQ is on Preview stage, this repository will be updated continously.
  - Developing Demo environment based on Cloud9 IDE.
  - Update FleetIQ demo continously.
  - Developing multi-region game support feature.
+ 
+## ETC
+### Amazon GameLift Service Check-list
+ - Korean version [here](https://github.com/jinspark-lab/aws-gamelift-sample/blob/master/checklist/GameLift%20Launch%20CheckList_Korean.pdf)
+ - English version [here](https://github.com/jinspark-lab/aws-gamelift-sample/blob/master/checklist/GameLift%20Launch%20Checklist.pdf)
 
 ## For further questions/ assistances
 - Please contact korea-gaming-sa@amazon.com for any comment/ requests regarding this content.

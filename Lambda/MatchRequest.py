@@ -32,6 +32,7 @@ def lambda_handler(event, context):
     if 'Item' not in result:
         # Create Item
         ddb_table.put_item( Item={ 'PlayerName' : playerId, 'Password' : playerPass, 'Score' : 1000, 'Win' : 0, 'Lose' : 0} )
+        result = ddb_table.get_item( Key= {'PlayerName' : playerId } )
         playerScore = 1000
     elif result['Item']['Password'] != playerPass:
         print(result)

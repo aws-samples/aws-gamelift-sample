@@ -1,0 +1,45 @@
+
+# title 변경
+title = "GameLift HoL"
+theme = "hugo-theme-learn"
+themesdir = "."
+metaDataFormat = "yaml"
+defaultContentLanguageInSubdir= true
+#ignoreFiles = [ "\\.*lab3\\.*" ]
+
+# description, author 변경
+[params]
+  description = "Full Stack Game Demo"
+  author = "Jinsung Thomas Park"
+  showVisitedLinks = true
+  disableBreadcrumb = false
+  disableNextPrev = false
+  themeVariant = "aws"
+
+[outputs]
+home = [ "HTML", "RSS", "JSON"]
+
+[Languages]
+  [Languages.ko]
+  title = "GameLift 로 Full Stack Game 시작"
+  weight = 1
+  languageName = "한국어"
+  # baseURL 변경
+  baseURL = "/aws-gamelift-sample/ko/"
+  languageCode = "ko-KR"
+  googleAnalytics = "UA-169409427-1"
+  defaultContentLanguage = "ko"
+  defaultContentLanguageInSubdir = true
+
+
+  [Languages.en]
+  title = "Start Full Stack Game with GameLift"
+  weight = 1
+  languageName = "English"
+  # baseURL 변경
+  baseURL = "/aws-gamelift-sample/en/"
+  languageCode = "en-US"
+  googleAnalytics = "UA-169409427-1"
+  defaultContentLanguage = "en"
+  defaultContentLanguageInSubdir = true
+

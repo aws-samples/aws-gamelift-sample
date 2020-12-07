@@ -218,8 +218,6 @@ void GameLiftManager::TerminateGameSession(int exitCode)
 {
 	mGameSession.reset(); ///< explicitly release
 
-	Aws::GameLift::Server::TerminateGameSession();
-
 	Aws::GameLift::Server::ProcessEnding();
 
 	mActivated = false;

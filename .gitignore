@@ -7,3 +7,5 @@ GomokuClient/packages/
 *.opendb
 /GomokuClient/GomokuClient/x64/Debug
 /GomokuClient/x64
+bin/FlexMatch/GomokuServer/vc_redist.x64.exe
+

@@ -1,5 +1,5 @@
 ---
-title: FleetIQ 맛보기
+title: FleetIQ 기반 서버 구성
 url: /fleetiq
 weight: 50
 pre: "<b>3. </b>"

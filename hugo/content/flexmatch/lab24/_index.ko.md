@@ -18,6 +18,10 @@ pre: "<b>2-4. </b>"
 
 2. 제공된 소스코드의 루트 폴더에서 bin/GomokuServer 폴더를 확인하시면 GomokuServer.exe, aws-cpp-sdk-*.dll, config.ini, install.bat, aws-cpp-sdk-gamelift-server.dll 등 파일을 확인하실 수 있습니다.
 
+{{% notice warn %}}
+워크샵은 윈도우 서버 환경에서 vc_redist.x86.exe 파일의 설치를 요구합니다. [다음 링크](https://www.microsoft.com/en-us/download/details.aspx?id=48145)를 통해 vc_redist.x86.exe 파일을 게임 서버 루트 경로에 위치시킵니다. 혹은 [다음 링크](https://d2511y3q5icxx2.cloudfront.net/DemoBinary.zip)를 통해 동작하는 Deployment 버전을 다운로드받으실 수도 있습니다.
+{{% /notice %}}
+
 3. 텍스트 편집기를 통하여 config.ini 파일을 수정합니다. SQS_REGION는 SQS를 생성한 Region입니다. (예: ap-northeast-2).
 SQS_ENDPOINT 에는 게임 결과를 처리할 SQS의 Endpoint를 입력합니다. 
 

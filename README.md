@@ -23,8 +23,9 @@ Since FleetIQ is on Preview stage, this repository will be updated continously.
  - Play and Deployment guide 
      - Korean version [here](https://aws-samples.github.io/aws-gamelift-sample/ko)
      - English version [here](https://aws-samples.github.io/aws-gamelift-sample)
- - Game Client Run guide
-     - MS C++ Redistributable package (https://www.microsoft.com/ko-kr/download/details.aspx?id=48145)
+ - For this workshop, you should include MS C++ Redistributable packages for Game Client & Game Server
+     - MS C++ Redistributable package (https://www.microsoft.com/en-us/download/details.aspx?id=48145)
+ - [Full version of Binary files for this workshop Link](https://d2511y3q5icxx2.cloudfront.net/DemoBinary.zip)
 
 ## Future Work
  - Developing a Hands-on Technical Workshop to demonstrate the use of Amazon GameLift with AWS managed components for game services.

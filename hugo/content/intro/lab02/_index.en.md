@@ -33,7 +33,7 @@ Linux : [https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.ht
 
 * Game "Gomoku" is built on Visual Studio 2015.    
 For your Lab, it is required to install C++ Redistributable Package on Server and Client systems.
-[https://www.microsoft.com/ko-kr/download/details.aspx?id=48145](https://www.microsoft.com/ko-kr/download/details.aspx?id=48145)
+[https://www.microsoft.com/en-us/download/details.aspx?id=48145](https://www.microsoft.com/en-us/download/details.aspx?id=48145)
 
 ---
 <p align="center">

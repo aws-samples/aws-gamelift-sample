@@ -33,7 +33,7 @@ Linux : [https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/install-cliv2-li
 
 * GameLift 및 FlexMatch 실습은 Visual Studio 2015 에서 개발된 바이너리에 기반합니다.    
 윈도우 환경 구성을 위해 서버 및 클라이언트 환경에 다음 C++ 재배포 가능 패키지가 요구됩니다.
-[https://www.microsoft.com/ko-kr/download/details.aspx?id=48145](https://www.microsoft.com/ko-kr/download/details.aspx?id=48145)
+[https://www.microsoft.com/en-us/download/details.aspx?id=48145](https://www.microsoft.com/en-us/download/details.aspx?id=48145)
 
 ---
 <p align="center">

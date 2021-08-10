@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>FleetIQ 맛보기 on GameLift 로 Full Stack Game 시작</title>
+    <title>FleetIQ 기반 서버 구성 on GameLift 로 Full Stack Game 시작</title>
     <link>/aws-gamelift-sample/ko/fleetiq/</link>
-    <description>Recent content in FleetIQ 맛보기 on GameLift 로 Full Stack Game 시작</description>
+    <description>Recent content in FleetIQ 기반 서버 구성 on GameLift 로 Full Stack Game 시작</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
     

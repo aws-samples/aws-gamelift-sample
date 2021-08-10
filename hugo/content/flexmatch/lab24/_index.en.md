@@ -19,6 +19,10 @@ We provide Game Server as compiled binary, therefore you don't need to build by 
 
 2. Check whether there are files GomokuServer.exe, aws-cpp-sdk-*.dll, config.ini, install.bat, aws-cpp-sdk-gamelift-server.dll exist on given folder bin/GomokuServer.
 
+{{% notice warn %}}
+It is required to install vc_redist.x86.exe for window servers in this workshop. Please place vc_redist.x86.exe files from [This Link](https://www.microsoft.com/en-us/download/details.aspx?id=48145). You can also download Full version of deployment file from [This Link](https://d2511y3q5icxx2.cloudfront.net/DemoBinary.zip)
+{{% /notice %}}
+
 3. Edit config.ini using Text Editor. SQS_REGION means region that made Game Result SQS queue(ex : ap-northeast-1).
 Also, put SQS_ENDPOINT values of SQS endpoint URL.
 

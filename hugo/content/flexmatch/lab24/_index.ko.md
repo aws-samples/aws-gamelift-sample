@@ -33,7 +33,7 @@ SQS_ENDPOINT 에는 게임 결과를 처리할 SQS의 Endpoint를 입력합니�
 
 6. GomokuServer 폴더에서 다음의 GameLift 업로드 명령어를 통해 빌드를 업로드 합니다. (GomokuServer 폴더 하위에는 Binaries 폴더와 install.bat 파일이 존재합니다)
 ```console
-aws gamelift upload-build --name "GomokuServer-Build-1" --build-version "1.0.0" --build-root . --region ap-northeast-2
+aws gamelift upload-build --name "GomokuServer-Build-1" --build-version "1.0.0" --build-root . --region <Your Lab Region>
 ```
 
 7. 업로드할 때 실습 Region을 올바르게 설정하였는지 확인해야 합니다.

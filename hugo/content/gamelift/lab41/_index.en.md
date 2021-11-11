@@ -25,7 +25,7 @@ Let's make first one.
 
 4. Put *game-sqs-process* as Name.
 
-5. Select Runtime as Python 2.7.
+5. Select Runtime as Python 3.9.
 
 6. In Permissions tab, choose "Use an existing role" and select "Gomok-game-sqs-process". Execute "Create function".
 
@@ -72,7 +72,7 @@ It will be a good opportunity to make lambda functions with package.
 
 4. Click "Create Function" and select "Author from scratch" to create function.
 
-5. Set Name as game-rank-update, and Runtime as Python 2.7, Role as Gomok-game-rank-update. Click Create function button.
+5. Set Name as game-rank-update, and Runtime as Python 3.9, Role as Gomok-game-rank-update. Click Create function button.
 
 6. Select **Upload a .ZIP file** in Function code Group, and upload LambdaDeploy.zip.
 
@@ -101,7 +101,7 @@ Last but not least, let's make 3rd Lambda function. It can be made same way.
 
 1. Create Lambda function with "Author from scratch".
 
-2. Put function name game-rank-reader, Python 2.7 as Runtime, set Gomok-game-rank-reader as Role.
+2. Put function name game-rank-reader, Python 3.9 as Runtime, set Gomok-game-rank-reader as Role.
 
 3. Click Create function, select "Upload a .ZIP file" on Code entry type. Upload LambdaDeploy.zip for this function.
 

@@ -34,7 +34,7 @@ Also, put SQS_ENDPOINT values of SQS endpoint URL.
 
 6. Upload build using GameLift CLI on the folder "GomokuServer" like below. (Please check GomokuServer directory contains **Binaries folder** and **install.bat**)
 ```console
-aws gamelift upload-build --name "GomokuServer-Build-1" --build-version "1.0.0" --build-root . --region ap-northeast-2
+aws gamelift upload-build --name "GomokuServer-Build-1" --build-version "1.0.0" --build-root . --region <Your Lab Region>
 ```
 
 7. Check whether region is configured well.

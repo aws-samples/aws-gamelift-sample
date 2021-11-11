@@ -120,7 +120,7 @@ CloudFormation 스택을 배포하셨다면, 이미 Lambda 함수의 기본 틀�
 
 4. Name 항목에는 game-match-request를 입력합니다.
 
-5. Runtime은 Python 2.7을 선택합니다.
+5. Runtime은 Python 3.9을 선택합니다.
 
 6. Permissions 항목에서 Role 은 Use an existing role을 선택하고 기존에 만들어둔 Gomok-game-match-request를 선택하고 Create function을 실행합니다.
 
@@ -147,7 +147,7 @@ GameLift 에 match making 을 요청합니다.
 
 11. Author from scratch 메뉴를 선택하여 빈 함수를 우선 생성합니다.
 
-12. Name 항목에는 game-match-status를 입력하고 Runtime 으로 Python 2.7 을 선택합니다.
+12. Name 항목에는 game-match-status를 입력하고 Runtime 으로 Python 3.9 을 선택합니다.
 
 13. Permissions 항목에서 Role 은 Use an existing role을 선택하고 기존에 만들어둔 Gomok-game-match-status를 선택하고 Create function을 실행합니다.
 

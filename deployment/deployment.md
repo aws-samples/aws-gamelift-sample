@@ -28,7 +28,7 @@
 
 ### Lambda -- Game Result Processing
 - Name: **game-sqs-process**
-- Runtime: Python 2.7
+- Runtime: Python 3.9
 - Role: Basic Lambda Execution role, grant Full Access to SQS and DynamoDB
 - Advanced Settings
   - Memory: 128
@@ -40,7 +40,7 @@
 
 ### Lambda -- Scoring (DynamoDB streams to Redis)
 - Name: **game-rank-update**
-- Runtime: Python 2.7
+- Runtime: Python 3.9
 - Role: Basic Lambda Execution role, grant Full Access to DynamoDB, VPC, and DynamoDB Streams
 - Advanced Settings
   - Memory: 192
@@ -55,7 +55,7 @@
 
 ### Lambda -- GetRanking
 - Name: **game-rank-reader**
-- Runtime: Python 2.7
+- Runtime: Python 3.9
 - Role: Basic Lambda Execution role, grant Full Access to VPC
 - Advanced Settings
   - Memory: 128
@@ -151,7 +151,7 @@
 
 ### Lambda -- MatchRequest
 - Name: **game-match-request**
-- Runtime: Python 2.7
+- Runtime: Python 3.9
 - Role: Basic Lambda Execution role, grant Full Access to DynamoDB and GameLift
 - Advanced Settings
   - Memory: 128
@@ -162,7 +162,7 @@
 
 ### Lambda -- MatchStatus
 - Name: **game-match-status**
-- Runtime: Python 2.7
+- Runtime: Python 3.9
 - Role: Basic Lambda Execution role, grant Full Access to GameLift
 - Advanced Settings
   - Memory: 128

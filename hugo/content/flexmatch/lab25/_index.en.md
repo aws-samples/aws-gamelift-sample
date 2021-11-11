@@ -123,7 +123,7 @@ Let's make first Lambda function. It will not be difficult!
 
 4. Put the Name of the function "game-match-request".
 
-5. Choose Python 2.7 as Runtime.
+5. Choose Python 3.9 as Runtime.
 
 6. Choose Role on Permissions Tab. Check "Use an existing role" and select "Gomok-game-match-request" as IAM Role. Click "Create function" button.
 
@@ -145,7 +145,7 @@ Let's make first Lambda function. It will not be difficult!
 
 11. Check "Author from scratch" and start with empty function.
 
-12. Put "game-match-status" as Name, and select Python 2.7 as Runtime.
+12. Put "game-match-status" as Name, and select Python 3.9 as Runtime.
 
 13. Choose Role on Permissions Tab. Check "Use an existing role" and select "Gomok-game-match-status" as IAM Role. Click "Create function" button.
 

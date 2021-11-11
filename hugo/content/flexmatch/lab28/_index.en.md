@@ -1,113 +1,103 @@
 ---
-title: Test FlexMatch Ruleset
+title: Analyzing Matchmaking Event
 url: /flexmatch/lab28
 weight: 90
 pre: "<b>2-8. </b>"
 ---
 
-### Test FlexMatch Ruleset <br/><br/>
+### Analyzing FlexMatch Matchmaking Event <br/><br/>
 
-There are some rulesets for you to test. Excellent Matchmaking enough to facinate users very well!
-We provide some examples for you, and we hope these rulesets can help you to inspire making your ruleset.
+When you make Game, executing itself will not be your goal. Operation and management are very important for Game Service.
+FlexMatch provides Matchmaking Events, and it makes events related to GameLift tickets.
 
-In this page, we are testing how can apply new rule to your game easily.
+With Matchmaking events, we are able to use this features for checking issue status, match status monitoring or troubleshooting and debugging.
 
-Let's make Matchmaking Ruleset for new Ruleset.
+In this page, we are looking how to log Matchmaking events and analyze game session match patterns easily with FlexMatch Matchmaking events and CloudWatch Logs.
 
-![Rule](../../images/flexmatch/lab28/Rule-1[en].png)
+CloudWatch Logs is nice tool for monitoring Log streams near-realtime, ans we can make monitoring system by Logs Insight without provisioning any resources.    
+So, it would be good opportunity to practice!
 
-You can test rulesets below. 
+1. Creating Lambda function to handle FlexMatch Matchmaking events. Select Author from scratch. You don't need to change Permission settings for your comfort.
 
-And move to Matchmaking configurations. There would be configuration that made previously.
-You can edit matchmaking configuration like below. You can change ruleset that you made above.
+2. Set function name as *game-flexmatch-event*, and Runtime would be Python 3.9. Permission requires permission to record logs in CloudWatch Logs, and can be easily implemented with basic Lambda permission.
 
-![Rule](../../images/flexmatch/lab28/Rule-2[en].png)
+![Event](../../images/flexmatch/lab28/Event-1[en].png)
 
-
-* Basic Ruleset : For basic ruleset, it has already applied on current game. Please refer page 2-5.
-
-* **Strict Ruleset** : Some games need strict types of Matchmaking. For example, games like tournament require ratings evaluated by Win or Lose should match opponents strictly.
-
-```json
-{
-    "name": "Strict Matching",
-    "ruleLanguageVersion": "1.0",
-
-    "playerAttributes" :
-    [
-        {
-            "name" : "score",
-            "type" : "number",
-            "default" : 1000
-        }
-    ],
-    "teams": [{
-        "name": "player",
-        "minPlayers": 1,
-        "maxPlayers": 1,
-        "quantity": 2
-    }],
-
-    "rules": [{
-        "name": "SameScore",
-        "description": "Only match players when they have same score",
-        "type": "comparison",
-        "operation": "=",
-        "measurements": ["flatten(teams[*].players.attributes[score])"]
-    }]
-}
-```
-
-* **Fast Match Ruleset** : There are some types of games which is very important for players to match other players. If you would like to consider making global games, it can also be important. Most of users want to play games quickly with low latency.
-
-```json
-{
-    "name": "Fast Game",
-    "ruleLanguageVersion": "1.0",
-    "playerAttributes" :
-    [
-        {
-            "name" : "score",
-            "type" : "number",
-            "default" : 1000
-        }
-    ],
-    "teams" :
-    [
-        {
-            "name" : "blue",
-            "maxPlayers" : 1,
-            "minPlayers" : 1
-        },
-        {
-            "name" : "red",
-            "maxPlayers" : 1,
-            "minPlayers" : 1
-        }
-    ],
-    "rules": [{
-        "name": "FastConnection",
-        "description": "Prefer matches with fast player connections first",
-        "type": "latency",
-        "maxLatency": 50
-    }],
-    "expansions": [{
-        "target": "rules[FastConnection].maxLatency",
-        "steps": [{
-            "waitTimeSeconds": 10,
-            "value": 100
-        }, {
-            "waitTimeSeconds": 20,
-            "value": 150
-        }]
-    }]
-}
-```
+3. Function code is not provided, but you can use this source code below. :)
 
 {{% notice tip %}}
-Except for these examples above, you can make your own ruleset for the games. Please refer below link, and test it.
-[https://docs.aws.amazon.com/gamelift/latest/developerguide/match-rulesets.html](https://docs.aws.amazon.com/gamelift/latest/developerguide/match-rulesets.html)
+If it is possible, I recommend you to modify this source code! Let's check how Matchmaking can be handled and what kinds of information can we get!
 {{% /notice %}}
+
+```python
+
+import json
+
+def lambda_handler(event, context):
+    eventType = event['detail']['type']
+    if (eventType == "MatchmakingSucceeded"):
+        a = event['detail']['gameSessionInfo']['players'][0]['playerId']
+        b = event['detail']['gameSessionInfo']['players'][1]['playerId']
+        print("Matchmaking: " + a + "," + b)
+    return {
+        'statusCode': 200,
+        'body': json.dumps('Hello from Lambda!')
+    }
+
+```
+
+This code inspects Matchmaking event ticket types and write logs for Matchmaking data.
+Logs printed in Lambda function send its output stream to CloudWatch Logs as default.
+
+4. Access to CloudWatch Console in order to make trigger. (https://console.aws.amazon.com/cloudwatch)
+
+5. Click "CloudWatch Events" on the left side of the console. Click "Get Started" or "Create Rule".
+
+6. Let's create Rule like below. We could also configure various Targets such as SNS topic, but we are using Lambda functions(game-flexmatch-event) as Target.
+
+![Event](../../images/flexmatch/lab28/Event-2[en].png)
+
+7. Set proper name for event and click "Create" button. Check Rule was successfully created.
+
+![Event](../../images/flexmatch/lab28/Event-3[en].png)
+
+8. Let's play "Gomoku" game again! We can check CloudWatch Logs that CloudWatch Events logs events from Lambda functions. We also find Matchmaking events on logs. It contains Matchmaking lists on its logs.
+
+![Event](../../images/flexmatch/lab28/Event-4[en].png)
+
+9. Click "Logs Insight" on left side of menu.
+
+10. Next queries provide Matchmaking results from log data as raw data filtering. 
+
+```sql
+fields @timestamp, @message
+| filter @message like /Matchmaking:/
+| sort @timestamp desc
+| limit 20
+```
+
+You are able to put this query inside of textbox in Logs Insight
+
+![Event](../../images/flexmatch/lab28/Event-5[en].png)
+
+* The result can be different from picture above.
+
+
+11. Next queries provide statistics information that is aggregated recent Matchmaking results.
+
+```sql
+stats count(*) by @message
+| filter @message like /Matchmaking:/
+| sort @timestamp desc
+| limit 20
+```
+
+And result can be like below.
+
+![Event](../../images/flexmatch/lab28/Event-6[en].png)
+
+12. We have tested simple example this page. You can play more games, and make more queries for your game easily.
+This kind of features will make you balance game session matching on early stage of your games.
 
 ---
 <p align="center">

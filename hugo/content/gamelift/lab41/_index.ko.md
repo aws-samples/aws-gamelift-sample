@@ -26,7 +26,7 @@ CloudFormation 스택을 배포하셨다면, 이미 Lambda 함수와 API Gateway
 
 4. Name 항목에는 game-sqs-process를 입력합니다.
 
-5. Runtime은 Python 2.7을 선택합니다.
+5. Runtime은 Python 3.9을 선택합니다.
 
 6. Permissions 항목에서 Role 은 Use an existing role을 선택하고 기존에 만들어둔 Gomok-game-sqs-process를 선택하고 Create function을 실행합니다.
 
@@ -62,7 +62,7 @@ Code: GameResultProcessing.py 파일의 내용을 Copy&Paste합니다. 코드 �
 
 4. 앞 서와 동일하게 Author from scratch 메뉴를 선택하여 함수 생성을 시작합니다.
 
-5. Name은 game-rank-update으로 지정하고, Runtime은 Python 2.7로 선택하고, Role은 Gomok-game-rank-update을 선택하고 Create function을 누릅니다.
+5. Name은 game-rank-update으로 지정하고, Runtime은 Python 3.9로 선택하고, Role은 Gomok-game-rank-update을 선택하고 Create function을 누릅니다.
 
 6. Function code그룹에서 Code entry type을 Upload a .ZIP file로 선택하고 LambdaDeploy.zip을 업로드합니다.
 
@@ -92,7 +92,7 @@ Code: GameResultProcessing.py 파일의 내용을 Copy&Paste합니다. 코드 �
 
 1. 세 번째 함수도 Author from scratch 를 선택하여 생성합니다.
 
-2. Name항목에서 game-rank-reader를 입력하고, Runtime을 Python 2.7로 설정하고 Role을 이전에 만들어둔 Gomok-game-rank-reader를 선택합니다.
+2. Name항목에서 game-rank-reader를 입력하고, Runtime을 Python 3.9로 설정하고 Role을 이전에 만들어둔 Gomok-game-rank-reader를 선택합니다.
 
 3. Create function을 누른 후 Code entry type에서 Upload a .ZIP file을 선택하여 LambdaDeploy.zip을 업로드합니다.
 

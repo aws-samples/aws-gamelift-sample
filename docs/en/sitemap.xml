@@ -452,6 +452,20 @@
   </url>
   
   <url>
+    <loc>/aws-gamelift-sample/en/flexmatch/lab27/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="/aws-gamelift-sample/ko/flexmatch/lab27/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/aws-gamelift-sample/en/flexmatch/lab27/"
+                />
+  </url>
+  
+  <url>
     <loc>/aws-gamelift-sample/en/fleetiq/lab35/</loc>
     <xhtml:link
                 rel="alternate"
@@ -466,16 +480,16 @@
   </url>
   
   <url>
-    <loc>/aws-gamelift-sample/en/flexmatch/lab27/</loc>
+    <loc>/aws-gamelift-sample/en/flexmatch/lab28/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="ko"
-                href="/aws-gamelift-sample/ko/flexmatch/lab27/"
+                href="/aws-gamelift-sample/ko/flexmatch/lab28/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/aws-gamelift-sample/en/flexmatch/lab27/"
+                href="/aws-gamelift-sample/en/flexmatch/lab28/"
                 />
   </url>
   
@@ -494,16 +508,16 @@
   </url>
   
   <url>
-    <loc>/aws-gamelift-sample/en/flexmatch/lab28/</loc>
+    <loc>/aws-gamelift-sample/en/flexmatch/lab29/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="ko"
-                href="/aws-gamelift-sample/ko/flexmatch/lab28/"
+                href="/aws-gamelift-sample/ko/flexmatch/lab29/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/aws-gamelift-sample/en/flexmatch/lab28/"
+                href="/aws-gamelift-sample/en/flexmatch/lab29/"
                 />
   </url>
   

@@ -5,10 +5,6 @@
     <link>/aws-gamelift-sample/ko/gamelift/lab43/</link>
     <description>Recent content in S3 웹 호스팅 on GameLift 로 Full Stack Game 시작</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ko-KR</language>
-    
-	<atom:link href="/aws-gamelift-sample/ko/gamelift/lab43/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>ko-KR</language><atom:link href="/aws-gamelift-sample/ko/gamelift/lab43/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

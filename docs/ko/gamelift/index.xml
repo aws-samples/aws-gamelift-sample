@@ -5,10 +5,6 @@
     <link>/aws-gamelift-sample/ko/gamelift/</link>
     <description>Recent content in GameLift Classic 실습 (옵션) on GameLift 로 Full Stack Game 시작</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ko-KR</language>
-    
-	<atom:link href="/aws-gamelift-sample/ko/gamelift/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>ko-KR</language><atom:link href="/aws-gamelift-sample/ko/gamelift/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.71.1" />
+    <meta name="generator" content="Hugo 0.101.0" />
     <meta name="description" content="Full Stack Game Demo">
 <meta name="author" content="Jinsung Thomas Park">
 
@@ -12,20 +12,20 @@
     <title>Fiesta IAM 구성 :: GameLift 로 Full Stack Game 시작</title>
 
     
-    <link href="/aws-gamelift-sample/ko/css/nucleus.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/fontawesome-all.min.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/hybrid.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/featherlight.min.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/perfect-scrollbar.min.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/auto-complete.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/atom-one-dark-reasonable.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/theme.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/hugo-theme.css?1636626217" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/nucleus.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/fontawesome-all.min.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/hybrid.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/featherlight.min.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/perfect-scrollbar.min.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/auto-complete.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/atom-one-dark-reasonable.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/theme.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/hugo-theme.css?1657242240" rel="stylesheet">
     
-      <link href="/aws-gamelift-sample/ko/css/theme-aws.css?1636626217" rel="stylesheet">
+      <link href="/aws-gamelift-sample/ko/css/theme-aws.css?1657242240" rel="stylesheet">
     
 
-    <script src="/aws-gamelift-sample/ko/js/jquery-3.3.1.min.js?1636626217"></script>
+    <script src="/aws-gamelift-sample/ko/js/jquery-3.3.1.min.js?1657242240"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/aws-gamelift-sample/ko/js/lunr.min.js?1636626217"></script>
-<script type="text/javascript" src="/aws-gamelift-sample/ko/js/auto-complete.js?1636626217"></script>
+<script type="text/javascript" src="/aws-gamelift-sample/ko/js/lunr.min.js?1657242240"></script>
+<script type="text/javascript" src="/aws-gamelift-sample/ko/js/auto-complete.js?1657242240"></script>
 <script type="text/javascript">
     
         var baseurl = "\/aws-gamelift-sample\/ko\/\/ko";
     
 </script>
-<script type="text/javascript" src="/aws-gamelift-sample/ko/js/search.js?1636626217"></script>
+<script type="text/javascript" src="/aws-gamelift-sample/ko/js/search.js?1657242240"></script>
 
     
   </div>
@@ -693,7 +693,7 @@
   
     
     <li data-nav-id="/aws-gamelift-sample/ko/fleetiq/lab32/" title="Fiesta IAM 구성" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -1229,58 +1229,58 @@
 </ol>
 <p><img src="../../images/fleetiq/lab32/Fiesta-1.png" alt="Fiesta"></p>
 <p>정책의 내용은 다음과 같이 구성합니다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#f92672">&#34;Version&#34;</span>: <span style="color:#e6db74">&#34;2012-10-17&#34;</span>,
-    <span style="color:#f92672">&#34;Statement&#34;</span>: [
-        {
-            <span style="color:#f92672">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>,
-            <span style="color:#f92672">&#34;Action&#34;</span>: <span style="color:#e6db74">&#34;ec2:TerminateInstances&#34;</span>,
-            <span style="color:#f92672">&#34;Resource&#34;</span>: <span style="color:#e6db74">&#34;*&#34;</span>,
-            <span style="color:#f92672">&#34;Condition&#34;</span>: {
-                <span style="color:#f92672">&#34;StringEquals&#34;</span>: {
-                    <span style="color:#f92672">&#34;ec2:ResourceTag/GameLift&#34;</span>: <span style="color:#e6db74">&#34;GameServerGroups&#34;</span>
-                }
-            }
-        },
-        {
-            <span style="color:#f92672">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>,
-            <span style="color:#f92672">&#34;Action&#34;</span>: [
-                <span style="color:#e6db74">&#34;autoscaling:CompleteLifecycleAction&#34;</span>,
-                <span style="color:#e6db74">&#34;autoscaling:ResumeProcesses&#34;</span>,
-                <span style="color:#e6db74">&#34;autoscaling:EnterStandby&#34;</span>,
-                <span style="color:#e6db74">&#34;autoscaling:SetInstanceProtection&#34;</span>,
-                <span style="color:#e6db74">&#34;autoscaling:UpdateAutoScalingGroup&#34;</span>,
-                <span style="color:#e6db74">&#34;autoscaling:SuspendProcesses&#34;</span>,
-                <span style="color:#e6db74">&#34;autoscaling:DetachInstances&#34;</span>
-            ],
-            <span style="color:#f92672">&#34;Resource&#34;</span>: <span style="color:#e6db74">&#34;*&#34;</span>,
-            <span style="color:#f92672">&#34;Condition&#34;</span>: {
-                <span style="color:#f92672">&#34;StringEquals&#34;</span>: {
-                    <span style="color:#f92672">&#34;aws:ResourceTag/GameLift&#34;</span>: <span style="color:#e6db74">&#34;GameServerGroups&#34;</span>
-                }
-            }
-        },
-        {
-            <span style="color:#f92672">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>,
-            <span style="color:#f92672">&#34;Action&#34;</span>: [
-                <span style="color:#e6db74">&#34;ec2:DescribeImages&#34;</span>,
-                <span style="color:#e6db74">&#34;ec2:DescribeInstances&#34;</span>,
-                <span style="color:#e6db74">&#34;autoscaling:DescribeAutoScalingGroups&#34;</span>,
-                <span style="color:#e6db74">&#34;ec2:DescribeLaunchTemplateVersions&#34;</span>
-            ],
-            <span style="color:#f92672">&#34;Resource&#34;</span>: <span style="color:#e6db74">&#34;*&#34;</span>
-        },
-        {
-            <span style="color:#f92672">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>,
-            <span style="color:#f92672">&#34;Action&#34;</span>: <span style="color:#e6db74">&#34;sns:Publish&#34;</span>,
-            <span style="color:#f92672">&#34;Resource&#34;</span>: [
-                <span style="color:#e6db74">&#34;arn:aws:sns:*:*:ActivatingLifecycleHookTopic-*&#34;</span>,
-                <span style="color:#e6db74">&#34;arn:aws:sns:*:*:TerminatingLifecycleHookTopic-*&#34;</span>
-            ]
-        }
-    ]
-}
-</code></pre></div><ol start="4">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Version&#34;</span>: <span style="color:#e6db74">&#34;2012-10-17&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Statement&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Action&#34;</span>: <span style="color:#e6db74">&#34;ec2:TerminateInstances&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Resource&#34;</span>: <span style="color:#e6db74">&#34;*&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Condition&#34;</span>: {
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&#34;StringEquals&#34;</span>: {
+</span></span><span style="display:flex;"><span>                    <span style="color:#f92672">&#34;ec2:ResourceTag/GameLift&#34;</span>: <span style="color:#e6db74">&#34;GameServerGroups&#34;</span>
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Action&#34;</span>: [
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;autoscaling:CompleteLifecycleAction&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;autoscaling:ResumeProcesses&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;autoscaling:EnterStandby&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;autoscaling:SetInstanceProtection&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;autoscaling:UpdateAutoScalingGroup&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;autoscaling:SuspendProcesses&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;autoscaling:DetachInstances&#34;</span>
+</span></span><span style="display:flex;"><span>            ],
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Resource&#34;</span>: <span style="color:#e6db74">&#34;*&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Condition&#34;</span>: {
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&#34;StringEquals&#34;</span>: {
+</span></span><span style="display:flex;"><span>                    <span style="color:#f92672">&#34;aws:ResourceTag/GameLift&#34;</span>: <span style="color:#e6db74">&#34;GameServerGroups&#34;</span>
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Action&#34;</span>: [
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;ec2:DescribeImages&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;ec2:DescribeInstances&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;autoscaling:DescribeAutoScalingGroups&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;ec2:DescribeLaunchTemplateVersions&#34;</span>
+</span></span><span style="display:flex;"><span>            ],
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Resource&#34;</span>: <span style="color:#e6db74">&#34;*&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Action&#34;</span>: <span style="color:#e6db74">&#34;sns:Publish&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Resource&#34;</span>: [
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;arn:aws:sns:*:*:ActivatingLifecycleHookTopic-*&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;arn:aws:sns:*:*:TerminatingLifecycleHookTopic-*&#34;</span>
+</span></span><span style="display:flex;"><span>            ]
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ol start="4">
 <li>정책을 구성하고 이름을 FleetIQFiestaPolicy 로 지정합니다.</li>
 </ol>
 <p><img src="../../images/fleetiq/lab32/Fiesta-2.png" alt="Fiesta"></p>
@@ -1299,22 +1299,22 @@
 <ol start="8">
 <li>신뢰 관계를 다음과 같이 편집합니다.</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#f92672">&#34;Version&#34;</span>: <span style="color:#e6db74">&#34;2012-10-17&#34;</span>,
-    <span style="color:#f92672">&#34;Statement&#34;</span>: [
-       {
-          <span style="color:#f92672">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>,
-          <span style="color:#f92672">&#34;Principal&#34;</span>: {
-          <span style="color:#f92672">&#34;Service&#34;</span>: [
-              <span style="color:#e6db74">&#34;gamelift.amazonaws.com&#34;</span>,
-              <span style="color:#e6db74">&#34;autoscaling.amazonaws.com&#34;</span>
-          ]
-       },
-       <span style="color:#f92672">&#34;Action&#34;</span>: <span style="color:#e6db74">&#34;sts:AssumeRole&#34;</span>
-      }
-    ]  
- }
-</code></pre></div><p>위의 Policy Document 는 GameLift 서비스 및 Auto Scaling 서비스로부터 권한을 위임할 수 있는 역할로 구성한다는 의미가 됩니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Version&#34;</span>: <span style="color:#e6db74">&#34;2012-10-17&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Statement&#34;</span>: [
+</span></span><span style="display:flex;"><span>       {
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;Principal&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;Service&#34;</span>: [
+</span></span><span style="display:flex;"><span>              <span style="color:#e6db74">&#34;gamelift.amazonaws.com&#34;</span>,
+</span></span><span style="display:flex;"><span>              <span style="color:#e6db74">&#34;autoscaling.amazonaws.com&#34;</span>
+</span></span><span style="display:flex;"><span>          ]
+</span></span><span style="display:flex;"><span>       },
+</span></span><span style="display:flex;"><span>       <span style="color:#f92672">&#34;Action&#34;</span>: <span style="color:#e6db74">&#34;sts:AssumeRole&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ]  
+</span></span><span style="display:flex;"><span> }
+</span></span></code></pre></div><p>위의 Policy Document 는 GameLift 서비스 및 Auto Scaling 서비스로부터 권한을 위임할 수 있는 역할로 구성한다는 의미가 됩니다.</p>
 <ol start="9">
 <li>Fiesta 관련 정책 및 역할 설정이 끝났으면, 다음 장에서는 FleetIQ 가 할당할 서버 인스턴스에 대한 설정을 해보겠습니다.</li>
 </ol>
@@ -1974,19 +1974,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/aws-gamelift-sample/ko/js/clipboard.min.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/ko/js/perfect-scrollbar.min.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/ko/js/perfect-scrollbar.jquery.min.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/ko/js/jquery.sticky.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/ko/js/featherlight.min.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/ko/js/highlight.pack.js?1636626217"></script>
+    <script src="/aws-gamelift-sample/ko/js/clipboard.min.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/ko/js/perfect-scrollbar.min.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/ko/js/perfect-scrollbar.jquery.min.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/ko/js/jquery.sticky.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/ko/js/featherlight.min.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/ko/js/highlight.pack.js?1657242240"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/aws-gamelift-sample/ko/js/modernizr.custom-3.6.0.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/ko/js/learn.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/ko/js/hugo-learn.js?1636626217"></script>
+    <script src="/aws-gamelift-sample/ko/js/modernizr.custom-3.6.0.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/ko/js/learn.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/ko/js/hugo-learn.js?1657242240"></script>
 
-    <link href="/aws-gamelift-sample/ko/mermaid/mermaid.css?1636626217" rel="stylesheet" />
-    <script src="/aws-gamelift-sample/ko/mermaid/mermaid.js?1636626217"></script>
+    <link href="/aws-gamelift-sample/ko/mermaid/mermaid.css?1657242240" rel="stylesheet" />
+    <script src="/aws-gamelift-sample/ko/mermaid/mermaid.js?1657242240"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

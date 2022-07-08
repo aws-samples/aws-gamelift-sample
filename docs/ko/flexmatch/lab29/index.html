@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.71.1" />
+    <meta name="generator" content="Hugo 0.101.0" />
     <meta name="description" content="Full Stack Game Demo">
 <meta name="author" content="Jinsung Thomas Park">
 
@@ -12,20 +12,20 @@
     <title>FlexMatch 룰셋 테스트 :: GameLift 로 Full Stack Game 시작</title>
 
     
-    <link href="/aws-gamelift-sample/ko/css/nucleus.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/fontawesome-all.min.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/hybrid.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/featherlight.min.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/perfect-scrollbar.min.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/auto-complete.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/atom-one-dark-reasonable.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/theme.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/hugo-theme.css?1636626217" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/nucleus.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/fontawesome-all.min.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/hybrid.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/featherlight.min.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/perfect-scrollbar.min.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/auto-complete.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/atom-one-dark-reasonable.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/theme.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/hugo-theme.css?1657242240" rel="stylesheet">
     
-      <link href="/aws-gamelift-sample/ko/css/theme-aws.css?1636626217" rel="stylesheet">
+      <link href="/aws-gamelift-sample/ko/css/theme-aws.css?1657242240" rel="stylesheet">
     
 
-    <script src="/aws-gamelift-sample/ko/js/jquery-3.3.1.min.js?1636626217"></script>
+    <script src="/aws-gamelift-sample/ko/js/jquery-3.3.1.min.js?1657242240"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/aws-gamelift-sample/ko/js/lunr.min.js?1636626217"></script>
-<script type="text/javascript" src="/aws-gamelift-sample/ko/js/auto-complete.js?1636626217"></script>
+<script type="text/javascript" src="/aws-gamelift-sample/ko/js/lunr.min.js?1657242240"></script>
+<script type="text/javascript" src="/aws-gamelift-sample/ko/js/auto-complete.js?1657242240"></script>
 <script type="text/javascript">
     
         var baseurl = "\/aws-gamelift-sample\/ko\/\/ko";
     
 </script>
-<script type="text/javascript" src="/aws-gamelift-sample/ko/js/search.js?1636626217"></script>
+<script type="text/javascript" src="/aws-gamelift-sample/ko/js/search.js?1657242240"></script>
 
     
   </div>
@@ -605,7 +605,7 @@
   
     
     <li data-nav-id="/aws-gamelift-sample/ko/flexmatch/lab29/" title="FlexMatch 룰셋 테스트" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -1229,78 +1229,78 @@
 <p><strong>점수에 엄격한 룰셋</strong> : 일부 게임의 경우 점수 매칭이 엄격하게 적용되어질 수 있습니다. 가령, 승-패가 기록되고 명확히 우승을 가려야하는 토너먼트 방식의 게임이라면, 점수에 엄격하게 상대를 매칭시켜줘야 할 필요가 있습니다.</p>
 </li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;Strict Matching&#34;</span>,
-    <span style="color:#f92672">&#34;ruleLanguageVersion&#34;</span>: <span style="color:#e6db74">&#34;1.0&#34;</span>,
-
-    <span style="color:#f92672">&#34;playerAttributes&#34;</span> :
-    [
-        {
-            <span style="color:#f92672">&#34;name&#34;</span> : <span style="color:#e6db74">&#34;score&#34;</span>,
-            <span style="color:#f92672">&#34;type&#34;</span> : <span style="color:#e6db74">&#34;number&#34;</span>,
-            <span style="color:#f92672">&#34;default&#34;</span> : <span style="color:#ae81ff">1000</span>
-        }
-    ],
-    <span style="color:#f92672">&#34;teams&#34;</span>: [{
-        <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;player&#34;</span>,
-        <span style="color:#f92672">&#34;minPlayers&#34;</span>: <span style="color:#ae81ff">1</span>,
-        <span style="color:#f92672">&#34;maxPlayers&#34;</span>: <span style="color:#ae81ff">1</span>,
-        <span style="color:#f92672">&#34;quantity&#34;</span>: <span style="color:#ae81ff">2</span>
-    }],
-
-    <span style="color:#f92672">&#34;rules&#34;</span>: [{
-        <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;SameScore&#34;</span>,
-        <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;Only match players when they have same score&#34;</span>,
-        <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;comparison&#34;</span>,
-        <span style="color:#f92672">&#34;operation&#34;</span>: <span style="color:#e6db74">&#34;=&#34;</span>,
-        <span style="color:#f92672">&#34;measurements&#34;</span>: [<span style="color:#e6db74">&#34;flatten(teams[*].players.attributes[score])&#34;</span>]
-    }]
-}
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;Strict Matching&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;ruleLanguageVersion&#34;</span>: <span style="color:#e6db74">&#34;1.0&#34;</span>,
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;playerAttributes&#34;</span> :
+</span></span><span style="display:flex;"><span>    [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;name&#34;</span> : <span style="color:#e6db74">&#34;score&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;type&#34;</span> : <span style="color:#e6db74">&#34;number&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;default&#34;</span> : <span style="color:#ae81ff">1000</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;teams&#34;</span>: [{
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;player&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;minPlayers&#34;</span>: <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;maxPlayers&#34;</span>: <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;quantity&#34;</span>: <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>    }],
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;rules&#34;</span>: [{
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;SameScore&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;Only match players when they have same score&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;comparison&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;operation&#34;</span>: <span style="color:#e6db74">&#34;=&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;measurements&#34;</span>: [<span style="color:#e6db74">&#34;flatten(teams[*].players.attributes[score])&#34;</span>]
+</span></span><span style="display:flex;"><span>    }]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
 <li><strong>지연 시간을 제한하는 룰셋</strong> : 스피드 매치가 중요한 게임의 경우 지연 시간을 중시한 Ruleset 을 테스트해볼 수 있습니다. 또한 글로벌 서버를 운영하는 경우에도, 지연 시간을 제한하면 유저들에게 쾌적한 매칭 경험을 제공해줄 수 있습니다.</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;Fast Game&#34;</span>,
-    <span style="color:#f92672">&#34;ruleLanguageVersion&#34;</span>: <span style="color:#e6db74">&#34;1.0&#34;</span>,
-    <span style="color:#f92672">&#34;playerAttributes&#34;</span> :
-    [
-        {
-            <span style="color:#f92672">&#34;name&#34;</span> : <span style="color:#e6db74">&#34;score&#34;</span>,
-            <span style="color:#f92672">&#34;type&#34;</span> : <span style="color:#e6db74">&#34;number&#34;</span>,
-            <span style="color:#f92672">&#34;default&#34;</span> : <span style="color:#ae81ff">1000</span>
-        }
-    ],
-    <span style="color:#f92672">&#34;teams&#34;</span> :
-    [
-        {
-            <span style="color:#f92672">&#34;name&#34;</span> : <span style="color:#e6db74">&#34;blue&#34;</span>,
-            <span style="color:#f92672">&#34;maxPlayers&#34;</span> : <span style="color:#ae81ff">1</span>,
-            <span style="color:#f92672">&#34;minPlayers&#34;</span> : <span style="color:#ae81ff">1</span>
-        },
-        {
-            <span style="color:#f92672">&#34;name&#34;</span> : <span style="color:#e6db74">&#34;red&#34;</span>,
-            <span style="color:#f92672">&#34;maxPlayers&#34;</span> : <span style="color:#ae81ff">1</span>,
-            <span style="color:#f92672">&#34;minPlayers&#34;</span> : <span style="color:#ae81ff">1</span>
-        }
-    ],
-    <span style="color:#f92672">&#34;rules&#34;</span>: [{
-        <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;FastConnection&#34;</span>,
-        <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;Prefer matches with fast player connections first&#34;</span>,
-        <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;latency&#34;</span>,
-        <span style="color:#f92672">&#34;maxLatency&#34;</span>: <span style="color:#ae81ff">50</span>
-    }],
-    <span style="color:#f92672">&#34;expansions&#34;</span>: [{
-        <span style="color:#f92672">&#34;target&#34;</span>: <span style="color:#e6db74">&#34;rules[FastConnection].maxLatency&#34;</span>,
-        <span style="color:#f92672">&#34;steps&#34;</span>: [{
-            <span style="color:#f92672">&#34;waitTimeSeconds&#34;</span>: <span style="color:#ae81ff">10</span>,
-            <span style="color:#f92672">&#34;value&#34;</span>: <span style="color:#ae81ff">100</span>
-        }, {
-            <span style="color:#f92672">&#34;waitTimeSeconds&#34;</span>: <span style="color:#ae81ff">20</span>,
-            <span style="color:#f92672">&#34;value&#34;</span>: <span style="color:#ae81ff">150</span>
-        }]
-    }]
-}
-</code></pre></div><p>이 외에도 다양한 커스텀 룰셋을 구성하고 테스트할 수 있습니다. 보다 자세한 규칙 세트 작성 방법은 다음 링크를 참고합니다.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;Fast Game&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;ruleLanguageVersion&#34;</span>: <span style="color:#e6db74">&#34;1.0&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;playerAttributes&#34;</span> :
+</span></span><span style="display:flex;"><span>    [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;name&#34;</span> : <span style="color:#e6db74">&#34;score&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;type&#34;</span> : <span style="color:#e6db74">&#34;number&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;default&#34;</span> : <span style="color:#ae81ff">1000</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;teams&#34;</span> :
+</span></span><span style="display:flex;"><span>    [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;name&#34;</span> : <span style="color:#e6db74">&#34;blue&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;maxPlayers&#34;</span> : <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;minPlayers&#34;</span> : <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;name&#34;</span> : <span style="color:#e6db74">&#34;red&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;maxPlayers&#34;</span> : <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;minPlayers&#34;</span> : <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;rules&#34;</span>: [{
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;FastConnection&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;Prefer matches with fast player connections first&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;latency&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;maxLatency&#34;</span>: <span style="color:#ae81ff">50</span>
+</span></span><span style="display:flex;"><span>    }],
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;expansions&#34;</span>: [{
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;target&#34;</span>: <span style="color:#e6db74">&#34;rules[FastConnection].maxLatency&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;steps&#34;</span>: [{
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;waitTimeSeconds&#34;</span>: <span style="color:#ae81ff">10</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;value&#34;</span>: <span style="color:#ae81ff">100</span>
+</span></span><span style="display:flex;"><span>        }, {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;waitTimeSeconds&#34;</span>: <span style="color:#ae81ff">20</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;value&#34;</span>: <span style="color:#ae81ff">150</span>
+</span></span><span style="display:flex;"><span>        }]
+</span></span><span style="display:flex;"><span>    }]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>이 외에도 다양한 커스텀 룰셋을 구성하고 테스트할 수 있습니다. 보다 자세한 규칙 세트 작성 방법은 다음 링크를 참고합니다.
 <a href="https://docs.aws.amazon.com/ko_kr/gamelift/latest/developerguide/match-rulesets.html">https://docs.aws.amazon.com/ko_kr/gamelift/latest/developerguide/match-rulesets.html</a></p>
 <hr>
 <!-- raw HTML omitted -->
@@ -1958,19 +1958,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/aws-gamelift-sample/ko/js/clipboard.min.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/ko/js/perfect-scrollbar.min.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/ko/js/perfect-scrollbar.jquery.min.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/ko/js/jquery.sticky.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/ko/js/featherlight.min.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/ko/js/highlight.pack.js?1636626217"></script>
+    <script src="/aws-gamelift-sample/ko/js/clipboard.min.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/ko/js/perfect-scrollbar.min.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/ko/js/perfect-scrollbar.jquery.min.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/ko/js/jquery.sticky.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/ko/js/featherlight.min.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/ko/js/highlight.pack.js?1657242240"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/aws-gamelift-sample/ko/js/modernizr.custom-3.6.0.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/ko/js/learn.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/ko/js/hugo-learn.js?1636626217"></script>
+    <script src="/aws-gamelift-sample/ko/js/modernizr.custom-3.6.0.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/ko/js/learn.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/ko/js/hugo-learn.js?1657242240"></script>
 
-    <link href="/aws-gamelift-sample/ko/mermaid/mermaid.css?1636626217" rel="stylesheet" />
-    <script src="/aws-gamelift-sample/ko/mermaid/mermaid.js?1636626217"></script>
+    <link href="/aws-gamelift-sample/ko/mermaid/mermaid.css?1657242240" rel="stylesheet" />
+    <script src="/aws-gamelift-sample/ko/mermaid/mermaid.js?1657242240"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

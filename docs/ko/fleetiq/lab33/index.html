@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.71.1" />
+    <meta name="generator" content="Hugo 0.101.0" />
     <meta name="description" content="Full Stack Game Demo">
 <meta name="author" content="Jinsung Thomas Park">
 
@@ -12,20 +12,20 @@
     <title>게임 서버 그룹 만들기 :: GameLift 로 Full Stack Game 시작</title>
 
     
-    <link href="/aws-gamelift-sample/ko/css/nucleus.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/fontawesome-all.min.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/hybrid.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/featherlight.min.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/perfect-scrollbar.min.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/auto-complete.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/atom-one-dark-reasonable.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/theme.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/hugo-theme.css?1636626217" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/nucleus.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/fontawesome-all.min.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/hybrid.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/featherlight.min.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/perfect-scrollbar.min.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/auto-complete.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/atom-one-dark-reasonable.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/theme.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/hugo-theme.css?1657242240" rel="stylesheet">
     
-      <link href="/aws-gamelift-sample/ko/css/theme-aws.css?1636626217" rel="stylesheet">
+      <link href="/aws-gamelift-sample/ko/css/theme-aws.css?1657242240" rel="stylesheet">
     
 
-    <script src="/aws-gamelift-sample/ko/js/jquery-3.3.1.min.js?1636626217"></script>
+    <script src="/aws-gamelift-sample/ko/js/jquery-3.3.1.min.js?1657242240"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/aws-gamelift-sample/ko/js/lunr.min.js?1636626217"></script>
-<script type="text/javascript" src="/aws-gamelift-sample/ko/js/auto-complete.js?1636626217"></script>
+<script type="text/javascript" src="/aws-gamelift-sample/ko/js/lunr.min.js?1657242240"></script>
+<script type="text/javascript" src="/aws-gamelift-sample/ko/js/auto-complete.js?1657242240"></script>
 <script type="text/javascript">
     
         var baseurl = "\/aws-gamelift-sample\/ko\/\/ko";
     
 </script>
-<script type="text/javascript" src="/aws-gamelift-sample/ko/js/search.js?1636626217"></script>
+<script type="text/javascript" src="/aws-gamelift-sample/ko/js/search.js?1657242240"></script>
 
     
   </div>
@@ -719,7 +719,7 @@
   
     
     <li data-nav-id="/aws-gamelift-sample/ko/fleetiq/lab33/" title="게임 서버 그룹 만들기" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -1224,7 +1224,7 @@ FleetIQ 는 예측 알고리즘에 기반하여 게임 서버 그룹 목록의 �
 <h3 id="fleetiq-인스턴스에서-사용할-iam-역할-만들기">FleetIQ 인스턴스에서 사용할 IAM 역할 만들기</h3>
 <ol>
 <li>
-<p>IAM 콘솔에 접속합니다. (<a href="https://console.aws.amazon.com/iam/home?">https://console.aws.amazon.com/iam/home?</a>)</p>
+<p>IAM 콘솔에 접속합니다. (<a href="https://console.aws.amazon.com/iam/home">https://console.aws.amazon.com/iam/home</a>?)</p>
 </li>
 <li>
 <p>좌측 메뉴에서 역할을 선택하고 EC2 사용 사례로 새로운 역할을 생성합니다.</p>
@@ -1267,21 +1267,21 @@ FleetIQ 는 예측 알고리즘에 기반하여 게임 서버 그룹 목록의 �
 <p>마지막으로 사용자 데이터에 다음을 입력합니다.</p>
 </li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#!/bin/bash
-</span><span style="color:#75715e"></span>sudo yum install python3 -y
-sudo pip3 install boto3
-sudo pip3 install requests
-sudo yum install -y gcc-c++ make
-curl -sL https://rpm.nodesource.com/setup_12.x | sudo -E bash
-sudo yum install -y nodejs
-</code></pre></div><p>위의 사용자 데이터 코드는 게임 서버가 생성되면 원격으로 Cloud9 IDE 를 연결하기 위한 작업을 나타냅니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>sudo yum install python3 -y
+</span></span><span style="display:flex;"><span>sudo pip3 install boto3
+</span></span><span style="display:flex;"><span>sudo pip3 install requests
+</span></span><span style="display:flex;"><span>sudo yum install -y gcc-c++ make
+</span></span><span style="display:flex;"><span>curl -sL https://rpm.nodesource.com/setup_12.x | sudo -E bash
+</span></span><span style="display:flex;"><span>sudo yum install -y nodejs
+</span></span></code></pre></div><p>위의 사용자 데이터 코드는 게임 서버가 생성되면 원격으로 Cloud9 IDE 를 연결하기 위한 작업을 나타냅니다.</p>
 <h3 id="game-server-group-생성하기">Game Server Group 생성하기</h3>
 <p>다음으로 Game Server Group 을 생성해봅니다. AWS CLIv2 가 설치된 환경에서 CLI 커맨드를 통해 이용하실 수 있습니다.</p>
 <ol>
 <li>다음과 같이 커맨드를 입력합니다.</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">aws gamelift create-game-server-group --game-server-group-name GameServerGroups --role-arn &lt;FleetIQFiestaRole 의 arn&gt; --min-size <span style="color:#ae81ff">1</span> --max-size <span style="color:#ae81ff">2</span> --launch-template LaunchTemplateId<span style="color:#f92672">=</span>&lt;LaunchTemplate ID&gt; --instance-definitions <span style="color:#e6db74">&#39;[{&#34;InstanceType&#34;: &#34;c5.large&#34;}, {&#34;InstanceType&#34;: &#34;m5.large&#34;}]&#39;</span> --region ap-northeast-2
-</code></pre></div><p><strong>위의 &lt;&gt; 괄호친 부분에 앞서 생성한 리소스들의 정보를 포함시켜야 합니다. 실습하고자하는 리전을 알맞게 입력했는지 확인합니다.</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>aws gamelift create-game-server-group --game-server-group-name GameServerGroups --role-arn &lt;FleetIQFiestaRole 의 arn&gt; --min-size <span style="color:#ae81ff">1</span> --max-size <span style="color:#ae81ff">2</span> --launch-template LaunchTemplateId<span style="color:#f92672">=</span>&lt;LaunchTemplate ID&gt; --instance-definitions <span style="color:#e6db74">&#39;[{&#34;InstanceType&#34;: &#34;c5.large&#34;}, {&#34;InstanceType&#34;: &#34;m5.large&#34;}]&#39;</span> --region ap-northeast-2
+</span></span></code></pre></div><p><strong>위의 &lt;&gt; 괄호친 부분에 앞서 생성한 리소스들의 정보를 포함시켜야 합니다. 실습하고자하는 리전을 알맞게 입력했는지 확인합니다.</strong></p>
 <ol start="2">
 <li>CreateServerGroup 이 성공하면 다음과 같이 GameLift 콘솔에서 게임 서버 그룹을 확인해보실 수 있습니다.</li>
 </ol>
@@ -1950,19 +1950,19 @@ FleetIQ 기능의 사용을 위해서는 FleetIQ 의 Lifecycle 을 구성해주�
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/aws-gamelift-sample/ko/js/clipboard.min.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/ko/js/perfect-scrollbar.min.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/ko/js/perfect-scrollbar.jquery.min.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/ko/js/jquery.sticky.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/ko/js/featherlight.min.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/ko/js/highlight.pack.js?1636626217"></script>
+    <script src="/aws-gamelift-sample/ko/js/clipboard.min.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/ko/js/perfect-scrollbar.min.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/ko/js/perfect-scrollbar.jquery.min.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/ko/js/jquery.sticky.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/ko/js/featherlight.min.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/ko/js/highlight.pack.js?1657242240"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/aws-gamelift-sample/ko/js/modernizr.custom-3.6.0.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/ko/js/learn.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/ko/js/hugo-learn.js?1636626217"></script>
+    <script src="/aws-gamelift-sample/ko/js/modernizr.custom-3.6.0.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/ko/js/learn.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/ko/js/hugo-learn.js?1657242240"></script>
 
-    <link href="/aws-gamelift-sample/ko/mermaid/mermaid.css?1636626217" rel="stylesheet" />
-    <script src="/aws-gamelift-sample/ko/mermaid/mermaid.js?1636626217"></script>
+    <link href="/aws-gamelift-sample/ko/mermaid/mermaid.css?1657242240" rel="stylesheet" />
+    <script src="/aws-gamelift-sample/ko/mermaid/mermaid.js?1657242240"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

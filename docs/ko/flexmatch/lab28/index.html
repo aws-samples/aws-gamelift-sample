@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.71.1" />
+    <meta name="generator" content="Hugo 0.101.0" />
     <meta name="description" content="Full Stack Game Demo">
 <meta name="author" content="Jinsung Thomas Park">
 
@@ -12,20 +12,20 @@
     <title>매치메이킹 이벤트 분석하기 :: GameLift 로 Full Stack Game 시작</title>
 
     
-    <link href="/aws-gamelift-sample/ko/css/nucleus.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/fontawesome-all.min.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/hybrid.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/featherlight.min.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/perfect-scrollbar.min.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/auto-complete.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/atom-one-dark-reasonable.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/theme.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/hugo-theme.css?1636626217" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/nucleus.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/fontawesome-all.min.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/hybrid.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/featherlight.min.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/perfect-scrollbar.min.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/auto-complete.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/atom-one-dark-reasonable.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/theme.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/hugo-theme.css?1657242240" rel="stylesheet">
     
-      <link href="/aws-gamelift-sample/ko/css/theme-aws.css?1636626217" rel="stylesheet">
+      <link href="/aws-gamelift-sample/ko/css/theme-aws.css?1657242240" rel="stylesheet">
     
 
-    <script src="/aws-gamelift-sample/ko/js/jquery-3.3.1.min.js?1636626217"></script>
+    <script src="/aws-gamelift-sample/ko/js/jquery-3.3.1.min.js?1657242240"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/aws-gamelift-sample/ko/js/lunr.min.js?1636626217"></script>
-<script type="text/javascript" src="/aws-gamelift-sample/ko/js/auto-complete.js?1636626217"></script>
+<script type="text/javascript" src="/aws-gamelift-sample/ko/js/lunr.min.js?1657242240"></script>
+<script type="text/javascript" src="/aws-gamelift-sample/ko/js/auto-complete.js?1657242240"></script>
 <script type="text/javascript">
     
         var baseurl = "\/aws-gamelift-sample\/ko\/\/ko";
     
 </script>
-<script type="text/javascript" src="/aws-gamelift-sample/ko/js/search.js?1636626217"></script>
+<script type="text/javascript" src="/aws-gamelift-sample/ko/js/search.js?1657242240"></script>
 
     
   </div>
@@ -579,7 +579,7 @@
   
     
     <li data-nav-id="/aws-gamelift-sample/ko/flexmatch/lab28/" title="매치메이킹 이벤트 분석하기" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -1232,21 +1232,20 @@ FlexMatch 는 매치메이킹 이벤트를 제공하며, GameLift 가 처리하�
 <ol start="3">
 <li>함수의 코드는 별도 파일로 제공되지는 않습니다. 다음 소스 코드를 복사 붙여넣기 하시고, 원하시는대로 가공하실 수 있습니다.</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
-<span style="color:#f92672">import</span> json
-
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">lambda_handler</span>(event, context):
-    eventType <span style="color:#f92672">=</span> event[<span style="color:#e6db74">&#39;detail&#39;</span>][<span style="color:#e6db74">&#39;type&#39;</span>]
-    <span style="color:#66d9ef">if</span> (eventType <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;MatchmakingSucceeded&#34;</span>):
-        a <span style="color:#f92672">=</span> event[<span style="color:#e6db74">&#39;detail&#39;</span>][<span style="color:#e6db74">&#39;gameSessionInfo&#39;</span>][<span style="color:#e6db74">&#39;players&#39;</span>][<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;playerId&#39;</span>]
-        b <span style="color:#f92672">=</span> event[<span style="color:#e6db74">&#39;detail&#39;</span>][<span style="color:#e6db74">&#39;gameSessionInfo&#39;</span>][<span style="color:#e6db74">&#39;players&#39;</span>][<span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#39;playerId&#39;</span>]
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Matchmaking: &#34;</span> <span style="color:#f92672">+</span> a <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;,&#34;</span> <span style="color:#f92672">+</span> b)
-    <span style="color:#66d9ef">return</span> {
-        <span style="color:#e6db74">&#39;statusCode&#39;</span>: <span style="color:#ae81ff">200</span>,
-        <span style="color:#e6db74">&#39;body&#39;</span>: json<span style="color:#f92672">.</span>dumps(<span style="color:#e6db74">&#39;Hello from Lambda!&#39;</span>)
-    }
-
-</code></pre></div><p>코드는 매치메이킹 이벤트의 티켓 타입을 검사하고, 매칭이 성공할 경우 매칭 정보를 로그로 기록합니다. <br>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> json
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">lambda_handler</span>(event, context):
+</span></span><span style="display:flex;"><span>    eventType <span style="color:#f92672">=</span> event[<span style="color:#e6db74">&#39;detail&#39;</span>][<span style="color:#e6db74">&#39;type&#39;</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (eventType <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;MatchmakingSucceeded&#34;</span>):
+</span></span><span style="display:flex;"><span>        a <span style="color:#f92672">=</span> event[<span style="color:#e6db74">&#39;detail&#39;</span>][<span style="color:#e6db74">&#39;gameSessionInfo&#39;</span>][<span style="color:#e6db74">&#39;players&#39;</span>][<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;playerId&#39;</span>]
+</span></span><span style="display:flex;"><span>        b <span style="color:#f92672">=</span> event[<span style="color:#e6db74">&#39;detail&#39;</span>][<span style="color:#e6db74">&#39;gameSessionInfo&#39;</span>][<span style="color:#e6db74">&#39;players&#39;</span>][<span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#39;playerId&#39;</span>]
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;Matchmaking: &#34;</span> <span style="color:#f92672">+</span> a <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;,&#34;</span> <span style="color:#f92672">+</span> b)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;statusCode&#39;</span>: <span style="color:#ae81ff">200</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;body&#39;</span>: json<span style="color:#f92672">.</span>dumps(<span style="color:#e6db74">&#39;Hello from Lambda!&#39;</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>코드는 매치메이킹 이벤트의 티켓 타입을 검사하고, 매칭이 성공할 경우 매칭 정보를 로그로 기록합니다. <br>
 Lambda 에서 작성된 Log 는 기본적으로 CloudWatch Logs 로 출력이 구성됩니다.</p>
 <ol start="4">
 <li>
@@ -1276,20 +1275,20 @@ Lambda 에서 작성된 Log 는 기본적으로 CloudWatch Logs 로 출력이 �
 <p>다음 쿼리는 로그 중에서 매치메이킹 결과를 raw data 형태로 필터링해서 제공합니다.</p>
 </li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">fields <span style="color:#f92672">@</span><span style="color:#66d9ef">timestamp</span>, <span style="color:#f92672">@</span>message
-<span style="color:#f92672">|</span> filter <span style="color:#f92672">@</span>message <span style="color:#66d9ef">like</span> <span style="color:#f92672">/</span>Matchmaking:<span style="color:#f92672">/</span>
-<span style="color:#f92672">|</span> sort <span style="color:#f92672">@</span><span style="color:#66d9ef">timestamp</span> <span style="color:#66d9ef">desc</span>
-<span style="color:#f92672">|</span> <span style="color:#66d9ef">limit</span> <span style="color:#ae81ff">20</span>
-</code></pre></div><p>다음과 같은 결과를 확인해보실 수 있습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>fields <span style="color:#f92672">@</span><span style="color:#66d9ef">timestamp</span>, <span style="color:#f92672">@</span>message
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> filter <span style="color:#f92672">@</span>message <span style="color:#66d9ef">like</span> <span style="color:#f92672">/</span>Matchmaking:<span style="color:#f92672">/</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> sort <span style="color:#f92672">@</span><span style="color:#66d9ef">timestamp</span> <span style="color:#66d9ef">desc</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">limit</span> <span style="color:#ae81ff">20</span>
+</span></span></code></pre></div><p>다음과 같은 결과를 확인해보실 수 있습니다.</p>
 <p><img src="../../images/flexmatch/lab28/Event-5.png" alt="Event"></p>
 <ol start="11">
 <li>다음 쿼리는 최근 매치메이킹 결과에 대해서 집계해주는 통계 쿼리를 제공해줍니다.</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">stats <span style="color:#66d9ef">count</span>(<span style="color:#f92672">*</span>) <span style="color:#66d9ef">by</span> <span style="color:#f92672">@</span>message
-<span style="color:#f92672">|</span> filter <span style="color:#f92672">@</span>message <span style="color:#66d9ef">like</span> <span style="color:#f92672">/</span>Matchmaking:<span style="color:#f92672">/</span>
-<span style="color:#f92672">|</span> sort <span style="color:#f92672">@</span><span style="color:#66d9ef">timestamp</span> <span style="color:#66d9ef">desc</span>
-<span style="color:#f92672">|</span> <span style="color:#66d9ef">limit</span> <span style="color:#ae81ff">20</span>
-</code></pre></div><p>결과는 다음과 같습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>stats <span style="color:#66d9ef">count</span>(<span style="color:#f92672">*</span>) <span style="color:#66d9ef">by</span> <span style="color:#f92672">@</span>message
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> filter <span style="color:#f92672">@</span>message <span style="color:#66d9ef">like</span> <span style="color:#f92672">/</span>Matchmaking:<span style="color:#f92672">/</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> sort <span style="color:#f92672">@</span><span style="color:#66d9ef">timestamp</span> <span style="color:#66d9ef">desc</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">limit</span> <span style="color:#ae81ff">20</span>
+</span></span></code></pre></div><p>결과는 다음과 같습니다.</p>
 <p><img src="../../images/flexmatch/lab28/Event-6.png" alt="Event"></p>
 <ol start="12">
 <li>실습에서는 간단한 예제를 따라해보았습니다. 게임을 더 플레이해보시고, 더 유용한 통계 쿼리를 쉽게 만들어보실 수 있습니다. <br>
@@ -1951,19 +1950,19 @@ Lambda 에서 작성된 Log 는 기본적으로 CloudWatch Logs 로 출력이 �
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/aws-gamelift-sample/ko/js/clipboard.min.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/ko/js/perfect-scrollbar.min.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/ko/js/perfect-scrollbar.jquery.min.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/ko/js/jquery.sticky.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/ko/js/featherlight.min.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/ko/js/highlight.pack.js?1636626217"></script>
+    <script src="/aws-gamelift-sample/ko/js/clipboard.min.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/ko/js/perfect-scrollbar.min.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/ko/js/perfect-scrollbar.jquery.min.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/ko/js/jquery.sticky.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/ko/js/featherlight.min.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/ko/js/highlight.pack.js?1657242240"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/aws-gamelift-sample/ko/js/modernizr.custom-3.6.0.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/ko/js/learn.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/ko/js/hugo-learn.js?1636626217"></script>
+    <script src="/aws-gamelift-sample/ko/js/modernizr.custom-3.6.0.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/ko/js/learn.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/ko/js/hugo-learn.js?1657242240"></script>
 
-    <link href="/aws-gamelift-sample/ko/mermaid/mermaid.css?1636626217" rel="stylesheet" />
-    <script src="/aws-gamelift-sample/ko/mermaid/mermaid.js?1636626217"></script>
+    <link href="/aws-gamelift-sample/ko/mermaid/mermaid.css?1657242240" rel="stylesheet" />
+    <script src="/aws-gamelift-sample/ko/mermaid/mermaid.js?1657242240"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

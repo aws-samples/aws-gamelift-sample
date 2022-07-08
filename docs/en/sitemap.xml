@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>/aws-gamelift-sample/en/awsservice/lab10/</loc>
     <xhtml:link
@@ -14,9 +13,7 @@
                 hreflang="en"
                 href="/aws-gamelift-sample/en/awsservice/lab10/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/aws-gamelift-sample/en/</loc>
     <lastmod>2020-05-26T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -29,9 +26,7 @@
                 hreflang="en"
                 href="/aws-gamelift-sample/en/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/aws-gamelift-sample/en/awsservice/lab11/</loc>
     <xhtml:link
                 rel="alternate"
@@ -43,9 +38,7 @@
                 hreflang="en"
                 href="/aws-gamelift-sample/en/awsservice/lab11/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/aws-gamelift-sample/en/intro/</loc>
     <xhtml:link
                 rel="alternate"
@@ -57,9 +50,7 @@
                 hreflang="en"
                 href="/aws-gamelift-sample/en/intro/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/aws-gamelift-sample/en/flexmatch/lab21/</loc>
     <xhtml:link
                 rel="alternate"
@@ -71,9 +62,7 @@
                 hreflang="en"
                 href="/aws-gamelift-sample/en/flexmatch/lab21/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/aws-gamelift-sample/en/gamelift/lab41/</loc>
     <xhtml:link
                 rel="alternate"
@@ -85,9 +74,7 @@
                 hreflang="en"
                 href="/aws-gamelift-sample/en/gamelift/lab41/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/aws-gamelift-sample/en/intro/lab01/</loc>
     <xhtml:link
                 rel="alternate"
@@ -99,9 +86,7 @@
                 hreflang="en"
                 href="/aws-gamelift-sample/en/intro/lab01/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/aws-gamelift-sample/en/intro/lab02/</loc>
     <xhtml:link
                 rel="alternate"
@@ -113,9 +98,7 @@
                 hreflang="en"
                 href="/aws-gamelift-sample/en/intro/lab02/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/aws-gamelift-sample/en/awsservice/</loc>
     <xhtml:link
                 rel="alternate"
@@ -127,9 +110,7 @@
                 hreflang="en"
                 href="/aws-gamelift-sample/en/awsservice/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/aws-gamelift-sample/en/flexmatch/lab22/</loc>
     <xhtml:link
                 rel="alternate"
@@ -141,9 +122,7 @@
                 hreflang="en"
                 href="/aws-gamelift-sample/en/flexmatch/lab22/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/aws-gamelift-sample/en/gamelift/lab42/</loc>
     <xhtml:link
                 rel="alternate"
@@ -155,9 +134,7 @@
                 hreflang="en"
                 href="/aws-gamelift-sample/en/gamelift/lab42/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/aws-gamelift-sample/en/awsservice/lab12/</loc>
     <xhtml:link
                 rel="alternate"
@@ -169,9 +146,7 @@
                 hreflang="en"
                 href="/aws-gamelift-sample/en/awsservice/lab12/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/aws-gamelift-sample/en/intro/lab03/</loc>
     <xhtml:link
                 rel="alternate"
@@ -183,9 +158,7 @@
                 hreflang="en"
                 href="/aws-gamelift-sample/en/intro/lab03/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/aws-gamelift-sample/en/flexmatch/</loc>
     <xhtml:link
                 rel="alternate"
@@ -197,9 +170,7 @@
                 hreflang="en"
                 href="/aws-gamelift-sample/en/flexmatch/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/aws-gamelift-sample/en/awsservice/lab13/</loc>
     <xhtml:link
                 rel="alternate"
@@ -211,9 +182,7 @@
                 hreflang="en"
                 href="/aws-gamelift-sample/en/awsservice/lab13/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/aws-gamelift-sample/en/fleetiq/lab31/</loc>
     <xhtml:link
                 rel="alternate"
@@ -225,9 +194,7 @@
                 hreflang="en"
                 href="/aws-gamelift-sample/en/fleetiq/lab31/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/aws-gamelift-sample/en/flexmatch/lab23/</loc>
     <xhtml:link
                 rel="alternate"
@@ -239,9 +206,7 @@
                 hreflang="en"
                 href="/aws-gamelift-sample/en/flexmatch/lab23/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/aws-gamelift-sample/en/gamelift/lab43/</loc>
     <xhtml:link
                 rel="alternate"
@@ -253,9 +218,7 @@
                 hreflang="en"
                 href="/aws-gamelift-sample/en/gamelift/lab43/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/aws-gamelift-sample/en/flexmatch/lab24/</loc>
     <xhtml:link
                 rel="alternate"
@@ -267,9 +230,7 @@
                 hreflang="en"
                 href="/aws-gamelift-sample/en/flexmatch/lab24/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/aws-gamelift-sample/en/gamelift/lab44/</loc>
     <xhtml:link
                 rel="alternate"
@@ -281,9 +242,7 @@
                 hreflang="en"
                 href="/aws-gamelift-sample/en/gamelift/lab44/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/aws-gamelift-sample/en/awsservice/lab14/</loc>
     <xhtml:link
                 rel="alternate"
@@ -295,9 +254,7 @@
                 hreflang="en"
                 href="/aws-gamelift-sample/en/awsservice/lab14/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/aws-gamelift-sample/en/fleetiq/lab32/</loc>
     <xhtml:link
                 rel="alternate"
@@ -309,9 +266,7 @@
                 hreflang="en"
                 href="/aws-gamelift-sample/en/fleetiq/lab32/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/aws-gamelift-sample/en/fleetiq/</loc>
     <xhtml:link
                 rel="alternate"
@@ -323,9 +278,7 @@
                 hreflang="en"
                 href="/aws-gamelift-sample/en/fleetiq/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/aws-gamelift-sample/en/flexmatch/lab25/</loc>
     <xhtml:link
                 rel="alternate"
@@ -337,9 +290,7 @@
                 hreflang="en"
                 href="/aws-gamelift-sample/en/flexmatch/lab25/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/aws-gamelift-sample/en/fleetiq/lab33/</loc>
     <xhtml:link
                 rel="alternate"
@@ -351,9 +302,7 @@
                 hreflang="en"
                 href="/aws-gamelift-sample/en/fleetiq/lab33/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/aws-gamelift-sample/en/gamelift/lab45/</loc>
     <xhtml:link
                 rel="alternate"
@@ -365,9 +314,7 @@
                 hreflang="en"
                 href="/aws-gamelift-sample/en/gamelift/lab45/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/aws-gamelift-sample/en/gamelift/</loc>
     <xhtml:link
                 rel="alternate"
@@ -379,9 +326,7 @@
                 hreflang="en"
                 href="/aws-gamelift-sample/en/gamelift/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/aws-gamelift-sample/en/cleanup/</loc>
     <xhtml:link
                 rel="alternate"
@@ -393,9 +338,7 @@
                 hreflang="en"
                 href="/aws-gamelift-sample/en/cleanup/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/aws-gamelift-sample/en/flexmatch/lab26/</loc>
     <xhtml:link
                 rel="alternate"
@@ -407,9 +350,7 @@
                 hreflang="en"
                 href="/aws-gamelift-sample/en/flexmatch/lab26/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/aws-gamelift-sample/en/fleetiq/lab34/</loc>
     <xhtml:link
                 rel="alternate"
@@ -421,9 +362,7 @@
                 hreflang="en"
                 href="/aws-gamelift-sample/en/fleetiq/lab34/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/aws-gamelift-sample/en/gamelift/lab46/</loc>
     <xhtml:link
                 rel="alternate"
@@ -435,9 +374,7 @@
                 hreflang="en"
                 href="/aws-gamelift-sample/en/gamelift/lab46/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/aws-gamelift-sample/en/appendix/</loc>
     <xhtml:link
                 rel="alternate"
@@ -449,9 +386,7 @@
                 hreflang="en"
                 href="/aws-gamelift-sample/en/appendix/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/aws-gamelift-sample/en/flexmatch/lab27/</loc>
     <xhtml:link
                 rel="alternate"
@@ -463,9 +398,7 @@
                 hreflang="en"
                 href="/aws-gamelift-sample/en/flexmatch/lab27/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/aws-gamelift-sample/en/fleetiq/lab35/</loc>
     <xhtml:link
                 rel="alternate"
@@ -477,9 +410,7 @@
                 hreflang="en"
                 href="/aws-gamelift-sample/en/fleetiq/lab35/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/aws-gamelift-sample/en/flexmatch/lab28/</loc>
     <xhtml:link
                 rel="alternate"
@@ -491,9 +422,7 @@
                 hreflang="en"
                 href="/aws-gamelift-sample/en/flexmatch/lab28/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/aws-gamelift-sample/en/fleetiq/lab36/</loc>
     <xhtml:link
                 rel="alternate"
@@ -505,9 +434,7 @@
                 hreflang="en"
                 href="/aws-gamelift-sample/en/fleetiq/lab36/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/aws-gamelift-sample/en/flexmatch/lab29/</loc>
     <xhtml:link
                 rel="alternate"
@@ -519,9 +446,7 @@
                 hreflang="en"
                 href="/aws-gamelift-sample/en/flexmatch/lab29/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/aws-gamelift-sample/en/categories/</loc>
     <xhtml:link
                 rel="alternate"
@@ -533,9 +458,7 @@
                 hreflang="en"
                 href="/aws-gamelift-sample/en/categories/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/aws-gamelift-sample/en/tags/</loc>
     <xhtml:link
                 rel="alternate"
@@ -548,5 +471,4 @@
                 href="/aws-gamelift-sample/en/tags/"
                 />
   </url>
-  
 </urlset>

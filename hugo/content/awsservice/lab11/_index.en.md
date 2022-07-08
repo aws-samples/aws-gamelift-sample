@@ -21,7 +21,8 @@ First things first, let's make DynamoDB first.
 
 4. Set Table name as “GomokuPlayerInfo”, and Primary Key "PlayerName". Make data type as "String". Let's click "Create button".
 
-5. Enable "Stream" on your DynamoDB Table. It is disabled as default, so click "Manage Stream" button on the console. 
+5. Enable “Stream” on your DynamoDB Table. It is disabled as default, so select "Exports and streams" tab and click "Enable" button on DynamoDB stream details.
+
 
 ![DDB_Stream](../../images/awsservice/lab11/DDB_Stream[en].png)
 
@@ -29,7 +30,7 @@ First things first, let's make DynamoDB first.
 
 ![DDB_Stream_Image](../../images/awsservice/lab11/DDB_Stream_Image[en].png)
 
-7. Basic configuration is ended. Let's make Test Data Sample. Click "Items" tab on table.
+7. Basic configuration is ended. Let's make Test Data Sample. Click "Explore table Items" in the upper right corner.
 
 8. Click "Create Item", and make new Item.
 
@@ -37,7 +38,7 @@ First things first, let's make DynamoDB first.
 
 9. Click + button on the editor, and append item.
 
-10. Put data on your new item same as below. Click "Save" to store Item. (Check the data type)
+10. Put data on your new item same as below. Click "Create Item" to store Item. (Check the data type)
 
 ![DDB_Item_Sample](../../images/awsservice/lab11/DDB_Item_Sample.png)
 

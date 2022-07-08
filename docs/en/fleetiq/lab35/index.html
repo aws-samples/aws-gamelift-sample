@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.71.1" />
+    <meta name="generator" content="Hugo 0.101.0" />
     <meta name="description" content="Full Stack Game Demo">
 <meta name="author" content="Jinsung Thomas Park">
 
@@ -12,20 +12,20 @@
     <title>Creating Client on FleetIQ :: Start Full Stack Game with GameLift</title>
 
     
-    <link href="/aws-gamelift-sample/en/css/nucleus.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/en/css/fontawesome-all.min.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/en/css/hybrid.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/en/css/featherlight.min.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/en/css/perfect-scrollbar.min.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/en/css/auto-complete.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/en/css/atom-one-dark-reasonable.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/en/css/theme.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/en/css/hugo-theme.css?1636626217" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/nucleus.css?1657242239" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/fontawesome-all.min.css?1657242239" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/hybrid.css?1657242239" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/featherlight.min.css?1657242239" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/perfect-scrollbar.min.css?1657242239" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/auto-complete.css?1657242239" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/atom-one-dark-reasonable.css?1657242239" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/theme.css?1657242239" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/hugo-theme.css?1657242239" rel="stylesheet">
     
-      <link href="/aws-gamelift-sample/en/css/theme-aws.css?1636626217" rel="stylesheet">
+      <link href="/aws-gamelift-sample/en/css/theme-aws.css?1657242239" rel="stylesheet">
     
 
-    <script src="/aws-gamelift-sample/en/js/jquery-3.3.1.min.js?1636626217"></script>
+    <script src="/aws-gamelift-sample/en/js/jquery-3.3.1.min.js?1657242239"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/aws-gamelift-sample/en/js/lunr.min.js?1636626217"></script>
-<script type="text/javascript" src="/aws-gamelift-sample/en/js/auto-complete.js?1636626217"></script>
+<script type="text/javascript" src="/aws-gamelift-sample/en/js/lunr.min.js?1657242239"></script>
+<script type="text/javascript" src="/aws-gamelift-sample/en/js/auto-complete.js?1657242239"></script>
 <script type="text/javascript">
     
         var baseurl = "\/aws-gamelift-sample\/en\/\/en";
     
 </script>
-<script type="text/javascript" src="/aws-gamelift-sample/en/js/search.js?1636626217"></script>
+<script type="text/javascript" src="/aws-gamelift-sample/en/js/search.js?1657242239"></script>
 
     
   </div>
@@ -771,7 +771,7 @@
   
     
     <li data-nav-id="/aws-gamelift-sample/en/fleetiq/lab35/" title="Creating Client on FleetIQ" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -1238,83 +1238,83 @@
 <p>When Cloud9 IDE is executed, create file <em>client.py</em> and paste following code.</p>
 </li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> socket
-<span style="color:#f92672">import</span> boto3
-
-client <span style="color:#f92672">=</span> boto3<span style="color:#f92672">.</span>client(<span style="color:#e6db74">&#39;gamelift&#39;</span>)
-
-<span style="color:#75715e"># Claim Game Server</span>
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">claim_game_server</span>():
-    <span style="color:#66d9ef">pass</span>
-<span style="color:#75715e">#</span>
-response <span style="color:#f92672">=</span> claim_game_server()
-<span style="color:#75715e">#endpoint = response[&#39;GameServer&#39;][&#39;ConnectionInfo&#39;]</span>
-endpoint <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>
-
-client_socket <span style="color:#f92672">=</span> socket<span style="color:#f92672">.</span>socket(socket<span style="color:#f92672">.</span>AF_INET, socket<span style="color:#f92672">.</span>SOCK_STREAM)
-client_socket<span style="color:#f92672">.</span>connect((endpoint, <span style="color:#ae81ff">5000</span>))
-
-<span style="color:#66d9ef">while</span> True:
-    data <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;SEND(TYPE q or Q to Quit):&#34;</span>)
-    <span style="color:#66d9ef">if</span>(data <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;q&#39;</span> <span style="color:#f92672">or</span> data <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;Q&#39;</span>):
-        client_socket<span style="color:#f92672">.</span>send(data<span style="color:#f92672">.</span>encode())
-        client_socket<span style="color:#f92672">.</span>close()
-        <span style="color:#66d9ef">break</span>
-    <span style="color:#66d9ef">else</span>:
-        client_socket<span style="color:#f92672">.</span>send(data<span style="color:#f92672">.</span>encode())
-    data <span style="color:#f92672">=</span> client_socket<span style="color:#f92672">.</span>recv(<span style="color:#ae81ff">512</span>)<span style="color:#f92672">.</span>decode()
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;RECEIVED:&#34;</span>, data)
-
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Socket Closed... END&#34;</span>)
-</code></pre></div><p><strong>This code is a simple TCP echo client implementation. However, if you look closely, the server&rsquo;s endpoint is not specified. Now let&rsquo;s implement this part.</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> socket
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> boto3
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>client <span style="color:#f92672">=</span> boto3<span style="color:#f92672">.</span>client(<span style="color:#e6db74">&#39;gamelift&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Claim Game Server</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">claim_game_server</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pass</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span>response <span style="color:#f92672">=</span> claim_game_server()
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#endpoint = response[&#39;GameServer&#39;][&#39;ConnectionInfo&#39;]</span>
+</span></span><span style="display:flex;"><span>endpoint <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>client_socket <span style="color:#f92672">=</span> socket<span style="color:#f92672">.</span>socket(socket<span style="color:#f92672">.</span>AF_INET, socket<span style="color:#f92672">.</span>SOCK_STREAM)
+</span></span><span style="display:flex;"><span>client_socket<span style="color:#f92672">.</span>connect((endpoint, <span style="color:#ae81ff">5000</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
+</span></span><span style="display:flex;"><span>    data <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;SEND(TYPE q or Q to Quit):&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(data <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;q&#39;</span> <span style="color:#f92672">or</span> data <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;Q&#39;</span>):
+</span></span><span style="display:flex;"><span>        client_socket<span style="color:#f92672">.</span>send(data<span style="color:#f92672">.</span>encode())
+</span></span><span style="display:flex;"><span>        client_socket<span style="color:#f92672">.</span>close()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">break</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>        client_socket<span style="color:#f92672">.</span>send(data<span style="color:#f92672">.</span>encode())
+</span></span><span style="display:flex;"><span>    data <span style="color:#f92672">=</span> client_socket<span style="color:#f92672">.</span>recv(<span style="color:#ae81ff">512</span>)<span style="color:#f92672">.</span>decode()
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;RECEIVED:&#34;</span>, data)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Socket Closed... END&#34;</span>)
+</span></span></code></pre></div><p><strong>This code is a simple TCP echo client implementation. However, if you look closely, the server&rsquo;s endpoint is not specified. Now let&rsquo;s implement this part.</strong></p>
 <ol start="6">
 <li>You must implement the claim_game_server function in your code. The claimGameServer API is an API that requests GameLift FleetIQ for a server instance suitable for allocating game sessions to clients. <br>
 The client only needs to make a request through the corresponding API to connect to the game server. <br>
 Let&rsquo;s make a code on <em>claim_game_server</em> as follows.</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">claim_game_server</span>():
-    response <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>claim_game_server(
-        GameServerGroupName<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;GameServerGroups&#39;</span>
-    )
-    <span style="color:#66d9ef">print</span>(response)
-    <span style="color:#66d9ef">return</span> response
-</code></pre></div><p>Function&rsquo;s return value contains Game Server endpoint. Remove comment and set endpoint like below.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">endpoint <span style="color:#f92672">=</span> response[<span style="color:#e6db74">&#39;GameServer&#39;</span>][<span style="color:#e6db74">&#39;ConnectionInfo&#39;</span>]
-</code></pre></div><ol start="7">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">claim_game_server</span>():
+</span></span><span style="display:flex;"><span>    response <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>claim_game_server(
+</span></span><span style="display:flex;"><span>        GameServerGroupName<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;GameServerGroups&#39;</span>
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>    print(response)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> response
+</span></span></code></pre></div><p>Function&rsquo;s return value contains Game Server endpoint. Remove comment and set endpoint like below.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>endpoint <span style="color:#f92672">=</span> response[<span style="color:#e6db74">&#39;GameServer&#39;</span>][<span style="color:#e6db74">&#39;ConnectionInfo&#39;</span>]
+</span></span></code></pre></div><ol start="7">
 <li>The complete code is:</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> socket
-<span style="color:#f92672">import</span> boto3
-
-client <span style="color:#f92672">=</span> boto3<span style="color:#f92672">.</span>client(<span style="color:#e6db74">&#39;gamelift&#39;</span>, <span style="color:#e6db74">&#39;ap-northeast-2&#39;</span>)
-
-<span style="color:#75715e"># Claim Game Server</span>
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">claim_game_server</span>():
-    response <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>claim_game_server(
-        GameServerGroupName<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;GameServerGroups&#39;</span>
-    )
-    <span style="color:#66d9ef">print</span>(response)
-    <span style="color:#66d9ef">return</span> response
-<span style="color:#75715e">#</span>
-response <span style="color:#f92672">=</span> claim_game_server()
-endpoint <span style="color:#f92672">=</span> response[<span style="color:#e6db74">&#39;GameServer&#39;</span>][<span style="color:#e6db74">&#39;ConnectionInfo&#39;</span>]
-
-client_socket <span style="color:#f92672">=</span> socket<span style="color:#f92672">.</span>socket(socket<span style="color:#f92672">.</span>AF_INET, socket<span style="color:#f92672">.</span>SOCK_STREAM)
-client_socket<span style="color:#f92672">.</span>connect((endpoint, <span style="color:#ae81ff">5000</span>))
-
-<span style="color:#66d9ef">while</span> True:
-    data <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;SEND(TYPE q or Q to Quit):&#34;</span>)
-    <span style="color:#66d9ef">if</span>(data <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;q&#39;</span> <span style="color:#f92672">or</span> data <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;Q&#39;</span>):
-        client_socket<span style="color:#f92672">.</span>send(data<span style="color:#f92672">.</span>encode())
-        client_socket<span style="color:#f92672">.</span>close()
-        <span style="color:#66d9ef">break</span>
-    <span style="color:#66d9ef">else</span>:
-        client_socket<span style="color:#f92672">.</span>send(data<span style="color:#f92672">.</span>encode())
-    data <span style="color:#f92672">=</span> client_socket<span style="color:#f92672">.</span>recv(<span style="color:#ae81ff">512</span>)<span style="color:#f92672">.</span>decode()
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;RECEIVED:&#34;</span>, data)
-
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Socket Closed... END&#34;</span>)
-</code></pre></div><p>In the lab, only a simple TCP connection is configured for the purpose of learning to run the FleetIQ API, but the code is simple, but you can practice with more complex game logic.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> socket
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> boto3
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>client <span style="color:#f92672">=</span> boto3<span style="color:#f92672">.</span>client(<span style="color:#e6db74">&#39;gamelift&#39;</span>, <span style="color:#e6db74">&#39;ap-northeast-2&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Claim Game Server</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">claim_game_server</span>():
+</span></span><span style="display:flex;"><span>    response <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>claim_game_server(
+</span></span><span style="display:flex;"><span>        GameServerGroupName<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;GameServerGroups&#39;</span>
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>    print(response)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> response
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span>response <span style="color:#f92672">=</span> claim_game_server()
+</span></span><span style="display:flex;"><span>endpoint <span style="color:#f92672">=</span> response[<span style="color:#e6db74">&#39;GameServer&#39;</span>][<span style="color:#e6db74">&#39;ConnectionInfo&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>client_socket <span style="color:#f92672">=</span> socket<span style="color:#f92672">.</span>socket(socket<span style="color:#f92672">.</span>AF_INET, socket<span style="color:#f92672">.</span>SOCK_STREAM)
+</span></span><span style="display:flex;"><span>client_socket<span style="color:#f92672">.</span>connect((endpoint, <span style="color:#ae81ff">5000</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
+</span></span><span style="display:flex;"><span>    data <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;SEND(TYPE q or Q to Quit):&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(data <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;q&#39;</span> <span style="color:#f92672">or</span> data <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;Q&#39;</span>):
+</span></span><span style="display:flex;"><span>        client_socket<span style="color:#f92672">.</span>send(data<span style="color:#f92672">.</span>encode())
+</span></span><span style="display:flex;"><span>        client_socket<span style="color:#f92672">.</span>close()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">break</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>        client_socket<span style="color:#f92672">.</span>send(data<span style="color:#f92672">.</span>encode())
+</span></span><span style="display:flex;"><span>    data <span style="color:#f92672">=</span> client_socket<span style="color:#f92672">.</span>recv(<span style="color:#ae81ff">512</span>)<span style="color:#f92672">.</span>decode()
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;RECEIVED:&#34;</span>, data)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Socket Closed... END&#34;</span>)
+</span></span></code></pre></div><p>In the lab, only a simple TCP connection is configured for the purpose of learning to run the FleetIQ API, but the code is simple, but you can practice with more complex game logic.</p>
 <p><strong>Now let&rsquo;s see how the server and client interact with the one we created earlier.</strong></p>
 <hr>
 <!-- raw HTML omitted -->
@@ -1972,19 +1972,19 @@ client_socket<span style="color:#f92672">.</span>connect((endpoint, <span style=
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/aws-gamelift-sample/en/js/clipboard.min.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/en/js/perfect-scrollbar.min.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/en/js/perfect-scrollbar.jquery.min.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/en/js/jquery.sticky.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/en/js/featherlight.min.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/en/js/highlight.pack.js?1636626217"></script>
+    <script src="/aws-gamelift-sample/en/js/clipboard.min.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/en/js/perfect-scrollbar.min.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/en/js/perfect-scrollbar.jquery.min.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/en/js/jquery.sticky.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/en/js/featherlight.min.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/en/js/highlight.pack.js?1657242240"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/aws-gamelift-sample/en/js/modernizr.custom-3.6.0.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/en/js/learn.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/en/js/hugo-learn.js?1636626217"></script>
+    <script src="/aws-gamelift-sample/en/js/modernizr.custom-3.6.0.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/en/js/learn.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/en/js/hugo-learn.js?1657242240"></script>
 
-    <link href="/aws-gamelift-sample/en/mermaid/mermaid.css?1636626217" rel="stylesheet" />
-    <script src="/aws-gamelift-sample/en/mermaid/mermaid.js?1636626217"></script>
+    <link href="/aws-gamelift-sample/en/mermaid/mermaid.css?1657242240" rel="stylesheet" />
+    <script src="/aws-gamelift-sample/en/mermaid/mermaid.js?1657242240"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

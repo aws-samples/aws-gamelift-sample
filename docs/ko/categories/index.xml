@@ -5,10 +5,6 @@
     <link>/aws-gamelift-sample/ko/categories/</link>
     <description>Recent content in Categories on GameLift 로 Full Stack Game 시작</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ko-KR</language>
-    
-	<atom:link href="/aws-gamelift-sample/ko/categories/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>ko-KR</language><atom:link href="/aws-gamelift-sample/ko/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

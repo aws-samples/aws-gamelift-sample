@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.71.1" />
+    <meta name="generator" content="Hugo 0.101.0" />
     <meta name="description" content="Full Stack Game Demo">
 <meta name="author" content="Jinsung Thomas Park">
 
@@ -12,20 +12,20 @@
     <title>Serverless FlexMatch 구성하기 :: GameLift 로 Full Stack Game 시작</title>
 
     
-    <link href="/aws-gamelift-sample/ko/css/nucleus.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/fontawesome-all.min.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/hybrid.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/featherlight.min.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/perfect-scrollbar.min.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/auto-complete.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/atom-one-dark-reasonable.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/theme.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/hugo-theme.css?1636626217" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/nucleus.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/fontawesome-all.min.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/hybrid.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/featherlight.min.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/perfect-scrollbar.min.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/auto-complete.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/atom-one-dark-reasonable.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/theme.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/hugo-theme.css?1657242240" rel="stylesheet">
     
-      <link href="/aws-gamelift-sample/ko/css/theme-aws.css?1636626217" rel="stylesheet">
+      <link href="/aws-gamelift-sample/ko/css/theme-aws.css?1657242240" rel="stylesheet">
     
 
-    <script src="/aws-gamelift-sample/ko/js/jquery-3.3.1.min.js?1636626217"></script>
+    <script src="/aws-gamelift-sample/ko/js/jquery-3.3.1.min.js?1657242240"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/aws-gamelift-sample/ko/js/lunr.min.js?1636626217"></script>
-<script type="text/javascript" src="/aws-gamelift-sample/ko/js/auto-complete.js?1636626217"></script>
+<script type="text/javascript" src="/aws-gamelift-sample/ko/js/lunr.min.js?1657242240"></script>
+<script type="text/javascript" src="/aws-gamelift-sample/ko/js/auto-complete.js?1657242240"></script>
 <script type="text/javascript">
     
         var baseurl = "\/aws-gamelift-sample\/ko\/\/ko";
     
 </script>
-<script type="text/javascript" src="/aws-gamelift-sample/ko/js/search.js?1636626217"></script>
+<script type="text/javascript" src="/aws-gamelift-sample/ko/js/search.js?1657242240"></script>
 
     
   </div>
@@ -501,7 +501,7 @@
   
     
     <li data-nav-id="/aws-gamelift-sample/ko/flexmatch/lab25/" title="Serverless FlexMatch 구성하기" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -1239,68 +1239,68 @@
 <p>아래와 같이 Rule set 의 이름을 입력하고 Rule set 을 넣어 줍니다. Rule set 은 제공된 프로젝트의 루트폴더에서 Ruleset 폴더 하위의 GomokuRuleSet.json 의 파일 내용을 복제하여 넣어 줍니다.</p>
 </li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#f92672">&#34;ruleLanguageVersion&#34;</span> : <span style="color:#e6db74">&#34;1.0&#34;</span>,
-    <span style="color:#f92672">&#34;playerAttributes&#34;</span> :
-    [
-        {
-            <span style="color:#f92672">&#34;name&#34;</span> : <span style="color:#e6db74">&#34;score&#34;</span>,
-            <span style="color:#f92672">&#34;type&#34;</span> : <span style="color:#e6db74">&#34;number&#34;</span>,
-            <span style="color:#f92672">&#34;default&#34;</span> : <span style="color:#ae81ff">1000</span>
-        }
-    ],
-    <span style="color:#f92672">&#34;teams&#34;</span> :
-    [
-        {
-            <span style="color:#f92672">&#34;name&#34;</span> : <span style="color:#e6db74">&#34;blue&#34;</span>,
-            <span style="color:#f92672">&#34;maxPlayers&#34;</span> : <span style="color:#ae81ff">1</span>,
-            <span style="color:#f92672">&#34;minPlayers&#34;</span> : <span style="color:#ae81ff">1</span>
-        },
-        {
-            <span style="color:#f92672">&#34;name&#34;</span> : <span style="color:#e6db74">&#34;red&#34;</span>,
-            <span style="color:#f92672">&#34;maxPlayers&#34;</span> : <span style="color:#ae81ff">1</span>,
-            <span style="color:#f92672">&#34;minPlayers&#34;</span> : <span style="color:#ae81ff">1</span>
-        }
-    ],
-    <span style="color:#f92672">&#34;rules&#34;</span> :
-    [
-        {   <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;EqualTeamSizes&#34;</span>,
-            <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;comparison&#34;</span>,
-            <span style="color:#f92672">&#34;measurements&#34;</span>: [ <span style="color:#e6db74">&#34;count(teams[red].players)&#34;</span> ],
-            <span style="color:#f92672">&#34;referenceValue&#34;</span>: <span style="color:#e6db74">&#34;count(teams[blue].players)&#34;</span>,
-            <span style="color:#f92672">&#34;operation&#34;</span>: <span style="color:#e6db74">&#34;=&#34;</span>
-        },
-        {
-            <span style="color:#f92672">&#34;name&#34;</span> : <span style="color:#e6db74">&#34;FairTeamSkill&#34;</span>,
-            <span style="color:#f92672">&#34;type&#34;</span> : <span style="color:#e6db74">&#34;distance&#34;</span>,
-            <span style="color:#f92672">&#34;measurements&#34;</span> : [ <span style="color:#e6db74">&#34;avg(teams[*].players.attributes[score])&#34;</span> ],
-            <span style="color:#f92672">&#34;referenceValue&#34;</span> : <span style="color:#e6db74">&#34;avg(flatten(teams[*].players.attributes[score]))&#34;</span>,
-            <span style="color:#f92672">&#34;maxDistance&#34;</span> : <span style="color:#ae81ff">300</span>
-        }
-    ],
-    <span style="color:#f92672">&#34;expansions&#34;</span> :
-    [
-        {
-            <span style="color:#f92672">&#34;target&#34;</span> : <span style="color:#e6db74">&#34;rules[FairTeamSkill].maxDistance&#34;</span>,
-            <span style="color:#f92672">&#34;steps&#34;</span> :
-            [
-                {
-                    <span style="color:#f92672">&#34;waitTimeSeconds&#34;</span> : <span style="color:#ae81ff">10</span>,
-                    <span style="color:#f92672">&#34;value&#34;</span> : <span style="color:#ae81ff">500</span>
-                },
-                {
-                    <span style="color:#f92672">&#34;waitTimeSeconds&#34;</span> : <span style="color:#ae81ff">20</span>,
-                    <span style="color:#f92672">&#34;value&#34;</span> : <span style="color:#ae81ff">800</span>
-                },
-                {
-                    <span style="color:#f92672">&#34;waitTimeSeconds&#34;</span> : <span style="color:#ae81ff">30</span>,
-                    <span style="color:#f92672">&#34;value&#34;</span> : <span style="color:#ae81ff">1000</span>
-                }
-            ]
-        }
-    ]
-}
-</code></pre></div><p>여기서의 rule 은 간단하게 score 점수가 300 점 이내의 사용자간에 Match 를 시켜주며 해당 사용자 match 가 시간내에 안 될 경우, rule 을 완화하여 match 시켜 줍니다. Validate rule set 을 선택하여 rule set 이 정상인지 확인 한 후에 create rule set 으로 rule set 을 생성합니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;ruleLanguageVersion&#34;</span> : <span style="color:#e6db74">&#34;1.0&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;playerAttributes&#34;</span> :
+</span></span><span style="display:flex;"><span>    [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;name&#34;</span> : <span style="color:#e6db74">&#34;score&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;type&#34;</span> : <span style="color:#e6db74">&#34;number&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;default&#34;</span> : <span style="color:#ae81ff">1000</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;teams&#34;</span> :
+</span></span><span style="display:flex;"><span>    [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;name&#34;</span> : <span style="color:#e6db74">&#34;blue&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;maxPlayers&#34;</span> : <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;minPlayers&#34;</span> : <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;name&#34;</span> : <span style="color:#e6db74">&#34;red&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;maxPlayers&#34;</span> : <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;minPlayers&#34;</span> : <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;rules&#34;</span> :
+</span></span><span style="display:flex;"><span>    [
+</span></span><span style="display:flex;"><span>        {   <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;EqualTeamSizes&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;comparison&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;measurements&#34;</span>: [ <span style="color:#e6db74">&#34;count(teams[red].players)&#34;</span> ],
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;referenceValue&#34;</span>: <span style="color:#e6db74">&#34;count(teams[blue].players)&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;operation&#34;</span>: <span style="color:#e6db74">&#34;=&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;name&#34;</span> : <span style="color:#e6db74">&#34;FairTeamSkill&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;type&#34;</span> : <span style="color:#e6db74">&#34;distance&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;measurements&#34;</span> : [ <span style="color:#e6db74">&#34;avg(teams[*].players.attributes[score])&#34;</span> ],
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;referenceValue&#34;</span> : <span style="color:#e6db74">&#34;avg(flatten(teams[*].players.attributes[score]))&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;maxDistance&#34;</span> : <span style="color:#ae81ff">300</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;expansions&#34;</span> :
+</span></span><span style="display:flex;"><span>    [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;target&#34;</span> : <span style="color:#e6db74">&#34;rules[FairTeamSkill].maxDistance&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;steps&#34;</span> :
+</span></span><span style="display:flex;"><span>            [
+</span></span><span style="display:flex;"><span>                {
+</span></span><span style="display:flex;"><span>                    <span style="color:#f92672">&#34;waitTimeSeconds&#34;</span> : <span style="color:#ae81ff">10</span>,
+</span></span><span style="display:flex;"><span>                    <span style="color:#f92672">&#34;value&#34;</span> : <span style="color:#ae81ff">500</span>
+</span></span><span style="display:flex;"><span>                },
+</span></span><span style="display:flex;"><span>                {
+</span></span><span style="display:flex;"><span>                    <span style="color:#f92672">&#34;waitTimeSeconds&#34;</span> : <span style="color:#ae81ff">20</span>,
+</span></span><span style="display:flex;"><span>                    <span style="color:#f92672">&#34;value&#34;</span> : <span style="color:#ae81ff">800</span>
+</span></span><span style="display:flex;"><span>                },
+</span></span><span style="display:flex;"><span>                {
+</span></span><span style="display:flex;"><span>                    <span style="color:#f92672">&#34;waitTimeSeconds&#34;</span> : <span style="color:#ae81ff">30</span>,
+</span></span><span style="display:flex;"><span>                    <span style="color:#f92672">&#34;value&#34;</span> : <span style="color:#ae81ff">1000</span>
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            ]
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>여기서의 rule 은 간단하게 score 점수가 300 점 이내의 사용자간에 Match 를 시켜주며 해당 사용자 match 가 시간내에 안 될 경우, rule 을 완화하여 match 시켜 줍니다. Validate rule set 을 선택하여 rule set 이 정상인지 확인 한 후에 create rule set 으로 rule set 을 생성합니다.</p>
 <p><img src="../../images/flexmatch/lab25/FlexMatch-2.png" alt="Flex-Match"></p>
 <ol start="5">
 <li>다음은 앞서 만든 Queue 와 Matchmaking rule set 을 연결 시켜 주는 작업을 수행합니다. Create matchmaking configuration 을 메뉴에서 선택합니다. 아래와
@@ -2084,19 +2084,19 @@ GameLift 에 match making 을 요청합니다.</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/aws-gamelift-sample/ko/js/clipboard.min.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/ko/js/perfect-scrollbar.min.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/ko/js/perfect-scrollbar.jquery.min.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/ko/js/jquery.sticky.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/ko/js/featherlight.min.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/ko/js/highlight.pack.js?1636626217"></script>
+    <script src="/aws-gamelift-sample/ko/js/clipboard.min.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/ko/js/perfect-scrollbar.min.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/ko/js/perfect-scrollbar.jquery.min.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/ko/js/jquery.sticky.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/ko/js/featherlight.min.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/ko/js/highlight.pack.js?1657242240"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/aws-gamelift-sample/ko/js/modernizr.custom-3.6.0.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/ko/js/learn.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/ko/js/hugo-learn.js?1636626217"></script>
+    <script src="/aws-gamelift-sample/ko/js/modernizr.custom-3.6.0.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/ko/js/learn.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/ko/js/hugo-learn.js?1657242240"></script>
 
-    <link href="/aws-gamelift-sample/ko/mermaid/mermaid.css?1636626217" rel="stylesheet" />
-    <script src="/aws-gamelift-sample/ko/mermaid/mermaid.js?1636626217"></script>
+    <link href="/aws-gamelift-sample/ko/mermaid/mermaid.css?1657242240" rel="stylesheet" />
+    <script src="/aws-gamelift-sample/ko/mermaid/mermaid.js?1657242240"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

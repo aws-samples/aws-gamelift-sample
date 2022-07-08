@@ -5,10 +5,6 @@
     <link>/aws-gamelift-sample/en/fleetiq/lab33/</link>
     <description>Recent content in Creating Game Server Group on Start Full Stack Game with GameLift</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-US</language>
-    
-	<atom:link href="/aws-gamelift-sample/en/fleetiq/lab33/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en-US</language><atom:link href="/aws-gamelift-sample/en/fleetiq/lab33/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

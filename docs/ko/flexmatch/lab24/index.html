@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.71.1" />
+    <meta name="generator" content="Hugo 0.101.0" />
     <meta name="description" content="Full Stack Game Demo">
 <meta name="author" content="Jinsung Thomas Park">
 
@@ -12,20 +12,20 @@
     <title>게임 서버 빌드 &amp; 플릿 생성 :: GameLift 로 Full Stack Game 시작</title>
 
     
-    <link href="/aws-gamelift-sample/ko/css/nucleus.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/fontawesome-all.min.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/hybrid.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/featherlight.min.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/perfect-scrollbar.min.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/auto-complete.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/atom-one-dark-reasonable.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/theme.css?1636626217" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/hugo-theme.css?1636626217" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/nucleus.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/fontawesome-all.min.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/hybrid.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/featherlight.min.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/perfect-scrollbar.min.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/auto-complete.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/atom-one-dark-reasonable.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/theme.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/hugo-theme.css?1657242240" rel="stylesheet">
     
-      <link href="/aws-gamelift-sample/ko/css/theme-aws.css?1636626217" rel="stylesheet">
+      <link href="/aws-gamelift-sample/ko/css/theme-aws.css?1657242240" rel="stylesheet">
     
 
-    <script src="/aws-gamelift-sample/ko/js/jquery-3.3.1.min.js?1636626217"></script>
+    <script src="/aws-gamelift-sample/ko/js/jquery-3.3.1.min.js?1657242240"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/aws-gamelift-sample/ko/js/lunr.min.js?1636626217"></script>
-<script type="text/javascript" src="/aws-gamelift-sample/ko/js/auto-complete.js?1636626217"></script>
+<script type="text/javascript" src="/aws-gamelift-sample/ko/js/lunr.min.js?1657242240"></script>
+<script type="text/javascript" src="/aws-gamelift-sample/ko/js/auto-complete.js?1657242240"></script>
 <script type="text/javascript">
     
         var baseurl = "\/aws-gamelift-sample\/ko\/\/ko";
     
 </script>
-<script type="text/javascript" src="/aws-gamelift-sample/ko/js/search.js?1636626217"></script>
+<script type="text/javascript" src="/aws-gamelift-sample/ko/js/search.js?1657242240"></script>
 
     
   </div>
@@ -475,7 +475,7 @@
   
     
     <li data-nav-id="/aws-gamelift-sample/ko/flexmatch/lab24/" title="게임 서버 빌드 &amp; 플릿 생성" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -1251,8 +1251,8 @@ SQS_ENDPOINT 에는 게임 결과를 처리할 SQS의 Endpoint를 입력합니�
 <p>GomokuServer 폴더에서 다음의 GameLift 업로드 명령어를 통해 빌드를 업로드 합니다. (GomokuServer 폴더 하위에는 Binaries 폴더와 install.bat 파일이 존재합니다)</p>
 </li>
 </ol>
-<pre><code class="language-console" data-lang="console">aws gamelift upload-build --name &quot;GomokuServer-Build-1&quot; --build-version &quot;1.0.0&quot; --build-root . --region &lt;Your Lab Region&gt;
-</code></pre><ol start="7">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>aws gamelift upload-build --name &#34;GomokuServer-Build-1&#34; --build-version &#34;1.0.0&#34; --build-root . --region &lt;Your Lab Region&gt;
+</span></span></code></pre></div><ol start="7">
 <li>
 <p>업로드할 때 실습 Region을 올바르게 설정하였는지 확인해야 합니다.</p>
 </li>
@@ -1965,19 +1965,19 @@ SQS_ENDPOINT 에는 게임 결과를 처리할 SQS의 Endpoint를 입력합니�
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/aws-gamelift-sample/ko/js/clipboard.min.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/ko/js/perfect-scrollbar.min.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/ko/js/perfect-scrollbar.jquery.min.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/ko/js/jquery.sticky.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/ko/js/featherlight.min.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/ko/js/highlight.pack.js?1636626217"></script>
+    <script src="/aws-gamelift-sample/ko/js/clipboard.min.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/ko/js/perfect-scrollbar.min.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/ko/js/perfect-scrollbar.jquery.min.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/ko/js/jquery.sticky.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/ko/js/featherlight.min.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/ko/js/highlight.pack.js?1657242240"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/aws-gamelift-sample/ko/js/modernizr.custom-3.6.0.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/ko/js/learn.js?1636626217"></script>
-    <script src="/aws-gamelift-sample/ko/js/hugo-learn.js?1636626217"></script>
+    <script src="/aws-gamelift-sample/ko/js/modernizr.custom-3.6.0.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/ko/js/learn.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/ko/js/hugo-learn.js?1657242240"></script>
 
-    <link href="/aws-gamelift-sample/ko/mermaid/mermaid.css?1636626217" rel="stylesheet" />
-    <script src="/aws-gamelift-sample/ko/mermaid/mermaid.js?1636626217"></script>
+    <link href="/aws-gamelift-sample/ko/mermaid/mermaid.css?1657242240" rel="stylesheet" />
+    <script src="/aws-gamelift-sample/ko/mermaid/mermaid.js?1657242240"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

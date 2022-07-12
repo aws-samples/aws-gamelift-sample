@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Build AWS Services on Start Full Stack Game with GameLift</title>
-    <link>/aws-gamelift-sample/en/awsservice/</link>
+    <link>/awsservice/</link>
     <description>Recent content in Build AWS Services on Start Full Stack Game with GameLift</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-US</language><atom:link href="/aws-gamelift-sample/en/awsservice/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-US</language><atom:link href="/awsservice/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

@@ -16,6 +16,7 @@ pre: "<b>1-2. </b>"
 ![Redis](../../images/awsservice/lab12/ElastiCache_Redis01.png)
 ![Redis](../../images/awsservice/lab12/ElastiCache_Redis02.png)
 ![Redis](../../images/awsservice/lab12/ElastiCache_Redis03.png)
+![Redis](../../images/awsservice/lab12/ElastiCache_Redis04.png)
 
 * 따로 설명이 되어있지 않은 설정은 모두 default로 진행합니다.
 
@@ -44,7 +45,7 @@ pre: "<b>1-2. </b>"
 * Source: Security Group itself    
 
 12. 보안 그룹 생성을 완료하였다면 다시 ElastiCache 페이지로 돌아와 생성한 Redis 클러스터를 선택합니다.
-13. 클러스터를 선택하고 상단의 Modify 버튼을 클릭하고, 수정 페이지의 보안 항목에서 방금 생성한 Security Group 을 선택한 뒤 반영합니다.
+13. 클러스터를 선택하고 상단의 수정 버튼을 클릭하고, 수정 페이지의 보안 항목에서 방금 생성한 Security Group 을 선택한 뒤 반영합니다.
 
 ![ElastiCache_SG](../../images/awsservice/lab12/ElastiCache_SG.png)
 

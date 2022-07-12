@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>CloudFormation 스택 생성 on GameLift 로 Full Stack Game 시작</title>
-    <link>/aws-gamelift-sample/ko/awsservice/lab10/</link>
+    <link>/awsservice/lab10/</link>
     <description>Recent content in CloudFormation 스택 생성 on GameLift 로 Full Stack Game 시작</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ko-KR</language><atom:link href="/aws-gamelift-sample/ko/awsservice/lab10/index.xml" rel="self" type="application/rss+xml" />
+    <language>ko-KR</language><atom:link href="/awsservice/lab10/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

@@ -25,7 +25,7 @@ home = [ "HTML", "RSS", "JSON"]
   weight = 1
   languageName = "한국어"
   # baseURL 변경
-  baseURL = "/aws-gamelift-sample/ko/"
+  baseURL = ""
   languageCode = "ko-KR"
   googleAnalytics = "UA-169409427-1"
   defaultContentLanguage = "ko"
@@ -37,7 +37,7 @@ home = [ "HTML", "RSS", "JSON"]
   weight = 1
   languageName = "English"
   # baseURL 변경
-  baseURL = "/aws-gamelift-sample/en/"
+  baseURL = ""
   languageCode = "en-US"
   googleAnalytics = "UA-169409427-1"
   defaultContentLanguage = "en"

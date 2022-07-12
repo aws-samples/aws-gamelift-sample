@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>HoL Preparation on Start Full Stack Game with GameLift</title>
-    <link>/aws-gamelift-sample/en/intro/lab02/</link>
+    <link>/intro/lab02/</link>
     <description>Recent content in HoL Preparation on Start Full Stack Game with GameLift</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-US</language><atom:link href="/aws-gamelift-sample/en/intro/lab02/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-US</language><atom:link href="/intro/lab02/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

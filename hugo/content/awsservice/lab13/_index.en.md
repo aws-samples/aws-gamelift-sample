@@ -12,7 +12,7 @@ Let's make SQS configuration!
 We are using SQS queue for processing Game Result.    
 
 1. Access to SQS menu on Console. https://console.aws.amazon.com/sqs
-2. Click "Create New Queue" button. Put queue name as "game-result-queue", and select Standard Queue. Click "Quick-Create" button and finish creation.
+2. Click "Create Queue" button. Put queue name as "game-result-queue", and select Standard Queue. Click "Create Queue" button and finish creation.
 
 ![SQS](../../images/awsservice/lab13/SQS[en].png)
 

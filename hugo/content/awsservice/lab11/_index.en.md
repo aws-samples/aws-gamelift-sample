@@ -36,13 +36,13 @@ First things first, let's make DynamoDB first.
 
 ![DDB_Item](../../images/awsservice/lab11/DDB_Item[en].png)
 
-9. Click + button on the editor, and append item.
+9. Click Create Item button on the editor, and append item.
 
 10. Put data on your new item same as below. Click "Create Item" to store Item. (Check the data type)
 
-![DDB_Item_Sample](../../images/awsservice/lab11/DDB_Item_Sample.png)
+![DDB_Item_Sample](../../images/awsservice/lab11/DDB_Item_Sample[en].png)
 
-* You can find this Item on the table, when you search items from this table.
+* You can find this Item on the table, when you select table GomokuPlayerInfo and click run on Scan/Query items search items from this table.
 
 Ok. This is Basic settings of DynamoDB. Nextly we are making ElastiCache.
 

@@ -15,7 +15,7 @@ def handler(event, context):
     for i in range(0, len(flat_list)):
         if ( i % 2 == 0 ):
             org = {}
-            org['Player'] = str(flat_list[i])
+            org['Player'] = flat_list[i].decode('utf-8')
             org['Score'] = int(flat_list[i+1])
             ret.append(org)
             

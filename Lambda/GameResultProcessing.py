@@ -28,15 +28,15 @@ def lambda_handler(event, context):
         scorediff = parsed['ScoreDiff']
         windiff = parsed['WinDiff']
         losediff = parsed['LoseDiff']
-        ddb_table.update_item(
-            TableName="GomokuPlayerInfo",
-            Key={ 'PlayerName' : playername }, 
-            UpdateExpression="set Score = Score + :score, Win = Win + :win, Lose = Lose + :lose",
+        response = ddb_table.update_item(
+            Key={ 'PlayerName' : playername },
+            UpdateExpression="SET Score = if_not_exists(Score, :basescore) + :score, Win = if_not_exists(Win, :basewin) + :win, Lose = if_not_exists(Lose, :baselose) + :lose",
             ExpressionAttributeValues={
-                ':score': decimal.Decimal(scorediff),
-                ':win': decimal.Decimal(windiff),
-                ':lose': decimal.Decimal(losediff)
-            },
-            ReturnValues="UPDATED_NEW"
+                ':basescore': 0,
+                ':basewin': 0,
+                ':baselose': 0,
+                ':score': scorediff,
+                ':win': windiff,
+                ':lose': losediff
+            }
         )
-        

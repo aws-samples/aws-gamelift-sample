@@ -32,7 +32,7 @@ def lambda_handler(event, context):
             Key={ 'PlayerName' : playername },
             UpdateExpression="SET Score = if_not_exists(Score, :basescore) + :score, Win = if_not_exists(Win, :basewin) + :win, Lose = if_not_exists(Lose, :baselose) + :lose",
             ExpressionAttributeValues={
-                ':basescore': 0,
+                ':basescore': 1000,
                 ':basewin': 0,
                 ':baselose': 0,
                 ':score': scorediff,

@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Creating Game Server Build &amp; Fleet on Start Full Stack Game with GameLift</title>
-    <link>/gamelift/lab44/</link>
+    <link>/aws-gamelift-sample/en/gamelift/lab44/</link>
     <description>Recent content in Creating Game Server Build &amp; Fleet on Start Full Stack Game with GameLift</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-US</language><atom:link href="/gamelift/lab44/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-US</language><atom:link href="/aws-gamelift-sample/en/gamelift/lab44/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

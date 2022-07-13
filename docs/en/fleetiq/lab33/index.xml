@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Creating Game Server Group on Start Full Stack Game with GameLift</title>
-    <link>/fleetiq/lab33/</link>
+    <link>/aws-gamelift-sample/en/fleetiq/lab33/</link>
     <description>Recent content in Creating Game Server Group on Start Full Stack Game with GameLift</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-US</language><atom:link href="/fleetiq/lab33/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-US</language><atom:link href="/aws-gamelift-sample/en/fleetiq/lab33/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

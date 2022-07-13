@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Analyzing Matchmaking Event on Start Full Stack Game with GameLift</title>
-    <link>/flexmatch/lab28/</link>
+    <link>/aws-gamelift-sample/en/flexmatch/lab28/</link>
     <description>Recent content in Analyzing Matchmaking Event on Start Full Stack Game with GameLift</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-US</language><atom:link href="/flexmatch/lab28/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-US</language><atom:link href="/aws-gamelift-sample/en/flexmatch/lab28/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

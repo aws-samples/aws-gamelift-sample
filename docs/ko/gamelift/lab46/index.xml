@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>게임 클라이언트 구성 &amp; 게임 플레이! on GameLift 로 Full Stack Game 시작</title>
-    <link>/gamelift/lab46/</link>
+    <link>/aws-gamelift-sample/ko/gamelift/lab46/</link>
     <description>Recent content in 게임 클라이언트 구성 &amp; 게임 플레이! on GameLift 로 Full Stack Game 시작</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ko-KR</language><atom:link href="/gamelift/lab46/index.xml" rel="self" type="application/rss+xml" />
+    <language>ko-KR</language><atom:link href="/aws-gamelift-sample/ko/gamelift/lab46/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

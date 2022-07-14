@@ -11,7 +11,7 @@ pre: "<b>1-3. </b>"
 이제 SQS 설정을 시작합니다. SQS를 이용하여 게임 결과 처리를 위한 대기열을 만들 것입니다.
 
 1. 콘솔에서 SQS 메뉴로 들어갑니다. https://console.aws.amazon.com/sqs
-2. Create New Queue를 클릭하여 생성을 시작합니다. Queue 이름은 game-result-queue로 입력하고, Standard Queue를 선택합니다. Quick-Create Queue 버튼을 클릭하여 Queue 생성을 완료합니다.
+2. 대기열 생성을 클릭하여 생성을 시작합니다. Queue 이름은 game-result-queue로 입력하고, 표준 Queue를 선택합니다. 대기열 생성 버튼을 클릭하여 Queue 생성을 완료합니다.
 
 ![SQS](../../images/awsservice/lab13/SQS.png)
 

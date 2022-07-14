@@ -10,20 +10,23 @@ pre: "<b>1-2. </b>"
 Nextly, we will configure ElastiCache. This cache will store ranking data.
 
 1. Move to ElastiCache Console on your AWS Console. https://console.aws.amazon.com/elasticache
-2. Create ElastiCache cluster. We are using Redis. 
+2. Create ElastiCache cluster. We are using Redis. Select Redis Cluster from the left menu and click Create Redis Cluster.
 3. Fill the information like below.
 
-![Redis](../../images/awsservice/lab12/ElastiCache_Redis[en].png)
+![Redis](../../images/awsservice/lab12/ElastiCache_Redis01[en].png)
+![Redis](../../images/awsservice/lab12/ElastiCache_Redis02[en].png)
+![Redis](../../images/awsservice/lab12/ElastiCache_Redis03[en].png)
+![Redis](../../images/awsservice/lab12/ElastiCache_Redis04[en].png)
 
 * Name: gomokuranking    
-* Engine: 5.0.x (5.0.4 above recommended)    
+* Engine: 6.2 (5.0.4 above recommended)    
 * Port: 6379 (default)    
 * Parameter group: default    
 * Number of replicas: 0    
 
-4. Click "Create" button to create "Redis". (It takes time to create Redis)
+4. In subnet group setting, you can select an existing default vpc and subnet or create a new vpc and subnet group for workshop.
 
-5. If you would like to make ElastiCache on specific VPC, you can configure VPC settings on "Advanced Redis settings".
+5. Click "Create" button to create "Redis". (It takes time to create Redis)
 
 6. When Redis cluster turns it's status "Available", check Primary Endpoint. We use this endpoint on our Lambda functions.
 

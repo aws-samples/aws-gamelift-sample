@@ -19,29 +19,29 @@ pre: "<b>1-1. </b>"
 1. AWS 콘솔에 로그인하고 DynamoDB 페이지로 이동합니다.
 https://console.aws.amazon.com/dynamodb
 2. 리전을 확인합니다. 랩을 진행하면서 모든 서비스 요소들을 하나의 리전에서 생성하셔야 합니다.
-3. 콘솔에서 Create Table 을 클릭하여 DynamoDB 테이블 생성을 시작합니다.
+3. 콘솔에서 테이블 생성 버튼을 클릭하여 DynamoDB 테이블 생성을 시작합니다.
 
 ![DDB](../../images/awsservice/lab11/DDB_Create.png)
 
-4. Table name은 “GomokuPlayerInfo” 로 설정하고, Primary Key는 “PlayerName” 으로 하고 데이터 타입은 String을 선택합니다. 그리고 나서 Create 버튼을 클릭합니다
+4. Table name은 “GomokuPlayerInfo” 로 설정하고, Primary Key는 “PlayerName” 으로 하고 데이터 타입은 String을 선택합니다. 그리고 나서 테이블 생성 버튼을 클릭합니다
 
-5. 테이블이 생성된 뒤에는 Stream을 활성화 합니다. 기본적으로 stream은 비활성화 되어 있습니다. Manage Stream 버튼을 클릭합니다.
+5. 테이블이 생성된 뒤에는 Stream을 활성화 합니다. 기본적으로 stream은 비활성화 되어 있습니다. 내보내기 및 스트림 탭을 클릭한 후, DynamoDB 스트림 세부 정보에서 활성화 버튼을 클릭합니다.
 
 ![DDB_Stream](../../images/awsservice/lab11/DDB_Stream.png)
 
-6. New and old images 를 선택하고 Enable버튼을 클릭합니다.
+6. 새 이미지와 이전 이미지 를 선택하고 Enable버튼을 클릭합니다.
 
 ![DDB_Stream_Image](../../images/awsservice/lab11/DDB_Stream_Image.png)
 
-7. 기본적인 작업은 끝났습니다. 이제 테스트 데이터 샘플을 만들어 줍니다. 테이블에서 Items 탭을 선택합니다
+7. 기본적인 작업은 끝났습니다. 이제 테스트 데이터 샘플을 만들어 줍니다.  오른쪽 상단의 표 항목 탐색을 선택 합니다.
 
-8. Create Item 을 클릭하여 새로운 항목을 만들어줍니다.
+8. 항목 생성 을 클릭하여 새로운 항목을 만들어줍니다.
 
 ![DDB_Item](../../images/awsservice/lab11/DDB_Item.png)
 
-9. 편집기에서 + 버튼을 클릭하고, Append를 선택하여 추가합니다.
+9. 편집기에서 새 속성 추가 버튼을 클릭하고, 속성을 추가합니다.
 
-10. 다음 스크린 캡처와 같아질 때까지 데이터를 계속 추가해줍니다. 그리고 Save 버튼을 클릭하여 저장합니다. (데이터 타입에 주의해주세요)
+10. 다음 스크린 캡처와 같아질 때까지 데이터를 계속 추가해줍니다. 그리고 항목 생성 버튼을 클릭하여 저장합니다. (데이터 타입에 주의해주세요)
 
 ![DDB_Item_Sample](../../images/awsservice/lab11/DDB_Item_Sample.png)
 

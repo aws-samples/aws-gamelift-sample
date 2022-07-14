@@ -24,6 +24,7 @@ pre: "<b>2-4. </b>"
 
 3. 텍스트 편집기를 통하여 config.ini 파일을 수정합니다. SQS_REGION는 SQS를 생성한 Region입니다. (예: ap-northeast-2).
 SQS_ENDPOINT 에는 게임 결과를 처리할 SQS의 Endpoint를 입력합니다. 
+* config.ini 는 사전 준비에서 다운받으신 바이너리의 다음 경로에 위치합니다. (deploy/bin/FlexMatch/GomokuServer/Binaries/Win64/config.ini)
 
 4. ROLE_ARN은 섹션1에서 마지막으로 만들었던 GameLift Fleet을 위한 ROLE_ARN을 입력합니다. (아래의 스크린샷 처럼 따옴표 없이 입력해주세요. Role Arn은 Fleet 내부의 인스턴스에서 얻어 올 수도 있으나 현재 데모에서는 명시적으로 구성해 줍니다.)
 
@@ -31,7 +32,7 @@ SQS_ENDPOINT 에는 게임 결과를 처리할 SQS의 Endpoint를 입력합니�
 
 5. Gamelift는업로드의 복잡성 때문에 현재 CLI를 통한 업로드 만을 지원합니다. AWS CLI 환경이 구성되어 있지 않다면 [HoL 사전준비](../../intro/lab02) 를 참고해서 구성해줍니다.
 
-6. GomokuServer 폴더에서 다음의 GameLift 업로드 명령어를 통해 빌드를 업로드 합니다. (GomokuServer 폴더 하위에는 Binaries 폴더와 install.bat 파일이 존재합니다)
+6. GomokuServer 폴더에서 다음의 GameLift 업로드 명령어를 통해 빌드를 업로드 합니다. (GomokuServer 폴더의 위치는 deploy/bin/FlexMatch/GomokuServer/ 입니다. GomokuServer 폴더 하위에는 Binaries 폴더와 install.bat 파일이 존재합니다)
 ```console
 aws gamelift upload-build --name "GomokuServer-Build-1" --build-version "1.0.0" --build-root . --region <Your Lab Region>
 ```

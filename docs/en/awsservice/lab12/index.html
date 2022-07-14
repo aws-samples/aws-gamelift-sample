@@ -12,20 +12,20 @@
     <title>ElastiCache Configuration :: Start Full Stack Game with GameLift</title>
 
     
-    <link href="/aws-gamelift-sample/en/css/nucleus.css?1657242239" rel="stylesheet">
-    <link href="/aws-gamelift-sample/en/css/fontawesome-all.min.css?1657242239" rel="stylesheet">
-    <link href="/aws-gamelift-sample/en/css/hybrid.css?1657242239" rel="stylesheet">
-    <link href="/aws-gamelift-sample/en/css/featherlight.min.css?1657242239" rel="stylesheet">
-    <link href="/aws-gamelift-sample/en/css/perfect-scrollbar.min.css?1657242239" rel="stylesheet">
-    <link href="/aws-gamelift-sample/en/css/auto-complete.css?1657242239" rel="stylesheet">
-    <link href="/aws-gamelift-sample/en/css/atom-one-dark-reasonable.css?1657242239" rel="stylesheet">
-    <link href="/aws-gamelift-sample/en/css/theme.css?1657242239" rel="stylesheet">
-    <link href="/aws-gamelift-sample/en/css/hugo-theme.css?1657242239" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/nucleus.css?1657726513" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/fontawesome-all.min.css?1657726513" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/hybrid.css?1657726513" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/featherlight.min.css?1657726513" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/perfect-scrollbar.min.css?1657726513" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/auto-complete.css?1657726513" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/atom-one-dark-reasonable.css?1657726513" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/theme.css?1657726513" rel="stylesheet">
+    <link href="/aws-gamelift-sample/en/css/hugo-theme.css?1657726513" rel="stylesheet">
     
-      <link href="/aws-gamelift-sample/en/css/theme-aws.css?1657242239" rel="stylesheet">
+      <link href="/aws-gamelift-sample/en/css/theme-aws.css?1657726513" rel="stylesheet">
     
 
-    <script src="/aws-gamelift-sample/en/js/jquery-3.3.1.min.js?1657242239"></script>
+    <script src="/aws-gamelift-sample/en/js/jquery-3.3.1.min.js?1657726513"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/aws-gamelift-sample/en/js/lunr.min.js?1657242239"></script>
-<script type="text/javascript" src="/aws-gamelift-sample/en/js/auto-complete.js?1657242239"></script>
+<script type="text/javascript" src="/aws-gamelift-sample/en/js/lunr.min.js?1657726513"></script>
+<script type="text/javascript" src="/aws-gamelift-sample/en/js/auto-complete.js?1657726513"></script>
 <script type="text/javascript">
     
         var baseurl = "\/aws-gamelift-sample\/en\/\/en";
     
 </script>
-<script type="text/javascript" src="/aws-gamelift-sample/en/js/search.js?1657242239"></script>
+<script type="text/javascript" src="/aws-gamelift-sample/en/js/search.js?1657726513"></script>
 
     
   </div>
@@ -1218,23 +1218,26 @@
 <p>Nextly, we will configure ElastiCache. This cache will store ranking data.</p>
 <ol>
 <li>Move to ElastiCache Console on your AWS Console. <a href="https://console.aws.amazon.com/elasticache">https://console.aws.amazon.com/elasticache</a></li>
-<li>Create ElastiCache cluster. We are using Redis.</li>
+<li>Create ElastiCache cluster. We are using Redis. Select Redis Cluster from the left menu and click Create Redis Cluster.</li>
 <li>Fill the information like below.</li>
 </ol>
-<p><img src="../../images/awsservice/lab12/ElastiCache_Redis%5Ben%5D.png" alt="Redis"></p>
+<p><img src="../../images/awsservice/lab12/ElastiCache_Redis01%5Ben%5D.png" alt="Redis">
+<img src="../../images/awsservice/lab12/ElastiCache_Redis02%5Ben%5D.png" alt="Redis">
+<img src="../../images/awsservice/lab12/ElastiCache_Redis03%5Ben%5D.png" alt="Redis">
+<img src="../../images/awsservice/lab12/ElastiCache_Redis04%5Ben%5D.png" alt="Redis"></p>
 <ul>
 <li>Name: gomokuranking</li>
-<li>Engine: 5.0.x (5.0.4 above recommended)</li>
+<li>Engine: 6.2 (5.0.4 above recommended)</li>
 <li>Port: 6379 (default)</li>
 <li>Parameter group: default</li>
 <li>Number of replicas: 0</li>
 </ul>
 <ol start="4">
 <li>
-<p>Click &ldquo;Create&rdquo; button to create &ldquo;Redis&rdquo;. (It takes time to create Redis)</p>
+<p>In subnet group setting, you can select an existing default vpc and subnet or create a new vpc and subnet group for workshop.</p>
 </li>
 <li>
-<p>If you would like to make ElastiCache on specific VPC, you can configure VPC settings on &ldquo;Advanced Redis settings&rdquo;.</p>
+<p>Click &ldquo;Create&rdquo; button to create &ldquo;Redis&rdquo;. (It takes time to create Redis)</p>
 </li>
 <li>
 <p>When Redis cluster turns it&rsquo;s status &ldquo;Available&rdquo;, check Primary Endpoint. We use this endpoint on our Lambda functions.</p>
@@ -1930,19 +1933,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/aws-gamelift-sample/en/js/clipboard.min.js?1657242239"></script>
-    <script src="/aws-gamelift-sample/en/js/perfect-scrollbar.min.js?1657242239"></script>
-    <script src="/aws-gamelift-sample/en/js/perfect-scrollbar.jquery.min.js?1657242239"></script>
-    <script src="/aws-gamelift-sample/en/js/jquery.sticky.js?1657242239"></script>
-    <script src="/aws-gamelift-sample/en/js/featherlight.min.js?1657242239"></script>
-    <script src="/aws-gamelift-sample/en/js/highlight.pack.js?1657242239"></script>
+    <script src="/aws-gamelift-sample/en/js/clipboard.min.js?1657726513"></script>
+    <script src="/aws-gamelift-sample/en/js/perfect-scrollbar.min.js?1657726513"></script>
+    <script src="/aws-gamelift-sample/en/js/perfect-scrollbar.jquery.min.js?1657726513"></script>
+    <script src="/aws-gamelift-sample/en/js/jquery.sticky.js?1657726513"></script>
+    <script src="/aws-gamelift-sample/en/js/featherlight.min.js?1657726513"></script>
+    <script src="/aws-gamelift-sample/en/js/highlight.pack.js?1657726513"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/aws-gamelift-sample/en/js/modernizr.custom-3.6.0.js?1657242239"></script>
-    <script src="/aws-gamelift-sample/en/js/learn.js?1657242239"></script>
-    <script src="/aws-gamelift-sample/en/js/hugo-learn.js?1657242239"></script>
+    <script src="/aws-gamelift-sample/en/js/modernizr.custom-3.6.0.js?1657726513"></script>
+    <script src="/aws-gamelift-sample/en/js/learn.js?1657726513"></script>
+    <script src="/aws-gamelift-sample/en/js/hugo-learn.js?1657726513"></script>
 
-    <link href="/aws-gamelift-sample/en/mermaid/mermaid.css?1657242239" rel="stylesheet" />
-    <script src="/aws-gamelift-sample/en/mermaid/mermaid.js?1657242239"></script>
+    <link href="/aws-gamelift-sample/en/mermaid/mermaid.css?1657726513" rel="stylesheet" />
+    <script src="/aws-gamelift-sample/en/mermaid/mermaid.js?1657726513"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

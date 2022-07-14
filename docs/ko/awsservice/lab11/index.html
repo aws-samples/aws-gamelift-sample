@@ -12,20 +12,20 @@
     <title>DynamoDB 만들기 :: GameLift 로 Full Stack Game 시작</title>
 
     
-    <link href="/aws-gamelift-sample/ko/css/nucleus.css?1657242240" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/fontawesome-all.min.css?1657242240" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/hybrid.css?1657242240" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/featherlight.min.css?1657242240" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/perfect-scrollbar.min.css?1657242240" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/auto-complete.css?1657242240" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/atom-one-dark-reasonable.css?1657242240" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/theme.css?1657242240" rel="stylesheet">
-    <link href="/aws-gamelift-sample/ko/css/hugo-theme.css?1657242240" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/nucleus.css?1657726513" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/fontawesome-all.min.css?1657726513" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/hybrid.css?1657726513" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/featherlight.min.css?1657726513" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/perfect-scrollbar.min.css?1657726513" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/auto-complete.css?1657726513" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/atom-one-dark-reasonable.css?1657726513" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/theme.css?1657726513" rel="stylesheet">
+    <link href="/aws-gamelift-sample/ko/css/hugo-theme.css?1657726513" rel="stylesheet">
     
-      <link href="/aws-gamelift-sample/ko/css/theme-aws.css?1657242240" rel="stylesheet">
+      <link href="/aws-gamelift-sample/ko/css/theme-aws.css?1657726513" rel="stylesheet">
     
 
-    <script src="/aws-gamelift-sample/ko/js/jquery-3.3.1.min.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/ko/js/jquery-3.3.1.min.js?1657726513"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/aws-gamelift-sample/ko/js/lunr.min.js?1657242240"></script>
-<script type="text/javascript" src="/aws-gamelift-sample/ko/js/auto-complete.js?1657242240"></script>
+<script type="text/javascript" src="/aws-gamelift-sample/ko/js/lunr.min.js?1657726513"></script>
+<script type="text/javascript" src="/aws-gamelift-sample/ko/js/auto-complete.js?1657726513"></script>
 <script type="text/javascript">
     
         var baseurl = "\/aws-gamelift-sample\/ko\/\/ko";
     
 </script>
-<script type="text/javascript" src="/aws-gamelift-sample/ko/js/search.js?1657242240"></script>
+<script type="text/javascript" src="/aws-gamelift-sample/ko/js/search.js?1657726513"></script>
 
     
   </div>
@@ -1225,37 +1225,37 @@
 <li>AWS 콘솔에 로그인하고 DynamoDB 페이지로 이동합니다.
 <a href="https://console.aws.amazon.com/dynamodb">https://console.aws.amazon.com/dynamodb</a></li>
 <li>리전을 확인합니다. 랩을 진행하면서 모든 서비스 요소들을 하나의 리전에서 생성하셔야 합니다.</li>
-<li>콘솔에서 Create Table 을 클릭하여 DynamoDB 테이블 생성을 시작합니다.</li>
+<li>콘솔에서 테이블 생성 버튼을 클릭하여 DynamoDB 테이블 생성을 시작합니다.</li>
 </ol>
 <p><img src="../../images/awsservice/lab11/DDB_Create.png" alt="DDB"></p>
 <ol start="4">
 <li>
-<p>Table name은 “GomokuPlayerInfo” 로 설정하고, Primary Key는 “PlayerName” 으로 하고 데이터 타입은 String을 선택합니다. 그리고 나서 Create 버튼을 클릭합니다</p>
+<p>Table name은 “GomokuPlayerInfo” 로 설정하고, Primary Key는 “PlayerName” 으로 하고 데이터 타입은 String을 선택합니다. 그리고 나서 테이블 생성 버튼을 클릭합니다</p>
 </li>
 <li>
-<p>테이블이 생성된 뒤에는 Stream을 활성화 합니다. 기본적으로 stream은 비활성화 되어 있습니다. Manage Stream 버튼을 클릭합니다.</p>
+<p>테이블이 생성된 뒤에는 Stream을 활성화 합니다. 기본적으로 stream은 비활성화 되어 있습니다. 내보내기 및 스트림 탭을 클릭한 후, DynamoDB 스트림 세부 정보에서 활성화 버튼을 클릭합니다.</p>
 </li>
 </ol>
 <p><img src="../../images/awsservice/lab11/DDB_Stream.png" alt="DDB_Stream"></p>
 <ol start="6">
-<li>New and old images 를 선택하고 Enable버튼을 클릭합니다.</li>
+<li>새 이미지와 이전 이미지 를 선택하고 Enable버튼을 클릭합니다.</li>
 </ol>
 <p><img src="../../images/awsservice/lab11/DDB_Stream_Image.png" alt="DDB_Stream_Image"></p>
 <ol start="7">
 <li>
-<p>기본적인 작업은 끝났습니다. 이제 테스트 데이터 샘플을 만들어 줍니다. 테이블에서 Items 탭을 선택합니다</p>
+<p>기본적인 작업은 끝났습니다. 이제 테스트 데이터 샘플을 만들어 줍니다.  오른쪽 상단의 표 항목 탐색을 선택 합니다.</p>
 </li>
 <li>
-<p>Create Item 을 클릭하여 새로운 항목을 만들어줍니다.</p>
+<p>항목 생성 을 클릭하여 새로운 항목을 만들어줍니다.</p>
 </li>
 </ol>
 <p><img src="../../images/awsservice/lab11/DDB_Item.png" alt="DDB_Item"></p>
 <ol start="9">
 <li>
-<p>편집기에서 + 버튼을 클릭하고, Append를 선택하여 추가합니다.</p>
+<p>편집기에서 새 속성 추가 버튼을 클릭하고, 속성을 추가합니다.</p>
 </li>
 <li>
-<p>다음 스크린 캡처와 같아질 때까지 데이터를 계속 추가해줍니다. 그리고 Save 버튼을 클릭하여 저장합니다. (데이터 타입에 주의해주세요)</p>
+<p>다음 스크린 캡처와 같아질 때까지 데이터를 계속 추가해줍니다. 그리고 항목 생성 버튼을 클릭하여 저장합니다. (데이터 타입에 주의해주세요)</p>
 </li>
 </ol>
 <p><img src="../../images/awsservice/lab11/DDB_Item_Sample.png" alt="DDB_Item_Sample"></p>
@@ -1918,19 +1918,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/aws-gamelift-sample/ko/js/clipboard.min.js?1657242240"></script>
-    <script src="/aws-gamelift-sample/ko/js/perfect-scrollbar.min.js?1657242240"></script>
-    <script src="/aws-gamelift-sample/ko/js/perfect-scrollbar.jquery.min.js?1657242240"></script>
-    <script src="/aws-gamelift-sample/ko/js/jquery.sticky.js?1657242240"></script>
-    <script src="/aws-gamelift-sample/ko/js/featherlight.min.js?1657242240"></script>
-    <script src="/aws-gamelift-sample/ko/js/highlight.pack.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/ko/js/clipboard.min.js?1657726513"></script>
+    <script src="/aws-gamelift-sample/ko/js/perfect-scrollbar.min.js?1657726513"></script>
+    <script src="/aws-gamelift-sample/ko/js/perfect-scrollbar.jquery.min.js?1657726513"></script>
+    <script src="/aws-gamelift-sample/ko/js/jquery.sticky.js?1657726513"></script>
+    <script src="/aws-gamelift-sample/ko/js/featherlight.min.js?1657726513"></script>
+    <script src="/aws-gamelift-sample/ko/js/highlight.pack.js?1657726513"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/aws-gamelift-sample/ko/js/modernizr.custom-3.6.0.js?1657242240"></script>
-    <script src="/aws-gamelift-sample/ko/js/learn.js?1657242240"></script>
-    <script src="/aws-gamelift-sample/ko/js/hugo-learn.js?1657242240"></script>
+    <script src="/aws-gamelift-sample/ko/js/modernizr.custom-3.6.0.js?1657726513"></script>
+    <script src="/aws-gamelift-sample/ko/js/learn.js?1657726513"></script>
+    <script src="/aws-gamelift-sample/ko/js/hugo-learn.js?1657726513"></script>
 
-    <link href="/aws-gamelift-sample/ko/mermaid/mermaid.css?1657242240" rel="stylesheet" />
-    <script src="/aws-gamelift-sample/ko/mermaid/mermaid.js?1657242240"></script>
+    <link href="/aws-gamelift-sample/ko/mermaid/mermaid.css?1657726513" rel="stylesheet" />
+    <script src="/aws-gamelift-sample/ko/mermaid/mermaid.js?1657726513"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

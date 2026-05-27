@@ -9,3 +9,32 @@ GomokuClient/packages/
 /GomokuClient/x64
 bin/FlexMatch/GomokuServer/vc_redist.x64.exe
 
+# Terraform
+**/.terraform/
+**/*.tfstate
+**/*.tfstate.backup
+**/.terraform.lock.hcl
+**/terraform.tfvars
+!**/terraform.tfvars.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+# Results (report, CSVs, diagrams — not committed)
+scripts/results/
+results/
+
+# Logs and binaries
+*.log
+*.zip
+*.exe
+*.pem
+*.key
+.env
+
+# VS local settings
+**/.vs/
+*.user
+
